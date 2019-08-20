@@ -1,0 +1,9 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Display Timer",
+    "description": "Displays time left on a timer.",
+    "categories" : ["Screen"],
+    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon"
+  }
+}

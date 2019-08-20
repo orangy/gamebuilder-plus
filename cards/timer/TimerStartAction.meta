@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Timer",
+    "description": "Starts a timer.",
+    "categories" : ["Action"],
+    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon"
+  }
+}
+

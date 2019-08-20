@@ -1,0 +1,9 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Timer Expired",
+    "description": "Fires when a timer is expired",
+    "categories" : ["Event"],
+    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon"
+  }
+}
