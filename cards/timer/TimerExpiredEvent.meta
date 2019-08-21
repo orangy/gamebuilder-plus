@@ -1,5 +1,6 @@
 {
   "cardSystemCardData" : {
+    "publishID": "2EDA7918-64D7-496A-8829-EF06E8B71051",
     "isCard": true,
     "title": "Timer Expired",
     "description": "Fires when a timer is expired",
