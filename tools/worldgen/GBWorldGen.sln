@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Algorithms", "GB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Tests", "GBworldgen.Tests\GBWorldGen.Tests.csproj", "{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB677284-CB82-40B7-B452-2AE48549D1CB}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
