@@ -1,6 +1,8 @@
-*[GameBuilder](http://gamebuilder.area120.com/) Plus* is a community
+ ![GB+](assets/gbplus/gbplus-icon.png) 
+ 
+ **GameBuilder Plus** is a community
  driven repository of useful Cards, Scripts, Docs, Assets 
- and anything that we find useful.
+ and anything that we find useful when working with [GameBuilder](http://gamebuilder.area120.com/).
 
 > This document and repository is work in progress. Many things here are placeholders.
 
