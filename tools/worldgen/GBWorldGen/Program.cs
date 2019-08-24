@@ -10,7 +10,7 @@ namespace GBWorldGen.Main
         public static void Main(string[] args)
         {
             VoosGenerator voosGenerator = new VoosGenerator();
-            DiamondSquare diamondSquareAlgorithm = new DiamondSquare(0, 0, 0, 2);
+            DiamondSquare diamondSquareAlgorithm = new DiamondSquare(0, 0, 0, 40);
             string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
 
             Block[] myMap = new Block[4]

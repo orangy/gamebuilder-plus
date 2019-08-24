@@ -12,7 +12,9 @@ namespace GBWorldGen.Algorithms
         public int Height { get; set; }
 
         private Block[] Blocks { get; set; }
+        private bool[] BlocksSet { get; set; }
         private Random Random { get; set; } = new Random();
+        private int FullWidth { get; }
 
         public DiamondSquare(int x, int y, int z, int width)
         {
@@ -20,13 +22,23 @@ namespace GBWorldGen.Algorithms
             Y = y;
             Z = z;
             Width = width;
+            FullWidth = (int)Math.Pow(Width, 2.0d) + 1;
 
-            Blocks = new Block[(int)Math.Pow(Math.Pow(Width, 2.0d) + 1, 2.0d)];
+            Blocks = new Block[FullWidth * FullWidth];
+            BlocksSet = new int[FullWidth * FullWidth];
             for (int i = 0; i < Blocks.Length; i++)
             {
-                Blocks[i].x = (short)((i % Width) - Width + X);
+                Blocks[i].x = (short)(i % FullWidth < Width
+                    ? (-1 * (Width - (i % FullWidth))) + X
+                    : i % FullWidth > Width
+                        ? (i % FullWidth) - Width + X
+                        : X);                    
                 Blocks[i].y = (short)(Y + Random.Next(-3, 4));
-                Blocks[i].z = (short)((i / Width) - Width + Z);
+                Blocks[i].z = (short)(i / FullWidth < Width
+                    ? (-1 * (Width - (i / FullWidth))) + Z
+                    : i / FullWidth > Width
+                        ? (i / FullWidth) - Width + Z
+                        : Z);                    
 
                 Blocks[i].shape = Block.SHAPE.Box;
                 Blocks[i].direction = Block.DIRECTION.East;
@@ -41,23 +53,44 @@ namespace GBWorldGen.Algorithms
             Blocks[Width - 1].y = (short)Random.Next(-3, 4);
             Blocks[Width * (Width - 1)].y = (short)Random.Next(-3, 4);
             Blocks[Width * Width - 1].y = (short)Random.Next(-3, 4);
+            BlocksSet[0] = true;
+            BlocksSet[Width - 1] = true;
+            BlocksSet[Width * (Width - 1)] = true;
+            BlocksSet[Width * Width - 1] = true;
 
-            Diamond((Blocks.Length - 1) / 2, Width);
+            int span = Width;
+
+            // Diamond
+            for (int i = 0; i < Blocks.Length; i++)
+            {
+                if (i % FullWidth < FullWidth - 1 &&
+                    i / FullWidth < FullWidth - 1 &&
+                    BlocksSet[i])
+                {
+                    Diamond(i + (FullWidth * span) + span, span);
+                    BlocksSet[i + (FullWidth * span) + span] = true;
+                }
+            }
+
+            // Square
+            for (int i = 0; i < Blocks.Length; i++)
+            {
+                if ((i - span >= 0 && BlocksSet[i - span]) ||
+                    (i + span < Blocks.Length && BlocksSet[i + span]) ||
+                    )
+            }
 
             return Blocks;
         }
 
         private void Diamond(int index, int step)
-        {
-            int rowLength = (int)Math.Pow(Width, 2.0d) + 1;
+        {            
             Blocks[index].y += Average(
-                Blocks[index - step - (rowLength * step)].y,
-                Blocks[index - step + (rowLength * step)].y,
-                Blocks[index + step - (rowLength * step)].y,
-                Blocks[index + step + (rowLength * step)].y
+                Blocks[index - step - (FullWidth * step)].y,
+                Blocks[index - step + (FullWidth * step)].y,
+                Blocks[index + step - (FullWidth * step)].y,
+                Blocks[index + step + (FullWidth * step)].y
             );
-
-            Square(0, step);
         }
 
         private void Square(int index, int step)

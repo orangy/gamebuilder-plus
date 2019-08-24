@@ -17,7 +17,7 @@ namespace GBWorldGen.Utils
 
         public string Generate(string encodedMapData, string outputDirectory, string mapName = null, string mapDescription = null)
         {
-            string parentFolderName = RandomStringGenerator.Generate(32);
+            string parentFolderName = $"custom-{RandomStringGenerator.Generate(32)}";
             string parentFolderPath = Path.Combine(outputDirectory, parentFolderName);
 
             string voosFileData = _fileData.Replace(_templateKey, encodedMapData);
@@ -43,10 +43,12 @@ namespace GBWorldGen.Utils
 
         private string SampleMetadataFile(string mapName, string mapDescription)
         {
+            string now = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
+
             if (string.IsNullOrEmpty(mapName))
                 mapName = "Code-generated map";
             if (string.IsNullOrEmpty(mapDescription))
-                mapDescription = $"(Created on {DateTime.UtcNow.ToString("o").Substring(0, 10)})";
+                mapDescription = $"(Created at {now})";
 
             return $"{{\"name\":\"{mapName}\",\"description\":\"{mapDescription}\"}}";
         }
