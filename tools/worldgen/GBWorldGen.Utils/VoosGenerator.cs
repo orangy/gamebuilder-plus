@@ -17,14 +17,24 @@ namespace GBWorldGen.Utils
 
         public string Generate(string encodedMapData, string outputDirectory)
         {
-            string fileData = _fileData.Replace(_templateKey, encodedMapData);
-            string fileName = $"{(Guid.NewGuid()).ToString()}.voos";
-            string newFilePath = Path.Combine(outputDirectory, fileName);
+            string parentFolderName = RandomStringGenerator.Generate(32);
+            string parentFolderPath = Path.Combine(outputDirectory, parentFolderName);
 
-            using (StreamWriter streamWriter = new StreamWriter(newFilePath))
-                streamWriter.Write(fileData);
+            string voosFileData = _fileData.Replace(_templateKey, encodedMapData);
+            string voosFileName = $"{(Guid.NewGuid()).ToString()}.voos";
+            string voosFilePath = Path.Combine(parentFolderPath, voosFileName);
+            string metadataFilePath = Path.Combine(parentFolderPath, "metadata.json");
 
-            return newFilePath;
+            // Write parent folder
+            Directory.CreateDirectory(parentFolderPath);
+
+            // Write sub-files
+            using (StreamWriter streamWriter = new StreamWriter(voosFilePath))
+                streamWriter.Write(voosFileData);
+            using (StreamWriter streamWriter = new StreamWriter(metadataFilePath))
+                streamWriter.Write(SampleMetadataFile());
+
+            return voosFilePath;
         }
 
         private string SampleVoosFile()
