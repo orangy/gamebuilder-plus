@@ -1,6 +1,8 @@
-*[GameBuilder](http://gamebuilder.area120.com/) Plus* is a community
+ ![GB+](assets/gbplus/gbplus-icon.png) 
+ 
+ **GameBuilder Plus** is a community
  driven repository of useful Cards, Scripts, Docs, Assets 
- and anything that we find useful.
+ and anything that we find useful when working with [GameBuilder](http://gamebuilder.area120.com/).
 
 > This document and repository is work in progress. Many things here are placeholders.
 
@@ -14,6 +16,8 @@
 * `tools` – various tools that are useful for working with GameBuilder, 
   such as map generators, texture processing, card repackaging and so on. 
   Tools must not require complex machine setup! For now this is Java/Kotlin, Python, .NET and JavaScript.   
+* `gamebuilder` – git-ignored folder that you can use to link to GameBuilder content. 
+  You can add a symbolic link to `Resources/Data/StreamingAssets/BehaviorLibrary` in GameBuilder installation folder, for example.  
 
 # Contributors
 

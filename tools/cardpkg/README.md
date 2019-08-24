@@ -14,3 +14,8 @@ _to be developed_
 
 * Convince GB devs that it is weird and allow importing directly from our format :)
  
+# Ideas
+
+* Have a `package` file with the list of cards, and use it to build packages for import
+* Automate Workshop deployments!
+* 
