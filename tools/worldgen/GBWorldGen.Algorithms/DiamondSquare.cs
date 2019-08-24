@@ -25,7 +25,7 @@ namespace GBWorldGen.Algorithms
             for (int i = 0; i < Blocks.Length; i++)
             {
                 Blocks[i].x = (short)((i % Width) - Width + X);
-                Blocks[i].y = (short)Y;// (short)(Y + Random.Next(-3, 4));
+                Blocks[i].y = (short)(Y + Random.Next(-3, 4));
                 Blocks[i].z = (short)((i / Width) - Width + Z);
 
                 Blocks[i].shape = Block.SHAPE.Box;
