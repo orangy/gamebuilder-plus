@@ -1,4 +1,5 @@
 ﻿using System;
+using GBWorldGen.Algorithms;
 using GBWorldGen.Models;
 using GBWorldGen.Utils;
 
@@ -8,7 +9,9 @@ namespace GBWorldGen.Main
     {
         public static void Main(string[] args)
         {
-            string outputDirectory = @"D:\temp\gb";
+            VoosGenerator voosGenerator = new VoosGenerator();
+            DiamondSquare diamondSquareAlgorithm = new DiamondSquare(0, 0, 0, 2);
+            string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
 
             Block[] myMap = new Block[4]
             {
@@ -17,11 +20,14 @@ namespace GBWorldGen.Main
                 new Block(2, 0, 0, Block.SHAPE.Box, Block.DIRECTION.East, Block.STYLE.Blue),
                 new Block(3, 0, 0, Block.SHAPE.Box, Block.DIRECTION.East, Block.STYLE.Blue)
             };
-            
-            VoosGenerator voosGenerator = new VoosGenerator();
-            string createdMap = voosGenerator.Generate(Serializer.SerializeMap(myMap), outputDirectory);
-            Console.WriteLine($"Created new .voos file at '{createdMap}'.");
 
+            //string createdMap = voosGenerator.Generate(
+            //    Serializer.SerializeMap(myMap), outputDirectory);
+            string createdMap = voosGenerator.Generate(
+                encodedMapData: Serializer.SerializeMap(diamondSquareAlgorithm.Generate()), outputDirectory: outputDirectory);
+
+
+            Console.WriteLine($"Created new .voos file at '{createdMap}'.");
             Console.WriteLine("Press any key to continue...");
         }
     } 
