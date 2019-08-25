@@ -11,7 +11,7 @@ namespace GBWorldGen.Driver.Main
         public static void Main(string[] args)
         {
             VoosGenerator voosGenerator = new VoosGenerator();
-            DiamondSquareGenerator diamondSquareAlgorithm = new DiamondSquareGenerator(0, 0, 0, 9);
+            DiamondSquareGenerator diamondSquareAlgorithm = new DiamondSquareGenerator(0, 0, 0, 5);
             DefaultNaturalizer naturalizer = new DefaultNaturalizer();
             string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
 

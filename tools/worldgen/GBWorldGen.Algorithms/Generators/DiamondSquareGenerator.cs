@@ -95,8 +95,7 @@ namespace GBWorldGen.Core.Algorithms
                 span /= 2;
             }
 
-            TrimExcess();
-            FillBottom();
+            TrimExcess();            
 
             return Blocks.ToArray();
         }
@@ -121,35 +120,7 @@ namespace GBWorldGen.Core.Algorithms
                 Blocks[i].Direction = Block.DIRECTION.East;
                 Blocks[i].Style = DefaultBlockStyle;
             }
-        }
-
-        private void FillBottom()
-        {
-            int smallestY = 0;
-            for (int i = 0; i < Blocks.Length; i++)
-                if (Blocks[i].Y < smallestY)
-                    smallestY = Blocks[i].Y;
-
-            // Fill
-            List<Block> fillBlocks = new List<Block>();
-            for (int i = 0; i < Blocks.Length; i++)
-                for (int j = Blocks[i].Y - 1; j >= smallestY; j--)
-                {
-                    fillBlocks.Add(new Block
-                    {
-                        X = Blocks[i].X,
-                        Y = (short)j,
-                        Z = Blocks[i].Z,
-                        Shape = Blocks[i].Shape,
-                        Direction = Blocks[i].Direction,
-                        Style = Blocks[i].Style
-                    });
-                }
-
-            int originalLength = Blocks.Length;
-            Array.Resize(ref Blocks, originalLength + fillBlocks.Count);
-            fillBlocks.ToArray().CopyTo(Blocks, originalLength);
-        }
+        }        
 
         private void TrimExcess()
         {
