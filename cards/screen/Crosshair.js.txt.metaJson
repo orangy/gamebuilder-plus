@@ -1,0 +1,9 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Crosshair",
+    "description": "Shows a crosshair in the center of the screen.",
+    "categories" : ["Screen"],
+    "imageResourcePath": "BuiltinAssets/CardImages/bar"
+  }
+}
