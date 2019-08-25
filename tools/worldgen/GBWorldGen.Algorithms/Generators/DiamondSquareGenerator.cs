@@ -16,22 +16,28 @@ namespace GBWorldGen.Core.Algorithms
         private Block[] Blocks;
         private bool[] BlocksSet { get; set; }
         private Random Random { get; set; } = new Random();
+        private int JitterCount { get; set; }
+        private int JitterMin { get; set; }
+        private int JitterMax { get; set; }
         private int FullWidth { get; set; }
         Block.STYLE DefaultBlockStyle { get; set; }
 
-        public DiamondSquareGenerator(int x, int y, int z, int width, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        public DiamondSquareGenerator(int x, int y, int z, int width, int jitter = 4, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
             // Width can't be over 9;
             // Max map size is 500x500 = 2^9 = 512
             // (we will trim extra blocks at end)
-            if (width > 9)
-                width = 9;
+            // however... any width over 8 freezes
+            // the game, so we cap at 8 for time being
+            if (width > 8)
+                width = 8;
 
             X = x;
             Y = y;
             Z = z;
             FullWidth = (int)Math.Pow(2.0d, width) + 1;
-            Width = (FullWidth - 1) / 2;            
+            Width = (FullWidth - 1) / 2;
+            JitterCount = jitter;
 
             Blocks = new Block[FullWidth * FullWidth];
             BlocksSet = new bool[FullWidth * FullWidth];
@@ -102,6 +108,8 @@ namespace GBWorldGen.Core.Algorithms
 
         private void Initialize()
         {
+            IntializeJitter();
+
             for (int i = 0; i < Blocks.Length; i++)
             {
                 Blocks[i].X = (short)(i % FullWidth < Width
@@ -109,7 +117,7 @@ namespace GBWorldGen.Core.Algorithms
                     : i % FullWidth > Width
                         ? (i % FullWidth) - Width + X
                         : X);
-                Blocks[i].Y = (short)(Y + Jitter());
+                Blocks[i].Y = (short)(Y + Random.Next(-2, 2));
                 Blocks[i].Z = (short)(i / FullWidth < Width
                     ? (-1 * (Width - (i / FullWidth))) + Z
                     : i / FullWidth > Width
@@ -120,7 +128,18 @@ namespace GBWorldGen.Core.Algorithms
                 Blocks[i].Direction = Block.DIRECTION.East;
                 Blocks[i].Style = DefaultBlockStyle;
             }
-        }        
+        }
+        
+        private void IntializeJitter()
+        {
+            for (int i = 1; i <= JitterCount; i++)
+            {
+                if (i % 2 == 1)
+                    JitterMax++;
+                else
+                    JitterMin--;
+            }
+        }
 
         private void TrimExcess()
         {
@@ -129,7 +148,10 @@ namespace GBWorldGen.Core.Algorithms
                     (block, index) => index % 500 < 500 && index / 500 < 500).ToArray();
         }
 
-        private short Jitter() => (short)Random.Next(-2, 2);
+        private short Jitter()
+        {
+            return (short)Random.Next(JitterMin, JitterMax);
+        }
 
         private void Diamond(int index, int step)
         {
