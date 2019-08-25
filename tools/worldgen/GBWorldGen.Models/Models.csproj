@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>GBWorldGen.Models</AssemblyName>
-    <RootNamespace>GBWorldGen.Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <RootNamespace>Models</RootNamespace>
   </PropertyGroup>
 
 </Project>

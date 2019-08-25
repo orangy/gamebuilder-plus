@@ -1,34 +1,27 @@
-﻿using System;
-using GBWorldGen.Algorithms;
-using GBWorldGen.Models;
-using GBWorldGen.Utils;
+﻿using Algorithms.Naturalize;
+using GBWorldGen.Core.Algorithms;
+using GBWorldGen.Core.Models;
+using GBWorldGen.Core.Voos;
+using System;
 
-namespace GBWorldGen.Main
+namespace GBWorldGen.Driver.Main
 {
     public class Program
     {
         public static void Main(string[] args)
         {
             VoosGenerator voosGenerator = new VoosGenerator();
-            DiamondSquare diamondSquareAlgorithm = new DiamondSquare(0, 0, 0, 40);
+            DiamondSquareGenerator diamondSquareAlgorithm = new DiamondSquareGenerator(0, 0, 0, 9);
+            DefaultNaturalizer naturalizer = new DefaultNaturalizer();
             string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
 
-            Block[] myMap = new Block[4]
-            {
-                new Block(0, 0, 0, Block.SHAPE.Box, Block.DIRECTION.East, Block.STYLE.Blue),
-                new Block(1, 0, 0, Block.SHAPE.Box, Block.DIRECTION.East, Block.STYLE.Blue),
-                new Block(2, 0, 0, Block.SHAPE.Box, Block.DIRECTION.East, Block.STYLE.Blue),
-                new Block(3, 0, 0, Block.SHAPE.Box, Block.DIRECTION.East, Block.STYLE.Blue)
-            };
+            Block[] myMap = diamondSquareAlgorithm.Generate();
+            myMap = naturalizer.Naturalize(myMap);
 
-            //string createdMap = voosGenerator.Generate(
-            //    Serializer.SerializeMap(myMap), outputDirectory);
-            string createdMap = voosGenerator.Generate(
-                encodedMapData: Serializer.SerializeMap(diamondSquareAlgorithm.Generate()), outputDirectory: outputDirectory);
-
+            string createdMap = voosGenerator.Generate(myMap, outputDirectory);
 
             Console.WriteLine($"Created new .voos file at '{createdMap}'.");
             Console.WriteLine("Press any key to continue...");
         }
-    } 
+    }
 }

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>GBWorldGen.Tests</AssemblyName>
-    <RootNamespace>GBWorldGen.Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
   </PropertyGroup>
 
 </Project>

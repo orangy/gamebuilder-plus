@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GBWorldGen.Core.Models;
+using GBWorldGen.Misc.Utils;
+using System;
 using System.IO;
-using System.Text;
 
-namespace GBWorldGen.Utils
+namespace GBWorldGen.Core.Voos
 {
     public class VoosGenerator
     {
@@ -15,8 +15,10 @@ namespace GBWorldGen.Utils
             _fileData = SampleVoosFile();
         }
 
-        public string Generate(string encodedMapData, string outputDirectory, string mapName = null, string mapDescription = null)
+        public string Generate(Block[] map, string outputDirectory, string mapName = null, string mapDescription = null)
         {
+            string encodedMapData = Serializer.SerializeMap(map);
+
             string parentFolderName = $"custom-{RandomStringGenerator.Generate(32)}";
             string parentFolderPath = Path.Combine(outputDirectory, parentFolderName);
 
@@ -29,9 +31,14 @@ namespace GBWorldGen.Utils
 
             // Write sub-files
             using (StreamWriter streamWriter = new StreamWriter(voosFilePath))
+            {
                 streamWriter.Write(voosFileData);
+            }
+
             using (StreamWriter streamWriter = new StreamWriter(metadataFilePath))
+            {
                 streamWriter.Write(SampleMetadataFile(mapName, mapDescription));
+            }
 
             return voosFilePath;
         }
@@ -46,9 +53,14 @@ namespace GBWorldGen.Utils
             string now = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
 
             if (string.IsNullOrEmpty(mapName))
+            {
                 mapName = "Code-generated map";
+            }
+
             if (string.IsNullOrEmpty(mapDescription))
+            {
                 mapDescription = $"(Created at {now})";
+            }
 
             return $"{{\"name\":\"{mapName}\",\"description\":\"{mapDescription}\"}}";
         }

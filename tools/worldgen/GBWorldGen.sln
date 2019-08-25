@@ -3,20 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Main", "GBworldgen\GBWorldGen.Main.csproj", "{E20A8658-D908-438B-8363-D9DFCE2B833D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "GBworldgen\Main.csproj", "{E20A8658-D908-438B-8363-D9DFCE2B833D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Models", "GBworldgen.Models\GBWorldGen.Models.csproj", "{2A76493B-C007-4168-BB8D-FF8C658EA83F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "GBworldgen.Models\Models.csproj", "{2A76493B-C007-4168-BB8D-FF8C658EA83F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Utils", "GBworldgen.Utils\GBWorldGen.Utils.csproj", "{5E28BBA3-FBAA-41AF-8383-216C49A359B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "GBworldgen.Utils\Utils.csproj", "{5E28BBA3-FBAA-41AF-8383-216C49A359B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Algorithms", "GBworldgen.Algorithms\GBWorldGen.Algorithms.csproj", "{C4B82D8E-4220-4F89-BBAF-F4E0FB9EC84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "GBworldgen.Algorithms\Algorithms.csproj", "{C4B82D8E-4220-4F89-BBAF-F4E0FB9EC84B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBWorldGen.Tests", "GBworldgen.Tests\GBWorldGen.Tests.csproj", "{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "GBworldgen.Tests\Tests.csproj", "{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB677284-CB82-40B7-B452-2AE48549D1CB}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GBWorldGen.Core", "GBWorldGen.Core", "{5931067C-6301-4FB5-9F5D-729E83F583A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GBWorldGen.Tests", "GBWorldGen.Tests", "{6BAC550E-4B06-476E-9A6A-947223AA93C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GBWorldGen.Driver", "GBWorldGen.Driver", "{B670EA31-16A5-44A7-9122-20E8979D09BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GBWorldGen.Misc", "GBWorldGen.Misc", "{E840377A-13C2-48C8-92BF-3C7185715F2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voos", "Voos\Voos.csproj", "{F93DE8EE-A197-440A-99ED-6C06CE539D14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,9 +54,21 @@ Global
 		{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93DE8EE-A197-440A-99ED-6C06CE539D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93DE8EE-A197-440A-99ED-6C06CE539D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93DE8EE-A197-440A-99ED-6C06CE539D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93DE8EE-A197-440A-99ED-6C06CE539D14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E20A8658-D908-438B-8363-D9DFCE2B833D} = {B670EA31-16A5-44A7-9122-20E8979D09BE}
+		{2A76493B-C007-4168-BB8D-FF8C658EA83F} = {5931067C-6301-4FB5-9F5D-729E83F583A0}
+		{5E28BBA3-FBAA-41AF-8383-216C49A359B4} = {E840377A-13C2-48C8-92BF-3C7185715F2E}
+		{C4B82D8E-4220-4F89-BBAF-F4E0FB9EC84B} = {5931067C-6301-4FB5-9F5D-729E83F583A0}
+		{7B2A3D5E-5900-4E46-AC3A-67CD6B9C28C1} = {6BAC550E-4B06-476E-9A6A-947223AA93C6}
+		{F93DE8EE-A197-440A-99ED-6C06CE539D14} = {5931067C-6301-4FB5-9F5D-729E83F583A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35EA67C1-FD17-4A49-A68A-0B2E3DBDDA4A}

@@ -1,11 +1,12 @@
-﻿using GBWorldGen.Models;
+﻿using GBWorldGen.Core.Models;
+using GBWorldGen.Misc.Utils;
 using System;
 using System.IO;
 using System.IO.Compression;
 
-namespace GBWorldGen.Utils
+namespace GBWorldGen.Core.Voos
 {
-    public static class Serializer
+    internal static class Serializer
     {
         public static string SerializeMap(Block[] map)
         {
@@ -20,7 +21,9 @@ namespace GBWorldGen.Utils
                     binaryWriter.Write((uint)map.Length);
 
                     for (uint i = 0; i < map.Length; i++)
+                    {
                         binaryWriter.Write(map[i]);
+                    }
                 }
 
                 result = memoryStream.ToArray();

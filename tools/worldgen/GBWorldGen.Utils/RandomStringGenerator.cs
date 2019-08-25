@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GBWorldGen.Utils
+namespace GBWorldGen.Misc.Utils
 {
     public static class RandomStringGenerator
     {

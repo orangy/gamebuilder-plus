@@ -1,18 +1,18 @@
-﻿using System.IO;
-using GBWorldGen.Models;
+﻿using GBWorldGen.Core.Models;
+using System.IO;
 
-namespace GBWorldGen.Utils
+namespace GBWorldGen.Misc.Utils
 {
     public static class Extensions
     {
         public static void Write(this BinaryWriter binaryWriter, Block block)
         {
-            binaryWriter.Write(block.x);
-            binaryWriter.Write(block.y);
-            binaryWriter.Write(block.z);
-            binaryWriter.Write((byte)block.shape);
-            binaryWriter.Write((byte)block.direction);
-            binaryWriter.Write((ushort)block.style);
+            binaryWriter.Write(block.X);
+            binaryWriter.Write(block.Y);
+            binaryWriter.Write(block.Z);
+            binaryWriter.Write((byte)block.Shape);
+            binaryWriter.Write((byte)block.Direction);
+            binaryWriter.Write((ushort)block.Style);
         }
     }
 }

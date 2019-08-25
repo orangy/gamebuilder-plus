@@ -1,22 +1,22 @@
-﻿namespace GBWorldGen.Models
+﻿namespace GBWorldGen.Core.Models
 {
     public struct Block
     {
-        public short x;
-        public short y;
-        public short z;
-        public SHAPE shape;
-        public DIRECTION direction;
-        public STYLE style;
+        public short X;
+        public short Y;
+        public short Z;
+        public SHAPE Shape;
+        public DIRECTION Direction;
+        public STYLE Style;
 
         public Block(short x, short y, short z, SHAPE shape, DIRECTION direction, STYLE style)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.shape = shape;
-            this.direction = direction;
-            this.style = style;
+            X = x;
+            Y = y;
+            Z = z;
+            Shape = shape;
+            Direction = direction;
+            Style = style;
         }
 
         public enum SHAPE : byte

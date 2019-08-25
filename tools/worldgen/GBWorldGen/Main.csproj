@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GBWorldGen.Algorithms\GBWorldGen.Algorithms.csproj" />
-    <ProjectReference Include="..\GBWorldGen.Models\GBWorldGen.Models.csproj" />
-    <ProjectReference Include="..\GBWorldGen.Utils\GBWorldGen.Utils.csproj" />
+    <ProjectReference Include="..\GBworldgen.Algorithms\Algorithms.csproj" />
+    <ProjectReference Include="..\GBworldgen.Utils\Utils.csproj" />
+    <ProjectReference Include="..\Voos\Voos.csproj" />
   </ItemGroup>
 
 </Project>
