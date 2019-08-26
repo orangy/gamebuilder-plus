@@ -7,14 +7,66 @@ namespace Algorithms.Generators
     // https://github.com/keijiro/PerlinNoise/blob/master/Assets/Perlin.cs
     public class PerlinNoiseGenerator : IGenerateWorld
     {
-        public PerlinNoiseGenerator(int x, int y, int z, int width, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
-        {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+        public int Width { get; set; }
+        public int Length { get; set; }
 
+        private readonly Block[] Blocks;
+        Block.STYLE DefaultBlockStyle { get; set; }
+
+        public PerlinNoiseGenerator(int x, int y, int z, int width, int length, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            Width = width;
+            Length = length;
+
+            Blocks = new Block[Width * Length];
+            DefaultBlockStyle = defaultBlockStyle;
+
+            Initialize();
         }
 
         public Block[] Generate()
         {
-            throw new NotImplementedException();
+            float e = 0.0F;
+            float ni = 0.0F;
+            float nj = 0.0f;
+
+            for (int j = 1; j <= Length; j++)
+            {
+                for (int i = 1; i <= Width; i++)
+                {
+                    ni = i % Width;
+                    nj = j % Length;
+
+                    e = 1F * Noise(1.01F * ni, 1.01F * nj) +
+                        0.5F * Noise(2.01F * ni, 2.01F * nj) +
+                        0.25F * Noise(4.01F * ni, 4.01F * nj);
+                    e = (float)(Math.Round(e * 15d) / 15d);
+
+                    Blocks[i + j - 2].Y = (short)FloorToInt(e);
+                }
+            }
+
+            return Blocks;
+        }
+
+        private void Initialize()
+        {
+            for (int i = 0; i < Blocks.Length; i++)
+            {
+                Blocks[i].X = (short)(i % Width + X);
+                Blocks[i].Y = (short)Y;
+                Blocks[i].Z = (short)(i / Length + Z);
+
+                Blocks[i].Shape = Block.SHAPE.Box;
+                Blocks[i].Direction = Block.DIRECTION.East;
+                Blocks[i].Style = DefaultBlockStyle;
+            }
         }
 
         #region Noise functions
@@ -169,7 +221,7 @@ namespace Algorithms.Generators
             if (number % 1 == 0)
                 return (int)number;
             return (int)Math.Floor(number);
-        }        
+        }
 
         #endregion
 

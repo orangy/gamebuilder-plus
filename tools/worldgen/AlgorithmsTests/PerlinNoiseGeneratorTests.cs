@@ -10,7 +10,7 @@ namespace AlgorithmsTests
         [Fact]
         public void PerlinNoiseGenerator_Returns_Valid_Values()
         {
-            PerlinNoiseGenerator generator = new PerlinNoiseGenerator();
+            PerlinNoiseGenerator generator = new PerlinNoiseGenerator(0, 0, 0, 5, 5);
             float scalar = 2.3F;
             int x = 2;
             int y = 15;
@@ -23,7 +23,7 @@ namespace AlgorithmsTests
         [Fact]
         public void PerlinNoiseGenerator_Returns_One_NonZero_Value()
         {
-            PerlinNoiseGenerator generator = new PerlinNoiseGenerator();
+            PerlinNoiseGenerator generator = new PerlinNoiseGenerator(0, 0, 0, 5, 5);
             List<double> results = new List<double>();
             int size = 50;
             float scalar = 1.57F;
