@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Send Notifications",
+    "description": "Send a notification to several actors.",
+    "categories" : ["Action"],
+    "imageResourcePath": "BuiltinAssets/CardImages/broadcast",
+    "listPriority": 0
+  }
+}

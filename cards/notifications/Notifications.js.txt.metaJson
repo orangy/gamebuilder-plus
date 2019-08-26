@@ -1,0 +1,9 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Show Notifications",
+    "description": "Displays notifications which disappear after certain time.",
+    "categories" : ["Screen"]
+  }
+}
+
