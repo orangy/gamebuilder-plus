@@ -1,4 +1,5 @@
 ﻿using GBWorldGen.Core.Models;
+using System;
 using System.IO;
 
 namespace GBWorldGen.Misc.Utils
@@ -13,6 +14,6 @@ namespace GBWorldGen.Misc.Utils
             binaryWriter.Write((byte)block.Shape);
             binaryWriter.Write((byte)block.Direction);
             binaryWriter.Write((ushort)block.Style);
-        }
+        }        
     }
 }

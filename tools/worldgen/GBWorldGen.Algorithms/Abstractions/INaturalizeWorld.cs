@@ -1,6 +1,6 @@
 ﻿using GBWorldGen.Core.Models;
 
-namespace Algorithms.Abstractions
+namespace GBWorldGen.Core.Algorithms.Abstractions
 {
     /// <summary>
     ///     An interface for naturalizing (touching up) a world.

@@ -1,5 +1,4 @@
-using Algorithms.Generators;
-using System;
+using GBWorldGen.Core.Algorithms.Generators;
 using System.Collections.Generic;
 using Xunit;
 
@@ -34,7 +33,7 @@ namespace AlgorithmsTests
                     float ni = i * scalar;
                     float nj = j * scalar;
                     results.Add(generator.Noise(ni, nj));
-                }                    
+                }
 
             Assert.Contains(results, r => r % 1 != 0);
         }

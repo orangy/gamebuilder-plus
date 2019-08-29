@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GBWorldGen.Core.Algorithms
+namespace GBWorldGen.Core.Algorithms.Generators
 {
-    public class DiamondSquareGenerator : IGenerateWorld
+    public class DiamondSquareGenerator : WorldData
     {
         public int X { get; set; }
         public int Y { get; set; }

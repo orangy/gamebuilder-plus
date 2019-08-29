@@ -1,4 +1,5 @@
-﻿using GBWorldGen.Core.Models;
+﻿using GBWorldGen.Core.Algorithms.Transformers;
+using GBWorldGen.Core.Models;
 using GBWorldGen.Misc.Utils;
 using System;
 using System.IO;

@@ -1,11 +1,11 @@
-﻿using GBWorldGen.Core.Algorithms;
-using GBWorldGen.Core.Models;
+﻿using GBWorldGen.Core.Models;
 using System;
+using System.Collections.Generic;
 
-namespace Algorithms.Generators
+namespace GBWorldGen.Core.Algorithms.Generators
 {
     // https://github.com/keijiro/PerlinNoise/blob/master/Assets/Perlin.cs
-    public class PerlinNoiseGenerator : IGenerateWorld
+    public class PerlinNoiseGenerator : WorldData
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -18,12 +18,23 @@ namespace Algorithms.Generators
 
         public PerlinNoiseGenerator(int x, int y, int z, int width, int length, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
+            // width and length should be the same,
+            // or else the VoosGenerator breaks;
+            // max values are 150 for width and length,
+            // any larger and GB starts to crash
+            if (width > 150 || length > 150)
+            {
+                width = 150;
+                length = 150;
+            }
+
             X = x;
             Y = y;
             Z = z;
             Width = width;
             Length = length;
 
+            perm = RandomPermutationSeed();
             Blocks = new Block[Width * Length];
             DefaultBlockStyle = defaultBlockStyle;
 
@@ -40,15 +51,15 @@ namespace Algorithms.Generators
             {
                 for (int i = 1; i <= Width; i++)
                 {
-                    ni = i % Width;
-                    nj = j % Length;
+                    ni = ((float)i) / Width;
+                    nj = ((float)j) / Length;
 
                     e = 1F * Noise(1.01F * ni, 1.01F * nj) +
                         0.5F * Noise(2.01F * ni, 2.01F * nj) +
                         0.25F * Noise(4.01F * ni, 4.01F * nj);
-                    e = (float)(Math.Round(e * 15d) / 15d);
+                    e = (float)(Math.Round(e * 60d, 4));
 
-                    Blocks[i + j - 2].Y = (short)FloorToInt(e);
+                    Blocks[((j - 1) * Width) + (i - 1)].Y = (short)(FloorToInt(e) + 30);
                 }
             }
 
@@ -223,9 +234,24 @@ namespace Algorithms.Generators
             return (int)Math.Floor(number);
         }
 
+        private int[] RandomPermutationSeed()
+        {
+            Random rand = new Random();
+            List<int> values = new List<int>(512);
+            for (int i = 0; i < 512; i++)
+            {
+                values.Add(rand.Next(0, 256));
+            }
+
+            return values.ToArray();
+        }
+
         #endregion
 
-        private readonly int[] perm = {
+        private readonly int[] perm;
+
+        private readonly int[] KensPermlin =
+        {
             151,160,137,91,90,15,
             131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
             190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,

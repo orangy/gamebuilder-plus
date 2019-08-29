@@ -1,4 +1,6 @@
-﻿namespace GBWorldGen.Core.Models
+﻿using System;
+
+namespace GBWorldGen.Core.Models
 {
     public struct Block
     {
@@ -79,6 +81,40 @@
             Pavement,
             PavementConcaveCorner,
             PavementConvexCorner
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (obj is Block)
+            {
+                Block compareTo = (Block)obj;
+                return X == compareTo.X &&
+                    Y == compareTo.Y &&
+                    Z == compareTo.Z &&
+                    Shape == compareTo.Shape &&
+                    Direction == compareTo.Direction &&
+                    Style == compareTo.Style;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        public override string ToString()
+        {
+            return $"(X:{X}, Y:{Y}, Z:{Z}) (Shape:{EnumName(Shape)}, Direction:{EnumName(Direction)}, Style:{EnumName(Style)})";
+        }
+
+        private string EnumName(Enum e)
+        {
+            return Enum.GetName(e.GetType(), e);
         }
     }
 }

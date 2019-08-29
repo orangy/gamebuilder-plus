@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GBworldgen.Models\Models.csproj" />
+    <ProjectReference Include="..\GBworldgen.Utils\Utils.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,20 @@
+﻿using GBWorldGen.Core.Algorithms.Generators;
+using GBWorldGen.Core.Algorithms.Transformers;
+using GBWorldGen.Core.Models;
+using Xunit;
+
+namespace GeneratorTests
+{
+    public class DiamondSquareGeneratorTests
+    {
+        [Fact]
+        public void DiamondSquareGenerator_Creates_Valid_Map()
+        {
+            DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(0, 0, 0, 8);
+            Block[] myMap = diamondSquareGenerator.Generate();
+
+            string serialized = Serializer.SerializeMap(myMap);
+            Assert.True(Deserializer.DeserializeMap(serialized));
+        }
+    }
+}
