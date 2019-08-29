@@ -1,11 +1,15 @@
 # Game Builder Plus
 
-> Community Docs 
+This is community effort to add documentation, cards, JavaScript snippets and assets for [GameBuilder](http://gamebuilder.area120.com) 
 
+## Community docs
 
-# Simple data format
+* [Raw Events](events.md)
+* [Panel Events](panels.md)
 
-@steverock published this document for generating terrains:
+## Technical documents by GameBuilder 
 
-https://docs.google.com/document/d/1RovaMCZhEgnWolxAHeB_v4ZzW8ROQjIIOJnayKDupYg/edit
-
+* [API Documentation](http://gamebuilder.area120.com/ref.html)
+* [Simple Terrain Format](https://docs.google.com/document/d/1RovaMCZhEgnWolxAHeB_v4ZzW8ROQjIIOJnayKDupYg/edit)
+* [Hot reloading cards](https://docs.google.com/document/d/1M1vw78aksyPDO7NIbomyylIKYWs1KOnbL882bY256XM/edit)
+* [How does multiplayer work](https://docs.google.com/document/d/1EIlvn-RD0IxdvYHQxSOfWVU6LpZTe1XDLXA1PSqJd6A/edit)
