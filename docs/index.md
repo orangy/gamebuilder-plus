@@ -6,6 +6,7 @@ This is community effort to add documentation, cards, JavaScript snippets and as
 
 * [Raw Events](events.md)
 * [Panel Events](panels.md)
+* [Console commands](console.md)
 
 ## Technical documents by GameBuilder 
 
