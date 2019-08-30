@@ -23,6 +23,8 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
 
         private Map PaintAndFillWater(Map map)
         {
+            Console.WriteLine("Painting map and filling in water...");
+
             Block[] blockData = map.BlockData;
             
             // Calculate variables
@@ -113,6 +115,8 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
 
         private void CalcuateExtremes(Map map)
         {
+            Console.WriteLine("Calculating map extremes...");
+
             Block[] blockData = map.BlockData;
             int lowest = 999;
             int highest = -999;
@@ -131,6 +135,8 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
 
         private Map FillBottom(Map map)
         {
+            Console.WriteLine("Filling in bottom of map...");
+
             // Fill
             Block[] blockData = map.BlockData;
             List<Block> fillBlocks = new List<Block>();

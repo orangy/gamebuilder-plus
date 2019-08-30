@@ -8,8 +8,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
 {
     public class DiamondSquareGenerator : WorldData, IGenerateWorld
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Width { get; set; }        
 
         private Block[] Blocks;
         private bool[] BlocksSet { get; set; }
@@ -22,13 +21,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public DiamondSquareGenerator(int width, int jitter = 4, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
-            // Width can't be over 9;
-            // Max map size is 500x500 = 2^9 = 512
-            // (we will trim extra blocks at end)
-            // however... any width over 8 freezes
-            // the game, so we cap at 8 for time being
-            if (width > 8)
-                width = 8;
+            Console.WriteLine($"Creating a Diamond-Square algorithm map with a width of {width}, jitter of {jitter} and default block style of {defaultBlockStyle}.");
 
             FullWidth = (int)Math.Pow(2.0d, width) + 1;
             Width = (FullWidth - 1) / 2;
@@ -43,6 +36,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public Map Generate()
         {
+            Console.WriteLine("Generating map...");
+
             // Corners
             Blocks[0].Y = Jitter();
             Blocks[FullWidth - 1].Y = Jitter();

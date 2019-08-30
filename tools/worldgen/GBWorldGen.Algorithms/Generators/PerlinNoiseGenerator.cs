@@ -16,6 +16,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public PerlinNoiseGenerator(int width, int length, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
+            Console.WriteLine($"Creating a Perlin Noise map with a width of {width}, a length of {length} and default block style of {defaultBlockStyle}.");
+
             Width = width;
             Length = length;
 
@@ -28,6 +30,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public Map Generate()
         {
+            Console.WriteLine("Generating map...");
+
             float e = 0.0F;
             float ni = 0.0F;
             float nj = 0.0f;
