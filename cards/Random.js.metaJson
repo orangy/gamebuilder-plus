@@ -1,0 +1,9 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Random",
+    "description": "Generates a random number.",
+    "categories" : ["Action"],
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000008"
+  }
+}
