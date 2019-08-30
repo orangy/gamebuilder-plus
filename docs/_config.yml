@@ -1,1 +1,20 @@
-theme: jekyll-theme-dinky
+title: GameBuilder+
+description: Community effort for additional documentation, cards, JavaScript snippets and assets
+logo: gbplus-icon.png
+
+repository: orangy/gamebuilder-plus
+
+license:
+  software: Apache 2
+  software_url: https://opensource.org/licenses/Apache-2.0
+
+  docs: CC BY 3.0
+  docs_url: http://creativecommons.org/licenses/by/3.0/
+
+markdown: kramdown
+
+ui:
+  header:
+    color1: "#2c3e50"
+    color2: "#7f8c8d"
+    trianglify: true

@@ -1,4 +1,12 @@
-## How can I import my own 3D models?
+---
+title: "Custom Models"
+---
+
+You can import existing models from [Google Poly](https://poly.google.com/), 
+but what if you want to do your own custom models? 
+
+## Importing custom models
+
 1. Go to https://poly.google.com/ and upload your model. It supports OBJ and FBX.
 2. Make sure to publish your model as PUBLIC or UNLISTED. And mark it "Remixable."
 3. Copy the Poly URL, something like https://poly.google.com/view/44l9m6vgUXg

@@ -1,6 +1,8 @@
-# Game Builder Plus
+---
+title: "GameBuilder"
+---
 
-This is community effort to add documentation, cards, JavaScript snippets and assets for [GameBuilder](http://gamebuilder.area120.com) 
+This is a community effort to provide additional documentation, cards, JavaScript snippets and assets for [GameBuilder](http://gamebuilder.area120.com) 
 
 ## Community docs
 
