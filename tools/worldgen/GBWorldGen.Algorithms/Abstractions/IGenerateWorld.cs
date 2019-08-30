@@ -7,6 +7,6 @@ namespace GBWorldGen.Core.Algorithms.Abstractions
     /// </summary>
     public interface IGenerateWorld
     {
-        Block[] Generate();
+        Map Generate();
     }
 }

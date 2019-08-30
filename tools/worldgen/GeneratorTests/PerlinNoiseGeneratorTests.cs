@@ -11,9 +11,9 @@ namespace GeneratorTests
         public void PerlinNoiseGenerator_Creates_Valid_Map()
         {
             PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(0, 0, 0, 20, 20);
-            Block[] myMap = perlinNoiseGenerator.Generate();
+            Map myMap = perlinNoiseGenerator.Generate();
 
-            string serialized = Serializer.SerializeMap(myMap);
+            string serialized = Serializer.SerializeMap(myMap.BlockData);
             Assert.True(Deserializer.DeserializeMap(serialized));
         }
     }

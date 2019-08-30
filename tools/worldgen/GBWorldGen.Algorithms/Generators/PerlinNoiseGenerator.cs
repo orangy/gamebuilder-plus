@@ -1,11 +1,12 @@
-﻿using GBWorldGen.Core.Models;
+﻿using GBWorldGen.Core.Algorithms.Abstractions;
+using GBWorldGen.Core.Models;
 using System;
 using System.Collections.Generic;
 
 namespace GBWorldGen.Core.Algorithms.Generators
 {
     // https://github.com/keijiro/PerlinNoise/blob/master/Assets/Perlin.cs
-    public class PerlinNoiseGenerator : WorldData
+    public class PerlinNoiseGenerator : WorldData, IGenerateWorld
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -22,11 +23,11 @@ namespace GBWorldGen.Core.Algorithms.Generators
             // or else the VoosGenerator breaks;
             // max values are 150 for width and length,
             // any larger and GB starts to crash
-            if (width > 150 || length > 150)
-            {
-                width = 150;
-                length = 150;
-            }
+            //if (width > 150 || length > 150)
+            //{
+            //    width = 150;
+            //    length = 150;
+            //}
 
             X = x;
             Y = y;
@@ -41,8 +42,15 @@ namespace GBWorldGen.Core.Algorithms.Generators
             Initialize();
         }
 
-        public Block[] Generate()
+        public Map Generate()
         {
+            return new Map
+            {
+                Width = Width,
+                Length = Length,
+                BlockData = Blocks
+            };
+
             float e = 0.0F;
             float ni = 0.0F;
             float nj = 0.0f;
@@ -60,10 +68,31 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     e = (float)(Math.Round(e * 60d, 4));
 
                     Blocks[((j - 1) * Width) + (i - 1)].Y = (short)(FloorToInt(e) + 30);
+
+                    if (i == 1)
+                    {
+                        if (j == 1)
+                        {
+                            Blocks[((j - 1) * Width) + (i - 1)].Style = Block.STYLE.Pink;
+                        }
+                        else
+                        {
+                            Blocks[((j - 1) * Width) + (i - 1)].Style = Block.STYLE.LightOrange;
+                        }
+                    }
+                    else if (i == Width)
+                    {
+                        Blocks[((j - 1) * Width) + (i - 1)].Style = Block.STYLE.Red;
+                    }
                 }
             }
 
-            return Blocks;
+            return new Map
+            {
+                Width = Width,
+                Length = Length,
+                BlockData = Blocks
+            };
         }
 
         private void Initialize()
@@ -77,6 +106,15 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 Blocks[i].Shape = Block.SHAPE.Box;
                 Blocks[i].Direction = Block.DIRECTION.East;
                 Blocks[i].Style = DefaultBlockStyle;
+
+                if (Blocks[i].X == 0)
+                {
+                    Blocks[i].Style = Block.STYLE.MetalBeige;
+                }
+                if (Blocks[i].Z == 0)
+                {
+                    Blocks[i].Style = Block.STYLE.Pavement;
+                }
             }
         }
 

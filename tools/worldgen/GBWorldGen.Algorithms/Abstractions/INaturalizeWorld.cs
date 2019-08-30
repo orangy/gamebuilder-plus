@@ -7,6 +7,6 @@ namespace GBWorldGen.Core.Algorithms.Abstractions
     /// </summary>
     public interface INaturalizeWorld
     {
-        Block[] Naturalize(Block[] map);
+        Map Naturalize(Map map);
     }
 }

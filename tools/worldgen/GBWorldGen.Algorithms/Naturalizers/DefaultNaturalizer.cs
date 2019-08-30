@@ -12,7 +12,7 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
         private int LowestYVisible { get; set; }
         private int HighestY { get; set; }
 
-        public Block[] Naturalize(Block[] map)
+        public Map Naturalize(Map map)
         {
             CalcuateExtremes(map);
             map = Paint(map);
@@ -21,86 +21,109 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             return map;
         }
 
-        private Block[] Paint(Block[] map)
+        private Map Paint(Map map)
         {
-            // Get blocks that are visible
-            Dictionary<Tuple<short, short>, bool> heightDict = new Dictionary<Tuple<short, short>, bool>();
-            List<Block> visibleBlocks = new List<Block>();
-            short lowestVisibleY = 999;
+            Block[] blockData = map.BlockData;
+            
+            // Calculate variables
+            short lowestVisibleY = (short)MinWorldY;
+            short highestVisibleY = (short)MaxWorldY;
+            short lowest = blockData.Min(m => m.Y);
+            short highest = blockData.Max(m => m.Y);
+            if (lowest >= MinWorldY)
+                lowestVisibleY = lowest;
+            if (highest <= MaxWorldY)
+                highestVisibleY = highest;
 
-            for (int i = 0; i < map.Length; i++)
-            {
-                if (!heightDict.ContainsKey(Tuple.Create(map[i].X, map[i].Z)))
-                {
-                    // Ugly, but it works
-                    Block lowest = map
-                        .Where(m => m.X == map[i].X && m.Z == map[i].Z)
-                        .OrderBy(m => -1 * m.Y)
-                        .First();
-                    visibleBlocks.Add(lowest);
-
-                    heightDict.Add(Tuple.Create(map[i].X, map[i].Z), true);
-                    if (lowest.Y >= base.MinWorldY && lowest.Y < lowestVisibleY)
-                        lowestVisibleY = lowest.Y;
-                }
-            }
+            Block.STYLE[] styleRange = BlockStyleRatios(highestVisibleY - lowestVisibleY);
 
             // Paint blocks
-            for (int i = 0; i < map.Length; i++)
-            {
-                if (visibleBlocks.IndexOf(map[i]) >= 0)
-                {
-                    if (map[i].Y - 6 <= lowestVisibleY) map[i].Style = Block.STYLE.Water;
-                    else if (map[i].Y - 10 <= lowestVisibleY) map[i].Style = Block.STYLE.Sand;
-                    else if (map[i].Y - 24 <= lowestVisibleY) map[i].Style = Block.STYLE.Grass;
-                    else if (map[i].Y - 28 <= lowestVisibleY) map[i].Style = Block.STYLE.Dirt;
-                    else if (map[i].Y - 30 <= lowestVisibleY) map[i].Style = Block.STYLE.GrayCraters;
-                    else map[i].Style = Block.STYLE.Snow;
-                }
-            }
+            for (int i = 0; i < blockData.Length; i++)
+                blockData[i].Style = styleRange[blockData[i].Y - lowestVisibleY];
 
+            var group = blockData
+                .GroupBy(b => b.Style)
+                .Select(g => new { Style = g.Key, Sum = g.Count() });
+
+            map.BlockData = blockData;
             return map;
         }
 
-        private void CalcuateExtremes(Block[] map)
+        private Block.STYLE[] BlockStyleRatios(int yRange)
         {
+            Block.STYLE[] styleRange = new Block.STYLE[yRange + 1];
+
+            int dataKey = 0;            
+            List<(double, Block.STYLE)> data = new List<(double, Block.STYLE)>            
+            {
+                ( 0.1d, Block.STYLE.Water ), // 10%
+                ( 0.06d, Block.STYLE.Sand ), // 6%
+                ( 0.65d, Block.STYLE.Grass ), // 65%
+                ( 0.04d, Block.STYLE.Dirt ), // 5%
+                ( 0.08d, Block.STYLE.GrayCraters ), // 8%
+                ( 0.07d, Block.STYLE.Snow ) // 7%
+            };
+            double runningSum = data[0].Item1;
+
+            for (int i = 0; i < styleRange.Length; i++)
+            {                
+                while (((double)i / styleRange.Length) > runningSum && 
+                    dataKey + 1 < data.Count)
+                {
+                    dataKey++;
+                    runningSum = 0;
+                    for (int j = 0; j <= dataKey; j++)
+                        runningSum += data[j].Item1;
+                }
+
+                styleRange[i] = data[dataKey].Item2;
+            }
+
+            return styleRange;
+        }
+
+        private void CalcuateExtremes(Map map)
+        {
+            Block[] blockData = map.BlockData;
             int lowest = 999;
             int highest = -999;
 
-            for (int i = 0; i < map.Length; i++)
+            for (int i = 0; i < blockData.Length; i++)
             {
-                if (map[i].Y < lowest)
-                    lowest = map[i].Y;
-                if (map[i].Y > highest)
-                    highest = map[i].Y;
+                if (blockData[i].Y < lowest)
+                    lowest = blockData[i].Y;
+                if (blockData[i].Y > highest)
+                    highest = blockData[i].Y;
             }
 
             LowestY = lowest;
             HighestY = highest;
         }
 
-        private Block[] FillBottom(Block[] map)
+        private Map FillBottom(Map map)
         {
             // Fill
+            Block[] blockData = map.BlockData;
             List<Block> fillBlocks = new List<Block>();
-            for (int i = 0; i < map.Length; i++)
-                for (int j = map[i].Y - 1; j >= LowestY; j--)
+            for (int i = 0; i < blockData.Length; i++)
+                for (int j = blockData[i].Y - 1; j >= LowestY; j--)
                 {
                     fillBlocks.Add(new Block
                     {
-                        X = map[i].X,
+                        X = blockData[i].X,
                         Y = (short)j,
-                        Z = map[i].Z,
-                        Shape = map[i].Shape,
-                        Direction = map[i].Direction,
-                        Style = map[i].Style
+                        Z = blockData[i].Z,
+                        Shape = blockData[i].Shape,
+                        Direction = blockData[i].Direction,
+                        Style = blockData[i].Style
                     });
                 }
 
-            int originalLength = map.Length;
-            Array.Resize(ref map, originalLength + fillBlocks.Count);
-            fillBlocks.ToArray().CopyTo(map, originalLength);
+            int originalLength = blockData.Length;
+            Array.Resize(ref blockData, originalLength + fillBlocks.Count);
+            fillBlocks.ToArray().CopyTo(blockData, originalLength);
 
+            map.BlockData = blockData;
             return map;
         }
     }

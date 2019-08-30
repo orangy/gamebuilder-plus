@@ -11,14 +11,14 @@ namespace GBWorldGen.Driver.Main
         public static void Main(string[] args)
         {
             VoosGenerator voosGenerator = new VoosGenerator();
-            PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(0, 0, 0, 150, 150);
+            PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(0, 0, 0, 50, 50);
             DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(0, 0, 0, 8, defaultBlockStyle: Block.STYLE.GrayCraters);
             DefaultNaturalizer naturalizer = new DefaultNaturalizer();
             string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
 
-            //Block[] myMap = diamondSquareGenerator.Generate();
-            Block[] myMap = perlinNoiseGenerator.Generate();
-            myMap = naturalizer.Naturalize(myMap);
+            //Map myMap = diamondSquareGenerator.Generate();
+            Map myMap = perlinNoiseGenerator.Generate();
+            //myMap = naturalizer.Naturalize(myMap);
 
             string createdMap = voosGenerator.Generate(myMap, outputDirectory);
 

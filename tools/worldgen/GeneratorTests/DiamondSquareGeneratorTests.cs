@@ -11,9 +11,9 @@ namespace GeneratorTests
         public void DiamondSquareGenerator_Creates_Valid_Map()
         {
             DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(0, 0, 0, 8);
-            Block[] myMap = diamondSquareGenerator.Generate();
+            Map myMap = diamondSquareGenerator.Generate();
 
-            string serialized = Serializer.SerializeMap(myMap);
+            string serialized = Serializer.SerializeMap(myMap.BlockData);
             Assert.True(Deserializer.DeserializeMap(serialized));
         }
     }

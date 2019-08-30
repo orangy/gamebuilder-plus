@@ -1,11 +1,12 @@
-﻿using GBWorldGen.Core.Models;
+﻿using GBWorldGen.Core.Algorithms.Abstractions;
+using GBWorldGen.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace GBWorldGen.Core.Algorithms.Generators
 {
-    public class DiamondSquareGenerator : WorldData
+    public class DiamondSquareGenerator : WorldData, IGenerateWorld
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -46,7 +47,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             Initialize();
         }
 
-        public Block[] Generate()
+        public Map Generate()
         {
             // Corners
             Blocks[0].Y = Jitter();
@@ -101,9 +102,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 span /= 2;
             }
 
-            TrimExcess();            
+            TrimExcess();
 
-            return Blocks.ToArray();
+            return new Map
+            {
+                Width = FullWidth,
+                Length = FullWidth,
+                BlockData = Blocks.ToArray()
+            };
         }
 
         private void Initialize()
