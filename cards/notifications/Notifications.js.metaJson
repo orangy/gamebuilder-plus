@@ -3,7 +3,8 @@
     "isCard": true,
     "title": "Show Notifications",
     "description": "Displays notifications which disappear after certain time.",
-    "categories" : ["Screen"]
+    "categories" : ["Screen"],
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000001"
   }
 }
 

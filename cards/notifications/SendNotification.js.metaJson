@@ -5,6 +5,6 @@
     "description": "Send a notification to several actors.",
     "categories" : ["Action"],
     "imageResourcePath": "BuiltinAssets/CardImages/broadcast",
-    "listPriority": 0
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000002"
   }
 }

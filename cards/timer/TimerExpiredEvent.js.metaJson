@@ -5,6 +5,7 @@
     "title": "Timer Expired",
     "description": "Fires when a timer is expired",
     "categories" : ["Event"],
-    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon"
+    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000005"
   }
 }
