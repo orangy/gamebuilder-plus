@@ -8,30 +8,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
     // https://github.com/keijiro/PerlinNoise/blob/master/Assets/Perlin.cs
     public class PerlinNoiseGenerator : WorldData, IGenerateWorld
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
         public int Width { get; set; }
         public int Length { get; set; }
 
         private readonly Block[] Blocks;
         Block.STYLE DefaultBlockStyle { get; set; }
 
-        public PerlinNoiseGenerator(int x, int y, int z, int width, int length, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        public PerlinNoiseGenerator(int width, int length, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
-            // width and length should be the same,
-            // or else the VoosGenerator breaks;
-            // max values are 150 for width and length,
-            // any larger and GB starts to crash
-            //if (width > 150 || length > 150)
-            //{
-            //    width = 150;
-            //    length = 150;
-            //}
-
-            X = x;
-            Y = y;
-            Z = z;
             Width = width;
             Length = length;
 
@@ -44,20 +28,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public Map Generate()
         {
-            return new Map
-            {
-                Width = Width,
-                Length = Length,
-                BlockData = Blocks
-            };
-
             float e = 0.0F;
             float ni = 0.0F;
             float nj = 0.0f;
 
-            for (int j = 1; j <= Length; j++)
+            for (int j = 1; j <= Width; j++)
             {
-                for (int i = 1; i <= Width; i++)
+                for (int i = 1; i <= Length; i++)
                 {
                     ni = ((float)i) / Width;
                     nj = ((float)j) / Length;
@@ -67,54 +44,31 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         0.25F * Noise(4.01F * ni, 4.01F * nj);
                     e = (float)(Math.Round(e * 60d, 4));
 
-                    Blocks[((j - 1) * Width) + (i - 1)].Y = (short)(FloorToInt(e) + 30);
-
-                    if (i == 1)
-                    {
-                        if (j == 1)
-                        {
-                            Blocks[((j - 1) * Width) + (i - 1)].Style = Block.STYLE.Pink;
-                        }
-                        else
-                        {
-                            Blocks[((j - 1) * Width) + (i - 1)].Style = Block.STYLE.LightOrange;
-                        }
-                    }
-                    else if (i == Width)
-                    {
-                        Blocks[((j - 1) * Width) + (i - 1)].Style = Block.STYLE.Red;
-                    }
+                    Blocks[((j - 1) * Length) + (i - 1)].Y = (short)(FloorToInt(e) + 30);
                 }
             }
 
             return new Map
             {
-                Width = Width,
-                Length = Length,
+                Width = (int)(Width * 2.5d),
+                Length = (int)(Length * 2.5d),
                 BlockData = Blocks
             };
         }
 
         private void Initialize()
         {
+            short originX = (short)(Width * -0.5d);
+            short originZ = (short)(Length * -0.5d);
             for (int i = 0; i < Blocks.Length; i++)
             {
-                Blocks[i].X = (short)(i % Width + X);
-                Blocks[i].Y = (short)Y;
-                Blocks[i].Z = (short)(i / Length + Z);
+                Blocks[i].X = (short)(i / Length + originZ);
+                Blocks[i].Y = 0;
+                Blocks[i].Z = (short)(i % Width + originX);
 
                 Blocks[i].Shape = Block.SHAPE.Box;
                 Blocks[i].Direction = Block.DIRECTION.East;
                 Blocks[i].Style = DefaultBlockStyle;
-
-                if (Blocks[i].X == 0)
-                {
-                    Blocks[i].Style = Block.STYLE.MetalBeige;
-                }
-                if (Blocks[i].Z == 0)
-                {
-                    Blocks[i].Style = Block.STYLE.Pavement;
-                }
             }
         }
 

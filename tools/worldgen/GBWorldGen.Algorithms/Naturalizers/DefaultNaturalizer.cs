@@ -15,13 +15,13 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
         public Map Naturalize(Map map)
         {
             CalcuateExtremes(map);
-            map = Paint(map);
+            map = PaintAndFillWater(map);
             map = FillBottom(map);
 
             return map;
         }
 
-        private Map Paint(Map map)
+        private Map PaintAndFillWater(Map map)
         {
             Block[] blockData = map.BlockData;
             
@@ -35,12 +35,41 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             if (highest <= MaxWorldY)
                 highestVisibleY = highest;
 
+            List<Block> fillBlocks = new List<Block>();
             Block.STYLE[] styleRange = BlockStyleRatios(highestVisibleY - lowestVisibleY);
+            int maxWaterIndex = Array.FindIndex(styleRange, x => x == styleRange.First(s => s != Block.STYLE.Water)) - 1;
+            int temp = 0;
 
             // Paint blocks
             for (int i = 0; i < blockData.Length; i++)
+            {
+                if (blockData[i].Y < MinWorldY) continue;
+
                 blockData[i].Style = styleRange[blockData[i].Y - lowestVisibleY];
 
+                // Fill water
+                if (blockData[i].Style == Block.STYLE.Water)
+                {
+                    temp = maxWaterIndex + lowestVisibleY - blockData[i].Y;
+                    for (int j = blockData[i].Y + 1; j <= blockData[i].Y + temp; j++)
+                    {
+                        fillBlocks.Add(new Block
+                        {
+                            X = blockData[i].X,
+                            Y = (short)j,
+                            Z = blockData[i].Z,
+                            Shape = blockData[i].Shape,
+                            Direction = blockData[i].Direction,
+                            Style = blockData[i].Style
+                        });
+                    }
+                }
+            }
+
+            int originalLength = blockData.Length;
+            Array.Resize(ref blockData, originalLength + fillBlocks.Count);
+            fillBlocks.ToArray().CopyTo(blockData, originalLength);
+            
             var group = blockData
                 .GroupBy(b => b.Style)
                 .Select(g => new { Style = g.Key, Sum = g.Count() });
@@ -58,9 +87,9 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             {
                 ( 0.1d, Block.STYLE.Water ), // 10%
                 ( 0.06d, Block.STYLE.Sand ), // 6%
-                ( 0.65d, Block.STYLE.Grass ), // 65%
-                ( 0.04d, Block.STYLE.Dirt ), // 5%
-                ( 0.08d, Block.STYLE.GrayCraters ), // 8%
+                ( 0.55d, Block.STYLE.Grass ), // 55%
+                ( 0.08d, Block.STYLE.Dirt ), // 8%
+                ( 0.14d, Block.STYLE.GrayCraters ), // 14%
                 ( 0.07d, Block.STYLE.Snow ) // 7%
             };
             double runningSum = data[0].Item1;

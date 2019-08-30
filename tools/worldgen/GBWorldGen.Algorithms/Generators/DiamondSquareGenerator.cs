@@ -8,9 +8,6 @@ namespace GBWorldGen.Core.Algorithms.Generators
 {
     public class DiamondSquareGenerator : WorldData, IGenerateWorld
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
 
@@ -23,7 +20,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
         private int FullWidth { get; set; }
         Block.STYLE DefaultBlockStyle { get; set; }
 
-        public DiamondSquareGenerator(int x, int y, int z, int width, int jitter = 4, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        public DiamondSquareGenerator(int width, int jitter = 4, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
             // Width can't be over 9;
             // Max map size is 500x500 = 2^9 = 512
@@ -33,9 +30,6 @@ namespace GBWorldGen.Core.Algorithms.Generators
             if (width > 8)
                 width = 8;
 
-            X = x;
-            Y = y;
-            Z = z;
             FullWidth = (int)Math.Pow(2.0d, width) + 1;
             Width = (FullWidth - 1) / 2;
             JitterCount = jitter;
@@ -106,8 +100,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
             return new Map
             {
-                Width = FullWidth,
-                Length = FullWidth,
+                Width = (int)(FullWidth * 2.5d),
+                Length = (int)(FullWidth * 2.5d),
                 BlockData = Blocks.ToArray()
             };
         }
@@ -116,19 +110,20 @@ namespace GBWorldGen.Core.Algorithms.Generators
         {
             IntializeJitter();
 
+            short originXZ = (short)(FullWidth * -0.5d);
             for (int i = 0; i < Blocks.Length; i++)
             {
                 Blocks[i].X = (short)(i % FullWidth < Width
-                    ? (-1 * (Width - (i % FullWidth))) + X
+                    ? (-1 * (Width - (i % FullWidth))) + originXZ
                     : i % FullWidth > Width
-                        ? (i % FullWidth) - Width + X
-                        : X);
-                Blocks[i].Y = (short)(Y + Random.Next(-2, 2));
+                        ? (i % FullWidth) - Width + originXZ
+                        : originXZ);
+                Blocks[i].Y = (short)(Random.Next(-2, 2));
                 Blocks[i].Z = (short)(i / FullWidth < Width
-                    ? (-1 * (Width - (i / FullWidth))) + Z
+                    ? (-1 * (Width - (i / FullWidth))) + originXZ
                     : i / FullWidth > Width
-                        ? (i / FullWidth) - Width + Z
-                        : Z);
+                        ? (i / FullWidth) - Width + originXZ
+                        : originXZ);
 
                 Blocks[i].Shape = Block.SHAPE.Box;
                 Blocks[i].Direction = Block.DIRECTION.East;
