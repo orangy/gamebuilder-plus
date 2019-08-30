@@ -10,7 +10,7 @@ namespace GeneratorTests
         [Fact]
         public void DiamondSquareGenerator_Creates_Valid_Map()
         {
-            DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(0, 0, 0, 8);
+            DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(8);
             Map myMap = diamondSquareGenerator.Generate();
 
             string serialized = Serializer.SerializeMap(myMap.BlockData);
