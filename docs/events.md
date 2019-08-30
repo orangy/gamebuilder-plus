@@ -1,3 +1,7 @@
+---
+title: "Events"
+---
+
 Events are functions that are called by the engine on the card and/or panels. 
 They need to be `export function` and generally follow the following pattern:
 

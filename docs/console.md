@@ -1,3 +1,7 @@
+---
+title: "Console"
+---
+
 Toggle console by using `~` key. 
 
 # Logging
