@@ -5,7 +5,8 @@
     "title": "Timer",
     "description": "Starts a timer.",
     "categories" : ["Action"],
-    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon"
+    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000007"
   }
 }
 
