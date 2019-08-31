@@ -22,3 +22,9 @@ export function onAction(actionMessage) {
         sendToMany(targets, "Notify", {text: props.Notification});
     }
 }
+
+export function getCardStatus() {
+    return {
+        description: `Sends "<color=white>${props.Notification}</color>" notification to <color=yellow>${getActorGroupDescription(props.Recipient)}</color>`
+    }
+}
