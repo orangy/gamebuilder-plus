@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Respawn",
+    "description": "Respawns an item actor.",
+    "categories" : ["Action"],
+    "imageResourcePath": "BuiltinAssets/CardImages/lighton",
+    "userProvidedId": "6B1811987B374DBADEADBEAF0000000E"
+  }
+}

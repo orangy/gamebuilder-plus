@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Player Effects",
+    "description": "Handles and displays player effects.",
+    "categories" : ["Screen"],
+    "imageResourcePath": "BuiltinAssets/CardImages/lighton",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000011"
+  }
+}

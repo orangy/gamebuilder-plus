@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Cause Effect",
+    "description": "Causes effect to the nearby players.",
+    "categories" : ["Action"],
+    "imageResourcePath": "BuiltinAssets/CardImages/hand",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000010"
+  }
+}

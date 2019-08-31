@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Radius Collision",
+    "description": "Detects collision events within a specified radius.",
+    "categories" : ["Event"],
+    "imageResourcePath": "BuiltinAssets/CardImages/collision",
+    "userProvidedId": "6B1811987B374DBADEADBEAF0000000F"
+  }
+}
