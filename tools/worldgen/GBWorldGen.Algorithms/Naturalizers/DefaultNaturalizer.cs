@@ -15,9 +15,44 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
         public Map Naturalize(Map map)
         {
             CalcuateExtremes(map);
+            map = YAdjustMap(map);
+            CalcuateExtremes(map); // Need to recalculate after moving
             map = PaintAndFillWater(map);
             map = FillBottom(map);
 
+            return map;
+        }
+
+        private Map YAdjustMap(Map map)
+        {
+            Console.WriteLine("Y-adjusting map...");
+
+            Block[] blockData = map.BlockData;            
+            short averageY = (short)(blockData.Average(b => b.Y));
+            short adjustY = (short)(averageY * -1.0d);
+            int tries = 10;
+
+            while (tries > 0 &&
+                (averageY + adjustY < MinWorldY ||
+                averageY + adjustY > MaxWorldY ||
+                LowestY + adjustY < MinWorldY ||
+                HighestY + adjustY > MaxWorldY))
+            {
+                adjustY = (short)(adjustY / 2.0d);
+                tries--;
+            }
+            
+            // Move all blocks lower/higher more towards Y=0
+            for (int i = 0; i < blockData.Length; i++)
+            {
+                blockData[i].Y += adjustY;
+
+                // If still below bottom, set at bottom
+                if (blockData[i].Y < MinWorldY) blockData[i].Y = (short)MinWorldY;
+            }
+                
+
+            map.BlockData = blockData;
             return map;
         }
 

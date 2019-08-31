@@ -10,18 +10,22 @@ namespace GBWorldGen.Core.Algorithms.Generators
     {
         public int Width { get; set; }
         public int Length { get; set; }
+        public float HillFrequency { get; set; }
+        public int Gradient { get; set; }
 
         private readonly Block[] Blocks;
         Block.STYLE DefaultBlockStyle { get; set; }
 
-        public PerlinNoiseGenerator(int width, int length, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        public PerlinNoiseGenerator(int width, int length, float hillFrequency = 1.35F, int gradient = 9, int? seed = null, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
-            Console.WriteLine($"Creating a Perlin Noise map with a width of {width}, a length of {length} and default block style of {defaultBlockStyle}.");
+            Console.WriteLine($"Creating a Perlin Noise map with a width of {width}, a length of {length}, gradient of {gradient} and default block style of {defaultBlockStyle}.");
 
             Width = width;
             Length = length;
+            HillFrequency = hillFrequency;
+            Gradient = gradient;
 
-            perm = RandomPermutationSeed();
+            perm = RandomPermutationSeed(seed);
             Blocks = new Block[Width * Length];
             DefaultBlockStyle = defaultBlockStyle;
 
@@ -35,6 +39,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             float e = 0.0F;
             float ni = 0.0F;
             float nj = 0.0f;
+            int gradient = Math.Abs(Gradient);
 
             for (int j = 1; j <= Width; j++)
             {
@@ -43,12 +48,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     ni = ((float)i) / Width;
                     nj = ((float)j) / Length;
 
-                    e = 1F * Noise(1.01F * ni, 1.01F * nj) +
-                        0.5F * Noise(2.01F * ni, 2.01F * nj) +
-                        0.25F * Noise(4.01F * ni, 4.01F * nj);
+                    e = 1F * Noise((HillFrequency + 0.01F) * ni, (HillFrequency + 0.01F) * nj) +
+                        0.5F * Noise((HillFrequency * 2.0F + 0.01F) * ni, (HillFrequency * 2.0F + 0.01F) * nj) +
+                        0.25F * Noise((HillFrequency * 4.0F + 0.01F) * ni, (HillFrequency * 4.0F + 0.01F) * nj);
                     e = (float)(Math.Round(e * 60d, 4));
 
-                    Blocks[((j - 1) * Length) + (i - 1)].Y = (short)(FloorToInt(e) + 30);
+                    Blocks[((j - 1) * Length) + (i - 1)].Y = (short)(FloorToInt(e) + gradient);
                 }
             }
 
@@ -230,9 +235,9 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return (int)Math.Floor(number);
         }
 
-        private int[] RandomPermutationSeed()
+        private int[] RandomPermutationSeed(int? seed)
         {
-            Random rand = new Random();
+            Random rand = seed.HasValue ? new Random(seed.Value) : new Random();
             List<int> values = new List<int>(512);
             for (int i = 0; i < 512; i++)
             {

@@ -11,7 +11,7 @@ namespace GBWorldGen.Driver.Main
         public static void Main(string[] args)
         {
             VoosGenerator voosGenerator = new VoosGenerator();
-            PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(20, 20);
+            PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(200, 200);
             DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(8, defaultBlockStyle: Block.STYLE.GrayCraters);
             DefaultNaturalizer naturalizer = new DefaultNaturalizer();
             string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";

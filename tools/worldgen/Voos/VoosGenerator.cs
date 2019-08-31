@@ -18,12 +18,13 @@ namespace GBWorldGen.Core.Voos
             _fileData = SampleVoosFile();
         }
 
-        public string Generate(Map map, string outputDirectory, string mapName = null, string mapDescription = null)
+        public string Generate(Map map, string outputDirectory = null, string mapName = null, string mapDescription = null)
         {
             string encodedMapData = Serializer.SerializeMap(map.BlockData);
 
             string parentFolderName = $"custom-{RandomStringGenerator.Generate(32)}";
-            string parentFolderPath = Path.Combine(outputDirectory, parentFolderName);
+            string parentFolderPath = Path.Combine(
+                !string.IsNullOrEmpty(outputDirectory) ? outputDirectory : Directory.GetCurrentDirectory(), parentFolderName);
 
             string voosFileData = _fileData.Replace(_templateKey, encodedMapData);
             voosFileData = voosFileData.Replace(_mapWidth, map.Width.ToString());
