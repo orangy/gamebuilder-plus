@@ -51,7 +51,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     e = 1F * Noise((HillFrequency + 0.01F) * ni, (HillFrequency + 0.01F) * nj) +
                         0.5F * Noise((HillFrequency * 2.0F + 0.01F) * ni, (HillFrequency * 2.0F + 0.01F) * nj) +
                         0.25F * Noise((HillFrequency * 4.0F + 0.01F) * ni, (HillFrequency * 4.0F + 0.01F) * nj);
-                    e = (float)(Math.Round(e * 60d, 4));
+                    e = (float)(Math.Round(e * 60d, 4)); // good
+                    //e = (float)(Math.Pow(Math.Abs(e) * 10, 2.2)); // archipelagos
 
                     Blocks[((j - 1) * Length) + (i - 1)].Y = (short)(FloorToInt(e) + gradient);
                 }

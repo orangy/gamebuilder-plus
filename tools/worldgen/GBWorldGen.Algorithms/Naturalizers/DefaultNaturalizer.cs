@@ -80,7 +80,7 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             // Paint blocks
             for (int i = 0; i < blockData.Length; i++)
             {
-                if (blockData[i].Y < MinWorldY) continue;
+                if (blockData[i].Y < MinWorldY || blockData[i].Y > MaxWorldY) continue;
 
                 blockData[i].Style = styleRange[blockData[i].Y - lowestVisibleY];
 
