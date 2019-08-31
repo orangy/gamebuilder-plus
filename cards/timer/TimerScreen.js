@@ -57,6 +57,6 @@ export function onDrawScreen() {
 
 export function getCardStatus() {
     return {
-        description: `Displays value of timer <color=orange>${props.Name}</color> on <color=yellow>${getCardTargetActorDescription("Actor")}</color>`
+        description: `Displays value of timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color>`
     }
 }

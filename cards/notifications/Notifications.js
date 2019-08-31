@@ -96,6 +96,6 @@ export function onNotify(msg) {
 
 export function getCardStatus() {
     return {
-        description: `Show notifications for <color=white>${props.ExpirationTime}</color> seconds`
+        description: `Show notifications for <color=orange>${props.ExpirationTime}</color> seconds`
     }
 }

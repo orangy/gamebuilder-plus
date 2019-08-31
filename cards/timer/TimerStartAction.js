@@ -33,6 +33,6 @@ export function onResetGame() {
 
 export function getCardStatus() {
     return {
-        description: `Starts timer <color=orange>${props.Name}</color> on <color=yellow>${getCardTargetActorDescription("Actor")}</color> for <color=orange>${props.Time}</color> seconds.`
+        description: `Starts timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color> for <color=orange>${props.Time}</color> seconds.`
     }
 }

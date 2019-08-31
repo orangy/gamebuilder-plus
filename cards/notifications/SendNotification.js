@@ -25,6 +25,6 @@ export function onAction(actionMessage) {
 
 export function getCardStatus() {
     return {
-        description: `Sends "<color=white>${props.Notification}</color>" notification to <color=yellow>${getActorGroupDescription(props.Recipient)}</color>`
+        description: `Sends "<color=yellow>${props.Notification}</color>" notification to <color=green>${getActorGroupDescription(props.Recipient)}</color>`
     }
 }
