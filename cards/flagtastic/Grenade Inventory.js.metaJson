@@ -1,0 +1,9 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Grenade Inventory",
+    "description": "Handles inventory of grenades.",
+    "categories" : ["Screen"],
+    "userProvidedId": "6B1811987B374DBADEADBEAF0000000D"
+  }
+}

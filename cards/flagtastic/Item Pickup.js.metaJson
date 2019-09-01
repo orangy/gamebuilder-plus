@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Item Pickup",
+    "description": "Collects an item with an optional respawn.",
+    "categories" : ["Action"],
+    "imageResourcePath": "BuiltinAssets/CardImages/hand",
+    "userProvidedId": "6B1811987B374DBADEADBEAF0000000B"
+  }
+}

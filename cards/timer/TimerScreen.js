@@ -55,8 +55,8 @@ export function onDrawScreen() {
     uiText(props.X, props.Y, text, color, {textSize: props.TextSize, center: props.Center});
 }
 
-/*
-export function getDescription() {
-    return `Displays time left on the [${props.Name}] timer.`;
+export function getCardStatus() {
+    return {
+        description: `Displays value of timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color>`
+    }
 }
-*/

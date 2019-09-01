@@ -31,8 +31,8 @@ export function onResetGame() {
         deleteVarPlease(target, variable)
 }
 
-/*
-export function getDescription() {
-    return `Starts the [${props.Name}] timer for ${props.Time} seconds.`;
+export function getCardStatus() {
+    return {
+        description: `Starts timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color> for <color=orange>${props.Time}</color> seconds.`
+    }
 }
-*/

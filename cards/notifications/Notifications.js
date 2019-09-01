@@ -40,11 +40,18 @@ export const PROPS = [
 const PADDING = UI_TEXT_LINE_HEIGHT / 2;
 const ITEM_HEIGHT = UI_TEXT_LINE_HEIGHT + PADDING * 2;
 
+export function onInit() {
+    onResetGame()
+}
+
 export function onResetGame() {
     card.notifications = [];
 }
 
 export function onLocalTick() {
+    if (card.notifications === undefined)
+        return;
+    
     const time = getTime();
     card.notifications = card.notifications.filter(n => n.expires > time);
 }
@@ -89,6 +96,6 @@ export function onNotify(msg) {
 
 export function getCardStatus() {
     return {
-        description: `Show notifications for <color=white>${props.ExpirationTime}</color> seconds`
+        description: `Show notifications for <color=orange>${props.ExpirationTime}</color> seconds`
     }
 }

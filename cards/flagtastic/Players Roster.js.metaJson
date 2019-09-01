@@ -1,0 +1,10 @@
+{
+  "cardSystemCardData" : {
+    "isCard": true,
+    "title": "Players Roster",
+    "description": "Display state and scores for all players, sorted by score descending.",
+    "categories" : ["Screen"],
+    "imageResourcePath": "BuiltinAssets/CardImages/scoreboard",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000009"
+  }
+}

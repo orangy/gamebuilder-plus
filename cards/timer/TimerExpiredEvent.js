@@ -22,3 +22,9 @@ export function onCheck() {
     }
     return expired;
 }
+
+export function getCardStatus() {
+    return {
+        description: `Fires when timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color> expires.`
+    }
+}
