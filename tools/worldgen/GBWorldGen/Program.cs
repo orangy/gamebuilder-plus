@@ -1,4 +1,4 @@
-﻿using GBWorldGen.Core.Algorithms.Generators;
+﻿using Algorithms.Generators;
 using GBWorldGen.Core.Algorithms.Naturalize;
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Voos;
@@ -11,26 +11,12 @@ namespace GBWorldGen.Driver.Main
     {
         public static void Main(string[] args)
         {
-            //float version = 1.0f;
+            float version = 1.0f;
 
-            //DrawTitle(version);
-            //DrawMenu();
+            DrawTitle(version);
+            DrawMenu();
 
-            //return;
-            VoosGenerator voosGenerator = new VoosGenerator();
-            PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(50, 50);
-            DiamondSquareGenerator diamondSquareGenerator = new DiamondSquareGenerator(8, defaultBlockStyle: Block.STYLE.GrayCraters);
-            DefaultNaturalizer naturalizer = new DefaultNaturalizer();
-            string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
-
-            //Map myMap = diamondSquareGenerator.Generate();
-            Map myMap = perlinNoiseGenerator.Generate();
-            myMap = naturalizer.Naturalize(myMap);
-
-            string createdMap = voosGenerator.Generate(myMap, outputDirectory);
-
-            Console.WriteLine($"Created new .voos file at '{createdMap}'.");
-            Console.WriteLine("Press any key to continue...");
+            return;
         }
 
         private static void DrawTitle(float version)
@@ -56,28 +42,126 @@ namespace GBWorldGen.Driver.Main
             Console.WriteLine(@"  \  \   |____|_  /\____/|__|_|  (____  /___|  /____  > \______  / \/ \_______ \______  /  /  /  ");
             Console.WriteLine(@"   \__\         \/             \/     \/     \/     \/         \/             \/      \/  /__/   ");
             Console.WriteLine(@"-------------------------------------------------------------------------------------------------");
-            Console.WriteLine(@"");            
+            Console.WriteLine(@"");
         }
 
         private static void DrawMenu()
         {
+            // DRAW MENU
             TypewriterText("Create your own Game Builder world with this tool.");
-            TypewriterText("An .options file can speed upBefore we begin, you can save an .options file to more easily create worlds. Would you like us to make an .options file for you?");
+            TypewriterText("What kind of map would you like to create?", autoPauseAtEnd: 0);
+            TypewriterText("------------------------------------------", autoPauseAtEnd: 0);
+            TypewriterText("1. Default (boring)", autoPauseAtEnd: 0);
+            TypewriterText("2. Steep cliffs, lots of water", autoPauseAtEnd: 0);
+            TypewriterText("3. One big hill with lake", autoPauseAtEnd: 0);
+            TypewriterText("4. Oval lake with oval mountain", autoPauseAtEnd: 0);
+            TypewriterText("5. Many hills", autoPauseAtEnd: 0);
+            TypewriterText("6. Exit", 2, autoPauseAtEnd: 0);
+            TypewriterText("> ", newlines: 0, autoPauseAtEnd: 0);
 
+            ConsoleKeyInfo key = Console.ReadKey();
+            string line = string.Empty;
+            if (key.Key == ConsoleKey.D5)
+                Environment.Exit(0);
+            TypewriterText("", 2, autoPauseAtEnd: 0);
+            TypewriterText("(To chose any default values, simply hit 'Enter')");
+
+            // GET MAP GEN OPTIONS
+            int itemp;
+            float ftemp;
+
+            int width = 100;
+            int length = 100;
+            string mapName = $"CustomMap-{DateTime.Now.ToString("MM_dd_yyyy hh_mm tt")}";
+            string mapDesc = "Build with love by Romans 8:28";
+            string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games"; //Directory.GetCurrentDirectory();
+
+            try
+            {
+                TypewriterText("How wide would you like your map to be (100 is default (worlds crash when this is less than 30))? > ", newlines: 0, autoPauseAtEnd: 0);
+                line = Console.ReadLine();
+                if (int.TryParse(line, out itemp))
+                    width = itemp;
+
+                TypewriterText("How long would you like your map to be (100 is default (worlds crash when this is less than 30))? > ", newlines: 0, autoPauseAtEnd: 0);
+                line = Console.ReadLine();
+                if (int.TryParse(line, out itemp))
+                    length = itemp;
+
+                TypewriterText($"Would you like to give your map a name ('{mapName}' is default)? > ", newlines: 0, autoPauseAtEnd: 0);
+                line = Console.ReadLine();
+                if (!string.IsNullOrEmpty(line))
+                    mapName = line;
+
+                TypewriterText($"Would you like to give your map a description ('{mapDesc}' is default)? > ", newlines: 0, autoPauseAtEnd: 0);
+                line = Console.ReadLine();
+                if (!string.IsNullOrEmpty(line))
+                    mapDesc = line;
+
+                TypewriterText($"Where would you like us to save your map ('{outputDirectory}' is default)? > ", newlines: 0, autoPauseAtEnd: 0);
+                line = Console.ReadLine();
+                if (!string.IsNullOrEmpty(line))
+                    outputDirectory = line;
+
+                float[] opts = new float[2];
+                opts[0] = key.KeyChar;
+                if (key.Key == ConsoleKey.D2)
+                {
+                    TypewriterText("What would you like your multiplier to be (2.0 is default)? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (float.TryParse(line, out ftemp))
+                        opts[1] = ftemp;
+                }
+                else if (key.Key == ConsoleKey.D5)
+                {
+                    TypewriterText("What would you like your multiplier to be (2.0 is default)? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (float.TryParse(line, out ftemp))
+                        opts[1] = ftemp;
+                }
+
+                TypewriterText("", 2);
+
+
+                // CREATE MAP
+                Map myMap = new Map();
+                VoosGenerator voosGenerator = new VoosGenerator();
+                BaseGenerator generator = new DefaultGenerator(width, length);
+                myMap = generator.Generate(opts);
+                DefaultNaturalizer naturalizer = new DefaultNaturalizer();
+                myMap = naturalizer.Naturalize(myMap);
+                voosGenerator.Generate(myMap, outputDirectory, mapName, mapDesc);
+            }
+            catch (Exception ex)
+            {
+                TypewriterText("Oops! An error occurred.", autoPauseAtEnd: 0);
+                TypewriterText("Please send an entire copy of your console window to Romans 8:28 on the discord server to debug and fix this.", newlines: 2, autoPauseAtEnd: 0);
+                TypewriterText($"{ex.Message}", autoPauseAtEnd: 0);
+                TypewriterText($"{ex.StackTrace}", autoPauseAtEnd: 0);
+
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+
+            TypewriterText("Your map was successfully created!");
+            TypewriterText("Have a nice day!");
             Console.ReadKey();
             Environment.Exit(0);
         }
 
-        private static void TypewriterText(string text, bool newline = true, int? autoPauseAtEnd = 1200)
+        private static void TypewriterText(string text, int? newlines = 1, int? autoPauseAtEnd = 1200)
         {
             for (int i = 0; i < text.Length; i++)
             {
                 Console.Write(text[i]);
-                Thread.Sleep(25);
+                Thread.Sleep(10);
             }
 
-            if (newline)
-                Console.Write(Environment.NewLine);
+            if (newlines.HasValue)
+                for (var i = 0; i < newlines; i++)
+                    Console.Write(Environment.NewLine);
 
             if (autoPauseAtEnd.HasValue)
                 Thread.Sleep(autoPauseAtEnd.Value);

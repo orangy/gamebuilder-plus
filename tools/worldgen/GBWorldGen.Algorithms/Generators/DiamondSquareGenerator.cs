@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace GBWorldGen.Core.Algorithms.Generators
 {
+    [Obsolete("Please use PerlinNoise instead, it is better!")]
     public class DiamondSquareGenerator : WorldData, IGenerateWorld
     {
         public int Width { get; set; }        
@@ -34,7 +35,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             Initialize();
         }
 
-        public Map Generate()
+        public Map Generate(params float[] values)
         {
             Console.WriteLine("Generating map...");
 

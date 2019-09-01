@@ -17,8 +17,12 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             CalcuateExtremes(map);
             map = YAdjustMap(map);
             CalcuateExtremes(map); // Need to recalculate after moving
-            map = PaintAndFillWater(map);
-            map = FillBottom(map);
+
+            if (LowestY != HighestY)
+            {
+                map = PaintAndFillWater(map);
+                map = FillBottom(map);
+            }            
 
             return map;
         }

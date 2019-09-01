@@ -1,89 +1,23 @@
-﻿using GBWorldGen.Core.Algorithms.Abstractions;
-using GBWorldGen.Core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace GBWorldGen.Core.Algorithms.Generators
+namespace Algorithms.Methods
 {
-    // https://github.com/keijiro/PerlinNoise/blob/master/Assets/Perlin.cs
-    public class PerlinNoiseGenerator : WorldData, IGenerateWorld
+    // https://github.com/Unity-Technologies/UnityCsReference/blob/2019.3/Modules/TreeEditor/Includes/Perlin.cs    
+    public class Perlin
     {
-        public int Width { get; set; }
-        public int Length { get; set; }
-        public float HillFrequency { get; set; }
-        public int Gradient { get; set; }
-
-        private readonly Block[] Blocks;
-        Block.STYLE DefaultBlockStyle { get; set; }
-
-        public PerlinNoiseGenerator(int width, int length, float hillFrequency = 1.35F, int gradient = 9, int? seed = null, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        public Perlin()
         {
-            Console.WriteLine($"Creating a Perlin Noise map with a width of {width}, a length of {length}, gradient of {gradient} and default block style of {defaultBlockStyle}.");
-
-            Width = width;
-            Length = length;
-            HillFrequency = hillFrequency;
-            Gradient = gradient;
-
-            perm = RandomPermutationSeed(seed);
-            Blocks = new Block[Width * Length];
-            DefaultBlockStyle = defaultBlockStyle;
-
-            Initialize();
-        }
-
-        public Map Generate(params float[] values)
-        {
-            Console.WriteLine("Generating map...");
-
-            float e = 0.0F;
-            float ni = 0.0F;
-            float nj = 0.0f;
-            int gradient = Math.Abs(Gradient);
-
-            for (int j = 1; j <= Width; j++)
-            {
-                for (int i = 1; i <= Length; i++)
-                {
-                    ni = ((float)i) / Width;
-                    nj = ((float)j) / Length;
-
-                    e = 1F * Noise((HillFrequency + 0.01F) * ni, (HillFrequency + 0.01F) * nj) +
-                        0.5F * Noise((HillFrequency * 2.0F + 0.01F) * ni, (HillFrequency * 2.0F + 0.01F) * nj) +
-                        0.25F * Noise((HillFrequency * 4.0F + 0.01F) * ni, (HillFrequency * 4.0F + 0.01F) * nj);
-                    e = (float)(Math.Round(e * 60d, 4)); // good
-                    //e = (float)(Math.Pow(Math.Abs(e) * 10, 2.2)); // archipelagos
-
-                    Blocks[((j - 1) * Length) + (i - 1)].Y = (short)(FloorToInt(e) + gradient);
-                }
-            }
-
-            return new Map
-            {
-                Width = (int)(Width * 2.5d),
-                Length = (int)(Length * 2.5d),
-                BlockData = Blocks
-            };
-        }
-
-        private void Initialize()
-        {
-            short originX = (short)(Width * -0.5d);
-            short originZ = (short)(Length * -0.5d);
-            for (int i = 0; i < Blocks.Length; i++)
-            {
-                Blocks[i].X = (short)(i / Length + originZ);
-                Blocks[i].Y = 0;
-                Blocks[i].Z = (short)(i % Width + originX);
-
-                Blocks[i].Shape = Block.SHAPE.Box;
-                Blocks[i].Direction = Block.DIRECTION.East;
-                Blocks[i].Style = DefaultBlockStyle;
-            }
+            perm = RandomPermutationSeed();
         }
 
         #region Noise functions
 
+        /// <summary>
+        /// Returns a number between -1 and 1 for one input, <paramref name="x"/>.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         public float Noise(float x)
         {
             var X = FloorToInt(x) & 0xff;
@@ -92,6 +26,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return Lerp(u, Grad(perm[X], x), Grad(perm[X + 1], x - 1)) * 2;
         }
 
+        /// <summary>
+        /// Returns a number between -1 and 1 for two inputs, <paramref name="x"/> and <paramref name="y"/>.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public float Noise(float x, float y)
         {
             var X = FloorToInt(x) & 0xff;
@@ -104,7 +44,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             var B = (perm[X + 1] + Y) & 0xff;
             return Lerp(v, Lerp(u, Grad(perm[A], x, y), Grad(perm[B], x - 1, y)),
                            Lerp(u, Grad(perm[A + 1], x, y - 1), Grad(perm[B + 1], x - 1, y - 1)));
-        }
+        }        
 
         //public static float Noise(Vector2 coord)
         //{
@@ -236,7 +176,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return (int)Math.Floor(number);
         }
 
-        private int[] RandomPermutationSeed(int? seed)
+        private int[] RandomPermutationSeed(int? seed = null)
         {
             Random rand = seed.HasValue ? new Random(seed.Value) : new Random();
             List<int> values = new List<int>(512);
