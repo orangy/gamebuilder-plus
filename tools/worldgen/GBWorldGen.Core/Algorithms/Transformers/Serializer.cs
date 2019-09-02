@@ -1,6 +1,7 @@
 ﻿using GBWorldGen.Core.Models;
 using GBWorldGen.Misc.Utils;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -36,8 +37,10 @@ namespace GBWorldGen.Core.Algorithms.Transformers
 
     public static class Deserializer
     {
-        public static bool DeserializeMap(string mapData)
+        public static Block[] DeserializeMap(string mapData)
         {
+            List<Block> returnBlocks = new List<Block>();
+
             try
             {
                 byte[] zippedBytes = System.Convert.FromBase64String(mapData);
@@ -56,28 +59,28 @@ namespace GBWorldGen.Core.Algorithms.Transformers
                         byte direction = reader.ReadByte();
                         ushort style = reader.ReadUInt16();
 
-                        Block.SHAPE testShape = (Block.SHAPE)shape;
-                        Block.DIRECTION testDirection = (Block.DIRECTION)direction;
-                        Block.STYLE testStyle = (Block.STYLE)style;
+                        Block.SHAPE actualShape = (Block.SHAPE)shape;
+                        Block.DIRECTION actualDirection = (Block.DIRECTION)direction;
+                        Block.STYLE actualStyle = (Block.STYLE)style;
 
-                        //this.SetCellValue(
-                        //  new Cell(x, y, z),
-                        //  new CellValue
-                        //  {
-                        //      blockType = (BlockShape)shape,
-                        //      direction = (BlockDirection)direction,
-                        //      style = (BlockStyle)style
-                        //  });
+                        returnBlocks.Add(new Block
+                        {
+                            X = x,
+                            Y = y,
+                            Z = z,
+                            Shape = actualShape,
+                            Direction = actualDirection,
+                            Style = actualStyle
+                        });
                     }
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error occurred while deserializing: {ex.Message}.");
-                return false;
             }
 
-            return true;
+            return returnBlocks.ToArray();
         }
     }
 }

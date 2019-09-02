@@ -1,5 +1,4 @@
-﻿using GBWorldGen.Core.Algorithms;
-using GBWorldGen.Core.Algorithms.Abstractions;
+﻿using GBWorldGen.Core.Algorithms.Abstractions;
 using GBWorldGen.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Collections.Generic;
 namespace GBWorldGen.Core.Algorithms.Generators
 {
     public class BaseGenerator : WorldData, IGenerateWorld
-    {       
+    {
         protected int Width { get; set; }
         protected int Length { get; set; }
         private Block.STYLE DefaultBlockStyle { get; }

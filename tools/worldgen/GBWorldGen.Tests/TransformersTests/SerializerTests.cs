@@ -1,3 +1,6 @@
+using GBWorldGen.Core.Algorithms.Generators;
+using GBWorldGen.Core.Algorithms.Transformers;
+using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Voos;
 using Xunit;
 
@@ -5,22 +8,26 @@ namespace TransformersTests
 {
     public class SerializerTests
     {
-        [Fact]
-        public void PerlinNoise_Output_Is_Same_As_Input()
+        [Theory]
+        [InlineData(100, 100)]
+        public void Serializer_Serializes_All_Data_Properly(int x, int z)
         {
-            VoosGenerator voosGenerator = new VoosGenerator();
-            //PerlinNoiseGenerator perlinNoiseGenerator = new PerlinNoiseGenerator(10, 10);
+            // CREATE MAP
+            Map myMap = new Map();
+            Block[] before = null;
+            Block[] after = null;
+            BaseGenerator generator = new DefaultGenerator(x, z);
+            myMap = generator.Generate();
+            before = myMap.BlockData;
 
-            //string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
+            string serialized = Serializer.SerializeMap(before);
+            after = Deserializer.DeserializeMap(serialized);
+            bool valid = true;
 
-            ////Map myMap = diamondSquareGenerator.Generate();
-            //Map myMap = perlinNoiseGenerator.Generate();
-            //myMap = naturalizer.Naturalize(myMap);
+            for (int i = 0; i < before.Length; i++)
+                if (!before[i].Equals(after[i])) valid = false;
 
-            //string createdMap = voosGenerator.Generate(myMap, outputDirectory);
-
-            //Console.WriteLine($"Created new .voos file at '{createdMap}'.");
-            //Console.WriteLine("Press any key to continue...");
+            Assert.True(valid);
         }
     }
 }

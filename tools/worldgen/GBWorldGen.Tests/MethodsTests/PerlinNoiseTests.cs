@@ -12,7 +12,7 @@ namespace MethodsTests
             Random random = new Random();
             PerlinNoise perlin = new PerlinNoise();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 float x = (float)(random.NextDouble() * 25);
                 float y = (float)(random.NextDouble() * 25);
