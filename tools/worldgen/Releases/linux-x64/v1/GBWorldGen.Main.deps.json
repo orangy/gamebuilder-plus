@@ -1,0 +1,81 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2/linux-x64",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {},
+    ".NETCoreApp,Version=v2.2/linux-x64": {
+      "GBWorldGen.Main/1.0.0": {
+        "dependencies": {
+          "Algorithms": "1.0.0",
+          "Models": "1.0.0",
+          "Voos": "1.0.0"
+        },
+        "runtime": {
+          "GBWorldGen.Main.dll": {}
+        }
+      },
+      "Algorithms/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0",
+          "Utils": "1.0.0"
+        },
+        "runtime": {
+          "Algorithms.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "runtime": {
+          "Models.dll": {}
+        }
+      },
+      "Utils/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "Utils.dll": {}
+        }
+      },
+      "Voos/1.0.0": {
+        "dependencies": {
+          "Algorithms": "1.0.0",
+          "Models": "1.0.0",
+          "Utils": "1.0.0"
+        },
+        "runtime": {
+          "Voos.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GBWorldGen.Main/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Algorithms/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Voos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
