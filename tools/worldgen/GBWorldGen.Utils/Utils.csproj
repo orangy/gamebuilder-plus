@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GBworldgen.Models\Models.csproj" />
+    <ProjectReference Include="..\GBWorldgen.Core\Models\Models.csproj" />
   </ItemGroup>
 
 </Project>

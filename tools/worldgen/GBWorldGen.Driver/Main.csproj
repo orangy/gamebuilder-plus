@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>GBWorldGen.Main</AssemblyName>
+    <RootNamespace>GBWorldGen.Main</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GBWorldgen.Core\Algorithms\Algorithms.csproj" />
+    <ProjectReference Include="..\GBWorldgen.Core\Models\Models.csproj" />    
+    <ProjectReference Include="..\GBWorldgen.Core\Voos\Voos.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Main": {
+      "commandName": "Project",
+      "commandLineArgs": "-fast -romans828"
+    }
+  }
+}
