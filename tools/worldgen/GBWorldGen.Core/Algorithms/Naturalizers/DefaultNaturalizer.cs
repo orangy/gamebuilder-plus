@@ -192,44 +192,44 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             Console.WriteLine("Filling in bottom of map...");
 
             // Fill
-            //for (int x = 0; x < map.BlockData.GetLength(0); x++)
-            //    for (int y = 0; y < map.BlockData.GetLength(1); y++)
-            //        for (int z = 0; z < map.BlockData.GetLength(2); z++)
-            //        {
-            //            for (int q = map.BlockData[x, y, z].Y - 1; q >= LowestY; q--)
-            //            {
-            //                fillBlocks.Add(new Block
-            //                {
-            //                    X = blockData[i].X,
-            //                    Y = (short)j,
-            //                    Z = blockData[i].Z,
-            //                    Shape = blockData[i].Shape,
-            //                    Direction = blockData[i].Direction,
-            //                    Style = blockData[i].Style
-            //                });
-            //            }
-            //        }
-            //Block[] blockData = map.BlockData;
-            //List<Block> fillBlocks = new List<Block>();
-            //for (int i = 0; i < blockData.Length; i++)
-            //    for (int j = blockData[i].Y - 1; j >= LowestY; j--)
-            //    {
-            //        fillBlocks.Add(new Block
-            //        {
-            //            X = blockData[i].X,
-            //            Y = (short)j,
-            //            Z = blockData[i].Z,
-            //            Shape = blockData[i].Shape,
-            //            Direction = blockData[i].Direction,
-            //            Style = blockData[i].Style
-            //        });
-            //    }
+            List<Block> mapBlocks = new List<Block>(Map.ToList(map.BlockData));
+            List<Block> fillBlocks = new List<Block>();
+            int newMapHeight = 0;
+            int fillBlocksThisLoop = 0;
+            bool checkedJ = false;
 
-            //int originalLength = blockData.Length;
-            //Array.Resize(ref blockData, originalLength + fillBlocks.Count);
-            //fillBlocks.ToArray().CopyTo(blockData, originalLength);
+            for (int i = 0; i < mapBlocks.Count; i++)
+            {                
+                for (int j = mapBlocks[i].Y - 1; j >= LowestY; j--)
+                {
+                    checkedJ = true;                    
 
-            //map.BlockData = blockData;
+                    fillBlocks.Add(new Block
+                    {
+                        X = mapBlocks[i].X,
+                        Y = (short)j,
+                        Z = mapBlocks[i].Z,
+                        Shape = mapBlocks[i].Shape,
+                        Direction = mapBlocks[i].Direction,
+                        Style = mapBlocks[i].Style
+                    });
+                    fillBlocksThisLoop++;
+                }
+
+                // Minor optimization,
+                // to prevent calling this everytime in the inner for-loop ("j" one")
+                if (checkedJ)
+                {
+                    if (fillBlocksThisLoop + 1 > newMapHeight) newMapHeight = fillBlocksThisLoop + 1;
+                    checkedJ = false;
+                }
+                fillBlocksThisLoop = 0;
+            }
+            mapBlocks.AddRange(fillBlocks);
+
+            // Re-create map
+            map.BlockData = Map.ToBlock3DArray(mapBlocks, map.Width, map.Length, newMapHeight, MinWorldY, MaxWorldY);
+
             return map;
         }
 
