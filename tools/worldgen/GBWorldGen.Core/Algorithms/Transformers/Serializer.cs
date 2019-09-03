@@ -10,7 +10,7 @@ namespace GBWorldGen.Core.Algorithms.Transformers
 {
     public static class Serializer
     {
-        public static string SerializeMap(Block[] map)
+        public static string SerializeMap(Map map)
         {
             byte[] result;
 
@@ -20,12 +20,12 @@ namespace GBWorldGen.Core.Algorithms.Transformers
                 using (BinaryWriter binaryWriter = new BinaryWriter(gzipStream))
                 {
                     binaryWriter.Write((ushort)0); // version, unused
-                    binaryWriter.Write((uint)map.Length);
+                    binaryWriter.Write((uint)map.BlockData.Length);
 
-                    for (uint i = 0; i < map.Length; i++)
-                    {
-                        binaryWriter.Write(map[i]);
-                    }
+                    for (uint x = 0; x < map.BlockData.GetLength(0); x++)
+                        for (uint y = 0; y < map.BlockData.GetLength(1); y++)
+                            for (uint z = 0; z < map.BlockData.GetLength(2); z++)
+                                binaryWriter.Write(map.BlockData[x, y, z]);                    
                 }
 
                 result = memoryStream.ToArray();

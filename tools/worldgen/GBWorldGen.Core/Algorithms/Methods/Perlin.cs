@@ -5,9 +5,9 @@ namespace GBWorldGen.Core.Algorithms.Methods
 {  
     public class Perlin
     {
-        public Perlin()
+        public Perlin(int? seed = null)
         {
-            perm = RandomPermutationSeed();
+            perm = RandomPermutationSeed(seed);
         }
 
         #region Noise functions

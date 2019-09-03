@@ -1,4 +1,5 @@
-﻿using GBWorldGen.Core.Algorithms.Generators;
+﻿using Algorithms.Generators;
+using GBWorldGen.Core.Algorithms.Generators;
 using GBWorldGen.Core.Algorithms.Naturalize;
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Voos;
@@ -60,14 +61,15 @@ namespace GBWorldGen.Driver.Main
             TypewriterText("What kind of map would you like to create?", autoPauseAtEnd: 0);
             TypewriterText("------------------------------------------", autoPauseAtEnd: 0);
             TypewriterText("1. Default", autoPauseAtEnd: 0);
-            //TypewriterText("2. Steep cliffs, lots of water", autoPauseAtEnd: 0);
+            TypewriterText("2. Tunnel test", autoPauseAtEnd: 0);
             //TypewriterText("3. One big hill with lake", autoPauseAtEnd: 0);
             //TypewriterText("4. Oval lake with oval mountain", autoPauseAtEnd: 0);
             //TypewriterText("5. Many hills", autoPauseAtEnd: 0);
             TypewriterText("2. Exit", autoPauseAtEnd: 0);
             TypewriterText("> ", newlines: 0, autoPauseAtEnd: 0);
 
-            string line = Console.ReadLine();
+            string line = string.Empty;
+            string choice = Console.ReadLine();
             if (line.Contains("2", StringComparison.OrdinalIgnoreCase))
                 Environment.Exit(0);
             TypewriterText("", 2, autoPauseAtEnd: 0);
@@ -111,40 +113,56 @@ namespace GBWorldGen.Driver.Main
                 if (!string.IsNullOrEmpty(line))
                     outputDirectory = line;
 
-                TypewriterText("What would you like your hill frequency to be [1.0=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
-                line = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(line))
-                    if (float.TryParse(line, out ftemp))
-                        options.HillFrequency = ftemp;
-
-                TypewriterText("What would you like your rigidness to be [1=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
-                line = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(line))
+                if (choice.Contains("1", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (int.TryParse(line, out itemp))
-                        options.Rigidness = itemp;
+                    TypewriterText("What would you like your hill frequency to be [1.0=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (!string.IsNullOrEmpty(line))
+                        if (float.TryParse(line, out ftemp))
+                            options.HillFrequency = ftemp;
+
+                    TypewriterText("What would you like your rigidness to be [1=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        if (int.TryParse(line, out itemp))
+                            options.Rigidness = itemp;
+                    }
+
+                    TypewriterText("What would you like your pull to be [1.0=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (!string.IsNullOrEmpty(line))
+                        if (float.TryParse(line, out ftemp))
+                            options.Pull = ftemp;
+
+                    TypewriterText("", 2);
+
+                    mapDesc = $"Map specs => ({width}x{length}) HillFrequency:{options.HillFrequency.ToString("0.00")}. Rigidness:{options.Rigidness}. Pull:{options.Pull.ToString("0.00")}. -Built with love by Romans 8:28.";
                 }
-                else
-                    Console.WriteLine();
+                else if (choice.Contains("2", StringComparison.OrdinalIgnoreCase))
+                {
+                    // CREATE MAP
+                    Map myMap2 = new Map();
+                    VoosGenerator voosGenerator2 = new VoosGenerator();
+                    Base3DGenerator generator2 = new CubeGenerator(width, length, 50, options);
+                    myMap2 = generator2.Generate();
+                    DefaultNaturalizer naturalizer2 = new DefaultNaturalizer();
+                    myMap2 = naturalizer2.Naturalize(myMap2);
+                    voosGenerator2.Generate(myMap2, outputDirectory, mapName, mapDesc);
+                    TypewriterText("Done");
 
-                TypewriterText("What would you like your pull to be [1.0=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
-                line = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(line))
-                    if (float.TryParse(line, out ftemp))
-                        options.Pull = ftemp;
-
-                TypewriterText("", 2);
-
-                mapDesc = $"Map specs => ({width}x{length}) HillFrequency:{options.HillFrequency.ToString("0.00")}. Rigidness:{options.Rigidness}. Pull:{options.Pull.ToString("0.00")}. -Built with love by Romans 8:28.";
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
 
 
                 // CREATE MAP
                 Map myMap = new Map();
                 VoosGenerator voosGenerator = new VoosGenerator();
-                BaseGenerator generator = new DefaultGenerator(width, length, options);
+                Base2DGenerator generator = new DefaultGenerator(width, length, options);
                 myMap = generator.Generate();
                 DefaultNaturalizer naturalizer = new DefaultNaturalizer();
                 myMap = naturalizer.Naturalize(myMap);

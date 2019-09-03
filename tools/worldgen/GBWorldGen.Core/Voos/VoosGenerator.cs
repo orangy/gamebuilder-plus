@@ -20,15 +20,15 @@ namespace GBWorldGen.Core.Voos
 
         public string Generate(Map map, string outputDirectory = null, string mapName = null, string mapDescription = null)
         {
-            string encodedMapData = Serializer.SerializeMap(map.BlockData);
+            string encodedMapData = Serializer.SerializeMap(map);
 
             string parentFolderName = $"WorldGen-{RandomStringGenerator.Generate(32)}";
             string parentFolderPath = Path.Combine(
                 !string.IsNullOrEmpty(outputDirectory) ? outputDirectory : Directory.GetCurrentDirectory(), parentFolderName);
 
             string voosFileData = _fileData.Replace(_templateKey, encodedMapData);
-            voosFileData = voosFileData.Replace(_mapWidth, map.Width.ToString());
-            voosFileData = voosFileData.Replace(_mapLength, map.Length.ToString());
+            voosFileData = voosFileData.Replace(_mapWidth, map.VoosWidth.ToString());
+            voosFileData = voosFileData.Replace(_mapLength, map.VoosLength.ToString());
             string voosFilePath = Path.Combine(parentFolderPath, "scene.voos");
             string metadataFilePath = Path.Combine(parentFolderPath, "metadata.json");
             string thumbnailFilePath = Path.Combine(parentFolderName, "thumbnail.png");

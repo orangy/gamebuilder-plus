@@ -1,18 +1,18 @@
 ﻿using GBWorldGen.Core.Algorithms.Abstractions;
 using GBWorldGen.Core.Algorithms.Methods;
 using GBWorldGen.Core.Models;
+using GBWorldGen.Misc.Utils;
 using System;
 
 namespace GBWorldGen.Core.Algorithms.Generators
 {   
-    public class DefaultGenerator : BaseGenerator, IGenerateWorld
+    public class DefaultGenerator : Base2DGenerator, IGenerateWorld
     {
         private PerlinNoise Perlin { get; }
 
         public DefaultGenerator(int width, int length, BaseGeneratorOptions options = null) : base(width, length, options)
         {
             Perlin = new PerlinNoise();
-            YValues = new short[width * length];
         }
 
         public override Map Generate()
@@ -22,15 +22,15 @@ namespace GBWorldGen.Core.Algorithms.Generators
             float ni = 0;
             float nj = 0;
 
-            for (int i = 1; i <= Width; i++)
+            for (int i = 0; i < Width; i++)
             {
-                for (int j = 1; j <= Length; j++)
+                for (int j = 0; j < Length; j++)
                 {
                     nj = ((float)j / Length);
                     ni = ((float)i / Width);
 
                     heightResult = LoadOptions(ni, nj);
-                    YValues[((i - 1) * Length) + (j - 1)] = MapToWorldBounds(heightResult);
+                    YValues[i, j] = AffineTransformation.MapToWorld(heightResult, MinWorldY, MaxWorldY);
                 }
             }
 
@@ -47,19 +47,6 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 octave = (float)Math.Pow(octave, Options.Pull);
 
             return octave;
-        }
-
-        private short MapToWorldBounds(float value)
-        {
-            // Apply affine transformation;
-            // https://math.stackexchange.com/a/377174/476642
-            float x = value;
-            float a = -1.0F;
-            float b = 1.0F;
-            float c = MinWorldY;
-            float d = MaxWorldY;
-
-            return (short)(((x - a) * ((d - c) / (b - a))) + c);
         }
     }
 

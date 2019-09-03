@@ -8,30 +8,31 @@ namespace GeneratorTests
     {
         [Theory]
         [InlineData(100, 100)]
-        public void DefaultGeneratorTests_Creates_Valid_YBlocks(int x, int z)
+        public void DefaultGeneratorTests_Creates_Valid_YBlocks(int width, int length)
         {
             TestWorldData testWorldData = new TestWorldData();
-            BaseGenerator defaultGenerator = new DefaultGenerator(x, z);
+            Base2DGenerator defaultGenerator = new DefaultGenerator(width, length);
             Map myMap = defaultGenerator.Generate();
             bool valid = true;
 
-            for (int i = 0; i < myMap.BlockData.Length; i++)
-                if (!testWorldData.IsValidY(myMap.BlockData[i].Y))
-                    valid = false;
+            for (int x = 0; x < myMap.BlockData.GetLength(0); x++)
+                for (int y = 0; y < myMap.BlockData.GetLength(1); y++)
+                    for (int z = 0; z < myMap.BlockData.GetLength(2); z++)
+                        if (!testWorldData.IsValidY(myMap.BlockData[x, y, z].Y)) valid = false;
 
             Assert.True(valid);
         }
 
         [Theory]
         [InlineData(100, 100)]
-        public void DefaultGeneratorTests_Creates_Appropriate_Sized_Map(int x, int z)
+        public void DefaultGeneratorTests_Creates_Appropriate_Sized_Map(int width, int length)
         {
             TestWorldData testWorldData = new TestWorldData();
-            BaseGenerator defaultGenerator = new DefaultGenerator(x, z);
+            Base2DGenerator defaultGenerator = new DefaultGenerator(width, length);
             Map myMap = defaultGenerator.Generate();
             bool valid = true;
 
-            if (myMap.BlockData.Length != (x * z)) valid = false;
+            if (myMap.BlockData.Length != (width * length)) valid = false;
             Assert.True(valid);
         }
     }
