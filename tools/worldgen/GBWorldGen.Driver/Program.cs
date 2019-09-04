@@ -164,8 +164,8 @@ namespace GBWorldGen.Driver.Main
                 VoosGenerator voosGenerator = new VoosGenerator();
                 Base2DGenerator generator = new DefaultGenerator(width, length, options);
                 myMap = generator.Generate();
-                DefaultNaturalizer naturalizer = new DefaultNaturalizer();
-                myMap = naturalizer.Naturalize(myMap);
+                //DefaultNaturalizer naturalizer = new DefaultNaturalizer();
+                //myMap = naturalizer.Naturalize(myMap);
                 voosGenerator.Generate(myMap, outputDirectory, mapName, mapDesc);
             }
             catch (Exception ex)

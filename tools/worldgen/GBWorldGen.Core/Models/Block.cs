@@ -1,26 +1,21 @@
-﻿using System;
+﻿using GBWorldGen.Core.Models.Abstractions;
+using System;
 
 namespace GBWorldGen.Core.Models
 {
-    public struct Block
-    {
-        public short X;
-        public short Y;
-        public short Z;
+    /// <summary>
+    /// A block in the world of Game Builder.
+    /// </summary>
+    public class Block : BaseBlock<short>
+    {        
         public SHAPE Shape;
         public DIRECTION Direction;
         public STYLE Style;
 
-        public Block(short x, short y, short z, SHAPE shape, DIRECTION direction, STYLE style)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-            Shape = shape;
-            Direction = direction;
-            Style = style;
-        }
-
+        #region Enums
+        /// <summary>
+        /// The shape of the block in the world.
+        /// </summary>
         public enum SHAPE : byte
         {
             Empty = 0,
@@ -30,6 +25,9 @@ namespace GBWorldGen.Core.Models
             Corner
         }
 
+        /// <summary>
+        /// The direction of the block is facing in the world.
+        /// </summary>
         public enum DIRECTION : byte
         {
             North = 0,
@@ -38,6 +36,9 @@ namespace GBWorldGen.Core.Models
             West
         }
 
+        /// <summary>
+        /// The style of the block in the world.
+        /// </summary>
         public enum STYLE : ushort
         {
             White = 0,
@@ -82,6 +83,28 @@ namespace GBWorldGen.Core.Models
             PavementConcaveCorner,
             PavementConvexCorner
         }
+        #endregion
+
+        public Block(short x, short y, short z, SHAPE shape, DIRECTION direction, STYLE style)
+            : base(x, y, z)
+        {
+            Shape = shape;
+            Direction = direction;
+            Style = style;
+        }        
+
+        #region Private methods
+        private string EnumName(Enum e)
+        {
+            return Enum.GetName(e.GetType(), e);
+        }
+        #endregion 
+
+        #region Overrides
+        public override string ToString()
+        {
+            return $"(X:{X}, Y:{Y}, Z:{Z}) (Shape:{EnumName(Shape)}, Direction:{EnumName(Direction)}, Style:{EnumName(Style)})";
+        }
 
         public override bool Equals(object obj)
         {
@@ -104,17 +127,9 @@ namespace GBWorldGen.Core.Models
 
         public override int GetHashCode()
         {
+            // This forces the compiler to call Equals(object obj)
             return 0;
         }
-
-        public override string ToString()
-        {
-            return $"(X:{X}, Y:{Y}, Z:{Z}) (Shape:{EnumName(Shape)}, Direction:{EnumName(Direction)}, Style:{EnumName(Style)})";
-        }
-
-        private string EnumName(Enum e)
-        {
-            return Enum.GetName(e.GetType(), e);
-        }
+        #endregion               
     }
 }

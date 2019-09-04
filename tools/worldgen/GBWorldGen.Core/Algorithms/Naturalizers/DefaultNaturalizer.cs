@@ -17,13 +17,13 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
         public Map Naturalize(Map map)
         {
             CalcuateExtremes(map);
-            map = YAdjustMap(map);
-            CalcuateExtremes(map); // Need to recalculate after moving
+            //map = YAdjustMap(map);
+            //CalcuateExtremes(map); // Need to recalculate after moving
 
             if (LowestY != HighestY)
             {
                 map = PaintAndFillWater(map);
-                map = FillBottom(map);
+                //map = FillBottom(map);
                 //map = CreateTunnels(map);
             }            
 
@@ -75,15 +75,24 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             Console.WriteLine("Painting map and filling in water...");
 
             // Calculate variables
+            Dictionary<(int, int), int> lowestYs = new Dictionary<(int, int), int>();
+            Dictionary<(int, int), bool> hitY = new Dictionary<(int, int), bool>();
             short lowestVisibleY = (short)MinWorldY;
             short highestVisibleY = (short)MaxWorldY;
-            short lowest = 999; //blockData.Min(m => m.Y);
-            short highest = -999; //blockData.Max(m => m.Y);
+            short lowest = 999;
+            short highest = -999;
 
             for (int x = 0; x < map.BlockData.GetLength(0); x++)
                 for (int y = 0; y < map.BlockData.GetLength(1); y++)
                     for (int z = 0; z < map.BlockData.GetLength(2); z++)
                     {
+                        if (!lowestYs.ContainsKey((x, z)))
+                        {
+                            lowestYs[(x, z)] = map.BlockData[x, y, z].Y;
+                            hitY[(x, z)] = false;
+                        } 
+                        else if (map.BlockData[x, y, z].Y < lowestYs[(x, z)]) lowestYs[(x, z)] = map.BlockData[x, y, z].Y;
+
                         if (map.BlockData[x, y, z].Y < lowest) lowest = map.BlockData[x, y, z].Y;
                         if (map.BlockData[x, y, z].Y > highest) highest = map.BlockData[x, y, z].Y;
                     }
@@ -93,42 +102,67 @@ namespace GBWorldGen.Core.Algorithms.Naturalize
             if (highest <= MaxWorldY)
                 highestVisibleY = highest;
 
+            List<Block> mapBlocks = new List<Block>(Map.ToList(map.BlockData));
             List<Block> fillBlocks = new List<Block>();
             Block.STYLE[] styleRange = BlockStyleRatios(highestVisibleY - lowestVisibleY);
             int maxWaterIndex = Array.FindIndex(styleRange, x => x == styleRange.First(s => s != Block.STYLE.Water)) - 1;
             int temp = 0;
 
             // Paint blocks
+            int waterCount = 0;
             for (int x = 0; x < map.BlockData.GetLength(0); x++)
                 for (int y = 0; y < map.BlockData.GetLength(1); y++)
                     for (int z = 0; z < map.BlockData.GetLength(2); z++)
                     {
                         if (map.BlockData[x, y, z].Y < MinWorldY || map.BlockData[x, y, z].Y > MaxWorldY) continue;
 
-                        map.BlockData[x, y, z].Style = styleRange[map.BlockData[x, y, z].Y - lowestVisibleY];
-
-                        // Fill water
-                        if (map.BlockData[x, y, z].Style == Block.STYLE.Water)
+                        if (map.BlockData[x, y, z].Shape != Block.SHAPE.Empty)
                         {
-                            temp = maxWaterIndex + lowestVisibleY - map.BlockData[x, y, z].Y;
-                            for (int j = map.BlockData[x, y, z].Y + 1; j <= map.BlockData[x, y, z].Y + temp; j++)
-                            {
-                                fillBlocks.Add(new Block
-                                {
-                                    X = map.BlockData[x, y, z].X,
-                                    Y = (short)j,
-                                    Z = map.BlockData[x, y, z].Z,
-                                    Shape = map.BlockData[x, y, z].Shape,
-                                    Direction = map.BlockData[x, y, z].Direction,
-                                    Style = map.BlockData[x, y, z].Style
-                                });
-                            }
-                        }
+                            map.BlockData[x, y, z].Style = styleRange[map.BlockData[x, y, z].Y - lowestVisibleY];
+
+                            if (map.BlockData[x, y, z].Style == Block.STYLE.Water) waterCount++;
+                        }   
                     }
+
+            // Fill water
+            //for (int x = 0; x < map.BlockData.GetLength(0); x++)
+            //    for (int y = 0; y < map.BlockData.GetLength(1); y++)
+            //        for (int z = 0; z < map.BlockData.GetLength(2); z++)
+            //        {
+            //            bool b1 = map.BlockData[x, y, z].Style == Block.STYLE.Water;
+            //            bool b2 = map.BlockData[x, y, z].Y == lowestYs[(x, z)];
+            //            bool b3 = !hitY[(x, z)];
+            //            if (map.BlockData[x, y, z].Style == Block.STYLE.Water &&
+            //                map.BlockData[x, y, z].Y == lowestYs[(x, z)] &&
+            //                !hitY[(x, z)])
+            //            {
+            //                temp = maxWaterIndex + lowestVisibleY - map.BlockData[x, y, z].Y;
+            //                for (int j = map.BlockData[x, y, z].Y + 1; j <= map.BlockData[x, y, z].Y + temp; j++)
+            //                {
+            //                    fillBlocks.Add(new Block
+            //                    {
+            //                        X = map.BlockData[x, y, z].X,
+            //                        Y = (short)j,
+            //                        Z = map.BlockData[x, y, z].Z,
+            //                        Shape = map.BlockData[x, y, z].Shape,
+            //                        Direction = map.BlockData[x, y, z].Direction,
+            //                        Style = map.BlockData[x, y, z].Style
+            //                    });
+            //                }
+
+            //                hitY[(x, z)] = true;
+            //            }
+            //        }
+
 
             //var group = blockData
             //    .GroupBy(b => b.Style)
             //    .Select(g => new { Style = g.Key, Sum = g.Count() });
+
+            //mapBlocks.AddRange(fillBlocks);
+
+            // Re-create map
+            //map.BlockData = Map.ToBlock3DArray(mapBlocks, map.Width, map.Length, map.Height, MinWorldY, MaxWorldY);
 
             return map;
         }

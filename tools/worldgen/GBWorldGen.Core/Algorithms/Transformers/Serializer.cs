@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 
 namespace GBWorldGen.Core.Algorithms.Transformers
 {
@@ -13,6 +14,7 @@ namespace GBWorldGen.Core.Algorithms.Transformers
         public static string SerializeMap(Map map)
         {
             byte[] result;
+            int actual = Map.ToList(map.BlockData).Where(b => b.Shape != Block.SHAPE.Empty).Count();
 
             using (MemoryStream memoryStream = new MemoryStream())
             {
@@ -20,12 +22,13 @@ namespace GBWorldGen.Core.Algorithms.Transformers
                 using (BinaryWriter binaryWriter = new BinaryWriter(gzipStream))
                 {
                     binaryWriter.Write((ushort)0); // version, unused
-                    binaryWriter.Write((uint)map.BlockData.Length);
+                    binaryWriter.Write((uint)actual);
 
                     for (uint x = 0; x < map.BlockData.GetLength(0); x++)
                         for (uint y = 0; y < map.BlockData.GetLength(1); y++)
                             for (uint z = 0; z < map.BlockData.GetLength(2); z++)
-                                binaryWriter.Write(map.BlockData[x, y, z]);                    
+                                if (map.BlockData[x, y, z].Shape != Block.SHAPE.Empty)
+                                    binaryWriter.Write(map.BlockData[x, y, z]);
                 }
 
                 result = memoryStream.ToArray();
