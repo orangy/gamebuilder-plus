@@ -145,14 +145,14 @@ namespace GBWorldGen.Driver.Main
                 else if (choice.Contains("2", StringComparison.OrdinalIgnoreCase))
                 {
                     // CREATE MAP
-                    Map myMap2 = new Map();
-                    VoosGenerator voosGenerator2 = new VoosGenerator();
-                    Base3DGenerator generator2 = new CubeGenerator(width, length, 50, options);
-                    myMap2 = generator2.Generate();
-                    DefaultNaturalizer naturalizer2 = new DefaultNaturalizer();
-                    myMap2 = naturalizer2.Naturalize(myMap2);
-                    voosGenerator2.Generate(myMap2, outputDirectory, mapName, mapDesc);
-                    TypewriterText("Done");
+                    //Map myMap2 = new Map();
+                    //VoosGenerator voosGenerator2 = new VoosGenerator();
+                    //Base3DGenerator generator2 = new CubeGenerator(width, length, 50, options);
+                    //myMap2 = generator2.Generate();
+                    //DefaultNaturalizer naturalizer2 = new DefaultNaturalizer();
+                    //myMap2 = naturalizer2.Naturalize(myMap2);
+                    //voosGenerator2.Generate(myMap2, outputDirectory, mapName, mapDesc);
+                    //TypewriterText("Done");
 
                     Console.ReadKey();
                     Environment.Exit(0);
@@ -160,13 +160,13 @@ namespace GBWorldGen.Driver.Main
 
 
                 // CREATE MAP
-                Map myMap = new Map();
-                VoosGenerator voosGenerator = new VoosGenerator();
-                Base2DGenerator generator = new DefaultGenerator(width, length, options);
-                myMap = generator.Generate();
+                //Map myMap = new Map();
+                //VoosGenerator voosGenerator = new VoosGenerator();
+                //Base2DGenerator generator = new DefaultGenerator(width, length, options);
+                //myMap = generator.Generate();
                 //DefaultNaturalizer naturalizer = new DefaultNaturalizer();
                 //myMap = naturalizer.Naturalize(myMap);
-                voosGenerator.Generate(myMap, outputDirectory, mapName, mapDesc);
+                //voosGenerator.Generate(myMap, outputDirectory, mapName, mapDesc);
             }
             catch (Exception ex)
             {

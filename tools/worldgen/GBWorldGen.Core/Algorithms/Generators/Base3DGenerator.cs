@@ -52,10 +52,11 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
             }
 
-            return new Map
-            {
-                BlockData = blocks
-            };
+            return null;
+            //return new Map
+            //{
+            //    BlockData = blocks
+            //};
         }
     }
 }

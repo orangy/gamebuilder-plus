@@ -1,8 +1,7 @@
 using GBWorldGen.Core.Models;
-using System;
 using Xunit;
 
-namespace ModelsTests
+namespace GBWorldGen.Tests.Models.ModelsTests
 {
     public class ModelsTests
     {

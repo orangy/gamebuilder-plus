@@ -1,6 +1,6 @@
 ﻿using GBWorldGen.Core.Algorithms;
 
-namespace GeneratorTests
+namespace GBWorldGen.Tests.Algorithms.Generators.GeneratorTests
 {
     public class TestWorldData : WorldData
     {

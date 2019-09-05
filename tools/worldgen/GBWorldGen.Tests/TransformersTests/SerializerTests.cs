@@ -1,31 +1,34 @@
 using GBWorldGen.Core.Algorithms.Generators;
+using GBWorldGen.Core.Algorithms.Generators.Abstractions;
 using GBWorldGen.Core.Algorithms.Transformers;
+using GBWorldGen.Core.Algorithms.Transformers.Abstractions;
 using GBWorldGen.Core.Models;
-using GBWorldGen.Core.Voos;
+using GBWorldGen.Core.Models.Abstractions;
 using Xunit;
 
-namespace TransformersTests
+namespace GBWorldGen.Tests.Transformers.TransformersTests
 {
     public class SerializerTests
     {
         [Theory]
-        [InlineData(100, 100)]
-        public void Serializer_Serializes_All_Data_Properly(int x, int z)
+        [InlineData(5, 5)]
+        public void Serializer_Serializes_All_Data_Properly(short x, short z)
         {
-            // CREATE MAP
-            Map myMap = new Map();            
-            Block[] after = null;
-            Base2DGenerator generator = new DefaultGenerator(x, z);
-            myMap = generator.Generate();           
+            BaseGenerator<short> mapGenerator = new MapGenerator(x, z, 1);
+            BaseMap<short> map = mapGenerator.GenerateMap();
 
-            string serialized = Serializer.SerializeMap(myMap);
-            after = Deserializer.DeserializeMap(serialized);
-            bool valid = true;
+            BaseSerializer<short> serializer = new Serializer();
+            string serialized = serializer.Serialize(map);
 
-            //for (int i = 0; i < before.Length; i++)
-            //    if (!before[i].Equals(after[i])) valid = false;
+            BaseDeserializer<short> deserializer = new Deserializer();
+            BaseMap<short> newMap = deserializer.Deserialize(serialized);
 
-            Assert.True(valid);
+            // Validate
+            Assert.Equal(map.MapData.Count, newMap.MapData.Count);
+            for (int i = 0; i < map.MapData.Count; i++)
+            {
+                Assert.Equal((Block)map.MapData[i], (Block)newMap.MapData[i]);
+            }
         }
     }
 }

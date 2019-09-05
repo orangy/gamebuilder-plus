@@ -60,11 +60,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     indexCounter[(x + originX, z + originZ)]++;
                 }
             }
-            
-            return new Map
-            {
-                BlockData = blocks
-            };
+
+            return null;
+            //return new Map
+            //{
+            //    BlockData = blocks
+            //};
         }
     }
 }

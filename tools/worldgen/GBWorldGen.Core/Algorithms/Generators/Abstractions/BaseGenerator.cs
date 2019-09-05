@@ -20,6 +20,9 @@ namespace GBWorldGen.Core.Algorithms.Generators.Abstractions
         {
             Width = width;
             Length = length;
+
+            Noise2D = Generate2DNoise;
+            Noise3D = Generate3DNoise;
         }
 
         public BaseGenerator(T width, T length, T height)
@@ -27,9 +30,21 @@ namespace GBWorldGen.Core.Algorithms.Generators.Abstractions
             Width = width;
             Length = length;
             Height = height;
+
+            Noise2D = Generate2DNoise;
+            Noise3D = Generate3DNoise;
         }
 
         public abstract BaseMap<T> GenerateMap();
+        public virtual float Generate2DNoise(float x, float z)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual float Generate3DNoise(float x, float z, float y)
+        {
+            throw new NotImplementedException();
+        }
 
         public delegate float GetNoise2DDelegate(float x, float z);
         public delegate float GetNoise3DDelegate(float x, float z, float y);

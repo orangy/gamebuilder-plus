@@ -8,14 +8,24 @@ namespace GBWorldGen.Core.Models
     /// A map in the world of Game Builder.
     /// </summary>
     public class Map : BaseMap<short>
-    {        
+    {
+        private const short MINWIDTH = -500;
+        private const short MINLENGTH = -500;
+        private const short MINHEIGHT = -20;
+        private const short MAXWIDTH = 500;
+        private const short MAXLENGTH = 500;
+        private const short MAXHEIGHT = 130;
+
         public short VoosWidth { get { return (short)(Width * 2.5d); } }
         public short VoosLength { get { return (short)(Length * 2.5d); } }
 
-        public Map(short width, short length, short height)
-            : base(width, length, height)
+        public Map(short width, short length, short height, short originWidth = 0, short originLength = 0, short originHeight = 0)
+            : base(width, length, height, 
+                  originWidth, originLength, originHeight,
+                  MINWIDTH, MINLENGTH, MINHEIGHT,
+                  MAXWIDTH, MAXLENGTH, MAXHEIGHT)
         {
-            MapData = new List<Block>();
+            MapData = new List<BaseBlock<short>>(width * length * height);
         }
 
         //public static List<Block> ToList(Block[,,] blocks)
@@ -70,12 +80,14 @@ namespace GBWorldGen.Core.Models
         //    return returnArray;
         //}
 
-        public override void Add(BaseBlock<short> block)
-        {
-            MapData.
-        }
-
         #region Private methods
+
+        /// <summary>
+        /// Returns the width of the map in <see cref="short" /> values. 
+        /// This supports the map to have non-contiguous blocks and count the
+        /// non-contiguous block as part of the width./>
+        /// </summary>
+        /// <returns></returns>
         public override short GetWidth()
         {
             short minX = 0;
@@ -85,10 +97,16 @@ namespace GBWorldGen.Core.Models
                 if (MapData.ElementAt(i).X < minX) minX = MapData.ElementAt(i).X;
                 else if (MapData.ElementAt(i).X > maxX) maxX = MapData.ElementAt(i).X;
             }
-
+            
             return (short)(maxX - minX + 1);
         }
 
+        /// <summary>
+        /// Returns the length of the map in <see cref="short" /> values. 
+        /// This supports the map to have non-contiguous blocks and count the
+        /// non-contiguous block as part of the length./>
+        /// </summary>
+        /// <returns></returns>
         public override short GetLength()
         {
             short minZ = 0;
@@ -102,6 +120,12 @@ namespace GBWorldGen.Core.Models
             return (short)(maxZ - minZ + 1);
         }
 
+        /// <summary>
+        /// Returns the height of the map in <see cref="short" /> values. 
+        /// This supports the map to have non-contiguous blocks and count the
+        /// non-contiguous block as part of the height./>
+        /// </summary>
+        /// <returns></returns>
         public override short GetHeight()
         {
             short minY = 0;

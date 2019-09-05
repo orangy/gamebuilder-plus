@@ -9,7 +9,8 @@
         public T X { get; set; }
         public T Y { get; set; }
         public T Z { get; set; }
-
+        
+        public BaseBlock() { }
         public BaseBlock(T x, T y, T z)
         {
             X = x;

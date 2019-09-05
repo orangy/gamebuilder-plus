@@ -7,10 +7,10 @@ namespace GBWorldGen.Core.Models
     /// A block in the world of Game Builder.
     /// </summary>
     public class Block : BaseBlock<short>
-    {        
-        public SHAPE Shape;
-        public DIRECTION Direction;
-        public STYLE Style;
+    {
+        public SHAPE Shape { get; set; } = SHAPE.Box;
+        public DIRECTION Direction { get; set; } = DIRECTION.East;
+        public STYLE Style { get; set; } = STYLE.Blue;
 
         #region Enums
         /// <summary>
@@ -85,20 +85,21 @@ namespace GBWorldGen.Core.Models
         }
         #endregion
 
+        public Block() { }
         public Block(short x, short y, short z, SHAPE shape, DIRECTION direction, STYLE style)
             : base(x, y, z)
         {
             Shape = shape;
             Direction = direction;
             Style = style;
-        }        
+        }
 
         #region Private methods
         private string EnumName(Enum e)
         {
             return Enum.GetName(e.GetType(), e);
         }
-        #endregion 
+        #endregion        
 
         #region Overrides
         public override string ToString()

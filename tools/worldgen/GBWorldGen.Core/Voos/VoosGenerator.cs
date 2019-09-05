@@ -12,6 +12,7 @@ namespace GBWorldGen.Core.Voos
         private readonly string _templateKey = "{{{ENCODED_MAP_DATA}}}";
         private readonly string _mapWidth = "{{{MAP_WIDTH}}}";
         private readonly string _mapLength = "{{{MAP_LENGTH}}}";
+        private readonly Serializer _serializer = new Serializer();
 
         public VoosGenerator()
         {
@@ -20,7 +21,7 @@ namespace GBWorldGen.Core.Voos
 
         public string Generate(Map map, string outputDirectory = null, string mapName = null, string mapDescription = null)
         {
-            string encodedMapData = Serializer.SerializeMap(map);
+            string encodedMapData = _serializer.Serialize(map);
 
             string parentFolderName = $"WorldGen-{RandomStringGenerator.Generate(32)}";
             string parentFolderPath = Path.Combine(
