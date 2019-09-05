@@ -1,9 +1,11 @@
 {
-  "cardSystemCardData" : {
+  "cardSystemCardData": {
     "isCard": true,
     "title": "Value Bar",
     "description": "Shows a bar on the screen using a given variable.",
-    "categories" : ["Screen"],
+    "categories": [
+      "Screen"
+    ],
     "imageResourcePath": "BuiltinAssets/CardImages/bar",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000004"
   }

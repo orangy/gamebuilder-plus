@@ -1,0 +1,12 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "Cutscene UI",
+    "description": "Use this to listen for cutscene calls.",
+    "categories": [
+      "Screen"
+    ],
+    "imageResourcePath": "BuiltinAssets/CardImages/bar",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000017"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "Show/Hide Cutscene",
+    "description": "Shows/hides cutscene, Cutscene UI is needed in ScreenCards.",
+    "categories": [
+      "Action"
+    ],
+    "imageResourcePath": "BuiltinAssets/CardImages/message",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000015"
+  }
+}
