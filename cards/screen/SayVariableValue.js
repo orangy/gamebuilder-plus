@@ -36,7 +36,7 @@ function varReplace(match, variable) {
 export function onResetGame() {
   // Popup is a script clone, so it gets destroyed automatically.
   delete card.popupTextActor;
-  delete card.popupHideTime;
+  delete card.popupHideTime; 
 }
 
 export function onTick() {
