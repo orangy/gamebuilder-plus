@@ -22,6 +22,7 @@ You can also add certain hash-tags to your Poly upload description to control im
 - **#GBNoAutoFit** will completely disable any auto-sizing/offsetting that we do. Keep in mind that your model might come in 100x larger or smaller than you'd expect! Try it out, adjust the size/units of your model in your software, then re-upload.
 
 - **#GBTerrainBlock** will auto-scale your block so its max dimension is 2.5m (our blocks are 2.5m wide and 1.5m tall) and place the origin at the bottom-center. This makes it fit exactly with our terrain system. Just remember that you still need to create blocks with the aspect ratio in mind (2.5 / 1.5 = 1.0 / 0.6 ratio).
+
 NOTE: If you add or change tags to existing Poly uploads, they may not immediately work. Wait 15 minutes, type "ClearPolyCache" in the console (~), and try again.
 
 Let us know if you have issues! There are some known issues with transparency, and we're working on fixing that.

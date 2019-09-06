@@ -1,0 +1,12 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "Say Variable Value",
+    "description": "Says variable values using #var tag.",
+    "categories": [
+      "Action"
+    ],
+    "imageResourcePath": "BuiltinAssets/CardImages/saySomething",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000014"
+  }
+}

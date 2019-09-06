@@ -1,0 +1,12 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "Chat UI",
+    "description": "UI for a chat.",
+    "categories": [
+      "Screen"
+    ],
+    "imageResourcePath": "",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000012"
+  }
+}
