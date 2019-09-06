@@ -10,7 +10,7 @@ namespace GBWorldGen.Core.Models
     {
         public SHAPE Shape { get; set; } = SHAPE.Box;
         public DIRECTION Direction { get; set; } = DIRECTION.East;
-        public STYLE Style { get; set; } = STYLE.Blue;
+        public STYLE Style { get; set; } = STYLE.Grass;
 
         #region Enums
         /// <summary>

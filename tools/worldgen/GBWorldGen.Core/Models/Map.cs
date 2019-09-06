@@ -9,12 +9,12 @@ namespace GBWorldGen.Core.Models
     /// </summary>
     public class Map : BaseMap<short>
     {
-        private const short MINWIDTH = -500;
-        private const short MINLENGTH = -500;
-        private const short MINHEIGHT = -20;
-        private const short MAXWIDTH = 500;
-        private const short MAXLENGTH = 500;
-        private const short MAXHEIGHT = 130;
+        public const short MINWIDTH = -500;
+        public const short MINLENGTH = -500;
+        public const short MINHEIGHT = -20;
+        public const short MAXWIDTH = 500;
+        public const short MAXLENGTH = 500;
+        public const short MAXHEIGHT = 130;
 
         public short VoosWidth { get { return (short)(Width * 2.5d); } }
         public short VoosLength { get { return (short)(Length * 2.5d); } }
