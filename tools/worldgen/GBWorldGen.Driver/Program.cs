@@ -139,7 +139,7 @@ namespace GBWorldGen.Driver.Main
                             options.PlainFrequency = ftemp;
 
                     // Lakes
-                    TypewriterText($"What would you like lakes [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    TypewriterText($"Would you like lakes [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
@@ -167,7 +167,7 @@ namespace GBWorldGen.Driver.Main
                     }
 
                     // Hills
-                    TypewriterText($"What would you like hills [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    TypewriterText($"Would you like hills [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
@@ -195,7 +195,7 @@ namespace GBWorldGen.Driver.Main
                     }
 
                     // Mountains
-                    TypewriterText($"What would you like mountains [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    TypewriterText($"Would you like mountains [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
