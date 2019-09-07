@@ -4,13 +4,13 @@ using GBWorldGen.Core.Models;
 using GBWorldGen.Misc.Utils;
 using System;
 
-namespace GBWorldGen.Core.Algorithms.Generators
+namespace GBWorldGen.Core.Algorithms.Generators.Abstractions
 {   
     public class DefaultGenerator : Base2DGenerator, IGenerateWorld
     {
         private PerlinNoise Perlin { get; }
 
-        public DefaultGenerator(int width, int length, BaseGeneratorOptions options = null) : base(width, length, options)
+        public DefaultGenerator(int width, int length, BaseGeneratorOptions options = null) : base(width, length/*, options*/)
         {
             Perlin = new PerlinNoise();
         }
@@ -39,33 +39,34 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         private float LoadOptions(float x, float y)
         {
-            float octave = Perlin.CreateOctave(
-                Options.HillFrequency * x,
-                Options.HillFrequency * y, Options.Rigidness);
+            return x * y;
+            //float octave = Perlin.CreateOctave(
+            //    Options.HillFrequency * x,
+            //    Options.HillFrequency * y, Options.Rigidness);
 
-            if (Options.Pull != 1.0F)
-                octave = (float)Math.Pow(octave, Options.Pull);
+            //if (Options.Pull != 1.0F)
+            //    octave = (float)Math.Pow(octave, Options.Pull);
 
-            return octave;
+            //return octave;
         }
     }
 
-    public class BaseGeneratorOptions
-    {
-        public float HillFrequency { get; set; } = 1.0F;
-        public int Rigidness { get; set; } = 1;
-        public float Pull { get; set; } = 1.0F;
+    //public class BaseGeneratorOptions
+    //{
+    //    public float HillFrequency { get; set; } = 1.0F;
+    //    public int Rigidness { get; set; } = 1;
+    //    public float Pull { get; set; } = 1.0F;
 
-        public BaseGeneratorOptions()
-        {
+    //    public BaseGeneratorOptions()
+    //    {
 
-        }
+    //    }
 
-        public BaseGeneratorOptions(float hillFrequency, int rigidness, float pull)
-        {
-            HillFrequency = hillFrequency;
-            Rigidness = rigidness;
-            Pull = pull;
-        }
-    }
+    //    public BaseGeneratorOptions(float hillFrequency, int rigidness, float pull)
+    //    {
+    //        HillFrequency = hillFrequency;
+    //        Rigidness = rigidness;
+    //        Pull = pull;
+    //    }
+    //}
 }

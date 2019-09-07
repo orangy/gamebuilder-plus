@@ -8,7 +8,7 @@ namespace Algorithms.Generators
 {
     public class CubeGenerator : Base3DGenerator
     {
-        public CubeGenerator(int width, int length, int height, BaseGeneratorOptions options = null) : base(width, length, height, options)
+        public CubeGenerator(int width, int length, int height/*, BaseGeneratorOptions options = null*/) : base(width, length, height/*, options*/)
         {
             
         }

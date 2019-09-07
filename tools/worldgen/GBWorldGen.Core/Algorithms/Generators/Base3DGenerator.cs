@@ -10,16 +10,16 @@ namespace GBWorldGen.Core.Algorithms.Generators
         protected int Length { get; set; }
         protected int Height { get; set; }
         private Block.STYLE DefaultBlockStyle { get; }
-        protected BaseGeneratorOptions Options { get; set; }
+        //protected BaseGeneratorOptions Options { get; set; }
 
-        public Base3DGenerator(int width, int length, int height, BaseGeneratorOptions options = null, Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
+        public Base3DGenerator(int width, int length, int height, /*BaseGeneratorOptions options = null,*/ Block.STYLE defaultBlockStyle = Block.STYLE.Grass)
         {
             Width = width;
             Length = length;
             Height = height;
             DefaultBlockStyle = defaultBlockStyle;
 
-            Options = options != null ? options : new BaseGeneratorOptions();
+            //Options = options != null ? options : new BaseGeneratorOptions();
         }
 
         public virtual Map Generate()
