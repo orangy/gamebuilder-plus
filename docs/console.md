@@ -8,6 +8,8 @@ Toggle console by using `~` key.
 
 Use `log("…")` function in JavaScript to output text to console. 
 You can use formatting in messages, e.g. `<color=yellow>text</color>`.
+Consider using JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) 
+instead of concatenating strings, like `` `string text ${expression} string text` ``
 
 # Cards
 
@@ -15,6 +17,7 @@ You can use formatting in messages, e.g. `<color=yellow>text</color>`.
 * `importcards` – loads cards from a directory.
 * `defaultcards` – toggles creation of default cards on new panels, such as Collision + Red Flash for an If/Then panel.
 * `jshotload` – see [Hot reloading cards](https://docs.google.com/document/d/1M1vw78aksyPDO7NIbomyylIKYWs1KOnbL882bY256XM/edit).
+  * `jshotload start <path-to-folder-with-cards>` for a quick start 
 * `findjs` – find a text in all custom JavaScript cards.
 
 # Virtual Multiplayer
@@ -31,6 +34,7 @@ When you don't have anyone to play with and you want to test multiplayer feature
 # Map
 
 * `load` – load a VOOS file (opens dialog to choose file).
+  * `load <path-to-voos>` – loads specified file without a dialog
 * `save` – saves currently opened VOOS file.
 * `reload` – discards all changes and reloads current file. 
 * `setground #` – sets ground terrain type to #. You need to know [codes](https://docs.google.com/document/d/1RovaMCZhEgnWolxAHeB_v4ZzW8ROQjIIOJnayKDupYg/edit). 
