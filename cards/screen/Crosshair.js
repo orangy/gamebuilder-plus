@@ -99,3 +99,9 @@ function DrawImage() {
     const size = props.Size;
     uiImage(cx - size, cy - size, props.Image, size * 2, size * 2)
 }
+
+export function getCardStatus() {
+    return {
+        description: `Draws a "<color=orange>${props.Style}</color>" crosshair`
+    }
+}
