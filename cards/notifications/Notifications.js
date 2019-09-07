@@ -57,6 +57,7 @@ export function onLocalTick() {
 }
 
 export function onDrawScreen() {
+    const player = getLocalPlayer();
     if (!card.notifications)
         return;
 
