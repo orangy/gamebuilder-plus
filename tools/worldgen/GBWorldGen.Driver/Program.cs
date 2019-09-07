@@ -1,7 +1,5 @@
-﻿using Algorithms.Generators;
-using GBWorldGen.Core.Algorithms.Generators;
+﻿using GBWorldGen.Core.Algorithms.Generators;
 using GBWorldGen.Core.Algorithms.Generators.Abstractions;
-using GBWorldGen.Core.Algorithms.Naturalize;
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Voos;
 using System;
@@ -62,16 +60,17 @@ namespace GBWorldGen.Driver.Main
             TypewriterText("What kind of map would you like to create?", autoPauseAtEnd: 0);
             TypewriterText("------------------------------------------", autoPauseAtEnd: 0);
             TypewriterText("1. Default", autoPauseAtEnd: 0);
+            TypewriterText("2. Custom", autoPauseAtEnd: 0);
             //TypewriterText("2. Tunnel test", autoPauseAtEnd: 0);
             //TypewriterText("3. One big hill with lake", autoPauseAtEnd: 0);
             //TypewriterText("4. Oval lake with oval mountain", autoPauseAtEnd: 0);
             //TypewriterText("5. Many hills", autoPauseAtEnd: 0);
-            TypewriterText("2. Exit", autoPauseAtEnd: 0);
+            TypewriterText("3. Exit", autoPauseAtEnd: 0);
             TypewriterText("> ", newlines: 0, autoPauseAtEnd: 0);
 
             string line = string.Empty;
             string choice = Console.ReadLine();
-            if (line.Contains("2", StringComparison.OrdinalIgnoreCase))
+            if (line.Contains("3", StringComparison.OrdinalIgnoreCase))
                 Environment.Exit(0);
             TypewriterText("", 2, autoPauseAtEnd: 0);
             TypewriterText("(To choose any default values, simply hit 'Enter')");
@@ -81,21 +80,21 @@ namespace GBWorldGen.Driver.Main
             float ftemp;
             double dtemp;
 
-            int width = 100;
-            int length = 100;
-            MapGeneratorOptions options = new MapGeneratorOptions();            
+            int width = 250; // in .voos units
+            int length = 250;
+            MapGeneratorOptions options = new MapGeneratorOptions();
             string mapName = $"CustomMap-{DateTime.Now.ToString("MM_dd_yyyy hh_mm tt")}";
             string mapDesc = string.Empty;
             string outputDirectory = !Romans828 ? Directory.GetCurrentDirectory() : @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
 
             try
             {
-                TypewriterText("How wide would you like your map to be [100=DEFAULT])? > ", newlines: 0, autoPauseAtEnd: 0);
+                TypewriterText($"How wide would you like your map to be [{width}=DEFAULT])? > ", newlines: 0, autoPauseAtEnd: 0);
                 line = Console.ReadLine();
                 if (int.TryParse(line, out itemp))
                     width = itemp;
 
-                TypewriterText("How deep would you like your map to be [100=DEFAULT])? > ", newlines: 0, autoPauseAtEnd: 0);
+                TypewriterText($"How deep would you like your map to be [{length}=DEFAULT])? > ", newlines: 0, autoPauseAtEnd: 0);
                 line = Console.ReadLine();
                 if (int.TryParse(line, out itemp))
                     length = itemp;
@@ -115,22 +114,23 @@ namespace GBWorldGen.Driver.Main
                 if (!string.IsNullOrEmpty(line))
                     outputDirectory = line;
 
-                if (choice.Contains("1", StringComparison.OrdinalIgnoreCase))
+                string[] biomeNames = options.BiomeNames();
+                for (int i = 0; i < biomeNames.Length; i++)
                 {
-                    TypewriterText($"What would you like your lake frequency to be [{options.LakeFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
-                    line = Console.ReadLine();
+                    biomeNames[i] = $"'{biomeNames[i][0]}'{biomeNames[i].Substring(1)}={Enum.Parse(options.Biome.GetType(), biomeNames[i])}";
+                }
+                TypewriterText($"What would you like your biome to be [{options.EnumName(options.Biome)}=DEFAULT ({string.Join(',', biomeNames)})]? > ", newlines: 0, autoPauseAtEnd: 0);
+                line = Console.ReadLine();
 
-                    if (!string.IsNullOrEmpty(line))
-                        if (float.TryParse(line, out ftemp))
-                            options.LakeFrequency = ftemp;
+                if (!string.IsNullOrEmpty(line))
+                {
+                    if (line.Contains("g", StringComparison.OrdinalIgnoreCase)) options.Biome = MapGeneratorOptions.MapBiome.Grassland;
+                    else if (line.Contains("d", StringComparison.OrdinalIgnoreCase)) options.Biome = MapGeneratorOptions.MapBiome.Desert;
+                    else if (line.Contains("t", StringComparison.OrdinalIgnoreCase)) options.Biome = MapGeneratorOptions.MapBiome.Tundra;
+                }
 
-                    TypewriterText($"What would you like your lake size to be [{options.LakeSize}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
-                    line = Console.ReadLine();
-
-                    if (!string.IsNullOrEmpty(line))
-                        if (int.TryParse(line, out itemp))
-                            options.LakeSize = itemp;
-
+                if (choice.Contains("2", StringComparison.OrdinalIgnoreCase))
+                {
                     TypewriterText($"What would you like your plain frequency to be [{options.PlainFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
@@ -138,44 +138,105 @@ namespace GBWorldGen.Driver.Main
                         if (float.TryParse(line, out ftemp))
                             options.PlainFrequency = ftemp;
 
-                    TypewriterText($"What would you like your hill frequency to be [{options.HillFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    // Lakes
+                    TypewriterText($"What would you like lakes [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
-                        if (float.TryParse(line, out ftemp))
-                            options.HillFrequency = ftemp;
+                    {
+                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                            options.Lakes = true;
+                        else options.Lakes = false;
+                    }
 
-                    TypewriterText($"What would you like your hill clamp to be [{options.HillClamp}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    if (options.Lakes)
+                    {
+                        TypewriterText($"What would you like your lake frequency to be [{options.LakeFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (float.TryParse(line, out ftemp))
+                                options.LakeFrequency = ftemp;
+
+                        TypewriterText($"What would you like your lake size to be [{options.LakeSize}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (int.TryParse(line, out itemp))
+                                options.LakeSize = itemp;
+                    }
+
+                    // Hills
+                    TypewriterText($"What would you like hills [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
-                        if (int.TryParse(line, out itemp))
-                            options.HillClamp = itemp;
+                    {
+                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                            options.Hills = true;
+                        else options.Hills = false;
+                    }
 
-                    TypewriterText($"What would you like your mountain frequency to be [{options.MountainFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    if (options.Hills)
+                    {
+                        TypewriterText($"What would you like your hill frequency to be [{options.HillFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (float.TryParse(line, out ftemp))
+                                options.HillFrequency = ftemp;
+
+                        TypewriterText($"What would you like your hill clamp to be [{options.HillClamp}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (int.TryParse(line, out itemp))
+                                options.HillClamp = itemp;
+                    }
+
+                    // Mountains
+                    TypewriterText($"What would you like mountains [{options.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
-                        if (float.TryParse(line, out ftemp))
-                            options.MountainFrequency = ftemp;
+                    {
+                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                            options.Mountains = true;
+                        else options.Mountains = false;
+                    }
 
-                    TypewriterText($"What would you like your additional mountain size to be [{options.AdditionalMountainSize}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
-                    line = Console.ReadLine();
+                    if (options.Mountains)
+                    {
+                        TypewriterText($"What would you like your mountain frequency to be [{options.MountainFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
 
-                    if (!string.IsNullOrEmpty(line))
-                        if (double.TryParse(line, out dtemp))
-                            options.AdditionalMountainSize = dtemp;
+                        if (!string.IsNullOrEmpty(line))
+                            if (float.TryParse(line, out ftemp))
+                                options.MountainFrequency = ftemp;
 
-                    TypewriterText("", 2);
+                        TypewriterText($"What would you like your additional mountain size to be [{options.AdditionalMountainSize}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
 
-                    mapDesc = $"Map specs => ({width}x{length}) {options.ToString()} -Built with love by Romans 8:28.";
+                        if (!string.IsNullOrEmpty(line))
+                            if (double.TryParse(line, out dtemp))
+                                options.AdditionalMountainSize = dtemp;
+                    }                    
                 }
 
+                TypewriterText("", 2);
+
+                if (string.IsNullOrEmpty(mapDesc)) mapDesc = $"Map specs => ({width}x{length}) {options.ToString()} -Built with love by Romans 8:28.";
+
                 // CREATE MAP
-                BaseGenerator<short> generator = new MapGenerator((short)width, (short)length, 1);
+                // convert back to proper unit
+                width = (int)Math.Floor(width / 2.5d);
+                length = (int)Math.Floor(length / 2.5d);
+                BaseGenerator<short> generator = new MapGenerator((short)width, (short)length, 1, options);
                 Map map = (Map)generator.GenerateMap();
                 VoosGenerator voosGenerator = new VoosGenerator();
                 voosGenerator.Generate(map, outputDirectory, mapName, mapDesc);
+
+                TypewriterText("");
             }
             catch (Exception ex)
             {
@@ -190,6 +251,8 @@ namespace GBWorldGen.Driver.Main
 
             TypewriterText("Your map was successfully created!");
             TypewriterText("Have a nice day!");
+            TypewriterText("");
+            TypewriterText("Press any key to exit...");
             Console.ReadKey();
             Environment.Exit(0);
         }
@@ -209,7 +272,7 @@ namespace GBWorldGen.Driver.Main
                 for (var i = 0; i < newlines; i++)
                     Console.Write(Environment.NewLine);
 
-            if (!Fast && autoPauseAtEnd.HasValue)                
+            if (!Fast && autoPauseAtEnd.HasValue)
                 Thread.Sleep(autoPauseAtEnd.Value);
         }
     }

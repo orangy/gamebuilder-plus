@@ -36,7 +36,6 @@ namespace GBWorldGen.Core.Algorithms.Generators.Abstractions
         }
 
         public abstract BaseMap<T> GenerateMap();
-        public abstract BaseMap<T> GenerateMap(BaseGeneratorOptions options);
         public virtual float Generate2DNoise(float x, float z)
         {
             throw new NotImplementedException();

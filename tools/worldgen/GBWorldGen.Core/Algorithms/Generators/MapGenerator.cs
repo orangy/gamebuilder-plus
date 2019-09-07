@@ -15,12 +15,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
     public class MapGenerator : BaseGenerator<short>
     {        
         private FastNoise FastNoise { get; set; }
+        private MapGeneratorOptions Options { get; set; }
 
-        public MapGenerator(short width, short length, short height)
+        public MapGenerator(short width, short length, short height, MapGeneratorOptions options = null)
             : base(width, length, height)
         {
             GeneratedMap = new Map(width, length, height,
                 (short)(width * -0.5d), (short)(length * -0.5d));
+            Options = options == null ? new MapGeneratorOptions() : options;
 
             Random rand = new Random();
             FastNoise = new FastNoise(rand.Next(int.MinValue, int.MaxValue));
@@ -28,99 +30,94 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public override BaseMap<short> GenerateMap()
         {
-            return GenerateMap(new MapGeneratorOptions());
-        }
-
-        public override BaseMap<short> GenerateMap(BaseGeneratorOptions options)
-        {
-            MapGeneratorOptions myOptions = (MapGeneratorOptions)options;
             short blockY;
             float noise;
 
             // Generate lakes
-            Console.WriteLine("Generating lakes");
-            List<Block> lakeBlocks = new List<Block>();
-            short minLakeY = Map.MAXHEIGHT;
-            short maxLakeY = Map.MINHEIGHT;
-            FastNoise.SetInterp(FastNoise.Interp.Quintic);
-            FastNoise.SetFrequency(myOptions.LakeFrequency);
-            for (int x = 0; x < Width; x++)
+            List<Block> lakesToUse = new List<Block>();
+            if (Options.Lakes)
             {
-                for (int z = 0; z < Length; z++)
+                Console.WriteLine("Generating lakes");
+                List<Block> lakeBlocks = new List<Block>();
+                short minLakeY = Map.MAXHEIGHT;
+                short maxLakeY = Map.MINHEIGHT;
+                FastNoise.SetInterp(FastNoise.Interp.Quintic);
+                FastNoise.SetFrequency(Options.LakeFrequency);
+                for (int x = 0; x < Width; x++)
                 {
-                    noise = FastNoise.GetPerlin(x, z);
-
-                    if (noise < 0)
+                    for (int z = 0; z < Length; z++)
                     {
-                        blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
-                        lakeBlocks.Add(new Block
-                        {
-                            X = (short)(x + GeneratedMap.OriginWidth),
-                            Y = blockY,
-                            Z = (short)(z + GeneratedMap.OriginLength),
-                            Style = Block.STYLE.Water
-                        });
+                        noise = FastNoise.GetPerlin(x, z);
 
-                        if (blockY > maxLakeY) maxLakeY = blockY;
-                        else if (blockY < minLakeY) minLakeY = blockY;
+                        if (noise < 0)
+                        {
+                            blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                            lakeBlocks.Add(new Block
+                            {
+                                X = (short)(x + GeneratedMap.OriginWidth),
+                                Y = blockY,
+                                Z = (short)(z + GeneratedMap.OriginLength)
+                            });
+
+                            if (blockY > maxLakeY) maxLakeY = blockY;
+                            else if (blockY < minLakeY) minLakeY = blockY;
+                        }
                     }
                 }
-            }
 
-            // "Cut" lakes out we will use
-            short height = (short)myOptions.LakeSize;
-            List<Block> lakesToUse = new List<Block>();
-            for (int i = 0; i < lakeBlocks.Count; i++)
-            {
-                if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
-            }
-
-            // Fill lakes
-            List<Block> fillLakeBlocks = new List<Block>();
-            for (int i = 0; i < lakesToUse.Count; i++)
-            {
-                for (short j = minLakeY; j <= minLakeY + height; j++)
+                // "Cut" lakes out we will use
+                short height = (short)Options.LakeSize;                
+                for (int i = 0; i < lakeBlocks.Count; i++)
                 {
-                    fillLakeBlocks.Add(new Block
+                    if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
+                }
+
+                // Fill lakes
+                List<Block> fillLakeBlocks = new List<Block>();
+                for (int i = 0; i < lakesToUse.Count; i++)
+                {
+                    for (short j = minLakeY; j <= minLakeY + height; j++)
+                    {
+                        fillLakeBlocks.Add(new Block
+                        {
+                            X = lakesToUse[i].X,
+                            Y = j,
+                            Z = lakesToUse[i].Z
+                        });
+                    }
+                }
+                lakesToUse.AddRange(fillLakeBlocks);
+
+                //// Add sand around lakes
+                //int radius = 3;
+                //List<Block> lakeSandBlocks = new List<Block>();
+                //for (int i = 0; i < lakesToUse.Count; i++)
+                //{
+                //    for (short j = 0; j < radius; j++)
+                //    {
+                //        // N
+                //        lakeSandBlocks.Add(new Block
+                //        {
+                //            X = lakesToUse[i].X,
+                //            Y = lakesToUse[i].Y,
+                //            Z = (short)(lakesToUse[i].Z + j),
+                //            Style = Block.STYLE.Sand
+                //        });
+                //    }
+                //}
+
+                // Place lake blocks                
+                for (int i = 0; i < lakesToUse.Count; i++)
+                {
+                    GeneratedMap.Add(new Block
                     {
                         X = lakesToUse[i].X,
-                        Y = j,
+                        Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
                         Z = lakesToUse[i].Z,
-                        Style = j < lakesToUse[i].Y ? Block.STYLE.Sand : Block.STYLE.Water
+                        Style = LakesBlockStyle()
                     });
                 }
-            }
-            lakesToUse.AddRange(fillLakeBlocks);
-
-            //// Add sand around lakes
-            //int radius = 3;
-            //List<Block> lakeSandBlocks = new List<Block>();
-            //for (int i = 0; i < lakesToUse.Count; i++)
-            //{
-            //    for (short j = 0; j < radius; j++)
-            //    {
-            //        // N
-            //        lakeSandBlocks.Add(new Block
-            //        {
-            //            X = lakesToUse[i].X,
-            //            Y = lakesToUse[i].Y,
-            //            Z = (short)(lakesToUse[i].Z + j),
-            //            Style = Block.STYLE.Sand
-            //        });
-            //    }
-            //}
-
-            // Place lake blocks                
-            for (int i = 0; i < lakesToUse.Count; i++)
-            {
-                GeneratedMap.Add(new Block
-                {
-                    X = lakesToUse[i].X,
-                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
-                    Z = lakesToUse[i].Z,
-                    Style = Block.STYLE.Water
-                });
-            }
+            }            
 
             // Create flat plains
             Console.WriteLine("Generating plains");
@@ -131,7 +128,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             short plainsBlockX;
             short plainsBlockZ;
 
-            FastNoise.SetFrequency(myOptions.PlainFrequency);
+            FastNoise.SetFrequency(Options.PlainFrequency);
             for (int x = 0; x < Width; x++)
             {
                 for (int z = 0; z < Length; z++)
@@ -148,7 +145,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         {
                             X = (short)(x + GeneratedMap.OriginWidth),
                             Y = blockY,
-                            Z = (short)(z + GeneratedMap.OriginLength)
+                            Z = (short)(z + GeneratedMap.OriginLength),
+                            Style = PlainsBlockStyle()
                         });
 
                         if (blockY < minPlainY) minPlainY = blockY;
@@ -168,7 +166,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     {
                         X = plainsBlocks[i].X,
                         Y = y,
-                        Z = plainsBlocks[i].Z
+                        Z = plainsBlocks[i].Z,
+                        Style = PlainsBlockStyle()
                     });
                 }
             }
@@ -176,151 +175,164 @@ namespace GBWorldGen.Core.Algorithms.Generators
             GeneratedMap.MapData.AddRange(plainsBlocks);
 
             // Create hills
-            Console.WriteLine("Generating hills");
-            List<Block> hillBlocks = new List<Block>();
-            FastNoise.SetFrequency(myOptions.HillFrequency);
-            short minHillY = Map.MAXHEIGHT;
-            short hillsBlockX;
-            short hillsBlockZ;
-            for (int x = 0; x < Width; x++)
+            if (Options.Hills)
             {
-                for (int z = 0; z < Length; z++)
+                Console.WriteLine("Generating hills");
+                List<Block> hillBlocks = new List<Block>();
+                FastNoise.SetFrequency(Options.HillFrequency);
+                short minHillY = Map.MAXHEIGHT;
+                short hillsBlockX;
+                short hillsBlockZ;
+                for (int x = 0; x < Width; x++)
                 {
-                    hillsBlockX = (short)(x + GeneratedMap.OriginWidth);
-                    hillsBlockZ = (short)(z + GeneratedMap.OriginLength);
-
-                    // Don't add hills over lakes
-                    if (!lakesToUse.Any(b => b.X == hillsBlockX && b.Z == hillsBlockZ))
+                    for (int z = 0; z < Length; z++)
                     {
-                        noise = FastNoise.GetPerlin(x, z);
-                        if (noise > 0)
-                        {
-                            blockY = (short)(ClampNoise(noise, myOptions.HillClamp) + GeneratedMap.OriginHeight);
-                            hillBlocks.Add(new Block
-                            {
-                                X = (short)(x + GeneratedMap.OriginWidth),
-                                Y = blockY,
-                                Z = (short)(z + GeneratedMap.OriginLength),
-                                Style = Block.STYLE.GrassStone
-                            });
+                        hillsBlockX = (short)(x + GeneratedMap.OriginWidth);
+                        hillsBlockZ = (short)(z + GeneratedMap.OriginLength);
 
-                            if (blockY < minHillY) minHillY = blockY;
+                        // Don't add hills over lakes
+                        if (!lakesToUse.Any(b => b.X == hillsBlockX && b.Z == hillsBlockZ))
+                        {
+                            noise = FastNoise.GetPerlin(x, z);
+                            if (noise > 0)
+                            {
+                                blockY = (short)(ClampNoise(noise, Options.HillClamp) + GeneratedMap.OriginHeight);
+                                hillBlocks.Add(new Block
+                                {
+                                    X = (short)(x + GeneratedMap.OriginWidth),
+                                    Y = blockY,
+                                    Z = (short)(z + GeneratedMap.OriginLength),
+                                    Style = HillsBlockStyle()
+                                });
+
+                                if (blockY < minHillY) minHillY = blockY;
+                            }
                         }
                     }
                 }
-            }
 
-            // Fill hills
-            List<Block> fillHillBlocks = new List<Block>();
-            for (int i = 0; i < hillBlocks.Count; i++)
-            {
-                for (int y = hillBlocks[i].Y; y >= minHillY; y--)
+                // Fill hills
+                List<Block> fillHillBlocks = new List<Block>();
+                for (int i = 0; i < hillBlocks.Count; i++)
                 {
-                    fillHillBlocks.Add(new Block
+                    for (int y = hillBlocks[i].Y; y >= minHillY; y--)
                     {
-                        X = hillBlocks[i].X,
-                        Y = (short)y,
-                        Z = hillBlocks[i].Z,
-                        Style = Block.STYLE.GrassStone
-                    });
+                        fillHillBlocks.Add(new Block
+                        {
+                            X = hillBlocks[i].X,
+                            Y = (short)y,
+                            Z = hillBlocks[i].Z,
+                            Style = HillsBlockStyle()
+                        });
+                    }
                 }
-            }
-            hillBlocks.AddRange(fillHillBlocks);
+                hillBlocks.AddRange(fillHillBlocks);
 
-            // Adjust hills down
-            short adjustHillY = (short)(minHillY - minPlainY);
-            for (int i = 0; i < hillBlocks.Count; i++)
-            {
-                hillBlocks[i].Y -= adjustHillY;
-                GeneratedMap.Add(hillBlocks[i]);
-            }
+                // Adjust hills down
+                short adjustHillY = (short)(minHillY - minPlainY);
+                for (int i = 0; i < hillBlocks.Count; i++)
+                {
+                    hillBlocks[i].Y -= adjustHillY;
+                    GeneratedMap.Add(hillBlocks[i]);
+                }
+            }            
 
             // Create mountains
-            Console.WriteLine("Generating mountains");
-            List<Block> mountainBlocks = new List<Block>();
-            FastNoise.SetFrequency(myOptions.MountainFrequency);
-            FastNoise.SetFractalGain(0.01F);
-            FastNoise.SetFractalOctaves(4);
-            FastNoise.SetFractalLacunarity(3.0F);
-            short minMountainY = Map.MAXHEIGHT;
-            short maxMountainY = Map.MINHEIGHT;
-            short mountainBlockX;
-            short mountainBlockZ;
-            for (int x = 0; x < Width; x++)
+            if (Options.Mountains)
             {
-                for (int z = 0; z < Length; z++)
+                Console.WriteLine("Generating mountains");
+                List<Block> mountainBlocks = new List<Block>();
+                FastNoise.SetFrequency(Options.MountainFrequency);
+                FastNoise.SetFractalGain(0.01F);
+                FastNoise.SetFractalOctaves(4);
+                FastNoise.SetFractalLacunarity(3.0F);
+                short minMountainY = Map.MAXHEIGHT;
+                short maxMountainY = Map.MINHEIGHT;
+                short mountainBlockX;
+                short mountainBlockZ;
+                for (int x = 0; x < Width; x++)
                 {
-                    mountainBlockX = (short)(x + GeneratedMap.OriginWidth);
-                    mountainBlockZ = (short)(z + GeneratedMap.OriginLength);
-
-                    // Don't add mountains over lakes
-                    if (!lakesToUse.Any(b => b.X == mountainBlockX && b.Z == mountainBlockZ))
+                    for (int z = 0; z < Length; z++)
                     {
-                        noise = FastNoise.GetCubicFractal(x, z);
-                        if (noise > 0)
+                        mountainBlockX = (short)(x + GeneratedMap.OriginWidth);
+                        mountainBlockZ = (short)(z + GeneratedMap.OriginLength);
+
+                        // Don't add mountains over lakes
+                        if (!lakesToUse.Any(b => b.X == mountainBlockX && b.Z == mountainBlockZ))
                         {
-                            noise = (float)Math.Pow((double)noise + myOptions.AdditionalMountainSize, 1.9d);
-
-                            blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
-                            mountainBlocks.Add(new Block
+                            noise = FastNoise.GetCubicFractal(x, z);
+                            if (noise > 0)
                             {
-                                X = (short)(x + GeneratedMap.OriginWidth),
-                                Y = blockY,
-                                Z = (short)(z + GeneratedMap.OriginLength),
-                                Style = Block.STYLE.GrayCraters
-                            });
+                                noise = (float)Math.Pow((double)noise + Options.AdditionalMountainSize, 1.9d);
 
-                            if (blockY < minMountainY) minMountainY = blockY;
-                            else if (blockY > maxMountainY) maxMountainY = blockY;
+                                blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                                mountainBlocks.Add(new Block
+                                {
+                                    X = (short)(x + GeneratedMap.OriginWidth),
+                                    Y = blockY,
+                                    Z = (short)(z + GeneratedMap.OriginLength),
+                                    Style = MountainsBlockStyle()
+                                });
+
+                                if (blockY < minMountainY) minMountainY = blockY;
+                                else if (blockY > maxMountainY) maxMountainY = blockY;
+                            }
                         }
                     }
                 }
-            }
 
-            // Paint mountains
-            Block.STYLE[] mountainColors = MountainBlockStyleRange(minMountainY, maxMountainY);
-            for (int i = 0; i < mountainBlocks.Count; i++)
-            {
-                mountainBlocks[i].Style = mountainColors[mountainBlocks[i].Y - minMountainY];
-            }
-
-            // Fill mountains
-            List<Block> fillMountainBlocks = new List<Block>();
-            Block.STYLE mountainBlockStyle = Block.STYLE.Blue;
-            for (int i = 0; i < mountainBlocks.Count; i++)
-            {
-                for (int y = mountainBlocks[i].Y; y >= minMountainY; y--)
+                // Paint mountains
+                Block.STYLE[] mountainColors = MountainBlockStyleRange(minMountainY, maxMountainY);
+                for (int i = 0; i < mountainBlocks.Count; i++)
                 {
-                    // Snow should fall on top of mountain,
-                    // rest of blocks should be even throughout
-                    mountainBlockStyle = mountainColors[mountainBlocks[i].Y - minMountainY];
-                    if (mountainBlockStyle == Block.STYLE.Snow && y < mountainBlocks[i].Y) mountainBlockStyle = Block.STYLE.GrayCraters;
-
-                    fillMountainBlocks.Add(new Block
-                    {
-                        X = mountainBlocks[i].X,
-                        Y = (short)y,
-                        Z = mountainBlocks[i].Z,
-                        Style = mountainBlockStyle
-                    });
+                    mountainBlocks[i].Style = mountainColors[mountainBlocks[i].Y - minMountainY];
                 }
-            }
-            mountainBlocks.AddRange(fillMountainBlocks);
 
-            // Adjust mountains down
-            short adjustMountainY = (short)(minMountainY - minPlainY);
-            for (int i = 0; i < mountainBlocks.Count; i++)
-            {
-                mountainBlocks[i].Y -= adjustMountainY;
-                GeneratedMap.Add(mountainBlocks[i]);
-            }
+                // Fill mountains
+                List<Block> fillMountainBlocks = new List<Block>();
+                Block.STYLE mountainBlockStyle = Block.STYLE.Blue;
+                for (int i = 0; i < mountainBlocks.Count; i++)
+                {
+                    for (int y = mountainBlocks[i].Y; y >= minMountainY; y--)
+                    {
+                        // Snow should fall on top of mountain,
+                        // rest of blocks should be even throughout
+                        mountainBlockStyle = mountainColors[mountainBlocks[i].Y - minMountainY];
+                        switch (Options.Biome)
+                        {
+                            case MapGeneratorOptions.MapBiome.Grassland:
+                                if (mountainBlockStyle == Block.STYLE.Snow && y < mountainBlocks[i].Y) mountainBlockStyle = Block.STYLE.GrayCraters;
+                                break;
+                            default:
+                                break;
+                        }
+
+                        fillMountainBlocks.Add(new Block
+                        {
+                            X = mountainBlocks[i].X,
+                            Y = (short)y,
+                            Z = mountainBlocks[i].Z,
+                            Style = mountainBlockStyle
+                        });
+                    }
+                }
+                mountainBlocks.AddRange(fillMountainBlocks);
+
+                // Adjust mountains down
+                short adjustMountainY = (short)(minMountainY - minPlainY);
+                for (int i = 0; i < mountainBlocks.Count; i++)
+                {
+                    mountainBlocks[i].Y -= adjustMountainY;
+                    GeneratedMap.Add(mountainBlocks[i]);
+                }
+            }            
 
             return GeneratedMap;
         }
 
         public int Clamp2DNoise(float x, float z, int levels)
         {
-            float noise = FastNoise.GetPerlin(x, z);            
+            float noise = FastNoise.GetPerlin(x, z);
             float min = -1.0F;
             float max = 1.0F;
             float totalRange = max - min;
@@ -374,17 +386,58 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return AffineTransformation.MapToWorld(input, GeneratedMap.MinHeight, GeneratedMap.MaxHeight);
         }
 
+        private Block.STYLE LakesBlockStyle()
+        {
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Block.STYLE.Water;
+        }
+
+        private Block.STYLE PlainsBlockStyle()
+        {
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.Grass;
+        }
+
+        private Block.STYLE HillsBlockStyle()
+        {
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.GrassStone;
+        }
+
+        private Block.STYLE MountainsBlockStyle()
+        {
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.GrayCraters;
+        }
+
         private Block.STYLE[] MountainBlockStyleRange(short min, short max)
         {
             Block.STYLE[] styleRange = new Block.STYLE[max - min + 1];
 
             int dataKey = 0;
-            List<(double, Block.STYLE)> data = new List<(double, Block.STYLE)>
+            List<(double, Block.STYLE)> data = null;
+
+            switch (Options.Biome)
             {
-                ( 0.1d, Block.STYLE.Dirt ), // 10%
-                ( 0.7d, Block.STYLE.GrayCraters ), // 70%
-                ( 0.2d, Block.STYLE.Snow ) // 20%                
-            };
+                case MapGeneratorOptions.MapBiome.Grassland:
+                    data = new List<(double, Block.STYLE)>
+                    {
+                        ( 0.1d, Block.STYLE.Dirt ), // 10%
+                        ( 0.7d, Block.STYLE.GrayCraters ), // 70%
+                        ( 0.2d, Block.STYLE.Snow ) // 20%                
+                    };
+                    break;
+                case MapGeneratorOptions.MapBiome.Desert:
+                    data = new List<(double, Block.STYLE)>
+                    {
+                        ( 1.0d, Block.STYLE.Sand ) // 100%
+                    };
+                    break;
+                case MapGeneratorOptions.MapBiome.Tundra:
+                    data = new List<(double, Block.STYLE)>
+                    {
+                        ( 1.0d, Block.STYLE.Snow ) // 100%              
+                    };
+                    break;
+                default:
+                    break;
+            }
             double runningSum = data[0].Item1;
 
             for (int i = 0; i < styleRange.Length; i++)
