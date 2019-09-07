@@ -12,6 +12,7 @@
   All assets must be compatible with [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 * `cards` – ready-made cards. 
 * `docs` – documentation about various things about GameBuilder not found in official docs.
+* `games` – game demos and complete games made by community.
 * `scripts` – scripts, utilities, snippets and other useful JS code that can be copy/pasted into cards.
 * `tools` – various tools that are useful for working with GameBuilder, 
   such as map generators, texture processing, card repackaging and so on. 
