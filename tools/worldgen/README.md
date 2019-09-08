@@ -15,6 +15,7 @@
     - [Using options.json](#options-json)
     - [Extra advanced mode](#extra-advanced)
 - [Playing built maps](#playing-built-maps)
+    - [Fixing player positions](#fixing-player-positions)
 - [Help me](#helpme)
 
 ## Introduction
@@ -30,7 +31,7 @@ That's a little upsetting, well at least it was to me. Of course nothing on the 
 
 <a id="internals"></a>
 <a id="prework"></a>
-## The pre-work
+### The pre-work
 
 We can thank @steverock (Developer) for introducing the `simpleData` format in order for this world gen tool to be possible. The complete details can be found on a link on the <a href="https://orangy.github.io/gamebuilder-plus/index.html">website</a>, but I will briefly explain the timeline here.
 
@@ -48,13 +49,13 @@ The way `simpleData` works is that if a map contains `simpleData` when that map 
 
 More detail about `simpleData` can be found in the link above shared by Steve. Later on, I will go over my implementation of the world gen tool in code which will give you the implementation I wrote and will provide additional information to _hopefully_ answer any and all questions you may have.
 
-## Algorithms
+### Algorithms
 
 The crux of world generation is an algorithm. What code or set of instructions can I tell a program to create for me a dynamic and natural looking world?
 
 This question is a very hard one to ask, as there are lots of discussions around it and many different algorithms and combinations of algorithms to choose. When searching for an algorithm to use in the tool, I initially found the Diamond Square algorithm, but did not like the lack of variation I was finding when using it. I later found the Perlin Noise algorithm which I will briefly explain before going into how it is used in the world gen tool.
 
-### Perlin Noise algorithm
+#### Perlin Noise algorithm
 Perlin Noise is actually not an algorithm, but rather a function (it takes in inputs and returns an output) that returns a value within a given range. Depending on the implementation, the output value of Perlin Noise is from 0 to 1 [0, 1] or -1 to 1 [-1, 1].
 
 To use Perlin Noise in terrain generation, and how I used it, is to put your x and y values into the function and save the output. The value of your output is the height of the terrain block that you will place in the map.
@@ -70,14 +71,14 @@ If the result of the above function is 7, we would use these results to generate
 Which is _fine_. Don't get me wrong, this is a fine map. This is essentially the [first dynamic map](https://steamcommunity.com/sharedfiles/filedetails/?id=1848201246) that I made on the Steam workshop, but it wasn't really what I wanted. I wanted more flat lands and more steep hills, and a more dynamic way of styling the blocks instead of using a heightmap.
 
 <a id="realistic-terrain"></a>
-## Making more realistic terrain
+### Making more realistic terrain
 
 We obviously can't use the Perlin Noise algorithm as-is, it produces too curved hills that don't work well for flat structures or steep mountains. To modify the algorithm, we apply some _math tricks_ (mostly taken from <a href="https://www.redblobgames.com/maps/terrain-from-noise/">here</a>) in order to shape the result in the way we want. For flater plains, we simply clamp the result of Perlin Noise to return values only between 0-4. For mountains, we take the result of Perlin Noise _octave_ and raise it to an exponent (to creater sharper cliffs). For lakes, we only take the x-lowest y-values of the Perlin Noise result to get a unique lake shape. 
 
 If you are more curious, you can take a peek in the source code to see what I did. Most of the values are customizable through the tool so you aren't constrained to the sizes of these features in your maps if you want something different.
 
 <a id="bringing-it-together"></a>
-## Bringing it together
+### Bringing it together
 
 Let me preface this and say this did not come to me immediately. In fact, this was over the course of many iterations that I figured out a process that worked well. The process the Game Builder world gen tool makes use of is **layering**.
 
@@ -153,7 +154,7 @@ You will have a number of additional values to customize if you choose option 2.
 - Additional mountain size - larger number means taller mountains
 
 <a id="sample-maps"></a>
-## Sample maps
+### Sample maps
 Here are some sample maps and the values that were used for each map.
 
 ![sample map 1](../../assets/worldgen/sample_map_1.png)
@@ -169,7 +170,7 @@ Map specs => (250x250) Biome: Tundra Plain frequency: '0.02'. Lake frequency: '0
 Map specs => (250x250) Biome: Grassland Plain frequency: '0.02'. Lake frequency: '0.011'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.065'. Additional mountain size: '0.65'.
 
 <a id="options-json"></a>
-## Using options.json
+### Using options.json
 
 In order to quickly iterate in your map building, you can create an **options.json** file in the same directory as `GBWorldGen.Main.dll` (or GBWorldGen.Main.exe for you Windows users) to pre-fill the tool with default options for some choices. 
 
@@ -186,7 +187,7 @@ When you run the tool, the options file will be read to pre-fill choices for you
 ```
 
 <a id="extra-advanced"></a>
-## Extra advanced mode
+### Extra advanced mode
 
 No matter what environment (OS) you have, you can run the application via the terminal/console. Like in the Linus/OSX instructions, you can run the app by navigating to the folder containing `GBWorldGen.Main.dll` and run the following command.
 
@@ -218,6 +219,21 @@ You will want to get the path to the "Games" folder and stick it in the **option
 ![games folder](../../assets/worldgen/games_folder.png)
 
 You can also hit `ctrl + alt + l` (that's a lowercase L) to bring up a window to select your `.voos` file directly and load that map right away if you are playing Game Builder. Just, make sure to pause your game `ctrl + p` if you are in a map before you do so, the game seems to crash more often if it isn't paused and you load a map through these means.
+
+<a id="fixing-player-positions"></a>
+### Fixing player positions
+
+Very likely, you will spawn underneath the map the first time you load the map.
+
+![spawning underground](../../assets/worldgen/falling_players_start.png)
+
+This is because the y-values of the generated terrain are often above 0 with the maps the world gen tool creates. In order to not fall through the map, you will need to pause `ctrl + p` the game, and then reset the game `ctrl + r`.
+
+For each player, move them out of the terrain and into the world. Once you do this, **Set to current** for each player so when the game is reset again, they will not spawn below the terrain again. 
+
+**SAVE ONCE ALL PLAYERS' POSITIONS ARE FIXED!** (A friendly reminder)
+
+![reset player position](../../assets/worldgen/reset_player_positions.png)
 
 <a id="help-me"></a>
 ## Help me
