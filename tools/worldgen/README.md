@@ -200,6 +200,8 @@ If you get tired of the typewriter text effect in the application, you can run t
 dotnet .\GBWorldGen.Main.dll -- -fast
 ```
 
+Another helpful tidbit is that you can create maps larger than 500x500 (the current largest size in Game Builder UI). Be warned as your game might freeze as it loads the generated map (as it is quite large). Creating anything smaller than 50x50 and the game crashes, so don't try.
+
 <a id="playing-built-maps"></a>
 ## Playing built maps
 
@@ -214,6 +216,8 @@ If you are having trouble finding where your Game Builder maps are saved, right-
 You will want to get the path to the "Games" folder and stick it in the **options.json** file (as shown in the above options.json sample file).
 
 ![games folder](../../assets/worldgen/games_folder.png)
+
+You can also hit `ctrl + alt + l` (that's a lowercase L) to bring up a window to select your `.voos` file directly and load that map right away if you are playing Game Builder. Just, make sure to pause your game `ctrl + p` if you are in a map before you do so, the game seems to crash more often if it isn't paused and you load a map through these means.
 
 <a id="help-me"></a>
 ## Help me
