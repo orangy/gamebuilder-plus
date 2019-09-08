@@ -86,11 +86,16 @@ namespace GBWorldGen.Driver.Main
             {
                 ProgramOptions programOptions = new ProgramOptions();
                 string programOptionsString = string.Empty;
-                using (StreamReader streamReader = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), ProgramOptions.FILENAME)))
+                string programOptionsFilepath = Path.Combine(Directory.GetCurrentDirectory(), ProgramOptions.FILENAME);
+                if (File.Exists(programOptionsFilepath))
                 {
-                    programOptionsString = streamReader.ReadToEnd();
+                    using (StreamReader streamReader = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), ProgramOptions.FILENAME)))
+                    {
+                        programOptionsString = streamReader.ReadToEnd();
+                    }
+                    programOptions = JsonConvert.DeserializeObject<ProgramOptions>(programOptionsString);
                 }
-                programOptions = JsonConvert.DeserializeObject<ProgramOptions>(programOptionsString);
+                
 
                 int width = (programOptions != null && programOptions.Width != default(int)) ? programOptions.Width : 250; // in .voos units
                 int length = (programOptions != null && programOptions.Length != default(int)) ? programOptions.Length : 250;

@@ -13,6 +13,9 @@
 - [Using the tool](#usingit)
     - [Sample maps](#sample-maps)
     - [Using options.json](#options-json)
+    - [Extra advanced mode](#extra-advanced)
+- [Playing built maps](#playing-built-maps)
+- [Help me](#helpme)
 
 ## Introduction
 Hello! I go by Romans 8:28 in the Game Builder Discord and Steam forums, and I wanted to build upon the wonderful foundations that is Game Builder. 
@@ -98,6 +101,7 @@ Last, mountains are created, if specified.
 
 Of course, in this process, blocks are colored based on the map's biome and constraints are placed on the blocks so we only are generating terrain within the limits of the game (-20 to 130).
 
+<a id="installation"></a>
 ## Installation / usage
 
 Go and download the .NET SDK <a href="https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install">from this page</a>. 
@@ -112,7 +116,9 @@ Go and download the <a href="https://github.com/orangy/gamebuilder-plus/tree/mas
 ### Linux/OSX users
 Go and download the <a href="https://github.com/orangy/gamebuilder-plus/tree/master/tools/worldgen/Releases">Releases</a> folder for your system and download the **entire** folder to your computer. Open up a terminal/console window in this folder containing the downloadable files. Run the following command to start the application:
 
-`dotnet .\GBWorldGen.Main.dll`
+```
+dotnet .\GBWorldGen.Main.dll
+```
 
 <a id="usingit"></a>
 ## Using the tool
@@ -165,4 +171,51 @@ Map specs => (250x250) Biome: Grassland Plain frequency: '0.02'. Lake frequency:
 <a id="options-json"></a>
 ## Using options.json
 
-In order to quickly iterate in your map building, you can create an **options.json** file in the same directory as `GBWorldGen.Main.dll` (or GBWorldGen.Main.exe for you Windows users) to pre-fill the tool with default options for some choices.
+In order to quickly iterate in your map building, you can create an **options.json** file in the same directory as `GBWorldGen.Main.dll` (or GBWorldGen.Main.exe for you Windows users) to pre-fill the tool with default options for some choices. 
+
+![options.json](../../assets/worldgen/options_json.png)
+
+When you run the tool, the options file will be read to pre-fill choices for you. You can choose to fill out any or all of these fields as shown below.
+
+```
+{
+    "width": "200",
+    "length": "200",
+    "saveTo": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Game Builder\\GameBuilderUserData\\Games"
+}
+```
+
+<a id="extra-advanced"></a>
+## Extra advanced mode
+
+No matter what environment (OS) you have, you can run the application via the terminal/console. Like in the Linus/OSX instructions, you can run the app by navigating to the folder containing `GBWorldGen.Main.dll` and run the following command.
+
+```
+dotnet .\GBWorldGen.Main.dll
+```
+
+If you get tired of the typewriter text effect in the application, you can run the application with the following command which will disable the typewriter effect.
+
+```
+dotnet .\GBWorldGen.Main.dll -- -fast
+```
+
+<a id="playing-built-maps"></a>
+## Playing built maps
+
+Once you set up your **options.json** file to point to your directory where your maps are saved, you can run the tool and be able to see your maps in Game Builder right away.
+
+![playing custom maps](../../assets/worldgen/playing_custom_maps.png)
+
+If you are having trouble finding where your Game Builder maps are saved, right-click Game Builder in Steam and go to Properties, then click the Local Files tab. Select Browse Local Files...
+
+![browse local files](../../assets/worldgen/browse_local_files.png)
+
+You will want to get the path to the "Games" folder and stick it in the **options.json** file (as shown in the above options.json sample file).
+
+![games folder](../../assets/worldgen/games_folder.png)
+
+<a id="help-me"></a>
+## Help me
+
+Please post an issue <a href="https://github.com/orangy/gamebuilder-plus/issues">on Github</a>, _or_ find Romans 8:28 in the <a href="https://discord.gg/t6JE7ct">Game Builder Discord server</a>.
