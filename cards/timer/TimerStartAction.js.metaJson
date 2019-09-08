@@ -1,6 +1,5 @@
 {
   "cardSystemCardData" : {
-    "publishID": "3F3ADE0F-0415-4864-9639-55CA2B4068F1",
     "isCard": true,
     "title": "Timer",
     "description": "Starts a timer.",

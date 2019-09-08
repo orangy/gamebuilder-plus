@@ -1,6 +1,5 @@
 {
   "cardSystemCardData" : {
-    "publishID": "1079DF4D-D745-414F-AC53-9D009811A532",
     "isCard": true,
     "title": "Display Timer",
     "description": "Displays time left on a timer.",
