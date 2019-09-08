@@ -21,7 +21,7 @@ namespace GBWorldGen.Driver.Main
                 if (Array.Exists(args, a => a.Contains("romans828", StringComparison.OrdinalIgnoreCase))) Romans828 = true;
             }
 
-            float version = 1.0f;
+            float version = 2.0f;
 
             DrawTitle(version);
             DrawMenu();
@@ -73,7 +73,7 @@ namespace GBWorldGen.Driver.Main
             if (line.Contains("3", StringComparison.OrdinalIgnoreCase))
                 Environment.Exit(0);
             TypewriterText("", 2, autoPauseAtEnd: 0);
-            TypewriterText("(To choose any default values, simply hit 'Enter')");
+            TypewriterText("(To choose any default values, simply hit 'Enter')", autoPauseAtEnd: 0);
 
             // GET MAP GEN OPTIONS
             int itemp;

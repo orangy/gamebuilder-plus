@@ -13,7 +13,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
     /// A map generator for the world of Game Builder.
     /// </summary>
     public class MapGenerator : BaseGenerator<short>
-    {        
+    {
         private FastNoise FastNoise { get; set; }
         private MapGeneratorOptions Options { get; set; }
 
@@ -66,7 +66,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
 
                 // "Cut" lakes out we will use
-                short height = (short)Options.LakeSize;                
+                short height = (short)Options.LakeSize;
                 for (int i = 0; i < lakeBlocks.Count; i++)
                 {
                     if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
@@ -117,7 +117,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         Style = LakesBlockStyle()
                     });
                 }
-            }            
+            }
 
             // Create flat plains
             Console.WriteLine("Generating plains");
@@ -235,7 +235,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     hillBlocks[i].Y -= adjustHillY;
                     GeneratedMap.Add(hillBlocks[i]);
                 }
-            }            
+            }
 
             // Create mountains
             if (Options.Mountains)
@@ -325,7 +325,474 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     mountainBlocks[i].Y -= adjustMountainY;
                     GeneratedMap.Add(mountainBlocks[i]);
                 }
-            }            
+            }
+
+            return GeneratedMap;
+        }
+
+        public BaseMap<short> GenerateTutorialPerlin()
+        {
+            short blockY;
+            float noise;
+
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    noise = FastNoise.GetPerlin(x, z);
+                    blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+
+                    GeneratedMap.Add(new Block
+                    {
+                        X = (short)(x + GeneratedMap.OriginWidth),
+                        Y = blockY,
+                        Z = (short)(z + GeneratedMap.OriginLength)
+                    });
+                }
+            }
+
+            return GeneratedMap;
+        }
+
+        public BaseMap<short> GenerateTutorialLakes()
+        {
+            short blockY;
+            float noise;
+
+            // Generate lakes
+            List<Block> lakesToUse = new List<Block>();
+            Console.WriteLine("Generating lakes");
+            List<Block> lakeBlocks = new List<Block>();
+            short minLakeY = Map.MAXHEIGHT;
+            short maxLakeY = Map.MINHEIGHT;
+            FastNoise.SetInterp(FastNoise.Interp.Quintic);
+            FastNoise.SetFrequency(Options.LakeFrequency);
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    noise = FastNoise.GetPerlin(x, z);
+
+                    if (noise < 0)
+                    {
+                        blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                        lakeBlocks.Add(new Block
+                        {
+                            X = (short)(x + GeneratedMap.OriginWidth),
+                            Y = blockY,
+                            Z = (short)(z + GeneratedMap.OriginLength)
+                        });
+
+                        if (blockY > maxLakeY) maxLakeY = blockY;
+                        else if (blockY < minLakeY) minLakeY = blockY;
+                    }
+                }
+            }
+
+            // "Cut" lakes out we will use
+            short height = (short)Options.LakeSize;
+            for (int i = 0; i < lakeBlocks.Count; i++)
+            {
+                if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
+            }
+
+            // Fill lakes
+            List<Block> fillLakeBlocks = new List<Block>();
+            for (int i = 0; i < lakesToUse.Count; i++)
+            {
+                for (short j = minLakeY; j <= minLakeY + height; j++)
+                {
+                    fillLakeBlocks.Add(new Block
+                    {
+                        X = lakesToUse[i].X,
+                        Y = j,
+                        Z = lakesToUse[i].Z
+                    });
+                }
+            }
+            lakesToUse.AddRange(fillLakeBlocks);
+
+            //// Add sand around lakes
+            //int radius = 3;
+            //List<Block> lakeSandBlocks = new List<Block>();
+            //for (int i = 0; i < lakesToUse.Count; i++)
+            //{
+            //    for (short j = 0; j < radius; j++)
+            //    {
+            //        // N
+            //        lakeSandBlocks.Add(new Block
+            //        {
+            //            X = lakesToUse[i].X,
+            //            Y = lakesToUse[i].Y,
+            //            Z = (short)(lakesToUse[i].Z + j),
+            //            Style = Block.STYLE.Sand
+            //        });
+            //    }
+            //}
+
+            // Place lake blocks                
+            for (int i = 0; i < lakesToUse.Count; i++)
+            {
+                GeneratedMap.Add(new Block
+                {
+                    X = lakesToUse[i].X,
+                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                    Z = lakesToUse[i].Z,
+                    Style = LakesBlockStyle()
+                });
+            }
+
+            return GeneratedMap;
+        }
+
+        public BaseMap<short> GenerateTutorialPlain()
+        {
+            short blockY;
+            float noise;
+
+            // Generate lakes
+            List<Block> lakesToUse = new List<Block>();
+            Console.WriteLine("Generating lakes");
+            List<Block> lakeBlocks = new List<Block>();
+            short minLakeY = Map.MAXHEIGHT;
+            short maxLakeY = Map.MINHEIGHT;
+            FastNoise.SetInterp(FastNoise.Interp.Quintic);
+            FastNoise.SetFrequency(Options.LakeFrequency);
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    noise = FastNoise.GetPerlin(x, z);
+
+                    if (noise < 0)
+                    {
+                        blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                        lakeBlocks.Add(new Block
+                        {
+                            X = (short)(x + GeneratedMap.OriginWidth),
+                            Y = blockY,
+                            Z = (short)(z + GeneratedMap.OriginLength)
+                        });
+
+                        if (blockY > maxLakeY) maxLakeY = blockY;
+                        else if (blockY < minLakeY) minLakeY = blockY;
+                    }
+                }
+            }
+
+            // "Cut" lakes out we will use
+            short height = (short)Options.LakeSize;
+            for (int i = 0; i < lakeBlocks.Count; i++)
+            {
+                if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
+            }
+
+            // Fill lakes
+            List<Block> fillLakeBlocks = new List<Block>();
+            for (int i = 0; i < lakesToUse.Count; i++)
+            {
+                for (short j = minLakeY; j <= minLakeY + height; j++)
+                {
+                    fillLakeBlocks.Add(new Block
+                    {
+                        X = lakesToUse[i].X,
+                        Y = j,
+                        Z = lakesToUse[i].Z
+                    });
+                }
+            }
+            lakesToUse.AddRange(fillLakeBlocks);
+
+            //// Add sand around lakes
+            //int radius = 3;
+            //List<Block> lakeSandBlocks = new List<Block>();
+            //for (int i = 0; i < lakesToUse.Count; i++)
+            //{
+            //    for (short j = 0; j < radius; j++)
+            //    {
+            //        // N
+            //        lakeSandBlocks.Add(new Block
+            //        {
+            //            X = lakesToUse[i].X,
+            //            Y = lakesToUse[i].Y,
+            //            Z = (short)(lakesToUse[i].Z + j),
+            //            Style = Block.STYLE.Sand
+            //        });
+            //    }
+            //}
+
+            // Place lake blocks                
+            for (int i = 0; i < lakesToUse.Count; i++)
+            {
+                GeneratedMap.Add(new Block
+                {
+                    X = lakesToUse[i].X,
+                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                    Z = lakesToUse[i].Z,
+                    Style = LakesBlockStyle()
+                });
+            }
+
+            // Create flat plains
+            Console.WriteLine("Generating plains");
+            List<Block> plainsBlocks = new List<Block>();
+            short minPlainY = Map.MAXHEIGHT;
+            short maxPlainY = Map.MINHEIGHT;
+            short avgPlainY;
+            short plainsBlockX;
+            short plainsBlockZ;
+
+            FastNoise.SetFrequency(Options.PlainFrequency);
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    blockY = (short)(Clamp2DNoise(x, z, 8) + GeneratedMap.OriginHeight);
+
+                    plainsBlockX = (short)(x + GeneratedMap.OriginWidth);
+                    plainsBlockZ = (short)(z + GeneratedMap.OriginLength);
+
+                    // Don't add plains over lakes
+                    if (!GeneratedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
+                    {
+                        plainsBlocks.Add(new Block
+                        {
+                            X = (short)(x + GeneratedMap.OriginWidth),
+                            Y = blockY,
+                            Z = (short)(z + GeneratedMap.OriginLength),
+                            Style = PlainsBlockStyle()
+                        });
+
+                        if (blockY < minPlainY) minPlainY = blockY;
+                        else if (blockY > maxPlainY) maxPlainY = blockY;
+                    }
+                }
+            }
+            avgPlainY = (short)((maxPlainY + minPlainY) / 2);
+
+            // Fill bottom of plains
+            List<Block> bottomPlainsBlocks = new List<Block>();
+            for (int i = 0; i < plainsBlocks.Count; i++)
+            {
+                for (short y = plainsBlocks[i].Y; y >= GeneratedMap.OriginHeight; y--)
+                {
+                    bottomPlainsBlocks.Add(new Block
+                    {
+                        X = plainsBlocks[i].X,
+                        Y = y,
+                        Z = plainsBlocks[i].Z,
+                        Style = PlainsBlockStyle()
+                    });
+                }
+            }
+            plainsBlocks.AddRange(bottomPlainsBlocks);
+            GeneratedMap.MapData.AddRange(plainsBlocks);
+
+            return GeneratedMap;
+        }
+
+        public BaseMap<short> GenerateTutorialHills()
+        {
+            short blockY;
+            float noise;
+
+            // Generate lakes
+            List<Block> lakesToUse = new List<Block>();
+            Console.WriteLine("Generating lakes");
+            List<Block> lakeBlocks = new List<Block>();
+            short minLakeY = Map.MAXHEIGHT;
+            short maxLakeY = Map.MINHEIGHT;
+            FastNoise.SetInterp(FastNoise.Interp.Quintic);
+            FastNoise.SetFrequency(Options.LakeFrequency);
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    noise = FastNoise.GetPerlin(x, z);
+
+                    if (noise < 0)
+                    {
+                        blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                        lakeBlocks.Add(new Block
+                        {
+                            X = (short)(x + GeneratedMap.OriginWidth),
+                            Y = blockY,
+                            Z = (short)(z + GeneratedMap.OriginLength)
+                        });
+
+                        if (blockY > maxLakeY) maxLakeY = blockY;
+                        else if (blockY < minLakeY) minLakeY = blockY;
+                    }
+                }
+            }
+
+            // "Cut" lakes out we will use
+            short height = (short)Options.LakeSize;
+            for (int i = 0; i < lakeBlocks.Count; i++)
+            {
+                if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
+            }
+
+            // Fill lakes
+            List<Block> fillLakeBlocks = new List<Block>();
+            for (int i = 0; i < lakesToUse.Count; i++)
+            {
+                for (short j = minLakeY; j <= minLakeY + height; j++)
+                {
+                    fillLakeBlocks.Add(new Block
+                    {
+                        X = lakesToUse[i].X,
+                        Y = j,
+                        Z = lakesToUse[i].Z
+                    });
+                }
+            }
+            lakesToUse.AddRange(fillLakeBlocks);
+
+            //// Add sand around lakes
+            //int radius = 3;
+            //List<Block> lakeSandBlocks = new List<Block>();
+            //for (int i = 0; i < lakesToUse.Count; i++)
+            //{
+            //    for (short j = 0; j < radius; j++)
+            //    {
+            //        // N
+            //        lakeSandBlocks.Add(new Block
+            //        {
+            //            X = lakesToUse[i].X,
+            //            Y = lakesToUse[i].Y,
+            //            Z = (short)(lakesToUse[i].Z + j),
+            //            Style = Block.STYLE.Sand
+            //        });
+            //    }
+            //}
+
+            // Place lake blocks                
+            for (int i = 0; i < lakesToUse.Count; i++)
+            {
+                GeneratedMap.Add(new Block
+                {
+                    X = lakesToUse[i].X,
+                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                    Z = lakesToUse[i].Z,
+                    Style = LakesBlockStyle()
+                });
+            }
+
+            // Create flat plains
+            Console.WriteLine("Generating plains");
+            List<Block> plainsBlocks = new List<Block>();
+            short minPlainY = Map.MAXHEIGHT;
+            short maxPlainY = Map.MINHEIGHT;
+            short avgPlainY;
+            short plainsBlockX;
+            short plainsBlockZ;
+
+            FastNoise.SetFrequency(Options.PlainFrequency);
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    blockY = (short)(Clamp2DNoise(x, z, 8) + GeneratedMap.OriginHeight);
+
+                    plainsBlockX = (short)(x + GeneratedMap.OriginWidth);
+                    plainsBlockZ = (short)(z + GeneratedMap.OriginLength);
+
+                    // Don't add plains over lakes
+                    if (!GeneratedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
+                    {
+                        plainsBlocks.Add(new Block
+                        {
+                            X = (short)(x + GeneratedMap.OriginWidth),
+                            Y = blockY,
+                            Z = (short)(z + GeneratedMap.OriginLength),
+                            Style = PlainsBlockStyle()
+                        });
+
+                        if (blockY < minPlainY) minPlainY = blockY;
+                        else if (blockY > maxPlainY) maxPlainY = blockY;
+                    }
+                }
+            }
+            avgPlainY = (short)((maxPlainY + minPlainY) / 2);
+
+            // Fill bottom of plains
+            List<Block> bottomPlainsBlocks = new List<Block>();
+            for (int i = 0; i < plainsBlocks.Count; i++)
+            {
+                for (short y = plainsBlocks[i].Y; y >= GeneratedMap.OriginHeight; y--)
+                {
+                    bottomPlainsBlocks.Add(new Block
+                    {
+                        X = plainsBlocks[i].X,
+                        Y = y,
+                        Z = plainsBlocks[i].Z,
+                        Style = PlainsBlockStyle()
+                    });
+                }
+            }
+            plainsBlocks.AddRange(bottomPlainsBlocks);
+            GeneratedMap.MapData.AddRange(plainsBlocks);
+
+            // Create hills
+            Console.WriteLine("Generating hills");
+            List<Block> hillBlocks = new List<Block>();
+            FastNoise.SetFrequency(Options.HillFrequency);
+            short minHillY = Map.MAXHEIGHT;
+            short hillsBlockX;
+            short hillsBlockZ;
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    hillsBlockX = (short)(x + GeneratedMap.OriginWidth);
+                    hillsBlockZ = (short)(z + GeneratedMap.OriginLength);
+
+                    // Don't add hills over lakes
+                    if (!lakesToUse.Any(b => b.X == hillsBlockX && b.Z == hillsBlockZ))
+                    {
+                        noise = FastNoise.GetPerlin(x, z);
+                        if (noise > 0)
+                        {
+                            blockY = (short)(ClampNoise(noise, Options.HillClamp) + GeneratedMap.OriginHeight);
+                            hillBlocks.Add(new Block
+                            {
+                                X = (short)(x + GeneratedMap.OriginWidth),
+                                Y = blockY,
+                                Z = (short)(z + GeneratedMap.OriginLength),
+                                Style = HillsBlockStyle()
+                            });
+
+                            if (blockY < minHillY) minHillY = blockY;
+                        }
+                    }
+                }
+            }
+
+            // Fill hills
+            List<Block> fillHillBlocks = new List<Block>();
+            for (int i = 0; i < hillBlocks.Count; i++)
+            {
+                for (int y = hillBlocks[i].Y; y >= minHillY; y--)
+                {
+                    fillHillBlocks.Add(new Block
+                    {
+                        X = hillBlocks[i].X,
+                        Y = (short)y,
+                        Z = hillBlocks[i].Z,
+                        Style = HillsBlockStyle()
+                    });
+                }
+            }
+            hillBlocks.AddRange(fillHillBlocks);
+
+            // Adjust hills down
+            short adjustHillY = (short)(minHillY - minPlainY);
+            for (int i = 0; i < hillBlocks.Count; i++)
+            {
+                hillBlocks[i].Y -= adjustHillY;
+                GeneratedMap.Add(hillBlocks[i]);
+            }
 
             return GeneratedMap;
         }
