@@ -105,7 +105,7 @@ Of course, in this process, blocks are colored based on the map's biome and cons
 <a id="installation"></a>
 ## Installation / usage
 
-Go and download the .NET SDK <a href="https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install">from this page</a>. 
+Go and download the .NET SDK <a href="https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install">from this page</a>. (_Be sure to choose the OS you are on from the list to the left of the purple button!_)
 
 ![download net sdk](../../assets/worldgen/download_dotnet_sdk.png)
 
