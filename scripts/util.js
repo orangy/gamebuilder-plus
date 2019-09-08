@@ -1,5 +1,11 @@
 
-
+function expandVariable(text, targetActor) {
+    /* 
+    TODO: return (props.VariableText === "$PLAYER") ? getPlayerNickName() : (getValue(name)).toString();
+    */
+    const actor = targetActor ? getCardTargetActor(targetActor) : myself();
+    return text.replace(/\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)
+}
 
 function format(number) {
     if (number === undefined)

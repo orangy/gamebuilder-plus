@@ -2,7 +2,7 @@
   "cardSystemCardData": {
     "isCard": true,
     "title": "Say Variable Value",
-    "description": "Says variable values using #var tag.",
+    "description": "Says variable values using ${var} tag.",
     "categories": [
       "Action"
     ],

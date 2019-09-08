@@ -2,7 +2,7 @@ export const PROPS = [
     propCardTargetActor("Target", {
         label: "Whose variable?"
     }),
-    propString("Message", "I have #varGold gold."),
+    propString("Message", "I have ${gold} gold."),
     propDecimal("OffsetAbove", 0),
     propNumber("TextSize", 1),
     propDecimal("HideDelay", 0.5, {label: "Hide Delay\nContinuous mode: 0.5"})
@@ -15,7 +15,7 @@ const INITIAL_SCALE = 6;
 export function onAction(actionMessage) {
     // We change the variable
     card.target = getCardTargetActor("Target", actionMessage);
-    const str = props.Message.replace(/#var([a-zA-Z]*)/g, varReplace);
+    const str = expandVariable(props.Message, "Target");
     // Create popup text if we don't have it yet.
     if (!card.popupTextActor || !exists(card.popupTextActor)) {
         card.popupTextActor = clone("builtin:PopupText",
@@ -27,11 +27,6 @@ export function onAction(actionMessage) {
     }
     card.popupHideTime = getTime() + HIDE_DELAY_SECONDS;
 }
-
-function varReplace(match, variable) {
-    return getVar(variable, card.target) || 0;
-}
-
 
 export function onResetGame() {
     // Popup is a script clone, so it gets destroyed automatically.
@@ -46,4 +41,9 @@ export function onTick() {
         delete card.popupTextActor;
         delete card.popupHideTime;
     }
+}
+
+function expandVariable(text, targetActor) {
+    const actor = targetActor ? getCardTargetActor(targetActor) : myself();
+    return text.replace(/\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)
 }

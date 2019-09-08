@@ -11,8 +11,8 @@ export const PROPS = [
     propString('VariableMax', "startingHealth", {
         label: "Variable (max)"
     }),
-    propString('VariableText', "health/startingHealth", {
-        label: "Variable(s) for text",
+    propString('VariableText', "${health}/${startingHealth}", {
+        label: "Text with variables",
     }),
     propImage("Icon", {
         label: "Icon"
@@ -67,17 +67,18 @@ export function onDrawScreen() {
     const fraction = Math.min(Math.max(value / max, 0), 1);
     const fillColor = fraction < 0.25 ? props.FillColorLow : fraction < 0.75 ? props.FillColorMedium : props.FillColorHigh;
 
+    let text = expandVariable(props.VariableText);
     switch (props.Style) {
         case 'SOLID':
-            drawRectangleFrame(fraction, fillColor, additionalText());
+            drawRectangleFrame(fraction, fillColor, text);
             fillSolid(fraction, fillColor);
             break;
         case 'STRIPES':
-            drawRectangleFrame(fraction, fillColor, additionalText());
+            drawRectangleFrame(fraction, fillColor, text);
             fillStripes(fraction, fillColor);
             break;
         case 'CIRCLE':
-            drawCircleFrame(fraction, fillColor, additionalText())
+            drawCircleFrame(fraction, fillColor, text)
     }
 
 }
@@ -92,11 +93,9 @@ function getValue(name) {
     return "";
 }
 
-function additionalText() {
-    // transform names of vars in the form of `var1/var2/var3` to their values separated by slashes
-    return props.VariableText.split('/').map(name => {
-        return (props.VariableText === "$PLAYER") ? getPlayerNickName() : (getValue(name)).toString();
-    }).join('/');
+function expandVariable(text, targetActor) {
+    const actor = targetActor ? getCardTargetActor(targetActor) : myself();
+    return text.replace(/\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)
 }
 
 function fillSolid(fraction, fillColor) {

@@ -5,16 +5,12 @@ export const PROPS = [
     propCardTargetActor("Target", {
         label: "Whose variables?"
     }),
-    propString('Text', 'Gold: #vargold'),
+    propString('Text', 'Gold: ${gold}'),
 ];
 
 export function onDrawScreen() {
-    card.text = props.Text.replace(/#var([a-zA-Z]*)/g, varReplace);
+    card.text = expandVariable(props.Text, "Target");
     uiText(props.X, props.Y, card.text, props.Color || UiColor.WHITE);
-}
-
-function varReplace(match, variable) {
-    return getVar(variable, getCardTargetActor("Target")) || 0;
 }
 
 export function getCardStatus() {
@@ -22,6 +18,11 @@ export function getCardStatus() {
         description: `Displays text '<color=orange>${props.Text}</color>' with variables from <color=green>${getCardTargetActorDescription("Target")}</color>`,
         debugText: `Expanded Text:
 
-${props.Text.replace(/#var([a-zA-Z]*)/g, varReplace)}`
+${expandVariable(props.Text, "Target")}`
     }
+}
+
+function expandVariable(text, targetActor) {
+    const actor = targetActor ? getCardTargetActor(targetActor) : myself();
+    return text.replace(/\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)
 }

@@ -4,7 +4,9 @@ export const PROPS = [
         pickerPrompt: "Who should I send to?",
         allowOffstageActors: true
     }),
-    propString("Notification", "Hello"),
+    propString("Notification", "Hello", {
+        label: "Notification Text"
+    }),
     propDecimal("Delay", 0)
 ];
 
@@ -17,10 +19,15 @@ export function onAction(actionMessage) {
         return;
     }
     if (props.Delay > 0) {
-        sendToManyDelayed(props.Delay, targets, "Notify", {text: props.Notification});
+        sendToManyDelayed(props.Delay, targets, "Notify", {text: expandVariable(props.Notification)});
     } else {
         sendToMany(targets, "Notify", {text: props.Notification});
     }
+}
+
+function expandVariable(text, targetActor) {
+    const actor = targetActor ? getCardTargetActor(targetActor) : myself();
+    return text.replace(/\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)
 }
 
 export function getCardStatus() {
