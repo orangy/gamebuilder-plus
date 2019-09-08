@@ -24,7 +24,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         public override string ToString()
         {
-            string biome = $"Biome: {Enum.GetName(typeof(MapBiome), Biome)}";
+            string biome = $"Biome: '{Enum.GetName(typeof(MapBiome), Biome)}'.";
             string lakes = Lakes ? $"Lake frequency: '{LakeFrequency}'. Lake size: '{LakeSize}'." : string.Empty;
             string hills = Hills ? $"Hill frequency: '{HillFrequency}'. Hill clamp: '{HillClamp}'." : string.Empty;
             string mountains = Mountains ? $"Mountain frequency: '{MountainFrequency}'. Additional mountain size: '{AdditionalMountainSize}'." : string.Empty;

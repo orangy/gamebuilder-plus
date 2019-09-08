@@ -1,4 +1,4 @@
-# GameBuilder world gen
+# Game Builder world gen
 
 ![Dynamic world gen](../../assets/worldgen/readme_hero.png)
 
@@ -47,7 +47,7 @@ I did my best looking around at the code and was making some progress, but the a
 
 The way `simpleData` works is that if a map contains `simpleData` when that map is loaded, the game will deserialize the data and create the terrain (as described). In more laymans-terms, this means we have all of our map data in `simpleData`, all the positions (x, y, z) and Blocks we want to place, and the game will unravel this for us and place the Blocks as we have told it to do.
 
-More detail about `simpleData` can be found in the link above shared by Steve. Later on, I will go over my implementation of the world gen tool in code which will give you the implementation I wrote and will provide additional information to _hopefully_ answer any and all questions you may have.
+More detail about `simpleData` can be found in the link above shared by Steve. If you want more detail, you can look in the source code to see how the world gen tool does this.
 
 ### Algorithms
 
@@ -62,9 +62,11 @@ To use Perlin Noise in terrain generation, and how I used it, is to put your x a
 
 In a simple example, if we are generating the height of a terrain block at (x=2, z=3), we would put these inputs into the Perlin Noise function, and save the result into y.
 
-`y = PerlinNoise(x, z)`
+```
+y = PerlinNoise(x, z)
+```
 
-If the result of the above function is 7, we would use these results to generate a Block at (x=2, y=7, z=3). The idea is that you would iterate over every x and z value in a map and get back a value for y. If we create a world _just_ with Perlin Noise, this is the kind of map we get back.
+We take the y result, and map it to the bounds of the map (from -20 to 130) using an affine transformation and this becomes the y value of the block in the world. If the result of the above process is 7, we would use these results to generate a Block at (x=2, y=7, z=3). The idea is that you would iterate over every x and z value in a map and get back a value for y. If we create a world _just_ with Perlin Noise, this is the kind of map we get back.
 
 ![just perlin noise](../../assets/worldgen/just_perlin_noise.png)
 
@@ -73,16 +75,14 @@ Which is _fine_. Don't get me wrong, this is a fine map. This is essentially the
 <a id="realistic-terrain"></a>
 ### Making more realistic terrain
 
-We obviously can't use the Perlin Noise algorithm as-is, it produces too curved hills that don't work well for flat structures or steep mountains. To modify the algorithm, we apply some _math tricks_ (mostly taken from <a href="https://www.redblobgames.com/maps/terrain-from-noise/">here</a>) in order to shape the result in the way we want. For flater plains, we simply clamp the result of Perlin Noise to return values only between 0-4. For mountains, we take the result of Perlin Noise _octave_ and raise it to an exponent (to creater sharper cliffs). For lakes, we only take the x-lowest y-values of the Perlin Noise result to get a unique lake shape. 
+We obviously can't use the Perlin Noise algorithm as-is, it produces too curved hills that don't work well for flat structures or steep mountains. To modify the algorithm, we apply some _math tricks_ (mostly taken from <a href="https://www.redblobgames.com/maps/terrain-from-noise/">here</a>) in order to shape the result in the way we want. For flatter plains, we can for example simply clamp the result of Perlin Noise to return values only between 0-4. For mountains, we take the result of Perlin Noise _octave_ and raise it to an exponent (to creater sharper cliffs). For lakes, we only take the x-lowest y-values of the Perlin Noise result to get a unique lake shape. 
 
 If you are more curious, you can take a peek in the source code to see what I did. Most of the values are customizable through the tool so you aren't constrained to the sizes of these features in your maps if you want something different.
 
 <a id="bringing-it-together"></a>
 ### Bringing it together
 
-Let me preface this and say this did not come to me immediately. In fact, this was over the course of many iterations that I figured out a process that worked well. The process the Game Builder world gen tool makes use of is **layering**.
-
-Here's what the tool does.
+Let me preface this and say this did not come to me immediately. In fact, this was over the course of many iterations that I figured out a process that worked well. The process the Game Builder world gen tool makes use of is **layering**. Here's what the tool does.
 
 It first makes lakes, if specified.
 
@@ -158,16 +158,16 @@ You will have a number of additional values to customize if you choose option 2.
 Here are some sample maps and the values that were used for each map.
 
 ![sample map 1](../../assets/worldgen/sample_map_1.png)
-Map specs => (250x250) Biome: Grassland Plain frequency: '0.02'. Lake frequency: '0.005'. Lake size: '12'.
+Map specs => (250x250) Biome: 'Grassland'. Plain frequency: '0.02'. Lake frequency: '0.005'. Lake size: '12'.
 
 ![sample map 2](../../assets/worldgen/sample_map_2.png)
-Map specs => (250x250) Biome: Desert Plain frequency: '0.02'.  Hill frequency: '0.05'. Hill clamp: '75'.
+Map specs => (250x250) Biome: 'Desert'. Plain frequency: '0.02'.  Hill frequency: '0.05'. Hill clamp: '75'.
 
 ![sample map 3](../../assets/worldgen/sample_map_3.png)
-Map specs => (250x250) Biome: Tundra Plain frequency: '0.02'. Lake frequency: '0.015'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.005'. Additional mountain size: '0.75'.
+Map specs => (250x250) Biome: 'Tundra'. Plain frequency: '0.02'. Lake frequency: '0.015'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.005'. Additional mountain size: '0.75'.
 
 ![sample map 4](../../assets/worldgen/sample_map_4.png)
-Map specs => (250x250) Biome: Grassland Plain frequency: '0.02'. Lake frequency: '0.011'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.065'. Additional mountain size: '0.65'.
+Map specs => (250x250) Biome: 'Grassland'. Plain frequency: '0.02'. Lake frequency: '0.011'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.065'. Additional mountain size: '0.65'.
 
 <a id="options-json"></a>
 ### Using options.json
@@ -235,7 +235,7 @@ For each player, move them out of the terrain and into the world. Once you do th
 
 ![reset player position](../../assets/worldgen/reset_player_positions.png)
 
-<a id="help-me"></a>
+<a id="helpme"></a>
 ## Help me
 
 Please post an issue <a href="https://github.com/orangy/gamebuilder-plus/issues">on Github</a>, _or_ find Romans 8:28 in the <a href="https://discord.gg/t6JE7ct">Game Builder Discord server</a>.
