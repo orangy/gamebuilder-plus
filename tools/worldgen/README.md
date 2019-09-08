@@ -11,6 +11,8 @@
     - [Bringing it together](#bringing-it-together)
 - [Installation](#installation)
 - [Using the tool](#usingit)
+    - [Sample maps](#sample-maps)
+    - [Using options.json](#options-json)
 
 ## Introduction
 Hello! I go by Romans 8:28 in the Game Builder Discord and Steam forums, and I wanted to build upon the wonderful foundations that is Game Builder. 
@@ -105,16 +107,62 @@ Go and download the .NET SDK <a href="https://dotnet.microsoft.com/learn/dotnet/
 then...
 
 ### Windows users
-Go and download the <a href="https://github.com/orangy/gamebuilder-plus/tree/master/tools/worldgen/Releases">Releases</a> folder for your system: win-x64 (most likely), win-x86 or win-arm and download the **entire** folder to your computer. Double-click on the .exe to run the application.
+Go and download the <a href="https://github.com/orangy/gamebuilder-plus/tree/master/tools/worldgen/Releases">Releases</a> folder for your system: win-x64 (most likely) and download the **entire** folder to your computer. Double-click on the .exe to run the application.
 
 ### Linux/OSX users
 Go and download the <a href="https://github.com/orangy/gamebuilder-plus/tree/master/tools/worldgen/Releases">Releases</a> folder for your system and download the **entire** folder to your computer. Open up a terminal/console window in this folder containing the downloadable files. Run the following command to start the application:
 
-#### v1
-`dotnet .\GBWorldGen.Main.dll`
-
-#### v2
 `dotnet .\GBWorldGen.Main.dll`
 
 <a id="usingit"></a>
 ## Using the tool
+
+Starting the application, the window will look like this.
+
+![console app main screen](../../assets/worldgen/console_app_main_screen.png)
+
+You have a few options to choose from.
+
+1. Default - default map generator, only select the map biome
+2. Custom - can fully customize all values
+3. Exit - exits the application
+
+*The values for biome as of v2 are **G**rassland, **D**esert, and **T**undra.*
+
+If you choose option 1 or 2, you will get presented options of the map you'd like to create. You can simply press the 'Enter' key to choose the default value selected.
+
+![cli default options](../../assets/worldgen/cli_default_options.png)
+
+You will have a number of additional values to customize if you choose option 2.
+
+- Plain frequency - larger number means more hilly plains
+- Has lakes - y/n if you would like lakes in your map
+- Lake frequency - larger number means more (but smaller) lakes
+- Lake size - larger number means larger lakes
+- Has hills - y/n if you would like hills in your map
+- Hill frequency - larger number means more (but smaller) hills
+- Hill clamp - larger number means taller hills
+- Has mountains - y/n if you would like mountains in your map
+- Mountain frequency - larger number means more (but smaller) mountains
+- Additional mountain size - larger number means taller mountains
+
+<a id="sample-maps"></a>
+## Sample maps
+Here are some sample maps and the values that were used for each map.
+
+![sample map 1](../../assets/worldgen/sample_map_1.png)
+Map specs => (250x250) Biome: Grassland Plain frequency: '0.02'. Lake frequency: '0.005'. Lake size: '12'.
+
+![sample map 2](../../assets/worldgen/sample_map_2.png)
+Map specs => (250x250) Biome: Desert Plain frequency: '0.02'.  Hill frequency: '0.05'. Hill clamp: '75'.
+
+![sample map 3](../../assets/worldgen/sample_map_3.png)
+Map specs => (250x250) Biome: Tundra Plain frequency: '0.02'. Lake frequency: '0.015'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.005'. Additional mountain size: '0.75'.
+
+![sample map 4](../../assets/worldgen/sample_map_4.png)
+Map specs => (250x250) Biome: Grassland Plain frequency: '0.02'. Lake frequency: '0.011'. Lake size: '7'. Hill frequency: '0.028'. Hill clamp: '50'. Mountain frequency: '0.065'. Additional mountain size: '0.65'.
+
+<a id="options-json"></a>
+## Using options.json
+
+In order to quickly iterate in your map building, you can create an **options.json** file in the same directory as `GBWorldGen.Main.dll` (or GBWorldGen.Main.exe for you Windows users) to pre-fill the tool with default options for some choices.

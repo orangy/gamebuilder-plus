@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GBWorldgen.Core\Algorithms\Algorithms.csproj" />
     <ProjectReference Include="..\GBWorldgen.Core\Models\Models.csproj" />    
     <ProjectReference Include="..\GBWorldgen.Core\Voos\Voos.csproj" />
