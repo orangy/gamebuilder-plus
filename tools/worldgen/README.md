@@ -112,10 +112,10 @@ Go and download the .NET SDK <a href="https://dotnet.microsoft.com/learn/dotnet/
 then...
 
 ### Windows users
-Go and download the <a href="https://github.com/orangy/gamebuilder-plus/releases">Releases</a> folder for your system: win-x64 (most likely) and download the **entire** folder to your computer. Double-click on the .exe to run the application.
+Go and download the latest <a href="https://github.com/orangy/gamebuilder-plus/releases">Releases</a> zip folder. In this folder will be sub-folders for various systems. Download **all of the files** in the folder for your system (win-x64 most likely). Double-click on the .exe to run the application.
 
 ### Linux/OSX users
-Go and download the <a href="https://github.com/orangy/gamebuilder-plus/releases">Releases</a> folder for your system and download the **entire** folder to your computer. Open up a terminal/console window in this folder containing the downloadable files. Run the following command to start the application:
+Go and download the latest <a href="https://github.com/orangy/gamebuilder-plus/releases">Releases</a> zip folder. In this folder will be sub-folders for various systems. Download **all of the files** in the folder for your system. Open up a terminal/console window in this folder containing the downloadable files. Run the following command to start the application:
 
 ```
 dotnet .\GBWorldGen.Main.dll
