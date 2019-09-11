@@ -9,7 +9,7 @@
     - [Algorithms](#algorithms)
     - [Realistic terrain](#realistic-terrain)
     - [Bringing it together](#bringing-it-together)
-- [Installation](#installation)
+- [Installation (+video)](#installation)
 - [Using the tool](#usingit)
     - [Sample maps](#sample-maps)
     - [Using options.json](#options-json)
@@ -103,6 +103,8 @@ Last, mountains are created, if specified.
 Of course, in this process, blocks are colored based on the map's biome and constraints are placed on the blocks so we only are generating terrain within the limits of the game (-20 to 130).
 
 <a id="installation"></a>
+
+## <a href="https://www.youtube.com/watch?v=eHYGEhTWxTM">Installation (video)</a>
 ## Installation / usage
 
 Go and download the .NET SDK <a href="https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install">from this page</a>. (_Be sure to choose the OS you are on from the list to the left of the purple button!_)
