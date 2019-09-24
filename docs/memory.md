@@ -41,3 +41,6 @@ export function onCollision(msg) {
     setVarPlease(msg.actor, "health", getVar("health", msg.actor) - 10); // ask another actor to modify its variable
 }
 ```  
+
+> NOTE: When the game is saved and closed, and then reopened, it behaves as if it wasn't interrupted at all. 
+> All memory values are still there, init/reset functions are not called, clones are not destroyed, etc.
