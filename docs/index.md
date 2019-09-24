@@ -6,6 +6,7 @@ This is a community effort to provide additional documentation, cards, JavaScrip
 
 ## Community docs
 
+* [Memory](memory.md)
 * [Raw Events](events.md)
 * [Panel Events](panels.md)
 * [Console commands](console.md)
