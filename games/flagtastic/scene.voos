@@ -1,7 +1,7 @@
 {
     "version": 7,
     "voosEngineState": {
-        "gameTime": 127798.546875,
+        "gameTime": 128096.1640625,
         "actors": [
             {
                 "version": 8,
@@ -326,7 +326,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint",
                 "description": "",
                 "tint": {
@@ -433,7 +433,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-1",
                 "description": "",
                 "tint": {
@@ -540,7 +540,7 @@
                     "player"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
-                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{},\"groundedTimestamp\":127680.9921875,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}]}",
+                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{},\"groundedTimestamp\":128005.4296875,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}]}",
                 "displayName": "Player",
                 "description": "",
                 "tint": {
@@ -3062,7 +3062,7 @@
                 "brainName": "c81676d4dd734fbb808464f416c2c386",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"7b297ae8518f46329229dde11805d571\":{\"actionDeckState\":{\"decksInfo\":{}}},\"182592cac1ac49339dff67b018e198d9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"c09984f7c9714f6cb1945c5beb8aab25\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127791.3125,\"lastActionMessageTime\":127790.8125}}},\"triggered\":true},\"d1b63ec22eff4809bdb4afd9b2074c90\":{\"actionDeckState\":{\"decksInfo\":{}}},\"322ea091e23a474a89a96b6ecaf22939\":{\"actionDeckState\":{\"decksInfo\":{}}},\"b73c269944274a11b5b78527aa8ca1b1\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{},\"__delayedm\":[{\"name\":\"Spawn\",\"data\":{\"__delayUntil\":127830.8125},\"gameTime\":127790.8125,\"senderActorName\":\"726e30beaa0645b99eeeb3de455e97d3\"}]}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"7b297ae8518f46329229dde11805d571\":{\"actionDeckState\":{\"decksInfo\":{}}},\"182592cac1ac49339dff67b018e198d9\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"c09984f7c9714f6cb1945c5beb8aab25\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128031.9765625}}},\"triggered\":true},\"d1b63ec22eff4809bdb4afd9b2074c90\":{\"actionDeckState\":{\"decksInfo\":{}}},\"322ea091e23a474a89a96b6ecaf22939\":{\"actionDeckState\":{\"decksInfo\":{}}},\"b73c269944274a11b5b78527aa8ca1b1\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagRed",
                 "description": "",
                 "tint": {
@@ -3124,7 +3124,7 @@
                 "freezeY": false,
                 "freezeZ": false,
                 "enableAiming": false,
-                "hideInPlayMode": true,
+                "hideInPlayMode": false,
                 "keepUpright": false,
                 "isPlayerControllable": false,
                 "debugString": "",
@@ -3169,7 +3169,7 @@
                     "game"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Space/AntennaTower",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1646bf2da13743f580cea4a5195e4bbe\":{\"actionDeckState\":{\"decksInfo\":{}}},\"067bd304b4804801834444f6e91cf313\":{\"actionDeckState\":{\"decksInfo\":{}}},\"4981cc84d14348ebb25ab7a1bb8934c2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d32cbe12f3a84cdfa84601233c8bad7a\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cb481d635877405abb333ddf599c251e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"20083ab8f82d416ca85efbab1a062681\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127681.5234375}}},\"triggered\":true},\"0d2d0c0355724679a8d4206b60423b65\":{\"actionDeckState\":{\"decksInfo\":{}},\"fired\":true},\"e0dc087b5bbd47a3a8390e01708272db\":{\"actionDeckState\":{\"decksInfo\":{}}},\"ca6578e0152a4e00998dbd5ab5bff595\":{\"actionDeckState\":{\"decksInfo\":{}}},\"3a25f1645e54410c9074f6c6f8111ce7\":{\"actionDeckState\":{\"decksInfo\":{}}},\"e36c30873dff40b08130f39a020aa298\":{\"actionDeckState\":{\"decksInfo\":{}}},\"ca943592146044238ab8634d28ec1e74\":{\"actionDeckState\":{\"decksInfo\":{}}},\"c53df2a83cdf406685c650a9e78e728d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9cda8f2c12f44442806d2df79e523462\":{\"actionDeckState\":{\"decksInfo\":{}}},\"c4ba0740269748839196a78b438e413e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"70e947adc7c54efc8e07a75e9b8389ad\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127691.5390625,\"lastActionMessageTime\":127691.0390625}}},\"triggered\":true},\"a8ba9a70e8204b3cb3897a06bab69532\":{\"actionDeckState\":{\"decksInfo\":{}},\"text\":\"WARMUP\"},\"e701cf8693344777a4943ed2825256be\":{\"actionDeckState\":{\"decksInfo\":{}}},\"14fb312235764597b0a4ceb40a21da53\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2d83094df0084a2597d466ff1ab10b11\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"players\":{\"486ea8c0-0557-451a-9abe-d23c89a1281f\":{\"id\":\"486ea8c0-0557-451a-9abe-d23c89a1281f\",\"nickname\":\"Player1\",\"actor\":\"13c329bcf5134a78b60e196177c976a1\",\"score\":71}},\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"__variables\":{\"state\":\"game\",\"game_timerDeadline\":127991.0390625}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1646bf2da13743f580cea4a5195e4bbe\":{\"actionDeckState\":{\"decksInfo\":{}}},\"067bd304b4804801834444f6e91cf313\":{\"actionDeckState\":{\"decksInfo\":{}},\"players\":{\"52fed141-5c25-4a59-a003-25f16ed315bc\":{\"nickname\":\"orangy\"},\"b7de50b4-e661-4191-ac98-14181737769a\":{\"nickname\":\"orangy\"},\"4e294466-a1fa-484b-87c5-3af42dad76d4\":{\"nickname\":\"Player1\",\"score\":51}}},\"4981cc84d14348ebb25ab7a1bb8934c2\":{\"actionDeckState\":{\"decksInfo\":{}},\"players\":{\"4e294466-a1fa-484b-87c5-3af42dad76d4\":{\"id\":\"4e294466-a1fa-484b-87c5-3af42dad76d4\",\"nickname\":\"Player1\",\"actor\":\"ae776a2bb0ad4ff7bbc023b073d625cd\"}}},\"d32cbe12f3a84cdfa84601233c8bad7a\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cb481d635877405abb333ddf599c251e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"20083ab8f82d416ca85efbab1a062681\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128005.9609375,\"lastActionMessageTime\":128005.4609375}}},\"triggered\":true},\"0d2d0c0355724679a8d4206b60423b65\":{\"actionDeckState\":{\"decksInfo\":{}},\"fired\":true},\"e0dc087b5bbd47a3a8390e01708272db\":{\"actionDeckState\":{\"decksInfo\":{}}},\"ca6578e0152a4e00998dbd5ab5bff595\":{\"actionDeckState\":{\"decksInfo\":{}}},\"3a25f1645e54410c9074f6c6f8111ce7\":{\"actionDeckState\":{\"decksInfo\":{}}},\"e36c30873dff40b08130f39a020aa298\":{\"actionDeckState\":{\"decksInfo\":{}}},\"ca943592146044238ab8634d28ec1e74\":{\"actionDeckState\":{\"decksInfo\":{}}},\"c53df2a83cdf406685c650a9e78e728d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9cda8f2c12f44442806d2df79e523462\":{\"actionDeckState\":{\"decksInfo\":{}}},\"c4ba0740269748839196a78b438e413e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"70e947adc7c54efc8e07a75e9b8389ad\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128015.9765625,\"lastActionMessageTime\":128015.4765625}}},\"triggered\":true},\"a8ba9a70e8204b3cb3897a06bab69532\":{\"actionDeckState\":{\"decksInfo\":{}},\"text\":\"WARMUP\"},\"e701cf8693344777a4943ed2825256be\":{\"actionDeckState\":{\"decksInfo\":{}}},\"14fb312235764597b0a4ceb40a21da53\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2d83094df0084a2597d466ff1ab10b11\":{\"actionDeckState\":{\"decksInfo\":{}}},\"c2db797ac82f47018557b7d13e931013\":{\"actionDeckState\":{\"decksInfo\":{}}},\"01d080be593846389d7268000271abc3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128005.9609375,\"lastActionMessageTime\":128005.4609375}}},\"triggered\":true},\"5c0fb2078157482c9ecd202e8f7b476e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"players\":{\"218c3f2b-8c5d-4e68-b172-d0030bac4457\":{\"id\":\"218c3f2b-8c5d-4e68-b172-d0030bac4457\",\"nickname\":\"orangy\",\"actor\":\"fa38b19af7fd4aeb86b7635a96307302\"}},\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"__variables\":{\"state\":\"game\",\"game_timerDeadline\":128315.4765625}}",
                 "displayName": "Game",
                 "description": "",
                 "tint": {
@@ -8209,7 +8209,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127733.4140625,\"lastActionMessageTime\":127732.9140625}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128025.1640625,\"lastActionMessageTime\":128024.6640625}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-2",
                 "description": "",
                 "tint": {
@@ -8314,7 +8314,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127730.6796875,\"lastActionMessageTime\":127730.1796875}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128067.4453125}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-3",
                 "description": "",
                 "tint": {
@@ -8524,7 +8524,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127770.6171875,\"lastActionMessageTime\":127770.1171875}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128047.7734375,\"lastActionMessageTime\":128047.2734375}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-1",
                 "description": "",
                 "tint": {
@@ -8629,7 +8629,7 @@
                 "brainName": "569c903b8ca04aff86cd2e66aee70e2b",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127796.7734375,\"lastActionMessageTime\":127796.2734375}}},\"triggered\":true},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}},\"a1228055c14d4df4ad177a4b271c9e53\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{},\"__delayedm\":[{\"name\":\"Spawn\",\"data\":{\"__delayUntil\":127826.2734375},\"gameTime\":127796.2734375,\"senderActorName\":\"f9222f9fea2d4e659a822416b574fe41\"}]}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128053.0078125,\"lastActionMessageTime\":128052.5078125}}},\"triggered\":true},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}},\"a1228055c14d4df4ad177a4b271c9e53\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagBlue",
                 "description": "",
                 "tint": {
@@ -8691,7 +8691,7 @@
                 "freezeY": false,
                 "freezeZ": false,
                 "enableAiming": false,
-                "hideInPlayMode": true,
+                "hideInPlayMode": false,
                 "keepUpright": false,
                 "isPlayerControllable": false,
                 "debugString": "",
@@ -8734,7 +8734,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127767.9609375,\"lastActionMessageTime\":127697.4765625}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128061.8046875,\"lastActionMessageTime\":128061.3046875}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagWhite",
                 "description": "",
                 "tint": {
@@ -8839,7 +8839,7 @@
                 "brainName": "2e63db87c1c6416ab51b73d7c9c674f5",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{}},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"aadce20c315f4d88aad6d0bfdb4e0d8e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128028.3203125,\"lastActionMessageTime\":128027.8203125}}},\"triggered\":true},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"aadce20c315f4d88aad6d0bfdb4e0d8e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagGreen",
                 "description": "",
                 "tint": {
@@ -8944,7 +8944,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127779.734375,\"lastActionMessageTime\":127779.234375}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{}},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{}}},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"96e5bebc93794e6dbf271c148b3532b3\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-4",
                 "description": "",
                 "tint": {
@@ -9049,7 +9049,7 @@
                 "brainName": "31306b09442a4bf58da6e5c18d933fb7",
                 "tags": [],
                 "renderableUri": "poly:assets/8ppZ-rzoxys",
-                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":3.0533230304718018,\"walkDistTarget\":3.1792069230970794,\"turnAmount\":0,\"turnAmountTarget\":1.5564611384872646,\"returningHome\":false}},\"walkDist\":3.2504220008850098,\"walkDistTarget\":3.2814126500334337,\"turnAmount\":0,\"turnAmountTarget\":0.26407182632684956}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":2.783730983734131,\"walkDistTarget\":2.7821692716592885,\"turnAmount\":-0.20873842059878855,\"turnAmountTarget\":-3.050176662014808,\"returningHome\":false}},\"walkDist\":3.2504220008850098,\"walkDistTarget\":3.2814126500334337,\"turnAmount\":0,\"turnAmountTarget\":0.26407182632684956}",
                 "displayName": "Bot Drone",
                 "description": "",
                 "tint": {
@@ -9060,15 +9060,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -53.40998077392578,
+                    "x": -50.72858810424805,
                     "y": 13.114388465881348,
-                    "z": 17.457489013671876
+                    "z": 1.6559176445007325
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.022396620362997056,
+                    "y": 0.8670574426651001,
                     "z": 0.0,
-                    "w": 0.9997492432594299
+                    "w": -0.49820828437805178
                 },
                 "localScale": {
                     "x": 1.7735673189163209,
@@ -9117,9 +9117,9 @@
                 "debugString": "",
                 "cloneParent": "",
                 "velocity": {
-                    "x": -0.04477129876613617,
+                    "x": 0.0,
                     "y": 0.0,
-                    "z": 0.9990167021751404
+                    "z": 0.0
                 },
                 "angularVelocity": {
                     "x": 0.0,
@@ -9154,7 +9154,7 @@
                 "brainName": "31306b09442a4bf58da6e5c18d933fb7",
                 "tags": [],
                 "renderableUri": "poly:assets/8ppZ-rzoxys",
-                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":0.9686659574508667,\"walkDistTarget\":1.1281595899591865,\"turnAmount\":0,\"turnAmountTarget\":-2.5518950899226027,\"returningHome\":false}},\"walkDist\":1.7328969240188599,\"walkDistTarget\":1.7100608275616347,\"turnAmount\":2.0699891035377607,\"turnAmountTarget\":2.714420274579664}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":1.899467945098877,\"walkDistTarget\":3.0284719649904046,\"turnAmount\":0,\"turnAmountTarget\":1.2303881303303839,\"returningHome\":false}},\"walkDist\":1.7328969240188599,\"walkDistTarget\":1.7100608275616347,\"turnAmount\":2.0699891035377607,\"turnAmountTarget\":2.714420274579664}",
                 "displayName": "Bot Drone-1",
                 "description": "",
                 "tint": {
@@ -9165,15 +9165,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -24.445194244384767,
+                    "x": -35.96157455444336,
                     "y": 13.0,
-                    "z": -26.87774085998535
+                    "z": -24.14185333251953
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.8279204368591309,
+                    "y": -0.4206414520740509,
                     "z": 0.0,
-                    "w": 0.5608455538749695
+                    "w": 0.9072269797325134
                 },
                 "localScale": {
                     "x": 1.7735673189163209,
@@ -9222,9 +9222,9 @@
                 "debugString": "",
                 "cloneParent": "e05dead711be468ca5c740fdfa0a2e4e",
                 "velocity": {
-                    "x": -0.9286618232727051,
+                    "x": -0.7631679177284241,
                     "y": 0.0,
-                    "z": -0.3708479702472687
+                    "z": 0.6461001038551331
                 },
                 "angularVelocity": {
                     "x": 0.0,
@@ -9259,7 +9259,7 @@
                 "brainName": "31306b09442a4bf58da6e5c18d933fb7",
                 "tags": [],
                 "renderableUri": "poly:assets/8ppZ-rzoxys",
-                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":2.8848540782928467,\"walkDistTarget\":2.870830095597892,\"turnAmount\":-0.8926081031331974,\"turnAmountTarget\":-2.609907760488184,\"returningHome\":false}},\"walkDist\":0.8178490400314331,\"walkDistTarget\":1.2223588712533227,\"turnAmount\":0,\"turnAmountTarget\":2.4437951991462294}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":4.250801086425781,\"walkDistTarget\":4.261367142663152,\"turnAmount\":0,\"turnAmountTarget\":-3.033012030223481,\"returningHome\":false}},\"walkDist\":0.8178490400314331,\"walkDistTarget\":1.2223588712533227,\"turnAmount\":0,\"turnAmountTarget\":2.4437951991462294}",
                 "displayName": "Bot Drone-2",
                 "description": "",
                 "tint": {
@@ -9270,15 +9270,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -9.90208625793457,
+                    "x": -25.280363082885743,
                     "y": 14.31992244720459,
-                    "z": 3.4643030166625978
+                    "z": -3.774038553237915
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.9999963641166687,
+                    "y": -0.9984921813011169,
                     "z": 0.0,
-                    "w": 0.002725347876548767
+                    "w": -0.05489484965801239
                 },
                 "localScale": {
                     "x": 1.7735673189163209,
@@ -9327,9 +9327,9 @@
                 "debugString": "",
                 "cloneParent": "e05dead711be468ca5c740fdfa0a2e4e",
                 "velocity": {
-                    "x": 0.0,
+                    "x": 0.10964399576187134,
                     "y": 0.0,
-                    "z": 0.0
+                    "z": -0.9939770698547363
                 },
                 "angularVelocity": {
                     "x": 0.0,
@@ -9576,7 +9576,7 @@
                 "brainName": "569c903b8ca04aff86cd2e66aee70e2b",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127763.0390625,\"lastActionMessageTime\":127762.5390625}}},\"triggered\":true},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}},\"a1228055c14d4df4ad177a4b271c9e53\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128055.6015625,\"lastActionMessageTime\":128055.1015625}}},\"triggered\":true},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}},\"a1228055c14d4df4ad177a4b271c9e53\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-6-2",
                 "description": "",
                 "tint": {
@@ -9681,7 +9681,7 @@
                 "brainName": "2e63db87c1c6416ab51b73d7c9c674f5",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":127769.3359375,\"lastActionMessageTime\":127768.8359375}}},\"triggered\":true},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"aadce20c315f4d88aad6d0bfdb4e0d8e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{}},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"aadce20c315f4d88aad6d0bfdb4e0d8e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagGreen-1",
                 "description": "",
                 "tint": {
@@ -9786,7 +9786,7 @@
                 "brainName": "ef4a14d5207f4f34906dfdfd53c7b642",
                 "tags": [],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Chest",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"e7d8eb1274d84b6cb2ea15e5295f32fb\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fb1c88620ba948a99699d4f8fb4c26b5\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9f1d6dad975044439aa18a240f51dc67\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1e71bc3ec9014851b4b1c73e4b8bc348\":{\"actionDeckState\":{\"decksInfo\":{}}},\"5f9e976cd0fe43f786729189c6b44ebe\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"e7d8eb1274d84b6cb2ea15e5295f32fb\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128057.8984375,\"lastActionMessageTime\":128057.3984375}}},\"triggered\":true},\"fb1c88620ba948a99699d4f8fb4c26b5\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9f1d6dad975044439aa18a240f51dc67\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1e71bc3ec9014851b4b1c73e4b8bc348\":{\"actionDeckState\":{\"decksInfo\":{}}},\"5f9e976cd0fe43f786729189c6b44ebe\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "AmmoSlow",
                 "description": "",
                 "tint": {
@@ -9891,7 +9891,7 @@
                 "brainName": "6b4a218e884243889c75bfb60d32357f",
                 "tags": [],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Chest",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"47bf04c699dc45768659a56e6c2a9925\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2ce028045b814aefb0e8d969189b66e1\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1e7d4d3037a94f38befcb15d1786e499\":{\"actionDeckState\":{\"decksInfo\":{}}},\"28a5c6f7ead547aebca32061fe710c2a\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7f2e91243ea4d849560e6d392cffdce\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"47bf04c699dc45768659a56e6c2a9925\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2ce028045b814aefb0e8d969189b66e1\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128069.7109375,\"lastActionMessageTime\":128069.2109375}}},\"triggered\":true},\"1e7d4d3037a94f38befcb15d1786e499\":{\"actionDeckState\":{\"decksInfo\":{}}},\"28a5c6f7ead547aebca32061fe710c2a\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7f2e91243ea4d849560e6d392cffdce\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "AmmoExplosion",
                 "description": "",
                 "tint": {
@@ -9996,7 +9996,7 @@
                 "brainName": "2368c358356e40968fc3015b1eea63b4",
                 "tags": [],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Chest",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"f6321b79e1a54d4f8339fa38ca144a33\":{\"actionDeckState\":{\"decksInfo\":{}}},\"35b17190cad24a3f8978bb12b173a651\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1be2f49e59aa43bfaec3fc15eaa04ef1\":{\"actionDeckState\":{\"decksInfo\":{}}},\"51a8c195d66446519ce11221e5cccad2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"e29b7c0bfe874362b1bf17e0513ab41b\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"f6321b79e1a54d4f8339fa38ca144a33\":{\"actionDeckState\":{\"decksInfo\":{}}},\"35b17190cad24a3f8978bb12b173a651\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128025.9453125,\"lastActionMessageTime\":128025.4453125}}},\"triggered\":true},\"1be2f49e59aa43bfaec3fc15eaa04ef1\":{\"actionDeckState\":{\"decksInfo\":{}}},\"51a8c195d66446519ce11221e5cccad2\":{\"actionDeckState\":{\"decksInfo\":{}}},\"e29b7c0bfe874362b1bf17e0513ab41b\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "AmmoFreeze",
                 "description": "",
                 "tint": {
@@ -10101,7 +10101,7 @@
                 "brainName": "097da62136024ab99a448f3a729cca06",
                 "tags": [],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Chest",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"118320e7ad414bfea8bc9c29915cdf3b\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d5469870595b4d1fb3657bc0df219a16\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9c2e7c2922134c26bd05b306e92df891\":{\"actionDeckState\":{\"decksInfo\":{}}},\"53b3d2b7147e45d19f1539d2a17b785d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0bc7d4321fdf44719ab6b9972c573cd2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"118320e7ad414bfea8bc9c29915cdf3b\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d5469870595b4d1fb3657bc0df219a16\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":128062.7109375,\"lastActionMessageTime\":128062.2265625}}},\"triggered\":true},\"9c2e7c2922134c26bd05b306e92df891\":{\"actionDeckState\":{\"decksInfo\":{}}},\"53b3d2b7147e45d19f1539d2a17b785d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0bc7d4321fdf44719ab6b9972c573cd2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "AmmoConfusion",
                 "description": "",
                 "tint": {
@@ -14624,7 +14624,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-2",
                 "description": "",
                 "tint": {
@@ -14731,7 +14731,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-3",
                 "description": "",
                 "tint": {
@@ -14838,7 +14838,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-4",
                 "description": "",
                 "tint": {
@@ -14945,7 +14945,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-5",
                 "description": "",
                 "tint": {
@@ -15052,7 +15052,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-6",
                 "description": "",
                 "tint": {
@@ -15159,7 +15159,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-7",
                 "description": "",
                 "tint": {
@@ -15266,7 +15266,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-8",
                 "description": "",
                 "tint": {
@@ -15373,7 +15373,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-9",
                 "description": "",
                 "tint": {
@@ -15480,7 +15480,7 @@
                     "spawn"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}}}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}}}}",
                 "displayName": "SpawnPoint-10",
                 "description": "",
                 "tint": {
@@ -15581,13 +15581,13 @@
             },
             {
                 "version": 8,
-                "name": "13c329bcf5134a78b60e196177c976a1",
+                "name": "ae776a2bb0ad4ff7bbc023b073d625cd",
                 "brainName": "494f5e33a90a42f2b3d31e47cb57b28b",
                 "tags": [
                     "player"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
-                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":127798.71875,\"lastActionMessageTime\":127798.03125}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"jumpTimestamp\":127796.6640625,\"groundedTimestamp\":127798.546875,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}]}",
+                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":128096.2265625,\"lastActionMessageTime\":128095.6484375}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"jumpTimestamp\":128091.2421875,\"groundedTimestamp\":128096.1640625,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":5,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":10,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":5,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":10,\"speed\":30,\"cooldown\":0.2}]}",
                 "displayName": "Player-Script-Clone",
                 "description": "",
                 "tint": {
@@ -15598,15 +15598,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -29.83384132385254,
-                    "y": 7.152557373046875e-7,
-                    "z": 6.236670970916748
+                    "x": -16.86964225769043,
+                    "y": 5.960464477539063e-7,
+                    "z": 6.062905311584473
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": 0.992837131023407,
+                    "y": 0.9694733619689941,
                     "z": 0.0,
-                    "w": -0.11947603523731232
+                    "w": -0.24519677460193635
                 },
                 "localScale": {
                     "x": 1.0,
@@ -15655,21 +15655,235 @@
                 "debugString": "",
                 "cloneParent": "e5aed0bca4d9400398d07cb83f48185c",
                 "velocity": {
-                    "x": -3.453253984451294,
+                    "x": 0.0,
                     "y": 0.0,
-                    "z": -14.195395469665528
+                    "z": 0.0
                 },
                 "angularVelocity": {
                     "x": 0.0,
-                    "y": 0.013362003490328789,
+                    "y": 0.008972112089395523,
                     "z": 0.0
                 },
-                "cameraActor": "",
+                "cameraActor": "f799fc87a3724b6c9af2cd57a47badaf",
                 "spawnTransformParent": "",
                 "wasClonedByScript": true,
                 "loopingAnimation": "",
                 "cameraSettingsJson": "",
                 "lightSettingsJson": "{\"range\":0.0,\"offset\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "f5ebe6f64fb940a9be427edb62f91f36",
+                "brainName": "7d7d44766e90496ba5967f87e87566f7",
+                "tags": [
+                    "camera"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/World/Gizmo_Camera",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"89e46c96a56c4177afa1f350965df887\":{\"actionDeckState\":{\"decksInfo\":{}},\"yaw\":null,\"pitch\":0}}}",
+                "displayName": "Camera",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 0.0,
+                    "b": 0.0,
+                    "a": 0.0
+                },
+                "transformParent": "e5aed0bca4d9400398d07cb83f48185c",
+                "position": {
+                    "x": -53.75,
+                    "y": 0.0,
+                    "z": -27.5
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 0.9999998807907105,
+                    "y": 1.0,
+                    "z": 0.9999998807907105
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -53.75,
+                    "y": 0.0,
+                    "z": -27.5
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": false,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "e5aed0bca4d9400398d07cb83f48185c",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "f799fc87a3724b6c9af2cd57a47badaf",
+                "brainName": "7d7d44766e90496ba5967f87e87566f7",
+                "tags": [
+                    "camera"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/World/Gizmo_Camera",
+                "memoryJson": "{\"__bulm\":{\"89e46c96a56c4177afa1f350965df887\":{\"actionDeckState\":{\"decksInfo\":{}},\"yaw\":-15.213268591792122,\"pitch\":0.16276561561971903},\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}}}}",
+                "displayName": "Camera-Script-Clone",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 0.0,
+                    "b": 0.0,
+                    "a": 0.0
+                },
+                "transformParent": "ae776a2bb0ad4ff7bbc023b073d625cd",
+                "position": {
+                    "x": -16.86964225769043,
+                    "y": 1.5000005960464478,
+                    "z": 6.062905311584473
+                },
+                "rotation": {
+                    "x": -0.01993277482688427,
+                    "y": -0.9662646651268005,
+                    "z": -0.0788113996386528,
+                    "w": 0.24438515305519105
+                },
+                "localScale": {
+                    "x": 0.9999998807907105,
+                    "y": 1.0,
+                    "z": 0.9999998807907105
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -26.25,
+                    "y": 0.0,
+                    "z": -33.75
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.9620913863182068,
+                    "z": 0.0,
+                    "w": -0.27272722125053408
+                },
+                "preferOffstage": false,
+                "isSolid": false,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "f5ebe6f64fb940a9be427edb62f91f36",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "ae776a2bb0ad4ff7bbc023b073d625cd",
+                "wasClonedByScript": true,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "{\"cursorActive\":false,\"aimOrigin\":{\"x\":-16.86964225769043,\"y\":1.5,\"z\":6.062905311584473},\"aimDir\":{\"x\":-0.4684880043664784,\"y\":0.16204788571813178,\"z\":-0.8684811591842926},\"dontRenderActors\":[\"ae776a2bb0ad4ff7bbc023b073d625cd\"],\"fov\":60}",
+                "lightSettingsJson": "",
                 "pfxId": "",
                 "sfxId": "",
                 "useConcaveCollider": true,
@@ -15734,7 +15948,9 @@
             "6b1811987b374dbadeadbeaf00000012",
             "6b1811987b374dbadeadbeaf00000014",
             "6b1811987b374dbadeadbeaf00000016",
-            "6b1811987b374dbadeadbeaf00000018"
+            "6b1811987b374dbadeadbeaf00000018",
+            "6b1811987b374dbadeadbeaf00000019",
+            "6b1811987b374dbadeadbeaf0000001a"
         ],
         "behaviors": [
             {
@@ -15788,7 +16004,7 @@
             },
             {
                 "label": "Hotloaded",
-                "javascript": "export const PROPS = [\n    propNumber('X', 1270, {\n        label: \"Horizontal Position\"\n    }),\n    propNumber('Y', 60, {\n        label: \"Vertical Position\"\n    }),\n    propNumber('Width', 300),\n\n    propColor('Color', '#ecf0f1', {\n        label: \"Color\"\n    }),\n    propColor('BackgroundColor', '#2c3e50', {\n        label: \"Background\"\n    }),\n    propColor('BackgroundColorAlt', '#34495e', {\n        label: \"Alternate Background\"\n    }),\n    propColor('BackgroundColorHighlight', '#2980b9', {\n        label: \"Highlight Background\"\n    }),\n\n    propBoolean('Advanced', false, {\n        label: 'Advanced'\n    }),\n    propString(\"ConditionVariableName\", 'state', {\n        label: 'Condition Variable',\n        requires: [requireTrue(\"Advanced\")]\n    }),\n    propString(\"ConditionVariableValue\", 'game', {\n        label: 'Condition Value',\n        requires: [requireTrue(\"Advanced\")]\n    })\n];\n\n/*\n    Players roster is stored in the Game's actor memory as mem.players[id]\n    Use \"Players States\" card to manage it\n    \n    Each item has `state`, `stateText`, `stateWeight` and `score` properties\n        state is identifier of a state, e.g. \"warmup\", \"spectate\", etc\n        stateText is text of a state, e.g. \"Warming Up\", \"Spectating\", etc\n        stateWeight is *negative* number for sorting players when they don't have scores\n        score is number of points\n        nickname is nickname\n */\nconst PADDING = UI_TEXT_LINE_HEIGHT / 2;\nconst SCORE_ITEM_HEIGHT = UI_TEXT_LINE_HEIGHT + PADDING * 2;\n\nconst SCORE_LABEL_WIDTH = 150;\nconst SCORE_BORDER_COLOR = colorFromHex(\"#8e44ad\");\nconst SCORE_BORDER_HCOLOR = colorFromHex(\"#9b59b6\");\n\nconst XCORNER_SIZE = 10;\nconst YCORNER_SIZE = 12;\n\nexport function onResetGame() {\n    if (mem.players === undefined) return; // no players joined\n\n    for (let key in mem.players) {\n        delete mem.players[key].score;\n    }\n}\n\nexport function onPlayerJoined(msg) {\n    if (mem.players === undefined) {\n        mem.players = {}; // first player activated. we can't rely on reset/init, because the events are out of order\n    }\n\n    const playerId = msg.playerId;\n    const nickname = getPlayerNickName(playerId);\n    log(`Player \"${playerId}\" joined: ${nickname}`);\n\n    const info = mem.players[playerId] || {};\n    info.nickname = nickname;\n    mem.players[playerId] = info;\n}\n\nexport function onPlayerLeft(msg) {\n    if (mem.players === undefined) return; // no players joined\n    const playerId = msg.playerId;\n    const info = mem.players[playerId] || {};\n    log(`Player \"${playerId}\" left: ${info.nickname}`);\n    delete mem.players[playerId];\n}\n\nfunction conditionSatisfied() {\n    if (props.Advanced) {\n        const variable = props.ConditionVariableName;\n        const value = props.ConditionVariableValue;\n        if (variable && value && getVar(variable) != value)\n            return false;\n    }\n    return true;\n}\n\nexport function onPointScored(msg) {\n    if (mem.players === undefined)\n        return; // no players joined\n\n    if (!conditionSatisfied())\n        return;\n\n    const info = mem.players[msg.player];\n    info.score = (info.score || 0) + (msg.amount || 0);\n}\n\nexport function onDrawScreen() {\n    if (mem.players === undefined)\n        return; // nothing to draw, no players data\n\n    const playerId = getLocalPlayer();\n\n    const playerIds = getAllPlayers();\n    const numPlayers = playerIds.length;\n\n    playerIds.sort((ida, idb) => {\n        let scoreA = getScoreSortingOrder(mem.players[ida]);\n        let scoreB = getScoreSortingOrder(mem.players[idb]);\n        return scoreB - scoreA;\n    });\n\n    const x = props.X;\n    const y = props.Y;\n    const w = props.Width;\n\n    uiBorder(x - 1, y - 1, w + 2, SCORE_ITEM_HEIGHT * numPlayers + 2, SCORE_BORDER_COLOR, SCORE_BORDER_HCOLOR);\n\n    playerIds.forEach((id, index) => {\n        let bgColor;\n        if (id === playerId) bgColor = props.BackgroundColorHighlight;\n        else if (index % 2 === 0) bgColor = props.BackgroundColor;\n        else bgColor = props.BackgroundColorAlt;\n\n        uiRect(x, y + SCORE_ITEM_HEIGHT * index, w, SCORE_ITEM_HEIGHT, bgColor, {\n            opacity: 0.3,\n            style: RectStyle.FILLED\n        });\n\n        let nickname = getPlayerNickName(id);\n        if (!nickname || nickname.length === 0)\n            nickname = \"Player\";\n\n        const label = nickname;\n        const info = mem.players[id];\n\n        const score = getScoreDisplayText(info);\n        const scoreWidth = uiGetTextWidth(label);\n        uiText(x + PADDING + SCORE_LABEL_WIDTH - scoreWidth, y + SCORE_ITEM_HEIGHT * index + PADDING, label, props.Color, {});\n        uiText(x + PADDING + SCORE_LABEL_WIDTH + PADDING, y + SCORE_ITEM_HEIGHT * index + PADDING, score, props.Color, {});\n    });\n}\n\nfunction getScoreSortingOrder(info) {\n    if (info === undefined)\n        return -4; // not yet registered\n    if (info.score !== undefined)\n        return info.score; // if score is there, display it\n    return info.stateWeight || -4;\n}\n\nfunction getScoreDisplayText(info) {\n    if (info === undefined)\n        return \"\";\n    if (info.score !== undefined)\n        return info.score; // if score is there, display it\n    return info.stateText || \"\";\n}\n\nfunction uiBorder(x, y, w, h, color, colorHighlight) {\n    uiRect(x, y, w, h, color, {style: RectStyle.BORDER});\n\n    // top-left corner\n    uiRect(x - 1, y - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x - 1, y - 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n\n    // top-right corner\n    uiRect(x + w - XCORNER_SIZE + 1, y - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x + w - 1, y - 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n\n    // bottom-right corner\n    uiRect(x + w - XCORNER_SIZE + 1, y + h - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x + w - 1, y + h - YCORNER_SIZE + 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n\n    // bottom-left corner\n    uiRect(x - 1, y + h - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x - 1, y + h - YCORNER_SIZE + 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n}\n",
+                "javascript": "export const PROPS = [\n    propNumber('X', 1270, {\n        label: \"Horizontal Position\"\n    }),\n    propNumber('Y', 60, {\n        label: \"Vertical Position\"\n    }),\n    propNumber('Width', 300),\n\n    propColor('Color', '#ecf0f1', {\n        label: \"Color\"\n    }),\n    propColor('BackgroundColor', '#2c3e50', {\n        label: \"Background\"\n    }),\n    propColor('BackgroundColorAlt', '#34495e', {\n        label: \"Alternate Background\"\n    }),\n    propColor('BackgroundColorHighlight', '#2980b9', {\n        label: \"Highlight Background\"\n    }),\n\n    propBoolean('Advanced', false, {\n        label: 'Advanced'\n    }),\n    propString(\"ConditionVariableName\", 'state', {\n        label: 'Condition Variable',\n        requires: [requireTrue(\"Advanced\")]\n    }),\n    propString(\"ConditionVariableValue\", 'game', {\n        label: 'Condition Value',\n        requires: [requireTrue(\"Advanced\")]\n    })\n];\n\n/*\n    Players roster is stored in the Game's actor memory as card.players[id]\n    Use \"Players States\" card to manage it\n    \n    Each item has `state`, `stateText`, `stateWeight` and `score` properties\n        state is identifier of a state, e.g. \"warmup\", \"spectate\", etc\n        stateText is text of a state, e.g. \"Warming Up\", \"Spectating\", etc\n        stateWeight is *negative* number for sorting players when they don't have scores\n        score is number of points\n        nickname is nickname\n */\nconst PADDING = UI_TEXT_LINE_HEIGHT / 2;\nconst SCORE_ITEM_HEIGHT = UI_TEXT_LINE_HEIGHT + PADDING * 2;\n\nconst SCORE_LABEL_WIDTH = 150;\nconst SCORE_BORDER_COLOR = colorFromHex(\"#8e44ad\");\nconst SCORE_BORDER_HCOLOR = colorFromHex(\"#9b59b6\");\n\nconst XCORNER_SIZE = 10;\nconst YCORNER_SIZE = 12;\n\nexport function onResetGame() {\n    if (card.players === undefined) return; // no players joined\n\n    for (let key in card.players) {\n        delete card.players[key].score;\n    }\n}\n\nexport function onPlayerJoined(msg) {\n    if (card.players === undefined) {\n        card.players = {}; // first player activated. we can't rely on reset/init, because the events are out of order\n    }\n\n    const playerId = msg.playerId;\n    const nickname = getPlayerNickName(playerId);\n    log(`Player \"${playerId}\" joined: ${nickname}`);\n\n    const info = card.players[playerId] || {};\n    info.nickname = nickname;\n    card.players[playerId] = info;\n}\n\nexport function onPlayerLeft(msg) {\n    if (card.players === undefined) return; // no players joined\n    const playerId = msg.playerId;\n    const info = card.players[playerId] || {};\n    log(`Player \"${playerId}\" left: ${info.nickname}`);\n    delete card.players[playerId];\n}\n\nfunction conditionSatisfied() {\n    if (props.Advanced) {\n        const variable = props.ConditionVariableName;\n        const value = props.ConditionVariableValue;\n        if (variable && value && getVar(variable) != value)\n            return false;\n    }\n    return true;\n}\n\nexport function onPointScored(msg) {\n    if (card.players === undefined)\n        return; // no players joined\n\n    if (!conditionSatisfied())\n        return;\n\n    const info = card.players[msg.player];\n    info.score = (info.score || 0) + (msg.amount || 0);\n}\n\nexport function onDrawScreen() {\n    if (card.players === undefined)\n        return; // nothing to draw, no players data\n\n    const playerId = getLocalPlayer();\n\n    const playerIds = getAllPlayers();\n    const numPlayers = playerIds.length;\n\n    playerIds.sort((ida, idb) => {\n        let scoreA = getScoreSortingOrder(card.players[ida]);\n        let scoreB = getScoreSortingOrder(card.players[idb]);\n        return scoreB - scoreA;\n    });\n\n    const x = props.X;\n    const y = props.Y;\n    const w = props.Width;\n\n    uiBorder(x - 1, y - 1, w + 2, SCORE_ITEM_HEIGHT * numPlayers + 2, SCORE_BORDER_COLOR, SCORE_BORDER_HCOLOR);\n\n    playerIds.forEach((id, index) => {\n        let bgColor;\n        if (id === playerId) bgColor = props.BackgroundColorHighlight;\n        else if (index % 2 === 0) bgColor = props.BackgroundColor;\n        else bgColor = props.BackgroundColorAlt;\n\n        uiRect(x, y + SCORE_ITEM_HEIGHT * index, w, SCORE_ITEM_HEIGHT, bgColor, {\n            opacity: 0.3,\n            style: RectStyle.FILLED\n        });\n\n        let nickname = getPlayerNickName(id);\n        if (!nickname || nickname.length === 0)\n            nickname = \"Player\";\n\n        const label = nickname;\n        const info = card.players[id];\n\n        const score = getScoreDisplayText(info);\n        const scoreWidth = uiGetTextWidth(label);\n        uiText(x + PADDING + SCORE_LABEL_WIDTH - scoreWidth, y + SCORE_ITEM_HEIGHT * index + PADDING, label, props.Color, {});\n        uiText(x + PADDING + SCORE_LABEL_WIDTH + PADDING, y + SCORE_ITEM_HEIGHT * index + PADDING, score, props.Color, {});\n    });\n}\n\nfunction getScoreSortingOrder(info) {\n    if (info === undefined)\n        return -4; // not yet registered\n    if (info.score !== undefined)\n        return info.score; // if score is there, display it\n    return info.stateWeight || -4;\n}\n\nfunction getScoreDisplayText(info) {\n    if (info === undefined)\n        return \"\";\n    if (info.score !== undefined)\n        return info.score; // if score is there, display it\n    return info.stateText || \"\";\n}\n\nfunction uiBorder(x, y, w, h, color, colorHighlight) {\n    uiRect(x, y, w, h, color, {style: RectStyle.BORDER});\n\n    // top-left corner\n    uiRect(x - 1, y - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x - 1, y - 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n\n    // top-right corner\n    uiRect(x + w - XCORNER_SIZE + 1, y - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x + w - 1, y - 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n\n    // bottom-right corner\n    uiRect(x + w - XCORNER_SIZE + 1, y + h - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x + w - 1, y + h - YCORNER_SIZE + 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n\n    // bottom-left corner\n    uiRect(x - 1, y + h - 1, XCORNER_SIZE, 2, colorHighlight, {style: RectStyle.FILLED});\n    uiRect(x - 1, y + h - YCORNER_SIZE + 1, 2, YCORNER_SIZE, colorHighlight, {style: RectStyle.FILLED});\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
                 "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"isCard\": true,\n    \"title\": \"Players Roster\",\n    \"description\": \"Display state and scores for all players, sorted by score descending.\",\n    \"categories\" : [\"Screen\"],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/scoreboard\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000009\"\n  }\n}\n"
@@ -15921,10 +16137,24 @@
             },
             {
                 "label": "Hotloaded",
-                "javascript": "export const PROPS = [\n    propActor(\"Player\", \"\", {\n        label: \"Player Offstage Prototype\",\n        pickerPrompt: \"What actor to spawn as a player?\",\n        allowOffstageActors: true\n    }),\n    propString(\"Tag\", \"spawn\", {\n        label: \"Spawn Place Tag\",\n    }),\n];\n\nfunction selectSpawnActor() {\n    const players = getAllPlayers();\n    const spawns = getActorsWithTag(props.Tag);\n    if (players.length === 0 || spawns.length === 0)\n        return undefined;\n\n    const selected = spawns.reduce((current, spawn) => {\n        // Sum of distances from this spawn point to all players\n        let totalDistance = players.reduce(function (total, player) {\n            const playerInfo = mem.players[player];\n            if (playerInfo && playerInfo.actor)\n                return total + getDistanceBetween(spawn, playerInfo.actor);\n            else\n                return total;\n        }, 0);\n        let currentDistance = current.distance || 0;\n        return currentDistance > totalDistance ? current : {distance: totalDistance, actor: spawn};\n    }, {});\n\n    return selected.actor || spawns[0];\n}\n\nfunction spawnPlayer(playerId) {\n    const nickname = getPlayerNickName(playerId);\n    log(`Player \"${playerId}\" joined: ${nickname}`);\n\n    const info = mem.players[playerId] || {};\n    info.id = playerId;\n    info.nickname = nickname;\n    mem.players[playerId] = info;\n\n    const spawnPoint = selectSpawnActor();\n    let pos = getPos(spawnPoint);\n    const playerActor = clone(props.Player, pos);\n    setControllingPlayerPlease(playerActor, info.id);\n    info.actor = playerActor;\n    sendToAll(\"PlayerActorCreated\", {actor: playerActor, player: playerId})\n}\n\nexport function onInit() {\n    // init will be called when scene is loaded, by clones can still be there along with mem.players, \n    // so create actors only for players that don't have them\n    if (mem.players) {\n        const players = getAllPlayers();\n        players.forEach(function (player) {\n            const playerInfo = mem.players[player];\n            if (!playerInfo || !playerInfo.actor)\n                spawnPlayer(player);\n        })\n    }\n}\n\nexport function onResetGame() {\n    mem.players = {}; // forget everything, clones are already destroyed\n    const players = getAllPlayers();\n    players.forEach(player => spawnPlayer(player))\n}\n\nexport function onPlayerJoined(msg) {\n    spawnPlayer(msg.playerId);\n}\n\nexport function onPlayerLeft(msg) {\n    const playerId = msg.playerId;\n    const info = mem.players[playerId] || {};\n    log(`Player \"${playerId}\" left: ${info.nickname}`);\n    delete mem.players[playerId];\n    if (info.actor) {\n        destroySelfPlease(info.actor);\n        sendToAll(\"PlayerActorDestroyed\", {actor: info.actor, player: playerId})\n    }\n}\n\nexport function getCardStatus() {\n    const player = getDisplayName(props.Player);\n    return {\n        description: `Spawns <color=green>${player}</color> for connected user at one of <color=yellow>${props.Tag}</color> points.`\n    }\n}\n",
+                "javascript": "export const PROPS = [\n    propActor(\"Player\", \"\", {\n        label: \"Player Offstage Prototype\",\n        pickerPrompt: \"What actor to spawn as a player?\",\n        allowOffstageActors: true\n    }),\n    propString(\"Tag\", \"spawn\", {\n        label: \"Spawn Place Tag\",\n    }),\n];\n\nfunction selectSpawnActor() {\n    const players = getAllPlayers();\n    const spawns = getActorsWithTag(props.Tag);\n    if (players.length === 0 || spawns.length === 0)\n        return undefined;\n\n    const selected = spawns.reduce((current, spawn) => {\n        // Sum of distances from this spawn point to all players\n        let totalDistance = players.reduce(function (total, player) {\n            const playerInfo = card.players[player];\n            if (playerInfo && playerInfo.actor)\n                return total + getDistanceBetween(spawn, playerInfo.actor);\n            else\n                return total;\n        }, 0);\n        let currentDistance = current.distance || 0;\n        return currentDistance > totalDistance ? current : {distance: totalDistance, actor: spawn};\n    }, {});\n\n    return selected.actor || spawns[0];\n}\n\nfunction spawnPlayer(playerId) {\n    const nickname = getPlayerNickName(playerId);\n    log(`Player \"${playerId}\" joined: ${nickname}`);\n\n    const info = card.players[playerId] || {};\n    info.id = playerId;\n    info.nickname = nickname;\n    card.players[playerId] = info;\n\n    const spawnPoint = selectSpawnActor();\n    let pos = getPos(spawnPoint);\n    const playerActor = clone(props.Player, pos);\n    setIsPlayerControllablePlease(playerActor, true);\n    setControllingPlayerPlease(playerActor, info.id);\n    info.actor = playerActor;\n    log(`Current players: ${JSON.stringify(card.players)}`);\n    sendToAll(\"PlayerSpawned\", {player: playerId})\n}\n\nexport function onInit() {\n    // init will be called when scene is loaded, by clones can still be there along with card.players, \n    // so create actors only for players that don't have them\n    if (card.players) {\n        const players = getAllPlayers();\n        players.forEach(function (playerId) {\n            const info = card.players[playerId];\n            if (!info || !info.actor)\n                spawnPlayer(playerId);\n        })\n    }\n}\n\nexport function onResetGame() {\n    card.players = {}; // forget everything, clones are already destroyed\n    const players = getAllPlayers();\n    players.forEach(playerId => spawnPlayer(playerId))\n}\n\nexport function onPlayerJoined(msg) {\n    spawnPlayer(msg.playerId);\n}\n\nexport function onPlayerLeft(msg) {\n    const playerId = msg.playerId;\n    const info = card.players[playerId] || {nickname: '<unregistered>'};\n    log(`Player \"${playerId}\" left: ${info.nickname}`);\n    delete card.players[playerId];\n    if (info.actor) {\n        destroySelfPlease(info.actor);\n    }\n    sendToAll(\"PlayerDismissed\", {player: playerId});\n    log(`Current players: ${JSON.stringify(card.players)}`)\n}\n\nexport function getCardStatus() {\n    const player = getDisplayName(props.Player);\n    return {\n        description: `Spawns <color=green>${player}</color> for connected user at one of <color=yellow>${props.Tag}</color> points.`\n    }\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
                 "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Multiplayer Spawner\",\n    \"description\": \"Assigns players to actors by spawning a clone on a spawn point\",\n    \"categories\": [\n      \"Custom\"\n    ],\n    \"imageResourcePath\": \"icon:play_for_work\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000018\"\n  }\n}\n"
+            },
+            {
+                "label": "Hotloaded",
+                "javascript": "export const PROPS = [\n    propDecimal(\"Yaw\", 45),\n    propDecimal(\"Pitch\", 45),\n    propDecimal(\"Distance\", 20),\n    propDecimal(\"FieldOfView\", 60),\n]\n\nexport function onCameraTick(msg) {\n    if (!exists(msg.target)) return;\n    const target = msg.target;\n    reparentIfNeeded(target);\n\n    const pitch = degToRad(clamp(props.Pitch, 0, 90));\n\n    const pointUnderMouse = getTerrainPointUnderMouse();\n    const aimOrigin = getPos(msg.target);\n    let aimDir = vec3z();\n    if (pointUnderMouse) {\n        aimDir = vec3sub(pointUnderMouse, getPos(target));\n        aimDir.y = 0;\n        aimDir = vec3length(aimDir) > 0.01 ? vec3normalized(aimDir) : vec3z();\n    }\n\n    setYawPitchRoll(degToRad(props.Yaw), pitch, 0);\n    setPos(vec3add(getPos(target), getBackward(props.Distance)));\n    setCameraSettings({\n        cursorActive: true,\n        aimOrigin: aimOrigin,\n        aimDir: aimDir,\n        fov: props.FieldOfView || 60,\n    });\n}\n\nexport function reparentIfNeeded(target) {\n    if ((target || null) === (getParent() || null)) return;\n    if (exists(target)) {\n        attachToParent(target);\n    } else {\n        detachFromParent();\n    }\n}\n",
+                "draftJavascript": "",
+                "userLibraryFile": "",
+                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"RPG Camera\",\n    \"description\": \"Top-down camera with zoom and rotation\",\n    \"categories\": [\n      \"Camera\"\n    ],\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000019\"\n  }\n}\n"
+            },
+            {
+                "label": "Hotloaded",
+                "javascript": "export const PROPS = [\n    propDecimal(\"OffsetX\", 0),\n    propDecimal(\"OffsetY\", 1.5),\n    propDecimal(\"OffsetZ\", 0),\n    propDecimal(\"FieldOfView\", 60),\n];\n\nexport function onInit() {\n    card.yaw = null;  // null means \"unset\"\n    card.pitch = 0;\n}\n\nexport function onTick() {\n    const target = getParent();\n    if (!exists(target)) \n        return;\n\n    if (getCameraActor(target) !== myself()) {\n        setCameraActorPlease(target, myself());\n    }\n    \n    // If yaw is unset (null), initialize with the target's yaw.\n    if (card.yaw === null) {\n        card.yaw = getYaw(target) || 0;\n    }\n\n    setPos(selfToWorldPos(vec3(props.OffsetX, props.OffsetY, props.OffsetZ), target));\n    card.yaw += getLookAxes(target).x;\n    card.pitch = Math.min(Math.max(card.pitch + getLookAxes(target).y, degToRad(-80)), degToRad(80));\n    setYawPitchRoll(card.yaw, -card.pitch, 0);\n    setCameraSettings({\n        cursorActive: false,\n        aimOrigin: getPos(),\n        aimDir: getForward(),\n        dontRenderActors: [target],\n        fov: props.FieldOfView || 60,\n    });\n}\n\n",
+                "draftJavascript": "",
+                "userLibraryFile": "",
+                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"FPS Clone Camera\",\n    \"description\": \"FPS Camera for Multiplayer System\",\n    \"categories\": [\n      \"Custom\"\n    ],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/camera\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF0000001A\"\n  }\n}\n"
             }
         ],
         "brainIds": [
@@ -15987,7 +16217,6 @@
             "553287a10f15450382f6ae952aaf4cee",
             "738711a180f14551bff6ae8ccd481bc0",
             "569c903b8ca04aff86cd2e66aee70e2b",
-            "afad92479e38407fa83178792d3c3880",
             "3ea22e7147b1425491288e43115f1e5f",
             "af52d52f9a3e4a7da0fc79f9e9aab497",
             "3198166e9c514d58beb2f41d461b927d",
@@ -16012,7 +16241,7 @@
             "41a7ca849ce3427c9372f68d943c6914",
             "57caa57b6e434f9aab8fe2ec2658f2b9",
             "2e63db87c1c6416ab51b73d7c9c674f5",
-            "b5226803f4664590955c469a08a77b27"
+            "7d7d44766e90496ba5967f87e87566f7"
         ],
         "brains": [
             {
@@ -16436,7 +16665,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"7c4c1a8a-1a4f-4d77-be15-707ce8353df9\"}"
+                                "valueJson": "{\"value\":\"b005fe03-466e-4330-bdaa-85fb420145af\"}"
                             }
                         ]
                     },
@@ -16477,7 +16706,7 @@
                 ]
             },
             {
-                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.3916846811771393,\"viewPosition\":{\"x\":-293.008544921875,\"y\":-331.65631103515627},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":4850.0,\"y\":-70.0},\"customLabel\":\"\"}}",
+                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.4901372790336609,\"viewPosition\":{\"x\":-4712.822265625,\"y\":-501.38238525390627},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":4850.0,\"y\":-70.0},\"customLabel\":\"\"}}",
                 "behaviorUses": [
                     {
                         "id": "126ec3cd41114616bab8c25ed28b2884",
@@ -16880,6 +17109,47 @@
                             {
                                 "propertyName": "ConditionVariableValue",
                                 "valueJson": "{\"value\":\"finished\"}"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "01d080be593846389d7268000271abc3",
+                        "behaviorUri": "builtin:Action on Event Panel",
+                        "metadataJson": "{\"version\":1,\"position\":{\"x\":0.0,\"y\":0.0},\"customLabel\":\"\"}",
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "eventDeck",
+                                "valueJson": "{\"value\":[\"c2db797ac82f47018557b7d13e931013\"]}"
+                            },
+                            {
+                                "propertyName": "actionDeck",
+                                "valueJson": "{\"value\":[\"5c0fb2078157482c9ecd202e8f7b476e\"]}"
+                            },
+                            {
+                                "propertyName": "triggerWhen",
+                                "valueJson": "{\"value\":\"ONCE_EVENT\"}"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c2db797ac82f47018557b7d13e931013",
+                        "behaviorUri": "builtin:ReceiveMessageEventCard",
+                        "metadataJson": "",
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "Message",
+                                "valueJson": "{\"value\":\"PlayerSpawned\"}"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "5c0fb2078157482c9ecd202e8f7b476e",
+                        "behaviorUri": "builtin:Play Sound",
+                        "metadataJson": "",
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "Sound",
+                                "valueJson": "{\"value\":\"4f491868-c879-49af-86c8-d2ad80f137db\"}"
                             }
                         ]
                     }
@@ -17633,7 +17903,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"710fb267-b892-45e3-9c2c-8bd4de7c3c26\"}"
+                                "valueJson": "{\"value\":\"85504875-e5b3-47fb-adb9-feabf2e3d7ea\"}"
                             }
                         ]
                     },
@@ -17731,7 +18001,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"7c4c1a8a-1a4f-4d77-be15-707ce8353df9\"}"
+                                "valueJson": "{\"value\":\"b005fe03-466e-4330-bdaa-85fb420145af\"}"
                             }
                         ]
                     },
@@ -17770,84 +18040,6 @@
                             {
                                 "propertyName": "Value",
                                 "valueJson": "{\"value\":\"game\"}"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.5118964910507202,\"viewPosition\":{\"x\":236.74794006347657,\"y\":-144.40554809570313},\"customLayout\":true},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":990.0,\"y\":-70.0},\"customLabel\":\"\"}}",
-                "behaviorUses": [
-                    {
-                        "id": "44b8d3b09cf9430ea061c9fcc8d3e1a8",
-                        "behaviorUri": "builtin:Default Behavior",
-                        "metadataJson": "",
-                        "propertyAssignments": []
-                    },
-                    {
-                        "id": "a91a03f6b13445a8a2f50022352f5d4e",
-                        "behaviorUri": "builtin:Action on Event Panel",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":0.0,\"y\":0.0},\"customLabel\":\"\"}",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "eventDeck",
-                                "valueJson": "{\"value\":[\"17747b3bbb0842febfd1b9244fb7420e\"]}"
-                            },
-                            {
-                                "propertyName": "actionDeck",
-                                "valueJson": "{\"value\":[\"81ec27a5d73f4a03811141baaea9b8b9\",\"f8fdcf9caec34675b84b8fd377ac203e\",\"5246de654b6b4157b943a3b712dbe912\"]}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "81ec27a5d73f4a03811141baaea9b8b9",
-                        "behaviorUri": "builtin:Score Point Action",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Points",
-                                "valueJson": "{\"value\":3}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "f8fdcf9caec34675b84b8fd377ac203e",
-                        "behaviorUri": "embedded:6b1811987b374dbadeadbeaf0000000e",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Light",
-                                "valueJson": "{\"value\":false}"
-                            },
-                            {
-                                "propertyName": "Randomize",
-                                "valueJson": "{\"value\":false}"
-                            },
-                            {
-                                "propertyName": "RespawnSound",
-                                "valueJson": "{\"value\":\"0baeacf6-3353-4bc1-bf90-e669cf14ba90\"}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "5246de654b6b4157b943a3b712dbe912",
-                        "behaviorUri": "builtin:Play Sound",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"builtin:Collect\"}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "17747b3bbb0842febfd1b9244fb7420e",
-                        "behaviorUri": "embedded:6b1811987b374dbadeadbeaf0000000f",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Actors",
-                                "valueJson": "{\"value\":\"@TAG:player\"}"
                             }
                         ]
                     }
@@ -17913,7 +18105,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"7c4c1a8a-1a4f-4d77-be15-707ce8353df9\"}"
+                                "valueJson": "{\"value\":\"b005fe03-466e-4330-bdaa-85fb420145af\"}"
                             }
                         ]
                     },
@@ -18155,7 +18347,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"710fb267-b892-45e3-9c2c-8bd4de7c3c26\"}"
+                                "valueJson": "{\"value\":\"85504875-e5b3-47fb-adb9-feabf2e3d7ea\"}"
                             }
                         ]
                     },
@@ -18352,7 +18544,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"710fb267-b892-45e3-9c2c-8bd4de7c3c26\"}"
+                                "valueJson": "{\"value\":\"85504875-e5b3-47fb-adb9-feabf2e3d7ea\"}"
                             }
                         ]
                     },
@@ -18565,7 +18757,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"710fb267-b892-45e3-9c2c-8bd4de7c3c26\"}"
+                                "valueJson": "{\"value\":\"85504875-e5b3-47fb-adb9-feabf2e3d7ea\"}"
                             }
                         ]
                     },
@@ -19213,7 +19405,7 @@
                         "propertyAssignments": [
                             {
                                 "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"7c4c1a8a-1a4f-4d77-be15-707ce8353df9\"}"
+                                "valueJson": "{\"value\":\"b005fe03-466e-4330-bdaa-85fb420145af\"}"
                             }
                         ]
                     },
@@ -19254,7 +19446,7 @@
                 ]
             },
             {
-                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.5118964910507202,\"viewPosition\":{\"x\":236.74794006347657,\"y\":-144.40554809570313},\"customLayout\":true},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":990.0,\"y\":-70.0},\"customLabel\":\"\"}}",
+                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.3117298185825348,\"viewPosition\":{\"x\":466.69671630859377,\"y\":-46.631195068359378},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":715.0,\"y\":-70.0},\"customLabel\":\"\"}}",
                 "behaviorUses": [
                     {
                         "id": "44b8d3b09cf9430ea061c9fcc8d3e1a8",
@@ -19263,71 +19455,10 @@
                         "propertyAssignments": []
                     },
                     {
-                        "id": "a91a03f6b13445a8a2f50022352f5d4e",
-                        "behaviorUri": "builtin:Action on Event Panel",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":0.0,\"y\":0.0},\"customLabel\":\"\"}",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "eventDeck",
-                                "valueJson": "{\"value\":[\"17747b3bbb0842febfd1b9244fb7420e\"]}"
-                            },
-                            {
-                                "propertyName": "actionDeck",
-                                "valueJson": "{\"value\":[\"81ec27a5d73f4a03811141baaea9b8b9\",\"f8fdcf9caec34675b84b8fd377ac203e\",\"5246de654b6b4157b943a3b712dbe912\"]}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "81ec27a5d73f4a03811141baaea9b8b9",
-                        "behaviorUri": "builtin:Score Point Action",
+                        "id": "89e46c96a56c4177afa1f350965df887",
+                        "behaviorUri": "embedded:6b1811987b374dbadeadbeaf0000001a",
                         "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Points",
-                                "valueJson": "{\"value\":3}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "f8fdcf9caec34675b84b8fd377ac203e",
-                        "behaviorUri": "embedded:6b1811987b374dbadeadbeaf0000000e",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Light",
-                                "valueJson": "{\"value\":false}"
-                            },
-                            {
-                                "propertyName": "Randomize",
-                                "valueJson": "{\"value\":false}"
-                            },
-                            {
-                                "propertyName": "RespawnSound",
-                                "valueJson": "{\"value\":\"0baeacf6-3353-4bc1-bf90-e669cf14ba90\"}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "5246de654b6b4157b943a3b712dbe912",
-                        "behaviorUri": "builtin:Play Sound",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Sound",
-                                "valueJson": "{\"value\":\"builtin:Collect\"}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "17747b3bbb0842febfd1b9244fb7420e",
-                        "behaviorUri": "embedded:6b1811987b374dbadeadbeaf0000000f",
-                        "metadataJson": "",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "Actors",
-                                "valueJson": "{\"value\":\"@TAG:player\"}"
-                            }
-                        ]
+                        "propertyAssignments": []
                     }
                 ]
             }
@@ -19355,7 +19486,7 @@
             "b": 1.0,
             "a": 1.0
         },
-        "initialCameraMode": "FirstPerson",
+        "initialCameraMode": "4",
         "isoCamRotationIndex": 3,
         "sceneLightingMode": "Day"
     },
@@ -19546,6 +19677,24 @@
                 "name": "GrenadeExplosion",
                 "contentType": "SoundEffect",
                 "content": "{\"effectType\":0,\"synthParams\":{\"waveShape\":3,\"speed\":10,\"volume\":[40,38,34,30,26,22,19,15,13,10,8,5,4,3,3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"pitch\":[54,50,47,44,43,41,39,37,36,35,34,32,31,30,28,27,26,24,23,22,22,21,21,21,20,20,20,20,20,20,20,20]},\"steamWorkshopId\":0,\"spatialized\":true}"
+            },
+            {
+                "id": "85504875-e5b3-47fb-adb9-feabf2e3d7ea",
+                "name": "Explosion2",
+                "contentType": "SoundEffect",
+                "content": "{\"effectType\":1,\"synthParams\":{\"waveShape\":0,\"speed\":0,\"volume\":[],\"pitch\":[]},\"steamWorkshopId\":1874063983,\"spatialized\":true}"
+            },
+            {
+                "id": "b005fe03-466e-4330-bdaa-85fb420145af",
+                "name": "CollectFlag",
+                "contentType": "SoundEffect",
+                "content": "{\"effectType\":1,\"synthParams\":{\"waveShape\":0,\"speed\":0,\"volume\":[],\"pitch\":[]},\"steamWorkshopId\":1874065821,\"spatialized\":true}"
+            },
+            {
+                "id": "4f491868-c879-49af-86c8-d2ad80f137db",
+                "name": "PlayerJoined",
+                "contentType": "SoundEffect",
+                "content": "{\"effectType\":1,\"synthParams\":{\"waveShape\":0,\"speed\":0,\"volume\":[],\"pitch\":[]},\"steamWorkshopId\":1874082789,\"spatialized\":false}"
             }
         ]
     },
