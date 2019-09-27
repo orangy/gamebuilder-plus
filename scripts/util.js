@@ -1,4 +1,3 @@
-
 function expandVariable(text, targetActor) {
     /* 
     TODO: return (props.VariableText === "$PLAYER") ? getPlayerNickName() : (getValue(name)).toString();
@@ -18,4 +17,8 @@ function vectorToText(v) {
     if (v === undefined)
         return "(---)";
     return "(" + format(v.x) + ", " + format(v.y) + ", " + format(v.z) + ")";
+}
+
+function truncateWithEllipses(text, max) {
+    return text.substr(0, max - 1) + (text.length > max ? '...' : '');
 }

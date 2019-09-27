@@ -1,10 +1,11 @@
 export const PROPS = [
     propActor("Player", "", {
-        pickerPrompt: "What actor to spawn as player?",
+        label: "Player Offstage Prototype",
+        pickerPrompt: "What actor to spawn as a player?",
         allowOffstageActors: true
     }),
     propString("Tag", "spawn", {
-        label: "Spawn Tag",
+        label: "Spawn Place Tag",
     }),
 ];
 
@@ -56,11 +57,11 @@ export function onInit() {
             if (!playerInfo || !playerInfo.actor)
                 spawnPlayer(player);
         })
-    } 
+    }
 }
 
 export function onResetGame() {
-    mem.players = {}; // forget everything
+    mem.players = {}; // forget everything, clones are already destroyed
     const players = getAllPlayers();
     players.forEach(player => spawnPlayer(player))
 }
@@ -75,7 +76,7 @@ export function onPlayerLeft(msg) {
     log(`Player "${playerId}" left: ${info.nickname}`);
     delete mem.players[playerId];
     if (info.actor) {
-        destroySelfPlease(info.actor)
+        destroySelfPlease(info.actor);
     }
 }
 

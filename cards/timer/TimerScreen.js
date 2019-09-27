@@ -13,10 +13,13 @@ export const PROPS = [
     propColor('Color', '#bdc3c7', {
         label: "Color"
     }),
-    propNumber('TextSize', 60, {
-        label: "Text Size"
+    propDecimal('TextScale', 1, {
+        label: "Text Scale"
     }),
-    propBoolean("Center", true),
+    propEnum("Format", "MINUTES", [
+        {value: 'MINUTES', label: 'MM:SS'},
+        {value: 'COUNTDOWN', label: 'SS'},
+    ]),
     propCardTargetActor("Actor", {
         label: "Actor",
         pickerPrompt: "Which actor's timer to draw?",
@@ -45,18 +48,36 @@ export function onDrawScreen() {
     let color = props.Color;
     if (props.Alert && timerLeft < props.AlertTime)
         color = props.AlertColor;
-    const m1 = Math.floor(timerLeft / 600);
-    const m2 = Math.floor((timerLeft % 600) / 60);
-    const s1 = Math.floor((timerLeft % 60) / 10);
-    const s2 = Math.floor((timerLeft % 10));
 
-    let value = `${m1}${m2}:${s1}${s2}`;
+    let value;
+    let alertScale = 1;
+    if (props.Format === 'MINUTES') {
+        const m1 = Math.floor(timerLeft / 600);
+        const m2 = Math.floor((timerLeft % 600) / 60);
+        const s1 = Math.floor((timerLeft % 60) / 10);
+        const s2 = Math.floor((timerLeft % 10));
+        value = `${m1}${m2}:${s1}${s2}`;
+    } else if (props.Format === 'COUNTDOWN') {
+        value = Math.floor(timerLeft);
+        if (props.Alert && timerLeft < props.AlertTime) {
+            alertScale = timerLeft - value;
+        }
+    }
+
     let text = props.Bold ? `<b>${value}</b>` : value;
-    uiText(props.X, props.Y, text, color, {textSize: props.TextSize, center: props.Center});
+    let x = props.X;
+    let y = props.Y;
+    let textSize = props.TextScale * UI_DEFAULT_TEXT_SIZE * alertScale;
+    if (props.Center) {
+        x -= uiGetTextWidth(value, textSize) / 2;
+        y -= uiGetTextHeight(value, textSize) / 2;
+    }
+    uiText(x, y, text, color, {textSize: textSize});
 }
 
 export function getCardStatus() {
+    let description = `Displays value of timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color>`;
     return {
-        description: `Displays value of timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription("Actor")}</color>`
+        description: description
     }
 }

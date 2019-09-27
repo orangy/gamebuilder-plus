@@ -19,6 +19,18 @@ export const PROPS = [
     propColor('BackgroundColorHighlight', '#2980b9', {
         label: "Highlight Background"
     }),
+
+    propBoolean('Advanced', false, {
+        label: 'Advanced'
+    }),
+    propString("ConditionVariableName", 'state', {
+        label: 'Condition Variable',
+        requires: [requireTrue("Advanced")]
+    }),
+    propString("ConditionVariableValue", 'game', {
+        label: 'Condition Value',
+        requires: [requireTrue("Advanced")]
+    })
 ];
 
 /*
@@ -72,8 +84,23 @@ export function onPlayerLeft(msg) {
     delete mem.players[playerId];
 }
 
+function conditionSatisfied() {
+    if (props.Advanced) {
+        const variable = props.ConditionVariableName;
+        const value = props.ConditionVariableValue;
+        if (variable && value && getVar(variable) != value)
+            return false;
+    }
+    return true;
+}
+
 export function onPointScored(msg) {
-    if (mem.players === undefined) return; // no players joined
+    if (mem.players === undefined)
+        return; // no players joined
+
+    if (!conditionSatisfied())
+        return;
+
     const info = mem.players[msg.player];
     info.score = (info.score || 0) + (msg.amount || 0);
 }
@@ -81,7 +108,7 @@ export function onPointScored(msg) {
 export function onDrawScreen() {
     if (mem.players === undefined)
         return; // nothing to draw, no players data
-    
+
     const playerId = getLocalPlayer();
 
     const playerIds = getAllPlayers();
@@ -92,7 +119,7 @@ export function onDrawScreen() {
         let scoreB = getScoreSortingOrder(mem.players[idb]);
         return scoreB - scoreA;
     });
-    
+
     const x = props.X;
     const y = props.Y;
     const w = props.Width;
@@ -116,7 +143,7 @@ export function onDrawScreen() {
 
         const label = nickname;
         const info = mem.players[id];
-        
+
         const score = getScoreDisplayText(info);
         const scoreWidth = uiGetTextWidth(label);
         uiText(x + PADDING + SCORE_LABEL_WIDTH - scoreWidth, y + SCORE_ITEM_HEIGHT * index + PADDING, label, props.Color, {});
