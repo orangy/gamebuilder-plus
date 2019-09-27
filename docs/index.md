@@ -6,13 +6,15 @@ This is a community effort to provide additional documentation, cards, JavaScrip
 
 ## Community docs
 
+[Cards](cards.md)
 * [Memory](memory.md)
-* [Multiplayer](multiplayer.md)
 * [Raw Events](events.md)
 * [Panel Events](panels.md)
-* [Console commands](console.md)
+* [Multiplayer](multiplayer.md)
 
-## Technical documents by GameBuilder 
+[Console commands](console.md)
+
+## Documents by GameBuilder developers 
 
 * [API Documentation](http://gamebuilder.area120.com/ref.html)
 * [Simple Terrain Format](https://docs.google.com/document/d/1RovaMCZhEgnWolxAHeB_v4ZzW8ROQjIIOJnayKDupYg/edit)
