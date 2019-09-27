@@ -1,0 +1,11 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "Multiplayer Spawner",
+    "description": "Assigns players to actors by spawning a clone on a spawn point",
+    "categories": [
+      "Custom"
+    ],
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000018"
+  }
+}
