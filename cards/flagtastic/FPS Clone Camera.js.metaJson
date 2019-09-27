@@ -1,0 +1,12 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "FPS Clone Camera",
+    "description": "FPS Camera for Multiplayer System",
+    "categories": [
+      "Custom"
+    ],
+    "imageResourcePath": "BuiltinAssets/PanelIcons/camera",
+    "userProvidedId": "6B1811987B374DBADEADBEAF0000001A"
+  }
+}
