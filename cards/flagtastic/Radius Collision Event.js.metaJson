@@ -4,7 +4,7 @@
     "title": "Radius Collision",
     "description": "Detects collision events within a specified radius.",
     "categories" : ["Event"],
-    "imageResourcePath": "BuiltinAssets/CardImages/collision",
+    "imageResourcePath": "icon:donut_large",
     "userProvidedId": "6B1811987B374DBADEADBEAF0000000F"
   }
 }

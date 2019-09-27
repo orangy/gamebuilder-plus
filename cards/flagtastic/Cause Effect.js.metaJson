@@ -4,7 +4,7 @@
     "title": "Cause Effect",
     "description": "Causes effect to the nearby players.",
     "categories" : ["Action"],
-    "imageResourcePath": "BuiltinAssets/CardImages/hand",
+    "imageResourcePath": "icon:settings_input_antenna",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000010"
   }
 }

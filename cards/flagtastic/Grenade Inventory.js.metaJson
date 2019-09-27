@@ -4,6 +4,7 @@
     "title": "Grenade Inventory",
     "description": "Handles inventory of grenades.",
     "categories" : ["Screen"],
+    "imageResourcePath": "icon:format_list_bulleted",
     "userProvidedId": "6B1811987B374DBADEADBEAF0000000D"
   }
 }

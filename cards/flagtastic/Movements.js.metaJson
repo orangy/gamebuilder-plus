@@ -4,7 +4,7 @@
     "title": "Swift Movements",
     "description": "Place this on a player for swift movements.",
     "categories" : ["Action", "Move"],
-    "imageResourcePath": "BuiltinAssets/CardImages/throttle",
+    "imageResourcePath": "icon:timeline",
     "userProvidedId": "6B1811987B374DBADEADBEAF0000000C"
   }
 }

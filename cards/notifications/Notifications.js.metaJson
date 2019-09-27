@@ -4,6 +4,7 @@
     "title": "Show Notifications",
     "description": "Displays notifications which disappear after certain time.",
     "categories" : ["Screen"],
+    "imageResourcePath": "icon:speaker_notes",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000001"
   }
 }

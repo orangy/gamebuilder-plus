@@ -6,7 +6,7 @@
     "categories": [
       "Action"
     ],
-    "imageResourcePath": "BuiltinAssets/CardImages/saySomething",
+    "imageResourcePath": "icon:record_voice_over",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000014"
   }
 }

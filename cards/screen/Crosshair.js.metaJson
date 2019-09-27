@@ -6,7 +6,7 @@
     "categories": [
       "Screen"
     ],
-    "imageResourcePath": "BuiltinAssets/CardImages/bar",
+    "imageResourcePath": "icon:gps_fixed",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000003"
   }
 }

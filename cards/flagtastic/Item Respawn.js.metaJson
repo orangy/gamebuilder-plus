@@ -4,7 +4,7 @@
     "title": "Respawn",
     "description": "Respawns an item actor.",
     "categories" : ["Action"],
-    "imageResourcePath": "BuiltinAssets/CardImages/lighton",
+    "imageResourcePath": "icon:refresh",
     "userProvidedId": "6B1811987B374DBADEADBEAF0000000E"
   }
 }

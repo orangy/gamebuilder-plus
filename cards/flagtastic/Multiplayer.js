@@ -79,3 +79,9 @@ export function onPlayerLeft(msg) {
     }
 }
 
+export function getCardStatus() {
+    const player = getDisplayName(props.Player);
+    return {
+        description: `Spawns <color=green>${player}</color> for connected user at one of <color=yellow>${props.Tag}</color> points.`
+    }
+}

@@ -4,7 +4,7 @@
     "title": "Display Timer",
     "description": "Displays time left on a timer.",
     "categories" : ["Screen"],
-    "imageResourcePath": "BuiltinAssets/PanelIcons/timer-icon",
+    "imageResourcePath": "icon:alarm",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000006"
   }
 }

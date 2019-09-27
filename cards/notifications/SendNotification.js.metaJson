@@ -4,7 +4,7 @@
     "title": "Send Notifications",
     "description": "Send a notification to several actors.",
     "categories" : ["Action"],
-    "imageResourcePath": "BuiltinAssets/CardImages/broadcast",
+    "imageResourcePath": "icon:note",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000002"
   }
 }

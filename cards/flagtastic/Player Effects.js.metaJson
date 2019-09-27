@@ -4,7 +4,7 @@
     "title": "Player Effects",
     "description": "Handles and displays player effects.",
     "categories" : ["Screen"],
-    "imageResourcePath": "BuiltinAssets/CardImages/lighton",
+    "imageResourcePath": "icon:select_all",
     "userProvidedId": "6B1811987B374DBADEADBEAF00000011"
   }
 }

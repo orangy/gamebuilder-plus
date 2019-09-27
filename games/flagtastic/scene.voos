@@ -1,7 +1,7 @@
 {
     "version": 7,
     "voosEngineState": {
-        "gameTime": 124804.6171875,
+        "gameTime": 124982.015625,
         "actors": [
             {
                 "version": 8,
@@ -98,6 +98,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -201,6 +206,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -301,34 +311,39 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
                 "version": 8,
-                "name": "9a6ec5e0be7e4c0fb8faa1a216384d2d",
-                "brainName": "494f5e33a90a42f2b3d31e47cb57b28b",
+                "name": "1635027102324932af7cca4d4bf5f6ed",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
                 "tags": [
-                    "player"
+                    "spawn"
                 ],
-                "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
-                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"2a3e4685a12947ef9cb0283f34947dfb\":{\"actionDeckState\":{\"decksInfo\":{}},\"lastAutoAssignCheck\":124803.203125,\"lastPlayerNumber\":0,\"oldSelf\":\"9a6ec5e0be7e4c0fb8faa1a216384d2d\"},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"groundedTimestamp\":124804.6171875,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}],\"__variables\":{\"hasPlayerControlsPanel\":true,\"playerAutoAssignAvailable\":true}}",
-                "displayName": "Player1-2",
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint",
                 "description": "",
                 "tint": {
                     "r": 1.0,
                     "g": 1.0,
                     "b": 1.0,
-                    "a": 1.0
+                    "a": 0.0
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -15.903244972229004,
-                    "y": 0.0000011920928955078126,
-                    "z": -1.8716052770614625
+                    "x": -57.5,
+                    "y": 0.0,
+                    "z": -2.5
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -2.0919068560720789e-11,
+                    "y": 0.0,
                     "z": 0.0,
                     "w": 1.0
                 },
@@ -348,10 +363,10 @@
                     "z": 0.0,
                     "w": 1.0
                 },
-                "commentText": "SCORE\n Player 1  Player 2  Player 3 \n        4         0         0 ",
+                "commentText": "",
                 "spawnPosition": {
-                    "x": -15.0,
-                    "y": -1.1920928955078126e-7,
+                    "x": -57.5,
+                    "y": 0.0,
                     "z": -2.5
                 },
                 "spawnRotation": {
@@ -362,8 +377,8 @@
                 },
                 "preferOffstage": false,
                 "isSolid": true,
-                "enablePhysics": true,
-                "enableGravity": true,
+                "enablePhysics": false,
+                "enableGravity": false,
                 "bounciness": 0.0,
                 "drag": 0.0,
                 "angularDrag": 0.05000000074505806,
@@ -372,12 +387,12 @@
                 "freezeX": false,
                 "freezeY": false,
                 "freezeZ": false,
-                "enableAiming": true,
-                "hideInPlayMode": false,
-                "keepUpright": true,
-                "isPlayerControllable": true,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
                 "debugString": "",
-                "cloneParent": "e5aed0bca4d9400398d07cb83f48185c",
+                "cloneParent": "",
                 "velocity": {
                     "x": 0.0,
                     "y": 0.0,
@@ -393,7 +408,7 @@
                 "wasClonedByScript": false,
                 "loopingAnimation": "",
                 "cameraSettingsJson": "",
-                "lightSettingsJson": "{\"range\":0.0,\"offset\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}",
+                "lightSettingsJson": "",
                 "pfxId": "",
                 "sfxId": "",
                 "useConcaveCollider": true,
@@ -403,36 +418,41 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
                 "version": 8,
-                "name": "3b60bc8bb2c3472891998ed0ef4714a0",
-                "brainName": "494f5e33a90a42f2b3d31e47cb57b28b",
+                "name": "ef1d4292870e4f209a628bb99dfe717a",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
                 "tags": [
-                    "player"
+                    "spawn"
                 ],
-                "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
-                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"2a3e4685a12947ef9cb0283f34947dfb\":{\"actionDeckState\":{\"decksInfo\":{}},\"lastAutoAssignCheck\":123714.3828125,\"lastPlayerNumber\":1,\"oldSelf\":\"3b60bc8bb2c3472891998ed0ef4714a0\",\"assignedPlayer\":\"44d0b630-82d9-4d09-b2fd-ee5e20af15b8\"},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"jumpTimestamp\":124775.8203125,\"groundDistance\":666,\"groundedTimestamp\":124804.6171875},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":5,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}],\"__variables\":{\"hasPlayerControlsPanel\":true,\"playerAutoAssignAvailable\":false},\"selectedGrenade\":0}",
-                "displayName": "Player1-3",
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-1",
                 "description": "",
                 "tint": {
-                    "r": 0.6274510025978088,
-                    "g": 0.0,
-                    "b": 0.0,
-                    "a": 1.0
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -10.525677680969239,
-                    "y": 0.0000012516975402832032,
-                    "z": -7.300041675567627
+                    "x": -16.25,
+                    "y": 0.0,
+                    "z": -27.5
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.757742702960968,
+                    "y": 0.0,
                     "z": 0.0,
-                    "w": 0.6525534391403198
+                    "w": 1.0
                 },
                 "localScale": {
                     "x": 1.0,
@@ -450,22 +470,22 @@
                     "z": 0.0,
                     "w": 1.0
                 },
-                "commentText": "SCORE\n Player 1  Player 2  Player 3 \n        4         0         0 ",
+                "commentText": "",
                 "spawnPosition": {
-                    "x": -16.45891571044922,
-                    "y": 4.76837158203125e-7,
-                    "z": -2.7870869636535646
+                    "x": -16.25,
+                    "y": 0.0,
+                    "z": -27.5
                 },
                 "spawnRotation": {
                     "x": 0.0,
-                    "y": 0.07315433025360108,
+                    "y": 0.0,
                     "z": 0.0,
-                    "w": 0.9973206520080566
+                    "w": 1.0
                 },
                 "preferOffstage": false,
                 "isSolid": true,
-                "enablePhysics": true,
-                "enableGravity": true,
+                "enablePhysics": false,
+                "enableGravity": false,
                 "bounciness": 0.0,
                 "drag": 0.0,
                 "angularDrag": 0.05000000074505806,
@@ -474,12 +494,12 @@
                 "freezeX": false,
                 "freezeY": false,
                 "freezeZ": false,
-                "enableAiming": true,
-                "hideInPlayMode": false,
-                "keepUpright": true,
-                "isPlayerControllable": true,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
                 "debugString": "",
-                "cloneParent": "e5aed0bca4d9400398d07cb83f48185c",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
                 "velocity": {
                     "x": 0.0,
                     "y": 0.0,
@@ -495,13 +515,18 @@
                 "wasClonedByScript": false,
                 "loopingAnimation": "",
                 "cameraSettingsJson": "",
-                "lightSettingsJson": "{\"range\":0.0,\"offset\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}",
+                "lightSettingsJson": "",
                 "pfxId": "",
                 "sfxId": "",
                 "useConcaveCollider": true,
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -515,26 +540,26 @@
                     "player"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
-                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"2a3e4685a12947ef9cb0283f34947dfb\":{\"actionDeckState\":{\"decksInfo\":{}},\"lastAutoAssignCheck\":124803.203125,\"lastPlayerNumber\":0,\"oldSelf\":\"e5aed0bca4d9400398d07cb83f48185c\"},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"groundedTimestamp\":123712.3203125},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}],\"__variables\":{\"hasPlayerControlsPanel\":true,\"playerAutoAssignAvailable\":true}}",
+                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{},\"groundedTimestamp\":124901.375,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}]}",
                 "displayName": "Player",
                 "description": "",
                 "tint": {
-                    "r": 1.0,
-                    "g": 1.0,
-                    "b": 1.0,
+                    "r": 0.6274510025978088,
+                    "g": 0.0,
+                    "b": 0.0,
                     "a": 1.0
                 },
                 "transformParent": "",
                 "position": {
                     "x": -53.8658332824707,
-                    "y": -78941.40625,
+                    "y": 3.5762786865234377e-7,
                     "z": -28.324386596679689
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": 1.1102230246251566e-16,
+                    "y": 0.9620913863182068,
                     "z": 0.0,
-                    "w": 1.0
+                    "w": -0.27272722125053408
                 },
                 "localScale": {
                     "x": 1.0,
@@ -564,7 +589,7 @@
                     "z": 0.0,
                     "w": -0.27272722125053408
                 },
-                "preferOffstage": false,
+                "preferOffstage": true,
                 "isSolid": true,
                 "enablePhysics": true,
                 "enableGravity": true,
@@ -579,12 +604,12 @@
                 "enableAiming": true,
                 "hideInPlayMode": false,
                 "keepUpright": true,
-                "isPlayerControllable": true,
+                "isPlayerControllable": false,
                 "debugString": "",
                 "cloneParent": "",
                 "velocity": {
                     "x": 0.0,
-                    "y": -87.69176483154297,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "angularVelocity": {
@@ -604,6 +629,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -709,6 +739,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -806,6 +841,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -909,6 +949,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -1006,6 +1051,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -1109,6 +1159,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -1206,6 +1261,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -1309,6 +1369,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -1406,6 +1471,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -1509,6 +1579,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -1606,6 +1681,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -1709,6 +1789,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -1806,6 +1891,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -1909,6 +1999,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -2006,6 +2101,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -2109,6 +2209,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -2206,6 +2311,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -2309,6 +2419,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -2406,6 +2521,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -2509,6 +2629,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -2606,6 +2731,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -2709,6 +2839,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -2806,6 +2941,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -2909,6 +3049,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -3009,6 +3154,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -3019,7 +3169,7 @@
                     "game"
                 ],
                 "renderableUri": "builtin:BuiltinAssets/Space/AntennaTower",
-                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"1646bf2da13743f580cea4a5195e4bbe\":{\"actionDeckState\":{\"decksInfo\":{}}},\"3eb2c094f9214090968c7abbded048c5\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":123712.921875,\"lastActionMessageTime\":123712.421875}}},\"fired\":true},\"fe693c411410475c8288c1be677be599\":{\"actionDeckState\":{\"decksInfo\":{}}},\"aa7a7ea8e15146bb98dbe8c1ab71043a\":{\"actionDeckState\":{\"decksInfo\":{}}},\"067bd304b4804801834444f6e91cf313\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"players\":{\"3ee949f8-dc1c-46c3-a74e-2ae52780519e\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Warming Up\"},\"eb2a0f3c-fdf0-4dbc-81aa-f6c18750b647\":{\"nickname\":\"Player2\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Warming Up\"},\"0e3a8c9b-2806-405d-9eba-d04b0daf3a5a\":{\"nickname\":\"Player1\",\"state\":\"game\",\"stateWeight\":-1,\"stateText\":\"Ready!\"},\"e312a9e9-6cba-4022-8e9b-be784b466e84\":{\"nickname\":\"Player1\",\"state\":\"spectate\",\"stateWeight\":-3,\"stateText\":\"Spectating\"},\"a213275c-e01a-4ac1-9c05-f2902718a78d\":{\"nickname\":\"Player1\",\"state\":\"game\",\"stateWeight\":-1,\"stateText\":\"Ready!\"},\"d396f19b-b1fa-4db5-9899-837905c2e23e\":{\"nickname\":\"Player1\",\"state\":\"game\",\"stateWeight\":-1,\"stateText\":\"Ready!\"},\"3892040e-cbe6-4482-8135-bc5ec23ef262\":{\"nickname\":\"Player1\",\"state\":\"game\",\"stateWeight\":-1,\"stateText\":\"Ready!\"},\"ecbd01c7-aa44-47c7-af4b-4d7dbd8ab16d\":{\"nickname\":\"Player1\",\"state\":\"spectate\",\"stateWeight\":-3,\"stateText\":\"Spectating\"},\"42726acd-d802-4c36-b85e-e676cb432d36\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"0d9753fa-0b0c-455d-988e-80216c43f2bb\":{\"nickname\":\"Player1\",\"state\":\"game\",\"stateWeight\":-1,\"stateText\":\"Ready!\"},\"03f697a7-95c7-4dd4-819a-29fef6734bee\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"5a941a23-d30c-4cc3-a9fb-1a2e9ce42f4e\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"382852e2-6739-422d-b7d6-478184f8a466\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"ef6415cb-50bf-4bf9-a8a2-2426f18b4748\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"a8c91fb8-99f4-4b0f-afc7-bf5fbf14129a\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"a751efd5-4544-4186-b7f4-bd013bcc5742\":{\"nickname\":\"Player1\",\"state\":\"game\",\"stateWeight\":-1,\"stateText\":\"Ready!\"},\"c487f077-b5c9-494a-82da-eeaaec65f4d0\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"eccd3c73-45da-48ef-a6b2-b3e5676fdf70\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"e41a39a2-0801-4450-a917-1697ce52d906\":{\"nickname\":\"Player1\",\"state\":\"warmup\",\"stateWeight\":-2,\"stateText\":\"Waiting\"},\"4495a069-de3f-4d0d-b585-2c0c53da794f\":{\"nickname\":\"Player1\"},\"607a7faf-a5fa-48fd-9977-535af8fa20b1\":{\"nickname\":\"Player1\"},\"4b2ae0d6-edbb-4130-924d-e694f57e0dd9\":{\"nickname\":\"Player1\"},\"70acae30-1733-427e-ad2e-66c73b201891\":{\"nickname\":\"Player1\"},\"3d7c1d49-f37c-4ae6-9e48-9d1f88f4a875\":{\"nickname\":\"Player1\"},\"6e4549d8-76e5-4e2e-96ea-d877a3c96bc1\":{\"nickname\":\"Player1\"},\"58656467-e367-4322-a2b1-8b633cf91d0d\":{\"nickname\":\"Player1\"},\"fff3a21c-1ab8-4f8b-8db7-941670523296\":{\"nickname\":\"Player1\"},\"44d0b630-82d9-4d09-b2fd-ee5e20af15b8\":{\"nickname\":\"Player1\",\"score\":43}},\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"}}",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"1646bf2da13743f580cea4a5195e4bbe\":{\"actionDeckState\":{\"decksInfo\":{}}},\"067bd304b4804801834444f6e91cf313\":{\"actionDeckState\":{\"decksInfo\":{}}},\"4981cc84d14348ebb25ab7a1bb8934c2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"players\":{\"fdd2ddaa-2135-4099-a0e3-3e70d793bf73\":{\"id\":\"fdd2ddaa-2135-4099-a0e3-3e70d793bf73\",\"nickname\":\"Player1\",\"actor\":\"f8bb7c3fc5c249c9b4251e4150e71a16\",\"score\":17}},\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"}}",
                 "displayName": "Game",
                 "description": "",
                 "tint": {
@@ -3108,6 +3258,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -3211,6 +3366,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -3308,6 +3468,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -3411,6 +3576,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -3508,6 +3678,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -3611,6 +3786,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -3708,6 +3888,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -3811,6 +3996,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -3908,6 +4098,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -4011,6 +4206,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -4108,6 +4308,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -4211,6 +4416,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -4308,6 +4518,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -4411,6 +4626,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -4508,6 +4728,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -4611,6 +4836,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -4708,6 +4938,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -4811,6 +5046,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -4908,6 +5148,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -5011,6 +5256,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -5108,6 +5358,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -5211,6 +5466,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -5308,6 +5568,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -5411,6 +5676,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -5508,6 +5778,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -5611,6 +5886,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -5708,6 +5988,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -5811,6 +6096,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -5908,6 +6198,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -6011,6 +6306,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -6108,6 +6408,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -6211,6 +6516,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -6308,6 +6618,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -6411,6 +6726,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -6508,6 +6828,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -6611,6 +6936,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -6708,6 +7038,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -6811,6 +7146,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -6908,6 +7248,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -7011,6 +7356,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -7108,6 +7458,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -7211,6 +7566,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -7308,6 +7668,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -7411,6 +7776,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -7508,6 +7878,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -7611,6 +7986,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -7708,6 +8088,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -7811,6 +8196,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -7819,7 +8209,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124660.9296875,\"lastActionMessageTime\":124629.203125}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124941.3515625,\"lastActionMessageTime\":124940.8515625}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-2",
                 "description": "",
                 "tint": {
@@ -7911,6 +8301,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -7919,7 +8314,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124621.0234375,\"lastActionMessageTime\":124620.5234375}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{}},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{}}},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-3",
                 "description": "",
                 "tint": {
@@ -8008,6 +8403,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -8111,6 +8511,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -8119,7 +8524,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124724.640625,\"lastActionMessageTime\":124724.140625}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124944.8359375,\"lastActionMessageTime\":124944.3359375}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-7-1",
                 "description": "",
                 "tint": {
@@ -8211,6 +8616,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -8219,7 +8629,7 @@
                 "brainName": "569c903b8ca04aff86cd2e66aee70e2b",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{}},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124925.9296875,\"lastActionMessageTime\":124925.4296875}}},\"triggered\":true},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagBlue",
                 "description": "",
                 "tint": {
@@ -8311,6 +8721,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -8319,7 +8734,7 @@
                 "brainName": "3ea22e7147b1425491288e43115f1e5f",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{}},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{}}},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"ae0fb25a53974766adf69b5cad63d44d\":{\"actionDeckState\":{\"decksInfo\":{}}},\"7774f65a3c5f472c9f1680e1f91ee18b\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"02689e9c327c4de59971abdd3c92cbd3\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124951.6953125,\"lastActionMessageTime\":124951.1953125}}},\"triggered\":true},\"232ffc228ed640e2a4cd4aa125fd1911\":{\"actionDeckState\":{\"decksInfo\":{}}},\"d7ebf5f9596c4780837a5d65419cedf2\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "FlagWhite",
                 "description": "",
                 "tint": {
@@ -8411,6 +8826,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -8419,7 +8839,7 @@
                 "brainName": "afad92479e38407fa83178792d3c3880",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124631.4609375,\"lastActionMessageTime\":124630.9609375}}},\"triggered\":true},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{}},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-3-1",
                 "description": "",
                 "tint": {
@@ -8508,6 +8928,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -8611,105 +9036,8 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
-                }
-            },
-            {
-                "version": 8,
-                "name": "b7a9d26304094edd8bcaf7dac6acd4f1",
-                "brainName": "494f5e33a90a42f2b3d31e47cb57b28b",
-                "tags": [
-                    "player"
-                ],
-                "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
-                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{}},\"2a3e4685a12947ef9cb0283f34947dfb\":{\"actionDeckState\":{\"decksInfo\":{}},\"lastAutoAssignCheck\":124803.203125,\"lastPlayerNumber\":0,\"oldSelf\":\"b7a9d26304094edd8bcaf7dac6acd4f1\"},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"groundedTimestamp\":123712.3203125},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}],\"__variables\":{\"hasPlayerControlsPanel\":true,\"playerAutoAssignAvailable\":true}}",
-                "displayName": "Player1-1",
-                "description": "",
-                "tint": {
-                    "r": 1.0,
-                    "g": 1.0,
-                    "b": 1.0,
-                    "a": 1.0
                 },
-                "transformParent": "",
-                "position": {
-                    "x": -16.251543045043947,
-                    "y": -78386.4765625,
-                    "z": -29.22616958618164
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0,
-                    "w": 1.0
-                },
-                "localScale": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "renderableOffset": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "renderableRotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0,
-                    "w": 1.0
-                },
-                "commentText": "SCORE\n Player 1  Player 2  Player 3 \n        4         0         0 ",
-                "spawnPosition": {
-                    "x": -16.251543045043947,
-                    "y": -5.960464477539063e-7,
-                    "z": -29.22616958618164
-                },
-                "spawnRotation": {
-                    "x": 0.0,
-                    "y": 0.38268348574638369,
-                    "z": 0.0,
-                    "w": 0.9238795638084412
-                },
-                "preferOffstage": false,
-                "isSolid": true,
-                "enablePhysics": true,
-                "enableGravity": true,
-                "bounciness": 0.0,
-                "drag": 0.0,
-                "angularDrag": 0.05000000074505806,
-                "mass": 1.0,
-                "freezeRotations": false,
-                "freezeX": false,
-                "freezeY": false,
-                "freezeZ": false,
-                "enableAiming": true,
-                "hideInPlayMode": false,
-                "keepUpright": true,
-                "isPlayerControllable": true,
-                "debugString": "",
-                "cloneParent": "e5aed0bca4d9400398d07cb83f48185c",
-                "velocity": {
-                    "x": 0.0,
-                    "y": -91.7605972290039,
-                    "z": 0.0
-                },
-                "angularVelocity": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "cameraActor": "",
-                "spawnTransformParent": "",
-                "wasClonedByScript": false,
-                "loopingAnimation": "",
-                "cameraSettingsJson": "",
-                "lightSettingsJson": "{\"range\":0.0,\"offset\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}",
-                "pfxId": "",
-                "sfxId": "",
-                "useConcaveCollider": true,
-                "speculativeColDet": false,
-                "useStickyDesiredVelocity": false,
-                "stickyDesiredVelocity": {
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -8721,7 +9049,7 @@
                 "brainName": "31306b09442a4bf58da6e5c18d933fb7",
                 "tags": [],
                 "renderableUri": "poly:assets/8ppZ-rzoxys",
-                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"walkDist\":3.2504220008850098,\"walkDistTarget\":3.2814126500334337,\"turnAmount\":0,\"turnAmountTarget\":0.26407182632684956}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":3.266818881034851,\"walkDistTarget\":3.251905248318157,\"turnAmount\":-1.2576095812869872,\"turnAmountTarget\":-1.6946536052855676,\"returningHome\":false}},\"walkDist\":3.2504220008850098,\"walkDistTarget\":3.2814126500334337,\"turnAmount\":0,\"turnAmountTarget\":0.26407182632684956}",
                 "displayName": "Bot Drone",
                 "description": "",
                 "tint": {
@@ -8732,15 +9060,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": 12.372700691223145,
+                    "x": -61.60607147216797,
                     "y": 13.114388465881348,
-                    "z": -10.680542945861817
+                    "z": 17.16111946105957
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.29880934953689577,
+                    "y": -0.6973283290863037,
                     "z": 0.0,
-                    "w": -0.9543129205703735
+                    "w": 0.7167519330978394
                 },
                 "localScale": {
                     "x": 1.7735673189163209,
@@ -8789,9 +9117,9 @@
                 "debugString": "",
                 "cloneParent": "",
                 "velocity": {
-                    "x": 0.5703201293945313,
+                    "x": 0.0,
                     "y": 0.0,
-                    "z": 0.8214162588119507
+                    "z": 0.0
                 },
                 "angularVelocity": {
                     "x": 0.0,
@@ -8813,6 +9141,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -8821,7 +9154,7 @@
                 "brainName": "31306b09442a4bf58da6e5c18d933fb7",
                 "tags": [],
                 "renderableUri": "poly:assets/8ppZ-rzoxys",
-                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"walkDist\":1.7328969240188599,\"walkDistTarget\":1.7100608275616347,\"turnAmount\":2.0699891035377607,\"turnAmountTarget\":2.714420274579664}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":2.1005630493164062,\"walkDistTarget\":3.4576333655967453,\"turnAmount\":0,\"turnAmountTarget\":-2.188204458345134,\"returningHome\":false}},\"walkDist\":1.7328969240188599,\"walkDistTarget\":1.7100608275616347,\"turnAmount\":2.0699891035377607,\"turnAmountTarget\":2.714420274579664}",
                 "displayName": "Bot Drone-1",
                 "description": "",
                 "tint": {
@@ -8832,15 +9165,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": 14.049667358398438,
+                    "x": -33.617523193359378,
                     "y": 13.0,
-                    "z": 36.28095626831055
+                    "z": -27.285043716430665
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.9914986491203308,
+                    "y": -0.09038043767213822,
                     "z": 0.0,
-                    "w": 0.13011714816093446
+                    "w": -0.9959073662757874
                 },
                 "localScale": {
                     "x": 1.7735673189163209,
@@ -8889,9 +9222,9 @@
                 "debugString": "",
                 "cloneParent": "e05dead711be468ca5c740fdfa0a2e4e",
                 "velocity": {
-                    "x": -0.2580060362815857,
+                    "x": 0.17999888956546784,
                     "y": 0.0,
-                    "z": -0.9662377238273621
+                    "z": 0.9837122559547424
                 },
                 "angularVelocity": {
                     "x": 0.0,
@@ -8913,6 +9246,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -8921,7 +9259,7 @@
                 "brainName": "31306b09442a4bf58da6e5c18d933fb7",
                 "tags": [],
                 "renderableUri": "poly:assets/8ppZ-rzoxys",
-                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124805.0859375,\"lastActionMessageTime\":124804.5234375}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"walkDist\":0.8178490400314331,\"walkDistTarget\":1.2223588712533227,\"turnAmount\":0,\"turnAmountTarget\":2.4437951991462294}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}},\"222e95deec3b417d916fde9c541a7fd0\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}},\"40383b71111a4ada90803d5bea0edc0f\":{\"actionDeckState\":{\"decksInfo\":{}},\"walkDist\":3.78371000289917,\"walkDistTarget\":4.888977046707541,\"turnAmount\":0,\"turnAmountTarget\":-0.47955854448529994,\"returningHome\":false}},\"walkDist\":0.8178490400314331,\"walkDistTarget\":1.2223588712533227,\"turnAmount\":0,\"turnAmountTarget\":2.4437951991462294}",
                 "displayName": "Bot Drone-2",
                 "description": "",
                 "tint": {
@@ -8932,15 +9270,15 @@
                 },
                 "transformParent": "",
                 "position": {
-                    "x": -8.341290473937989,
+                    "x": -6.040740966796875,
                     "y": 14.31992244720459,
-                    "z": 56.193359375
+                    "z": -9.908303260803223
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": -0.011165700852870942,
+                    "y": 0.21784578263759614,
                     "z": 0.0,
-                    "w": 0.9999377131462097
+                    "w": -0.975983202457428
                 },
                 "localScale": {
                     "x": 1.7735673189163209,
@@ -8989,9 +9327,9 @@
                 "debugString": "",
                 "cloneParent": "e05dead711be468ca5c740fdfa0a2e4e",
                 "velocity": {
-                    "x": -0.022328542545437814,
+                    "x": -0.4252416789531708,
                     "y": 0.0,
-                    "z": 0.9998161792755127
+                    "z": 0.9050769209861755
                 },
                 "angularVelocity": {
                     "x": 0.0,
@@ -9010,6 +9348,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -9115,6 +9458,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -9215,6 +9563,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -9223,7 +9576,7 @@
                 "brainName": "569c903b8ca04aff86cd2e66aee70e2b",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{}},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"850ce2b49a8b46c6a0d4811fedbf111e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cf48fcaa46fc470ab3f53cb2fcc1f85d\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"42aa5bf632b140ab9fc4356d7cc9cd5e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124931.5625,\"lastActionMessageTime\":124931.0625}}},\"triggered\":true},\"ceebd7e0dab447e6965aea43c967ce80\":{\"actionDeckState\":{\"decksInfo\":{}}},\"cca850f318f34a36a5c17bbc1c65034f\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-6-2",
                 "description": "",
                 "tint": {
@@ -9315,6 +9668,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -9323,7 +9681,7 @@
                 "brainName": "afad92479e38407fa83178792d3c3880",
                 "tags": [],
                 "renderableUri": "poly:assets/0okBVouy3-T",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124638}}},\"triggered\":true},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{\"decksInfo\":{}},\"light\":0},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"a91a03f6b13445a8a2f50022352f5d4e\":{\"actionDeckState\":{\"decksInfo\":{}}},\"81ec27a5d73f4a03811141baaea9b8b9\":{\"actionDeckState\":{\"decksInfo\":{}}},\"f8fdcf9caec34675b84b8fd377ac203e\":{\"actionDeckState\":{}},\"5246de654b6b4157b943a3b712dbe912\":{\"actionDeckState\":{\"decksInfo\":{}}},\"17747b3bbb0842febfd1b9244fb7420e\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "Flag-3-3",
                 "description": "",
                 "tint": {
@@ -9412,6 +9770,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -9515,6 +9878,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -9523,7 +9891,7 @@
                 "brainName": "6b4a218e884243889c75bfb60d32357f",
                 "tags": [],
                 "renderableUri": "builtin:BuiltinAssets/Forest/Chest",
-                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"47bf04c699dc45768659a56e6c2a9925\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2ce028045b814aefb0e8d969189b66e1\":{\"actionDeckState\":{\"decksInfo\":{\"actionDeck\":{\"active\":false,\"endTime\":124610.015625,\"lastActionMessageTime\":124609.515625}}},\"triggered\":true},\"1e7d4d3037a94f38befcb15d1786e499\":{\"actionDeckState\":{\"decksInfo\":{}}},\"28a5c6f7ead547aebca32061fe710c2a\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
+                "memoryJson": "{\"__bulm\":{\"44b8d3b09cf9430ea061c9fcc8d3e1a8\":{\"actionDeckState\":{}},\"47bf04c699dc45768659a56e6c2a9925\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2ce028045b814aefb0e8d969189b66e1\":{\"actionDeckState\":{\"decksInfo\":{}}},\"1e7d4d3037a94f38befcb15d1786e499\":{\"actionDeckState\":{\"decksInfo\":{}}},\"28a5c6f7ead547aebca32061fe710c2a\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"health\":3,\"__attribs\":{}}",
                 "displayName": "AmmoExplosion",
                 "description": "",
                 "tint": {
@@ -9612,6 +9980,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -9715,6 +10088,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -9812,6 +10190,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -9917,6 +10300,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -10016,6 +10404,11 @@
                 "speculativeColDet": true,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -10121,6 +10514,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -10218,6 +10616,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -10321,6 +10724,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -10418,6 +10826,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -10521,6 +10934,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -10618,6 +11036,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -10721,6 +11144,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -10818,6 +11246,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -10921,6 +11354,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -11018,6 +11456,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -11121,6 +11564,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -11218,6 +11666,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -11321,6 +11774,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -11418,6 +11876,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -11521,6 +11984,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -11621,6 +12089,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -11646,9 +12119,9 @@
                 },
                 "rotation": {
                     "x": 0.0,
-                    "y": 0.7071068286895752,
+                    "y": 0.70710688829422,
                     "z": 0.0,
-                    "w": 0.7071067094802856
+                    "w": 0.7071067690849304
                 },
                 "localScale": {
                     "x": 1.7320512533187867,
@@ -11718,6 +12191,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -11821,6 +12299,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -11918,6 +12401,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -12021,6 +12509,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -12118,6 +12611,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -12221,6 +12719,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -12318,6 +12821,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -12421,6 +12929,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -12518,6 +13031,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -12621,6 +13139,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -12718,6 +13241,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -12821,6 +13349,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -12918,6 +13451,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -13021,6 +13559,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -13118,6 +13661,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -13221,6 +13769,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -13318,6 +13871,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -13421,6 +13979,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -13521,6 +14084,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -13529,7 +14097,7 @@
                 "brainName": "__DEFAULT_BRAIN__",
                 "tags": [],
                 "renderableUri": "poly:assets/7fQWLGlzTLU",
-                "memoryJson": "{\"__bulm\":{}}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}}}}",
                 "displayName": "Rusty Stairs",
                 "description": "",
                 "tint": {
@@ -13618,6 +14186,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -13629,7 +14202,7 @@
                 "brainName": "__DEFAULT_BRAIN__",
                 "tags": [],
                 "renderableUri": "poly:assets/7fQWLGlzTLU",
-                "memoryJson": "{\"__bulm\":{}}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}}}}",
                 "displayName": "Rusty Stairs",
                 "description": "",
                 "tint": {
@@ -13718,6 +14291,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -13729,7 +14307,7 @@
                 "brainName": "__DEFAULT_BRAIN__",
                 "tags": [],
                 "renderableUri": "poly:assets/7fQWLGlzTLU",
-                "memoryJson": "{\"__bulm\":{}}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}}}}",
                 "displayName": "Rusty Stairs",
                 "description": "",
                 "tint": {
@@ -13821,6 +14399,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             },
             {
@@ -13829,7 +14412,7 @@
                 "brainName": "__DEFAULT_BRAIN__",
                 "tags": [],
                 "renderableUri": "poly:assets/7fQWLGlzTLU",
-                "memoryJson": "{\"__bulm\":{}}",
+                "memoryJson": "{\"__bulm\":{\"ed0ab3baf8e94e6a95ce46b9ec1d79ae\":{\"actionDeckState\":{}}}}",
                 "displayName": "Rusty Stairs-1",
                 "description": "",
                 "tint": {
@@ -13918,6 +14501,11 @@
                 "speculativeColDet": false,
                 "useStickyDesiredVelocity": false,
                 "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
@@ -14021,6 +14609,1081 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "12a1fd4cb87643b2a7ef73df40c7d1e9",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-2",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -11.25,
+                    "y": 0.0,
+                    "z": -20.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -11.25,
+                    "y": 0.0,
+                    "z": -20.0
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "6ab1ea8f58994c8c8a50e456a06635cd",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-3",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -12.5,
+                    "y": 0.0,
+                    "z": -8.75
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -12.5,
+                    "y": 0.0,
+                    "z": -8.75
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "3500fed4e4a344909fe6962d09d77ede",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-4",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -20.0,
+                    "y": 0.0,
+                    "z": 2.5
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -20.0,
+                    "y": 0.0,
+                    "z": 2.5
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "1d660c5c85684153b3032612ff8f83f8",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-5",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -33.75,
+                    "y": 0.0,
+                    "z": 2.500000238418579
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -33.75,
+                    "y": 0.0,
+                    "z": 2.500000238418579
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "fa2a5532d5184fc2b4e0613e314d115d",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-6",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -45.0,
+                    "y": 0.0,
+                    "z": 2.5
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -45.0,
+                    "y": 0.0,
+                    "z": 2.5
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "ff7b2258c4604eb4be7ad31d1b057340",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-7",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -56.25,
+                    "y": 0.0,
+                    "z": -15.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -56.25,
+                    "y": 0.0,
+                    "z": -15.0
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "9a47780d919f4b39893189370ce1bf4b",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-8",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -53.75,
+                    "y": 0.0,
+                    "z": -28.75
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -53.75,
+                    "y": 0.0,
+                    "z": -28.75
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "b16533891c664d2c8e885132f5b6f3cc",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-9",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -42.5,
+                    "y": 0.0,
+                    "z": -33.75
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -42.5,
+                    "y": 0.0,
+                    "z": -33.75
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "4f21170dad1c4f2a8d0b3eb3db66d394",
+                "brainName": "57caa57b6e434f9aab8fe2ec2658f2b9",
+                "tags": [
+                    "spawn"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Primitives/PrimitiveDisc",
+                "memoryJson": "{\"__bulm\":{\"126ec3cd41114616bab8c25ed28b2884\":{\"actionDeckState\":{}},\"42f5da8a5550479e8b7c5bff1ad42474\":{\"actionDeckState\":{\"decksInfo\":{}}},\"fc99440774d848da825b6a1a9b56cfbf\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}}}}",
+                "displayName": "SpawnPoint-10",
+                "description": "",
+                "tint": {
+                    "r": 1.0,
+                    "g": 1.0,
+                    "b": 1.0,
+                    "a": 0.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -26.25,
+                    "y": 0.0,
+                    "z": -33.75
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "",
+                "spawnPosition": {
+                    "x": -26.25,
+                    "y": 0.0,
+                    "z": -33.75
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": false,
+                "enableGravity": false,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": false,
+                "hideInPlayMode": true,
+                "keepUpright": false,
+                "isPlayerControllable": false,
+                "debugString": "",
+                "cloneParent": "1635027102324932af7cca4d4bf5f6ed",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": false,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            },
+            {
+                "version": 8,
+                "name": "f8bb7c3fc5c249c9b4251e4150e71a16",
+                "brainName": "494f5e33a90a42f2b3d31e47cb57b28b",
+                "tags": [
+                    "player"
+                ],
+                "renderableUri": "builtin:BuiltinAssets/Forest/Fox",
+                "memoryJson": "{\"health\":100,\"StartingHealth\":3,\"team\":1,\"jumpCooldown\":0,\"__bulm\":{\"297615c9b4a94d619cd94f00e3e1b407\":{\"actionDeckState\":{\"decksInfo\":{}}},\"9066e7e3f2494c4c994936687a7ba266\":{\"actionDeckState\":{\"decksInfo\":{}}},\"2f4fdf2cbb8b46cfbc45f3d791e45d6e\":{\"actionDeckState\":{\"decksInfo\":{\"moveDeck\":{\"active\":true,\"endTime\":124982.453125,\"lastActionMessageTime\":124981.828125}}}},\"d89ba45f852043a49a0d897ced1f6d13\":{\"actionDeckState\":{\"decksInfo\":{}}},\"0b42064ea6e34f0588bc4400fdae629e\":{\"actionDeckState\":{\"decksInfo\":{}},\"jumpTimestamp\":124955.75,\"groundedTimestamp\":124982.015625,\"groundDistance\":666},\"27d9511d543740ca89501f29a0933ec7\":{\"actionDeckState\":{\"decksInfo\":{}},\"notifications\":[]},\"dafc304f4dcc4962a4fbbcb39576f361\":{\"actionDeckState\":{\"decksInfo\":{}},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"amount\":0,\"speed\":30,\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"cooldown\":0.2}]},\"8e80c51680ae4f06b5cb437fc2286aca\":{\"actionDeckState\":{\"decksInfo\":{}}}},\"__attribs\":{\"isDead\":false,\"health\":3,\"startingHealth\":3},\"isDead\":false,\"groundDistance\":666,\"effects\":[],\"game\":{\"actor\":\"070c8edd9aea447c86af85b5a2cbe51b\",\"state\":\"warmup\",\"title\":\"Warming Up\",\"description\":\"\"},\"grenades\":[{\"name\":\"explosion\",\"projectile\":\"016c2ec9415e4d96a9e5e2e596729bfd\",\"color\":[\"__co__\",0.9058823529411765,0.2980392156862745,0.23529411764705882],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"slow\",\"projectile\":\"f1bdef682a264e319d66690b48e32776\",\"color\":[\"__co__\",0.9450980392156862,0.7686274509803922,0.058823529411764705],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"freeze\",\"projectile\":\"e53c8eaf60d346f899177c20b926f741\",\"color\":[\"__co__\",0.20392156862745098,0.596078431372549,0.8588235294117647],\"amount\":0,\"speed\":30,\"cooldown\":0.2},{\"name\":\"confusion\",\"projectile\":\"2a62f4a1bbb84f5aa960f76235664a76\",\"color\":[\"__co__\",0.1803921568627451,0.8,0.44313725490196076],\"amount\":0,\"speed\":30,\"cooldown\":0.2}]}",
+                "displayName": "Player-Script-Clone",
+                "description": "",
+                "tint": {
+                    "r": 0.6274510025978088,
+                    "g": 0.0,
+                    "b": 0.0,
+                    "a": 1.0
+                },
+                "transformParent": "",
+                "position": {
+                    "x": -18.389196395874025,
+                    "y": 2.384185791015625e-7,
+                    "z": 0.8605713248252869
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.9318966865539551,
+                    "z": 0.0,
+                    "w": 0.3627239763736725
+                },
+                "localScale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "renderableOffset": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "renderableRotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                },
+                "commentText": "SCORE\n Player 1  Player 2  Player 3 \n        4         0         0 ",
+                "spawnPosition": {
+                    "x": -26.25,
+                    "y": 0.0,
+                    "z": -33.75
+                },
+                "spawnRotation": {
+                    "x": 0.0,
+                    "y": 0.9620913863182068,
+                    "z": 0.0,
+                    "w": -0.27272722125053408
+                },
+                "preferOffstage": false,
+                "isSolid": true,
+                "enablePhysics": true,
+                "enableGravity": true,
+                "bounciness": 0.0,
+                "drag": 0.0,
+                "angularDrag": 0.05000000074505806,
+                "mass": 1.0,
+                "freezeRotations": false,
+                "freezeX": false,
+                "freezeY": false,
+                "freezeZ": false,
+                "enableAiming": true,
+                "hideInPlayMode": false,
+                "keepUpright": true,
+                "isPlayerControllable": true,
+                "debugString": "",
+                "cloneParent": "e5aed0bca4d9400398d07cb83f48185c",
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "angularVelocity": {
+                    "x": 0.0,
+                    "y": -0.002188308397307992,
+                    "z": 0.0
+                },
+                "cameraActor": "",
+                "spawnTransformParent": "",
+                "wasClonedByScript": true,
+                "loopingAnimation": "",
+                "cameraSettingsJson": "",
+                "lightSettingsJson": "{\"range\":0.0,\"offset\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}",
+                "pfxId": "",
+                "sfxId": "",
+                "useConcaveCollider": true,
+                "speculativeColDet": false,
+                "useStickyDesiredVelocity": false,
+                "stickyDesiredVelocity": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "stickyForce": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             }
         ]
@@ -14070,7 +15733,8 @@
             "6b1811987b374dbadeadbeaf00000013",
             "6b1811987b374dbadeadbeaf00000012",
             "6b1811987b374dbadeadbeaf00000014",
-            "6b1811987b374dbadeadbeaf00000016"
+            "6b1811987b374dbadeadbeaf00000016",
+            "6b1811987b374dbadeadbeaf00000018"
         ],
         "behaviors": [
             {
@@ -14110,7 +15774,7 @@
             },
             {
                 "label": "Hotloaded",
-                "javascript": "export const PROPS = [\n    propActorGroup(\"Recipient\", \"\", {\n        label: \"Recipient\",\n        pickerPrompt: \"Who should I send to?\",\n        allowOffstageActors: true\n    }),\n    propString(\"Notification\", \"Hello\"),\n    propDecimal(\"Delay\", 0)\n];\n\n/**\n * @param {GActionMessage} actionMessage\n */\nexport function onAction(actionMessage) {\n    const targets = getActorsInGroup(props.Recipient);\n    if (!targets) {\n        return;\n    }\n    if (props.Delay > 0) {\n        sendToManyDelayed(props.Delay, targets, \"Notify\", {text: props.Notification});\n    } else {\n        sendToMany(targets, \"Notify\", {text: props.Notification});\n    }\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Sends \"<color=yellow>${props.Notification}</color>\" notification to <color=green>${getActorGroupDescription(props.Recipient)}</color>`\n    }\n}\n",
+                "javascript": "export const PROPS = [\n    propActorGroup(\"Recipient\", \"\", {\n        label: \"Recipient\",\n        pickerPrompt: \"Who should I send to?\",\n        allowOffstageActors: true\n    }),\n    propString(\"Notification\", \"Hello\", {\n        label: \"Notification Text\"\n    }),\n    propDecimal(\"Delay\", 0)\n];\n\n/**\n * @param {GActionMessage} actionMessage\n */\nexport function onAction(actionMessage) {\n    const targets = getActorsInGroup(props.Recipient);\n    if (!targets) {\n        return;\n    }\n    if (props.Delay > 0) {\n        sendToManyDelayed(props.Delay, targets, \"Notify\", {text: expandVariable(props.Notification)});\n    } else {\n        sendToMany(targets, \"Notify\", {text: props.Notification});\n    }\n}\n\nfunction expandVariable(text, targetActor) {\n    const actor = targetActor ? getCardTargetActor(targetActor) : myself();\n    return text.replace(/\\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Sends \"<color=yellow>${props.Notification}</color>\" notification to <color=green>${getActorGroupDescription(props.Recipient)}</color>`\n    }\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
                 "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"isCard\": true,\n    \"title\": \"Send Notifications\",\n    \"description\": \"Send a notification to several actors.\",\n    \"categories\" : [\"Action\"],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/broadcast\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000002\"\n  }\n}\n"
@@ -14131,7 +15795,7 @@
             },
             {
                 "label": "Hotloaded",
-                "javascript": "export const PROPS = [\n    propString('Caption', 'Health'),\n    propEnum('Style', 'SOLID', [\n        {value: 'SOLID', label: 'Solid color bar'},\n        {value: 'STRIPES', label: 'Color bar divided into stripes'},\n        {value: 'CIRCLE', label: 'Circle filled from bottom'},\n    ]),\n    propString('Variable', \"health\", {\n        label: \"Variable\"\n    }),\n    propString('VariableMax', \"startingHealth\", {\n        label: \"Variable (max)\"\n    }),\n    propString('VariableText', \"health/startingHealth\", {\n        label: \"Variable(s) for text\",\n    }),\n    propImage(\"Icon\", {\n        label: \"Icon\"\n    }),\n    propNumber(\"IconSize\", UI_TEXT_LINE_HEIGHT, {\n        label: \"Icon Size\",\n    }),\n    propNumber('X', 50, {\n        label: \"Horizontal Position\"\n    }),\n    propNumber('Y', 100, {\n        label: \"Vertical Position\"\n    }),\n    propNumber('Width', 200),\n    propNumber('Height', UI_TEXT_LINE_HEIGHT),\n\n    propNumber(\"StripeSize\", 10, {\n        label: \"Stripe Size\",\n        requires: [requireEqual(\"Style\", \"STRIPES\")]\n    }),\n    propColor('Color', '#ffffff', {\n        label: \"Color\"\n    }),\n    propColor('BackgroundColor', '#ffffff', {\n        label: \"Background Color\"\n    }),\n    propDecimal('BackgroundOpacity', 0.5, {\n        label: \"Background Opacity\"\n    }),\n    propColor('FillColorHigh', '#00ff00', {\n        label: \"Fill Color (75% or more)\"\n    }),\n    propColor('FillColorMedium', '#ffff00', {\n        label: \"Fill Color (25% or more)\"\n    }),\n    propColor('FillColorLow', '#ff0000', {\n        label: \"Fill Color (less then 25%)\"\n    }),\n];\n\nconst PADDING = UI_TEXT_LINE_HEIGHT / 2;\nconst INSET = 2;\n\nexport function onDrawScreen() {\n    const player = getControllingPlayer();\n    if (player && player !== getLocalPlayer()) {\n        return;\n    }\n\n    const value = getVar(\"isDead\") ? 0 : (getVar(props.Variable) || mem[props.Variable] || 0);\n    const max = Math.max(1, getVar(props.VariableMax) || mem[props.VariableMax] || 0);\n    const fraction = Math.min(Math.max(value / max, 0), 1);\n    const fillColor = fraction < 0.25 ? props.FillColorLow : fraction < 0.75 ? props.FillColorMedium : props.FillColorHigh;\n\n    switch (props.Style) {\n        case 'SOLID':\n            drawRectangleFrame(fraction, fillColor, additionalText());\n            fillSolid(fraction, fillColor);\n            break;\n        case 'STRIPES':\n            drawRectangleFrame(fraction, fillColor, additionalText());\n            fillStripes(fraction, fillColor);\n            break;\n        case 'CIRCLE':\n            drawCircleFrame(fraction, fillColor, additionalText())\n    }\n\n}\n\nfunction getValue(name) {\n    let value = getVar(name);\n    if (value !== undefined)\n        return value;\n    value = mem[name];\n    if (value !== undefined)\n        return value;\n    return \"\";\n}\n\nfunction additionalText() {\n    // transform names of vars in the form of `var1/var2/var3` to their values separated by slashes\n    return props.VariableText.split('/').map(name => {\n        return (props.VariableText === \"$PLAYER\") ? getPlayerNickName() : (getValue(name)).toString();\n    }).join('/');\n}\n\nfunction fillSolid(fraction, fillColor) {\n    const width = props.Width - 2 * INSET;\n    const height = props.Height - 2 * INSET;\n    uiRect(props.X + INSET, props.Y + INSET, width * fraction, height, fillColor);\n}\n\nfunction fillStripes(fraction, fillColor) {\n    const width = props.Width - 2 * INSET;\n    const height = props.Height - 2 * INSET;\n    const fillWidth = width * fraction;\n    const stripeStep = props.StripeSize + INSET;\n    const numStripes = Math.floor(fillWidth / stripeStep);\n    for (let i = 0; i < numStripes; i++) {\n        uiRect(props.X + INSET + i * stripeStep, props.Y + INSET, props.StripeSize, height, fillColor);\n    }\n}\n\nfunction drawRectangleFrame(fraction, fillColor, text) {\n    uiRect(props.X, props.Y, props.Width, props.Height, props.BackgroundColor, {\n        style: ShapeStyle.FILLED,\n        opacity: props.BackgroundOpacity\n    });\n    uiRect(props.X, props.Y, props.Width, props.Height, props.Color, {style: ShapeStyle.BORDER});\n\n    const caption = props.Caption;\n    if (caption) {\n        uiText(props.X, props.Y - uiGetTextHeight(caption) - PADDING, caption, props.Color);\n    }\n\n    const textWidth = uiGetTextWidth(text);\n    uiText(props.X + props.Width - textWidth, props.Y + props.Height + PADDING, text, props.Color);\n    if (props.Icon) {\n        uiImage(props.X - props.IconSize - PADDING, props.Y + props.Height / 2 - props.IconSize / 2, props.Icon, props.IconSize, props.IconSize)\n    }\n}\n\nfunction drawCircleFrame(fraction, fillColor, text) {\n    const radius = props.Width / 2;\n    const size = props.Width - 2 * INSET;\n    const innerRadius = size / 2;\n    const fillSize = size * fraction;\n\n    uiCircle(props.X + radius, props.Y + radius, radius, props.Color, {style: ShapeStyle.BORDER});\n    uiCircle(props.X + radius, props.Y + radius, radius, props.BackgroundColor, {\n        style: ShapeStyle.FILLED,\n        opacity: props.BackgroundOpacity\n    });\n\n    for (var y = size; y > size - fillSize; y--) {\n        // x^2 + y^2 = r^2\n        const p = (y - innerRadius);\n        const x = Math.sqrt(innerRadius * innerRadius - p * p);\n        uiLine(props.X + radius - x + INSET, props.Y + y + INSET, props.X + radius + x - INSET, props.Y + y + INSET, fillColor)\n    }\n\n    uiText(props.X + radius, props.Y + props.Width + PADDING, text, props.Color, {center: true});\n\n    const caption = props.Caption;\n    if (caption) {\n        uiText(props.X + radius, props.Y - uiGetTextHeight(caption), caption, props.Color, {center: true});\n    }\n}\n",
+                "javascript": "export const PROPS = [\n    propString('Caption', 'Health'),\n    propEnum('Style', 'SOLID', [\n        {value: 'SOLID', label: 'Solid color bar'},\n        {value: 'STRIPES', label: 'Color bar divided into stripes'},\n        {value: 'CIRCLE', label: 'Circle filled from bottom'},\n    ]),\n    propString('Variable', \"health\", {\n        label: \"Variable\"\n    }),\n    propString('VariableMax', \"startingHealth\", {\n        label: \"Variable (max)\"\n    }),\n    propString('VariableText', \"${health}/${startingHealth}\", {\n        label: \"Text with variables\",\n    }),\n    propImage(\"Icon\", {\n        label: \"Icon\"\n    }),\n    propNumber(\"IconSize\", UI_TEXT_LINE_HEIGHT, {\n        label: \"Icon Size\",\n    }),\n    propNumber('X', 50, {\n        label: \"Horizontal Position\"\n    }),\n    propNumber('Y', 100, {\n        label: \"Vertical Position\"\n    }),\n    propNumber('Width', 200),\n    propNumber('Height', UI_TEXT_LINE_HEIGHT),\n\n    propNumber(\"StripeSize\", 10, {\n        label: \"Stripe Size\",\n        requires: [requireEqual(\"Style\", \"STRIPES\")]\n    }),\n    propColor('Color', '#ffffff', {\n        label: \"Color\"\n    }),\n    propColor('BackgroundColor', '#ffffff', {\n        label: \"Background Color\"\n    }),\n    propDecimal('BackgroundOpacity', 0.5, {\n        label: \"Background Opacity\"\n    }),\n    propColor('FillColorHigh', '#00ff00', {\n        label: \"Fill Color (75% or more)\"\n    }),\n    propColor('FillColorMedium', '#ffff00', {\n        label: \"Fill Color (25% or more)\"\n    }),\n    propColor('FillColorLow', '#ff0000', {\n        label: \"Fill Color (less then 25%)\"\n    }),\n];\n\nconst PADDING = UI_TEXT_LINE_HEIGHT / 2;\nconst INSET = 2;\n\nexport function onDrawScreen() {\n    const player = getControllingPlayer();\n    if (player && player !== getLocalPlayer()) {\n        return;\n    }\n\n    const value = getVar(\"isDead\") ? 0 : (getVar(props.Variable) || mem[props.Variable] || 0);\n    const max = Math.max(1, getVar(props.VariableMax) || mem[props.VariableMax] || 0);\n    const fraction = Math.min(Math.max(value / max, 0), 1);\n    const fillColor = fraction < 0.25 ? props.FillColorLow : fraction < 0.75 ? props.FillColorMedium : props.FillColorHigh;\n\n    let text = expandVariable(props.VariableText);\n    switch (props.Style) {\n        case 'SOLID':\n            drawRectangleFrame(fraction, fillColor, text);\n            fillSolid(fraction, fillColor);\n            break;\n        case 'STRIPES':\n            drawRectangleFrame(fraction, fillColor, text);\n            fillStripes(fraction, fillColor);\n            break;\n        case 'CIRCLE':\n            drawCircleFrame(fraction, fillColor, text)\n    }\n\n}\n\nfunction getValue(name) {\n    let value = getVar(name);\n    if (value !== undefined)\n        return value;\n    value = mem[name];\n    if (value !== undefined)\n        return value;\n    return \"\";\n}\n\nfunction expandVariable(text, targetActor) {\n    const actor = targetActor ? getCardTargetActor(targetActor) : myself();\n    return text.replace(/\\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)\n}\n\nfunction fillSolid(fraction, fillColor) {\n    const width = props.Width - 2 * INSET;\n    const height = props.Height - 2 * INSET;\n    uiRect(props.X + INSET, props.Y + INSET, width * fraction, height, fillColor);\n}\n\nfunction fillStripes(fraction, fillColor) {\n    const width = props.Width - 2 * INSET;\n    const height = props.Height - 2 * INSET;\n    const fillWidth = width * fraction;\n    const stripeStep = props.StripeSize + INSET;\n    const numStripes = Math.floor(fillWidth / stripeStep);\n    for (let i = 0; i < numStripes; i++) {\n        uiRect(props.X + INSET + i * stripeStep, props.Y + INSET, props.StripeSize, height, fillColor);\n    }\n}\n\nfunction drawRectangleFrame(fraction, fillColor, text) {\n    uiRect(props.X, props.Y, props.Width, props.Height, props.BackgroundColor, {\n        style: ShapeStyle.FILLED,\n        opacity: props.BackgroundOpacity\n    });\n    uiRect(props.X, props.Y, props.Width, props.Height, props.Color, {style: ShapeStyle.BORDER});\n\n    const caption = props.Caption;\n    if (caption) {\n        uiText(props.X, props.Y - uiGetTextHeight(caption) - PADDING, caption, props.Color);\n    }\n\n    const textWidth = uiGetTextWidth(text);\n    uiText(props.X + props.Width - textWidth, props.Y + props.Height + PADDING, text, props.Color);\n    if (props.Icon) {\n        uiImage(props.X - props.IconSize - PADDING, props.Y + props.Height / 2 - props.IconSize / 2, props.Icon, props.IconSize, props.IconSize)\n    }\n}\n\nfunction drawCircleFrame(fraction, fillColor, text) {\n    const radius = props.Width / 2;\n    const size = props.Width - 2 * INSET;\n    const innerRadius = size / 2;\n    const fillSize = size * fraction;\n\n    uiCircle(props.X + radius, props.Y + radius, radius, props.Color, {style: ShapeStyle.BORDER});\n    uiCircle(props.X + radius, props.Y + radius, radius, props.BackgroundColor, {\n        style: ShapeStyle.FILLED,\n        opacity: props.BackgroundOpacity\n    });\n\n    for (var y = size; y > size - fillSize; y--) {\n        // x^2 + y^2 = r^2\n        const p = (y - innerRadius);\n        const x = Math.sqrt(innerRadius * innerRadius - p * p);\n        uiLine(props.X + radius - x + INSET, props.Y + y + INSET, props.X + radius + x - INSET, props.Y + y + INSET, fillColor)\n    }\n\n    uiText(props.X + radius, props.Y + props.Width + PADDING, text, props.Color, {center: true});\n\n    const caption = props.Caption;\n    if (caption) {\n        uiText(props.X + radius, props.Y - uiGetTextHeight(caption), caption, props.Color, {center: true});\n    }\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
                 "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Value Bar\",\n    \"description\": \"Shows a bar on the screen using a given variable.\",\n    \"categories\": [\n      \"Screen\"\n    ],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/bar\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000004\"\n  }\n}\n"
@@ -14162,21 +15826,21 @@
                 "javascript": "export const PROPS = [\n    propString(\"Name\", \"game\", {\n        label: \"Timer Name\",\n    }),\n    propCardTargetActor(\"Actor\", {\n        label: \"Actor\",\n        pickerPrompt: \"Which actor's timer to check?\",\n        allowOffstageActors: true,\n    }),\n];\n\nexport function onCheck() {\n    const target = getCardTargetActor(\"Actor\");\n    const variable = props.Name + \"_timerDeadline\";\n    const deadline = getVar(variable, target);\n    const expired = deadline !== undefined && deadline < getTime();\n    if (expired) {\n        if (target === myself())\n            deleteVar(variable);\n        else\n            deleteVarPlease(target, variable)\n    }\n    return expired;\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Fires when timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription(\"Actor\")}</color> expires.`\n    }\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
-                "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"publishID\": \"2EDA7918-64D7-496A-8829-EF06E8B71051\",\n    \"isCard\": true,\n    \"title\": \"Timer Expired\",\n    \"description\": \"Fires when a timer is expired\",\n    \"categories\" : [\"Event\"],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/timer-icon\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000005\"\n  }\n}\n"
+                "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"isCard\": true,\n    \"title\": \"Timer Expired\",\n    \"description\": \"Fires when a timer is expired\",\n    \"categories\" : [\"Event\"],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/timer-icon\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000005\"\n  }\n}\n"
             },
             {
                 "label": "Hotloaded",
                 "javascript": "export const PROPS = [\n    propString(\"Name\", \"game\", {\n        label: \"Timer Name\",\n    }),\n    propNumber('X', 800, {\n        label: \"Horizontal Position\"\n    }),\n    propNumber('Y', 60, {\n        label: \"Vertical Position\"\n    }),\n    propBoolean(\"Center\", true),\n    propBoolean(\"Bold\", true),\n    propColor('Color', '#bdc3c7', {\n        label: \"Color\"\n    }),\n    propNumber('TextSize', 60, {\n        label: \"Text Size\"\n    }),\n    propBoolean(\"Center\", true),\n    propCardTargetActor(\"Actor\", {\n        label: \"Actor\",\n        pickerPrompt: \"Which actor's timer to draw?\",\n        allowOffstageActors: true,\n    }),\n    propBoolean(\"Alert\", false),\n    propColor('AlertColor', '#c0392b', {\n        label: \"Alert Color\",\n        requires: [requireTrue(\"Alert\")]\n    }),\n    propDecimal(\"AlertTime\", 10, {\n        label: \"Alert Time (sec)\",\n        requires: [requireTrue(\"Alert\")]\n    })\n];\n\nexport function onDrawScreen() {\n    const endTime = getVar(props.Name + \"_timerDeadline\", getCardTargetActor(\"Actor\"));\n    if (!endTime)\n        return; // no timer, no drawing\n\n    let timerLeft = endTime - getTime();\n    if (timerLeft < 0)\n        timerLeft = 0;\n\n    let color = props.Color;\n    if (props.Alert && timerLeft < props.AlertTime)\n        color = props.AlertColor;\n    const m1 = Math.floor(timerLeft / 600);\n    const m2 = Math.floor((timerLeft % 600) / 60);\n    const s1 = Math.floor((timerLeft % 60) / 10);\n    const s2 = Math.floor((timerLeft % 10));\n\n    let value = `${m1}${m2}:${s1}${s2}`;\n    let text = props.Bold ? `<b>${value}</b>` : value;\n    uiText(props.X, props.Y, text, color, {textSize: props.TextSize, center: props.Center});\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Displays value of timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription(\"Actor\")}</color>`\n    }\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
-                "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"publishID\": \"1079DF4D-D745-414F-AC53-9D009811A532\",\n    \"isCard\": true,\n    \"title\": \"Display Timer\",\n    \"description\": \"Displays time left on a timer.\",\n    \"categories\" : [\"Screen\"],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/timer-icon\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000006\"\n  }\n}\n"
+                "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"isCard\": true,\n    \"title\": \"Display Timer\",\n    \"description\": \"Displays time left on a timer.\",\n    \"categories\" : [\"Screen\"],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/timer-icon\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000006\"\n  }\n}\n"
             },
             {
                 "label": "Hotloaded",
                 "javascript": "export const PROPS = [\n    propString(\"Name\", \"game\", {\n        label: \"Timer Name\",\n    }),\n    propDecimal(\"Time\", 60, {\n        label: \"Timer (sec)\"\n    }),\n    propCardTargetActor(\"Actor\", {\n        label: \"Actor\",\n        pickerPrompt: \"Which actor's timer to start?\",\n        allowOffstageActors: true,\n    })\n];\n\nexport function onAction() {\n    const target = getCardTargetActor(\"Actor\")\n    const deadline = getTime() + props.Time;\n    const variable = props.Name + \"_timerDeadline\";\n    if (target === myself())\n        setVar(variable, deadline);\n    else\n        setVarPlease(target, variable, deadline);\n}\n\nexport function onResetGame() {\n    const target = getCardTargetActor(\"Actor\");\n    const variable = props.Name + \"_timerDeadline\";\n    if (target === myself())\n        deleteVar(variable);\n    else\n        deleteVarPlease(target, variable)\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Starts timer <color=yellow>${props.Name}</color> on <color=green>${getCardTargetActorDescription(\"Actor\")}</color> for <color=orange>${props.Time}</color> seconds.`\n    }\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
-                "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"publishID\": \"3F3ADE0F-0415-4864-9639-55CA2B4068F1\",\n    \"isCard\": true,\n    \"title\": \"Timer\",\n    \"description\": \"Starts a timer.\",\n    \"categories\" : [\"Action\"],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/timer-icon\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000007\"\n  }\n}\n\n"
+                "metadataJson": "{\n  \"cardSystemCardData\" : {\n    \"isCard\": true,\n    \"title\": \"Timer\",\n    \"description\": \"Starts a timer.\",\n    \"categories\" : [\"Action\"],\n    \"imageResourcePath\": \"BuiltinAssets/PanelIcons/timer-icon\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000007\"\n  }\n}\n\n"
             },
             {
                 "label": "Hotloaded",
@@ -14243,17 +15907,24 @@
             },
             {
                 "label": "Hotloaded",
-                "javascript": "export const PROPS = [\n    propCardTargetActor(\"Target\", {\n        label: \"Whose variable?\"\n    }),\n    propString(\"Message\", \"I have #varGold gold.\"),\n    propDecimal(\"OffsetAbove\", 0),\n    propNumber(\"TextSize\", 1),\n    propDecimal(\"HideDelay\", 0.5, {label: \"Hide Delay\\nContinuous mode: 0.5\"})\n];\n\nconst HIDE_DELAY_SECONDS = 0.5;\nconst INITIAL_OFFSET_ABOVE = 1;\nconst INITIAL_SCALE = 6;\n\nexport function onAction(actionMessage) {\n    // We change the variable\n    card.target = getCardTargetActor(\"Target\", actionMessage);\n    const str = props.Message.replace(/#var([a-zA-Z]*)/g, varReplace);\n    // Create popup text if we don't have it yet.\n    if (!card.popupTextActor || !exists(card.popupTextActor)) {\n        card.popupTextActor = clone(\"builtin:PopupText\",\n            getPointAbove(getBoundsSize().y + INITIAL_OFFSET_ABOVE + props.OffsetAbove));\n        send(card.popupTextActor, \"SetText\", {text: str});\n        const scale = Math.min(Math.max(INITIAL_SCALE + (props.TextSize || 0) * 0.5, 1), 12);\n        send(card.popupTextActor, \"SetScale\", scale);\n        send(card.popupTextActor, \"SetParent\", {parent: myself()});\n    }\n    card.popupHideTime = getTime() + HIDE_DELAY_SECONDS;\n}\n\nfunction varReplace(match, variable) {\n    return getVar(variable, card.target) || 0;\n}\n\n\nexport function onResetGame() {\n    // Popup is a script clone, so it gets destroyed automatically.\n    delete card.popupTextActor;\n    delete card.popupHideTime;\n}\n\nexport function onTick() {\n    if (card.popupHideTime && getTime() > card.popupHideTime) {\n        // Hide the popup.\n        send(card.popupTextActor, \"Destroy\");\n        delete card.popupTextActor;\n        delete card.popupHideTime;\n    }\n}\n",
+                "javascript": "export const PROPS = [\n    propCardTargetActor(\"Target\", {\n        label: \"Whose variable?\"\n    }),\n    propString(\"Message\", \"I have ${gold} gold.\"),\n    propDecimal(\"OffsetAbove\", 0),\n    propNumber(\"TextSize\", 1),\n    propDecimal(\"HideDelay\", 0.5, {label: \"Hide Delay\\nContinuous mode: 0.5\"})\n];\n\nconst HIDE_DELAY_SECONDS = 0.5;\nconst INITIAL_OFFSET_ABOVE = 1;\nconst INITIAL_SCALE = 6;\n\nexport function onAction(actionMessage) {\n    // We change the variable\n    card.target = getCardTargetActor(\"Target\", actionMessage);\n    const str = expandVariable(props.Message, \"Target\");\n    // Create popup text if we don't have it yet.\n    if (!card.popupTextActor || !exists(card.popupTextActor)) {\n        card.popupTextActor = clone(\"builtin:PopupText\",\n            getPointAbove(getBoundsSize().y + INITIAL_OFFSET_ABOVE + props.OffsetAbove));\n        send(card.popupTextActor, \"SetText\", {text: str});\n        const scale = Math.min(Math.max(INITIAL_SCALE + (props.TextSize || 0) * 0.5, 1), 12);\n        send(card.popupTextActor, \"SetScale\", scale);\n        send(card.popupTextActor, \"SetParent\", {parent: myself()});\n    }\n    card.popupHideTime = getTime() + HIDE_DELAY_SECONDS;\n}\n\nexport function onResetGame() {\n    // Popup is a script clone, so it gets destroyed automatically.\n    delete card.popupTextActor;\n    delete card.popupHideTime;\n}\n\nexport function onTick() {\n    if (card.popupHideTime && getTime() > card.popupHideTime) {\n        // Hide the popup.\n        send(card.popupTextActor, \"Destroy\");\n        delete card.popupTextActor;\n        delete card.popupHideTime;\n    }\n}\n\nfunction expandVariable(text, targetActor) {\n    const actor = targetActor ? getCardTargetActor(targetActor) : myself();\n    return text.replace(/\\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
-                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Say Variable Value\",\n    \"description\": \"Says variable values using #var tag.\",\n    \"categories\": [\n      \"Action\"\n    ],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/saySomething\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000014\"\n  }\n}"
+                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Say Variable Value\",\n    \"description\": \"Says variable values using ${var} tag.\",\n    \"categories\": [\n      \"Action\"\n    ],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/saySomething\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000014\"\n  }\n}"
             },
             {
                 "label": "Hotloaded",
-                "javascript": "export const PROPS = [\n    propNumber('X', 100),\n    propNumber('Y', 100),\n    propColor('Color', '#ffff00'),\n    propCardTargetActor(\"Target\", {\n        label: \"Whose variables?\"\n    }),\n    propString('Text', 'Gold: #vargold'),\n];\n\nexport function onDrawScreen() {\n    card.text = props.Text.replace(/#var([a-zA-Z]*)/g, varReplace);\n    uiText(props.X, props.Y, card.text, props.Color || UiColor.WHITE);\n}\n\nfunction varReplace(match, variable) {\n    return getVar(variable, getCardTargetActor(\"Target\")) || 0;\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Displays text '<color=orange>${props.Text}</color>' with variables from <color=green>${getCardTargetActorDescription(\"Target\")}</color>`,\n        debugText: `Expanded Text:\n\n${props.Text.replace(/#var([a-zA-Z]*)/g, varReplace)}`\n    }\n}\n",
+                "javascript": "export const PROPS = [\n    propNumber('X', 100),\n    propNumber('Y', 100),\n    propColor('Color', '#ffff00'),\n    propCardTargetActor(\"Target\", {\n        label: \"Whose variables?\"\n    }),\n    propString('Text', 'Gold: ${gold}'),\n];\n\nexport function onDrawScreen() {\n    card.text = expandVariable(props.Text, \"Target\");\n    uiText(props.X, props.Y, card.text, props.Color || UiColor.WHITE);\n}\n\nexport function getCardStatus() {\n    return {\n        description: `Displays text '<color=orange>${props.Text}</color>' with variables from <color=green>${getCardTargetActorDescription(\"Target\")}</color>`,\n        debugText: `Expanded Text:\n\n${expandVariable(props.Text, \"Target\")}`\n    }\n}\n\nfunction expandVariable(text, targetActor) {\n    const actor = targetActor ? getCardTargetActor(targetActor) : myself();\n    return text.replace(/\\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)\n}\n",
                 "draftJavascript": "",
                 "userLibraryFile": "",
-                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Show Variable Value\",\n    \"description\": \"Show variable values on the screen using #var tag.\",\n    \"categories\": [\n      \"Screen\"\n    ],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/staticText\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000016\"\n  }\n}"
+                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Show Variable Value\",\n    \"description\": \"Show variable values on the screen using ${var} tag.\",\n    \"categories\": [\n      \"Screen\"\n    ],\n    \"imageResourcePath\": \"BuiltinAssets/CardImages/staticText\",\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000016\"\n  }\n}"
+            },
+            {
+                "label": "Hotloaded",
+                "javascript": "export const PROPS = [\n    propActor(\"Player\", \"\", {\n        pickerPrompt: \"What actor to spawn as player?\",\n        allowOffstageActors: true\n    }),\n    propString(\"Tag\", \"spawn\", {\n        label: \"Spawn Tag\",\n    }),\n];\n\nfunction selectSpawnActor() {\n    const players = getAllPlayers();\n    const spawns = getActorsWithTag(props.Tag);\n    if (players.length === 0 || spawns.length === 0)\n        return undefined;\n\n    const selected = spawns.reduce((current, spawn) => {\n        // Sum of distances from this spawn point to all players\n        let totalDistance = players.reduce(function (total, player) {\n            const playerInfo = mem.players[player];\n            if (playerInfo && playerInfo.actor)\n                return total + getDistanceBetween(spawn, playerInfo.actor);\n            else\n                return total;\n        }, 0);\n        let currentDistance = current.distance || 0;\n        return currentDistance > totalDistance ? current : {distance: totalDistance, actor: spawn};\n    }, {});\n\n    return selected.actor || spawns[0];\n}\n\nfunction spawnPlayer(playerId) {\n    const nickname = getPlayerNickName(playerId);\n    log(`Player \"${playerId}\" joined: ${nickname}`);\n\n    const info = mem.players[playerId] || {};\n    info.id = playerId;\n    info.nickname = nickname;\n    mem.players[playerId] = info;\n\n    const spawnPoint = selectSpawnActor();\n    let pos = getPos(spawnPoint);\n    const playerActor = clone(props.Player, pos);\n    setControllingPlayerPlease(playerActor, info.id);\n    info.actor = playerActor;\n}\n\nexport function onInit() {\n    // init will be called when scene is loaded, by clones can still be there along with mem.players, \n    // so create actors only for players that don't have them\n    if (mem.players) {\n        const players = getAllPlayers();\n        players.forEach(function (player) {\n            const playerInfo = mem.players[player];\n            if (!playerInfo || !playerInfo.actor)\n                spawnPlayer(player);\n        })\n    } \n}\n\nexport function onResetGame() {\n    mem.players = {}; // forget everything\n    const players = getAllPlayers();\n    players.forEach(player => spawnPlayer(player))\n}\n\nexport function onPlayerJoined(msg) {\n    spawnPlayer(msg.playerId);\n}\n\nexport function onPlayerLeft(msg) {\n    const playerId = msg.playerId;\n    const info = mem.players[playerId] || {};\n    log(`Player \"${playerId}\" left: ${info.nickname}`);\n    delete mem.players[playerId];\n    if (info.actor) {\n        destroySelfPlease(info.actor)\n    }\n}\n\n",
+                "draftJavascript": "",
+                "userLibraryFile": "",
+                "metadataJson": "{\n  \"cardSystemCardData\": {\n    \"isCard\": true,\n    \"title\": \"Multiplayer Spawner\",\n    \"description\": \"Assigns players to actors by spawning a clone on a spawn point\",\n    \"categories\": [\n      \"Custom\"\n    ],\n    \"userProvidedId\": \"6B1811987B374DBADEADBEAF00000018\"\n  }\n}\n"
             }
         ],
         "brainIds": [
@@ -14338,7 +16009,8 @@
             "eccf8aef8dd749d9a591e05e6941793a",
             "da8e116b01fc490f9c71af613c0b8e93",
             "bb2aa93dcaa54b6e94291a2af578ba80",
-            "41a7ca849ce3427c9372f68d943c6914"
+            "41a7ca849ce3427c9372f68d943c6914",
+            "57caa57b6e434f9aab8fe2ec2658f2b9"
         ],
         "brains": [
             {
@@ -14521,32 +16193,13 @@
                 ]
             },
             {
-                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.4298875033855438,\"viewPosition\":{\"x\":81.24411010742188,\"y\":-557.4985961914063},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":2326.969970703125,\"y\":-70.0},\"customLabel\":\"\"}}",
+                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.4298875033855438,\"viewPosition\":{\"x\":575.6049194335938,\"y\":-613.9138793945313},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":2601.969970703125,\"y\":-70.0},\"customLabel\":\"\"}}",
                 "behaviorUses": [
                     {
                         "id": "297615c9b4a94d619cd94f00e3e1b407",
                         "behaviorUri": "builtin:Default Behavior",
                         "metadataJson": "",
                         "propertyAssignments": []
-                    },
-                    {
-                        "id": "2a3e4685a12947ef9cb0283f34947dfb",
-                        "behaviorUri": "builtin:Player Controls Panel v2",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":70.0,\"y\":-70.0},\"customLabel\":\"\"}",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "PlayerNumber",
-                                "valueJson": "{\"value\":1}"
-                            },
-                            {
-                                "propertyName": "AutoAssign",
-                                "valueJson": "{\"value\":true}"
-                            },
-                            {
-                                "propertyName": "AutoColor",
-                                "valueJson": "{\"value\":true}"
-                            }
-                        ]
                     },
                     {
                         "id": "9066e7e3f2494c4c994936687a7ba266",
@@ -14570,7 +16223,7 @@
                     {
                         "id": "2f4fdf2cbb8b46cfbc45f3d791e45d6e",
                         "behaviorUri": "builtin:Movement Panel",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":1681.969970703125,\"y\":-70.0},\"customLabel\":\"\"}",
+                        "metadataJson": "{\"version\":1,\"position\":{\"x\":1956.969970703125,\"y\":-70.0},\"customLabel\":\"\"}",
                         "propertyAssignments": [
                             {
                                 "propertyName": "moveDeck",
@@ -14799,7 +16452,7 @@
                 ]
             },
             {
-                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.2531653940677643,\"viewPosition\":{\"x\":373.0946044921875,\"y\":-373.4982604980469},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":2557.35009765625,\"y\":-70.0},\"customLabel\":\"\"}}",
+                "metadataJson": "{\"panelViewState\":{\"version\":1,\"scale\":0.5754355788230896,\"viewPosition\":{\"x\":141.66668701171876,\"y\":-231.08734130859376},\"customLayout\":false},\"panelNotes\":[],\"miscPanelUseMetadata\":{\"version\":1,\"position\":{\"x\":2557.35009765625,\"y\":-70.0},\"customLabel\":\"\"}}",
                 "behaviorUses": [
                     {
                         "id": "126ec3cd41114616bab8c25ed28b2884",
@@ -14819,55 +16472,21 @@
                         ]
                     },
                     {
-                        "id": "3eb2c094f9214090968c7abbded048c5",
-                        "behaviorUri": "builtin:Game Start Panel",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":747.6699829101563,\"y\":-70.0},\"customLabel\":\"\"}",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "actionDeck",
-                                "valueJson": "{\"value\":[]}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "fe693c411410475c8288c1be677be599",
-                        "behaviorUri": "builtin:Action on Event Panel",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":1715.2099609375,\"y\":-70.0},\"customLabel\":\"\"}",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "eventDeck",
-                                "valueJson": "{\"value\":[]}"
-                            },
-                            {
-                                "propertyName": "actionDeck",
-                                "valueJson": "{\"value\":[]}"
-                            },
-                            {
-                                "propertyName": "advanced",
-                                "valueJson": "{\"value\":false}"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "aa7a7ea8e15146bb98dbe8c1ab71043a",
-                        "behaviorUri": "builtin:Action on Event Panel",
-                        "metadataJson": "{\"version\":1,\"position\":{\"x\":2136.280029296875,\"y\":-70.0},\"customLabel\":\"\"}",
-                        "propertyAssignments": [
-                            {
-                                "propertyName": "eventDeck",
-                                "valueJson": "{\"value\":[]}"
-                            },
-                            {
-                                "propertyName": "actionDeck",
-                                "valueJson": "{\"value\":[]}"
-                            }
-                        ]
-                    },
-                    {
                         "id": "067bd304b4804801834444f6e91cf313",
                         "behaviorUri": "embedded:6b1811987b374dbadeadbeaf00000009",
                         "metadataJson": "",
                         "propertyAssignments": []
+                    },
+                    {
+                        "id": "4981cc84d14348ebb25ab7a1bb8934c2",
+                        "behaviorUri": "embedded:6b1811987b374dbadeadbeaf00000018",
+                        "metadataJson": "",
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "Player",
+                                "valueJson": "{\"value\":\"e5aed0bca4d9400398d07cb83f48185c\"}"
+                            }
+                        ]
                     }
                 ]
             },
@@ -15159,7 +16778,20 @@
                         "id": "40383b71111a4ada90803d5bea0edc0f",
                         "behaviorUri": "builtin:MoveRandomWalk",
                         "metadataJson": "",
-                        "propertyAssignments": []
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "LimitRange",
+                                "valueJson": "{\"value\":true}"
+                            },
+                            {
+                                "propertyName": "MaxRange",
+                                "valueJson": "{\"value\":20.0}"
+                            },
+                            {
+                                "propertyName": "MoveWhileTurning",
+                                "valueJson": "{\"value\":false}"
+                            }
+                        ]
                     }
                 ]
             },
@@ -16927,6 +18559,43 @@
                         "behaviorUri": "builtin:Default Behavior",
                         "metadataJson": "",
                         "propertyAssignments": []
+                    }
+                ]
+            },
+            {
+                "metadataJson": "",
+                "behaviorUses": [
+                    {
+                        "id": "126ec3cd41114616bab8c25ed28b2884",
+                        "behaviorUri": "builtin:Default Behavior",
+                        "metadataJson": "",
+                        "propertyAssignments": []
+                    },
+                    {
+                        "id": "42f5da8a5550479e8b7c5bff1ad42474",
+                        "behaviorUri": "builtin:Action on Event Panel",
+                        "metadataJson": "",
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "eventDeck",
+                                "valueJson": "{\"value\":[]}"
+                            },
+                            {
+                                "propertyName": "actionDeck",
+                                "valueJson": "{\"value\":[]}"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "fc99440774d848da825b6a1a9b56cfbf",
+                        "behaviorUri": "builtin:Movement Panel",
+                        "metadataJson": "",
+                        "propertyAssignments": [
+                            {
+                                "propertyName": "moveDeck",
+                                "valueJson": "{\"value\":[]}"
+                            }
+                        ]
                     }
                 ]
             }
