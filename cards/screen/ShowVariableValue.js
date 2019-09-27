@@ -22,7 +22,7 @@ ${expandVariable(props.Text, "Target")}`
     }
 }
 
-function expandVariable(text, targetActor) {
-    const actor = targetActor ? getCardTargetActor(targetActor) : myself();
+function expandVariable(text, targetActor, event) {
+    const actor = targetActor ? getCardTargetActor(targetActor, event) : myself();
     return text.replace(/\${([a-zA-Z]*)}/g, (match, variable) => getVar(variable, actor) || 0)
 }
