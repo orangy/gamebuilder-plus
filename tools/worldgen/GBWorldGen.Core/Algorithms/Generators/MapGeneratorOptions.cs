@@ -8,12 +8,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
         public float PlainFrequency { get; set; } = 0.02F;
         public bool Lakes { get; set; } = true;
         public float LakeFrequency { get; set; } = 0.015F;
-        public int LakeSize { get; set; } = 7;        
+        public int LakeSize { get; set; } = 7;
+        public bool Tunnels { get; set; } = true;
         public bool Hills { get; set; } = true;
         public float HillFrequency { get; set; } = 0.028F;
         public int HillClamp { get; set; } = 50;
         public bool Mountains { get; set; } = true;
-        public float MountainFrequency { get; set; } = 0.05F;
+        public float MountainFrequency { get; set; } = 0.04F;
         public double AdditionalMountainSize { get; set; } = 0.55D;
         public MapBiome Biome { get; set; } = MapBiome.Grassland;
 

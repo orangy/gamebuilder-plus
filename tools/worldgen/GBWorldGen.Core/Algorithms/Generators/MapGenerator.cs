@@ -76,7 +76,19 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 List<Block> fillLakeBlocks = new List<Block>();
                 for (int i = 0; i < lakesToUse.Count; i++)
                 {
+                    // Fill top of lake
                     for (short j = minLakeY; j <= minLakeY + height; j++)
+                    {
+                        fillLakeBlocks.Add(new Block
+                        {
+                            X = lakesToUse[i].X,
+                            Y = j,
+                            Z = lakesToUse[i].Z
+                        });
+                    }
+
+                    // Fill to bottom of map
+                    for (short j = (short)(minLakeY - 1); j >= Map.MINHEIGHT; j--)
                     {
                         fillLakeBlocks.Add(new Block
                         {
@@ -109,12 +121,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 // Place lake blocks                
                 for (int i = 0; i < lakesToUse.Count; i++)
                 {
+                    blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
                     GeneratedMap.Add(new Block
                     {
                         X = lakesToUse[i].X,
-                        Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                        Y = blockY,
                         Z = lakesToUse[i].Z,
-                        Style = LakesBlockStyle()
+                        Style = LakesBlockStyle(blockY)
                     });
                 }
             }
@@ -146,7 +159,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             X = (short)(x + GeneratedMap.OriginWidth),
                             Y = blockY,
                             Z = (short)(z + GeneratedMap.OriginLength),
-                            Style = PlainsBlockStyle()
+                            Style = PlainsBlockStyle(blockY)
                         });
 
                         if (blockY < minPlainY) minPlainY = blockY;
@@ -160,19 +173,50 @@ namespace GBWorldGen.Core.Algorithms.Generators
             List<Block> bottomPlainsBlocks = new List<Block>();
             for (int i = 0; i < plainsBlocks.Count; i++)
             {
-                for (short y = plainsBlocks[i].Y; y >= GeneratedMap.OriginHeight; y--)
+                for (short y = plainsBlocks[i].Y; y >= Map.MINHEIGHT; y--)
                 {
                     bottomPlainsBlocks.Add(new Block
                     {
                         X = plainsBlocks[i].X,
                         Y = y,
                         Z = plainsBlocks[i].Z,
-                        Style = PlainsBlockStyle()
+                        Style = PlainsBlockStyle(y)
                     });
                 }
             }
             plainsBlocks.AddRange(bottomPlainsBlocks);
             GeneratedMap.MapData.AddRange(plainsBlocks);
+
+            // Create tunnels
+            if (Options.Tunnels)
+            {
+                Console.WriteLine("Generating tunnels");
+                List<Block> toRemoveBlocksForTunnel = new List<Block>();
+                for (short x = 0; x < Width; x++)
+                {
+                    for (short z = 0; z < Length; z++)
+                    {
+                        for (short y = GeneratedMap.MinHeight; y <= maxPlainY; y++) 
+                        {
+                            noise = FastNoise.GetCellular(x, z, y);
+
+                            if (noise > 0)
+                            {
+                                toRemoveBlocksForTunnel.Add(new Block
+                                {
+                                    X = x,
+                                    Y = y,
+                                    Z = z,
+                                    Style = PlainsBlockStyle(y)
+                                });
+                            }
+                        }                        
+                    }
+                }
+
+                // https://stackoverflow.com/a/22667558/1837080
+                GeneratedMap.MapData.RemoveAll(new HashSet<Block>(toRemoveBlocksForTunnel).Contains);
+            }
 
             // Create hills
             if (Options.Hills)
@@ -433,12 +477,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
             // Place lake blocks                
             for (int i = 0; i < lakesToUse.Count; i++)
             {
+                blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
                 GeneratedMap.Add(new Block
                 {
                     X = lakesToUse[i].X,
-                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                    Y = blockY,
                     Z = lakesToUse[i].Z,
-                    Style = LakesBlockStyle()
+                    Style = LakesBlockStyle(blockY)
                 });
             }
 
@@ -524,12 +569,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
             // Place lake blocks                
             for (int i = 0; i < lakesToUse.Count; i++)
             {
+                blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
                 GeneratedMap.Add(new Block
                 {
                     X = lakesToUse[i].X,
-                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                    Y = blockY,
                     Z = lakesToUse[i].Z,
-                    Style = LakesBlockStyle()
+                    Style = LakesBlockStyle(blockY)
                 });
             }
 
@@ -560,7 +606,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             X = (short)(x + GeneratedMap.OriginWidth),
                             Y = blockY,
                             Z = (short)(z + GeneratedMap.OriginLength),
-                            Style = PlainsBlockStyle()
+                            Style = PlainsBlockStyle(blockY)
                         });
 
                         if (blockY < minPlainY) minPlainY = blockY;
@@ -581,7 +627,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         X = plainsBlocks[i].X,
                         Y = y,
                         Z = plainsBlocks[i].Z,
-                        Style = PlainsBlockStyle()
+                        Style = PlainsBlockStyle(y)
                     });
                 }
             }
@@ -670,12 +716,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
             // Place lake blocks                
             for (int i = 0; i < lakesToUse.Count; i++)
             {
+                blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
                 GeneratedMap.Add(new Block
                 {
                     X = lakesToUse[i].X,
-                    Y = (short)(0 - (minLakeY + height - lakesToUse[i].Y)),
+                    Y = blockY,
                     Z = lakesToUse[i].Z,
-                    Style = LakesBlockStyle()
+                    Style = LakesBlockStyle(blockY)
                 });
             }
 
@@ -706,7 +753,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             X = (short)(x + GeneratedMap.OriginWidth),
                             Y = blockY,
                             Z = (short)(z + GeneratedMap.OriginLength),
-                            Style = PlainsBlockStyle()
+                            Style = PlainsBlockStyle(blockY)
                         });
 
                         if (blockY < minPlainY) minPlainY = blockY;
@@ -727,7 +774,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         X = plainsBlocks[i].X,
                         Y = y,
                         Z = plainsBlocks[i].Z,
-                        Style = PlainsBlockStyle()
+                        Style = PlainsBlockStyle(y)
                     });
                 }
             }
@@ -853,13 +900,18 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return AffineTransformation.MapToWorld(input, GeneratedMap.MinHeight, GeneratedMap.MaxHeight);
         }
 
-        private Block.STYLE LakesBlockStyle()
+        private Block.STYLE LakesBlockStyle(short y)
         {
-            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Block.STYLE.Water;
-        }
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ?
+                (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.GrayCraters : Block.STYLE.Ice) :
+                (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.Lava : Block.STYLE.Water);
+        }        
 
-        private Block.STYLE PlainsBlockStyle()
+        private Block.STYLE PlainsBlockStyle(short y)
         {
+            if (y - 2 <= GeneratedMap.MinHeight) return Block.STYLE.Lava;
+            if ((y + 2) - 16 <= GeneratedMap.MinHeight) return Block.STYLE.GrayCraters;
+
             return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.Grass;
         }
 
@@ -871,7 +923,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
         private Block.STYLE MountainsBlockStyle()
         {
             return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.GrayCraters;
-        }
+        }        
 
         private Block.STYLE[] MountainBlockStyleRange(short min, short max)
         {
