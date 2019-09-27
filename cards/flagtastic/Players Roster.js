@@ -34,7 +34,7 @@ export const PROPS = [
 ];
 
 /*
-    Players roster is stored in the Game's actor memory as mem.players[id]
+    Players roster is stored in the Game's actor memory as card.players[id]
     Use "Players States" card to manage it
     
     Each item has `state`, `stateText`, `stateWeight` and `score` properties
@@ -55,33 +55,33 @@ const XCORNER_SIZE = 10;
 const YCORNER_SIZE = 12;
 
 export function onResetGame() {
-    if (mem.players === undefined) return; // no players joined
+    if (card.players === undefined) return; // no players joined
 
-    for (let key in mem.players) {
-        delete mem.players[key].score;
+    for (let key in card.players) {
+        delete card.players[key].score;
     }
 }
 
 export function onPlayerJoined(msg) {
-    if (mem.players === undefined) {
-        mem.players = {}; // first player activated. we can't rely on reset/init, because the events are out of order
+    if (card.players === undefined) {
+        card.players = {}; // first player activated. we can't rely on reset/init, because the events are out of order
     }
 
     const playerId = msg.playerId;
     const nickname = getPlayerNickName(playerId);
     log(`Player "${playerId}" joined: ${nickname}`);
 
-    const info = mem.players[playerId] || {};
+    const info = card.players[playerId] || {};
     info.nickname = nickname;
-    mem.players[playerId] = info;
+    card.players[playerId] = info;
 }
 
 export function onPlayerLeft(msg) {
-    if (mem.players === undefined) return; // no players joined
+    if (card.players === undefined) return; // no players joined
     const playerId = msg.playerId;
-    const info = mem.players[playerId] || {};
+    const info = card.players[playerId] || {};
     log(`Player "${playerId}" left: ${info.nickname}`);
-    delete mem.players[playerId];
+    delete card.players[playerId];
 }
 
 function conditionSatisfied() {
@@ -95,18 +95,18 @@ function conditionSatisfied() {
 }
 
 export function onPointScored(msg) {
-    if (mem.players === undefined)
+    if (card.players === undefined)
         return; // no players joined
 
     if (!conditionSatisfied())
         return;
 
-    const info = mem.players[msg.player];
+    const info = card.players[msg.player];
     info.score = (info.score || 0) + (msg.amount || 0);
 }
 
 export function onDrawScreen() {
-    if (mem.players === undefined)
+    if (card.players === undefined)
         return; // nothing to draw, no players data
 
     const playerId = getLocalPlayer();
@@ -115,8 +115,8 @@ export function onDrawScreen() {
     const numPlayers = playerIds.length;
 
     playerIds.sort((ida, idb) => {
-        let scoreA = getScoreSortingOrder(mem.players[ida]);
-        let scoreB = getScoreSortingOrder(mem.players[idb]);
+        let scoreA = getScoreSortingOrder(card.players[ida]);
+        let scoreB = getScoreSortingOrder(card.players[idb]);
         return scoreB - scoreA;
     });
 
@@ -142,7 +142,7 @@ export function onDrawScreen() {
             nickname = "Player";
 
         const label = nickname;
-        const info = mem.players[id];
+        const info = card.players[id];
 
         const score = getScoreDisplayText(info);
         const scoreWidth = uiGetTextWidth(label);

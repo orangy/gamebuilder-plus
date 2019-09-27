@@ -18,7 +18,7 @@ function selectSpawnActor() {
     const selected = spawns.reduce((current, spawn) => {
         // Sum of distances from this spawn point to all players
         let totalDistance = players.reduce(function (total, player) {
-            const playerInfo = mem.players[player];
+            const playerInfo = card.players[player];
             if (playerInfo && playerInfo.actor)
                 return total + getDistanceBetween(spawn, playerInfo.actor);
             else
@@ -35,35 +35,38 @@ function spawnPlayer(playerId) {
     const nickname = getPlayerNickName(playerId);
     log(`Player "${playerId}" joined: ${nickname}`);
 
-    const info = mem.players[playerId] || {};
+    const info = card.players[playerId] || {};
     info.id = playerId;
     info.nickname = nickname;
-    mem.players[playerId] = info;
+    card.players[playerId] = info;
 
     const spawnPoint = selectSpawnActor();
     let pos = getPos(spawnPoint);
     const playerActor = clone(props.Player, pos);
+    setIsPlayerControllablePlease(playerActor, true);
     setControllingPlayerPlease(playerActor, info.id);
     info.actor = playerActor;
+    log(`Current players: ${JSON.stringify(card.players)}`);
+    sendToAll("PlayerSpawned", {player: playerId})
 }
 
 export function onInit() {
-    // init will be called when scene is loaded, by clones can still be there along with mem.players, 
+    // init will be called when scene is loaded, by clones can still be there along with card.players, 
     // so create actors only for players that don't have them
-    if (mem.players) {
+    if (card.players) {
         const players = getAllPlayers();
-        players.forEach(function (player) {
-            const playerInfo = mem.players[player];
-            if (!playerInfo || !playerInfo.actor)
-                spawnPlayer(player);
+        players.forEach(function (playerId) {
+            const info = card.players[playerId];
+            if (!info || !info.actor)
+                spawnPlayer(playerId);
         })
     }
 }
 
 export function onResetGame() {
-    mem.players = {}; // forget everything, clones are already destroyed
+    card.players = {}; // forget everything, clones are already destroyed
     const players = getAllPlayers();
-    players.forEach(player => spawnPlayer(player))
+    players.forEach(playerId => spawnPlayer(playerId))
 }
 
 export function onPlayerJoined(msg) {
@@ -72,12 +75,14 @@ export function onPlayerJoined(msg) {
 
 export function onPlayerLeft(msg) {
     const playerId = msg.playerId;
-    const info = mem.players[playerId] || {};
+    const info = card.players[playerId] || {nickname: '<unregistered>'};
     log(`Player "${playerId}" left: ${info.nickname}`);
-    delete mem.players[playerId];
+    delete card.players[playerId];
     if (info.actor) {
         destroySelfPlease(info.actor);
     }
+    sendToAll("PlayerDismissed", {player: playerId});
+    log(`Current players: ${JSON.stringify(card.players)}`)
 }
 
 export function getCardStatus() {
