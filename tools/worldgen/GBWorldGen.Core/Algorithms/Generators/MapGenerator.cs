@@ -263,7 +263,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             noise = FastNoise.GetCubicFractal(x, z);
                             if (noise > 0)
                             {
-                                noise = (float)Math.Pow((double)noise + Options.AdditionalMountainSize, 1.9d);
+                                noise = (float)Math.Pow((double)noise + Options.AdditionalMountainSize, 3.2d);
 
                                 blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
                                 mountainBlocks.Add(new Block
