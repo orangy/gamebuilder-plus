@@ -185,38 +185,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
             }
             plainsBlocks.AddRange(bottomPlainsBlocks);
-            GeneratedMap.MapData.AddRange(plainsBlocks);
-
-            // Create tunnels
-            if (Options.Tunnels)
-            {
-                Console.WriteLine("Generating tunnels");
-                List<Block> toRemoveBlocksForTunnel = new List<Block>();
-                for (short x = 0; x < Width; x++)
-                {
-                    for (short z = 0; z < Length; z++)
-                    {
-                        for (short y = GeneratedMap.MinHeight; y <= maxPlainY; y++) 
-                        {
-                            noise = FastNoise.GetCellular(x, z, y);
-
-                            if (noise > 0)
-                            {
-                                toRemoveBlocksForTunnel.Add(new Block
-                                {
-                                    X = x,
-                                    Y = y,
-                                    Z = z,
-                                    Style = PlainsBlockStyle(y)
-                                });
-                            }
-                        }                        
-                    }
-                }
-
-                // https://stackoverflow.com/a/22667558/1837080
-                GeneratedMap.MapData.RemoveAll(new HashSet<Block>(toRemoveBlocksForTunnel).Contains);
-            }
+            GeneratedMap.MapData.AddRange(plainsBlocks);            
 
             // Create hills
             if (Options.Hills)
@@ -279,6 +248,66 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     hillBlocks[i].Y -= adjustHillY;
                     GeneratedMap.Add(hillBlocks[i]);
                 }
+            }
+
+            // Create tunnels
+            if (Options.Tunnels)
+            {
+                Console.WriteLine("Generating tunnels");
+                List<Block> toRemoveBlocksForTunnel = new List<Block>();
+                for (short x = 0; x < Width; x++)
+                {
+                    for (short z = 0; z < Length; z++)
+                    {
+                        noise = FastNoise.GetCellular(x, z);
+
+                        if (noise > 0)
+                        {
+                            if (Options.TunnelWorms > 0)
+                            {
+                                try
+                                {
+                                    // Spawn worm
+                                    List<Block> bs = new List<Block>();
+                                    bs = GeneratedMap.MapData.Where(m => m.X == x && m.Z == z).Select(b => (Block)b).ToList();
+                                    bs.Sort((a, b) =>
+                                    {
+                                        if (a.Y > b.Y) return 1;
+                                        if (a.Y < b.Y) return -1;
+                                        return 0;
+                                    });
+                                    short wormStartY = bs.Last().Y;
+
+                                    Random rand = new Random();
+                                    short adjust = 1;
+
+                                    for (int i = 0; i < Options.TunnelLength; i++)
+                                    {
+                                        for (short j = 1; j <= Options.TunnelRadius; j++)
+                                        {
+                                            toRemoveBlocksForTunnel.AddRange(GeneratedMap.MapData
+                                            .Where(g => Math.Abs(g.X + adjust - x) <= j && Math.Abs(g.Z - z) <= j && g.Y == wormStartY && DoesTunnelDestroyBlock(j))
+                                            .Select(g => (Block)g).ToList());
+                                        }
+
+                                        adjust++;
+                                        wormStartY--;
+                                    }
+
+                                    Options.TunnelWorms--;
+                                }
+                                catch (Exception e)
+                                {
+
+                                    throw e;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // https://stackoverflow.com/a/22667558/1837080
+                GeneratedMap.MapData.RemoveAll(new HashSet<Block>(toRemoveBlocksForTunnel).Contains);
             }
 
             // Create mountains
@@ -898,6 +927,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
         private float ClampToWorld(float input)
         {
             return AffineTransformation.MapToWorld(input, GeneratedMap.MinHeight, GeneratedMap.MaxHeight);
+        }
+
+        private bool DoesTunnelDestroyBlock(short distance = 1)
+        {
+            if (distance == 1) return true;
+
+            Random rand = new Random();
+            return rand.NextDouble() < Math.Pow(0.5d, distance - 1);
         }
 
         private Block.STYLE LakesBlockStyle(short y)

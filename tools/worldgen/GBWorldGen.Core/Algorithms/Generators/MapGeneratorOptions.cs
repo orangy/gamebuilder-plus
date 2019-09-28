@@ -10,6 +10,9 @@ namespace GBWorldGen.Core.Algorithms.Generators
         public float LakeFrequency { get; set; } = 0.015F;
         public int LakeSize { get; set; } = 7;
         public bool Tunnels { get; set; } = true;
+        public int TunnelWorms { get; set; } = 1;
+        public int TunnelRadius { get; set; } = 2;
+        public int TunnelLength { get; set; } = 11;
         public bool Hills { get; set; } = true;
         public float HillFrequency { get; set; } = 0.028F;
         public int HillClamp { get; set; } = 50;
