@@ -154,6 +154,10 @@ You will have a number of additional values to customize if you choose option 2.
 - Has mountains - y/n if you would like mountains in your map
 - Mountain frequency - larger number means more (but smaller) mountains
 - Additional mountain size - larger number means taller mountains
+- Has tunnels - y/n if you would like tunnels in your map
+- Tunnel count - the maximum number of tunnels in your map
+- Tunnel radius - the radius of the tunnels
+- Tunnel length - how long the tunnels should be
 
 <a id="sample-maps"></a>
 ### Sample maps
