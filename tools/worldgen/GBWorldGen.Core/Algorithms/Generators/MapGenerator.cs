@@ -3,8 +3,10 @@ using GBWorldGen.Core.Algorithms.Methods;
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Models.Abstractions;
 using GBWorldGen.Misc.Utils;
+using MathNet.Numerics.Statistics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace GBWorldGen.Core.Algorithms.Generators
@@ -16,6 +18,9 @@ namespace GBWorldGen.Core.Algorithms.Generators
     {
         private FastNoise FastNoise { get; set; }
         private MapGeneratorOptions Options { get; set; }
+        private double RandomNextStdDeviation { get; set; }
+        private Stopwatch Stopwatch { get; set; }
+        private string StopwatchFormatString { get; set; }
 
         public MapGenerator(short width, short length, short height, MapGeneratorOptions options = null)
             : base(width, length, height)
@@ -26,6 +31,9 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
             Random rand = new Random();
             FastNoise = new FastNoise(rand.Next(int.MinValue, int.MaxValue));
+            RandomNextStdDeviation = GetStandardDeviationForRandomNext();
+            Stopwatch = new Stopwatch();
+            StopwatchFormatString = "%m'm '%s's '%fff'ms'";
         }
 
         public override BaseMap<short> GenerateMap()
@@ -37,7 +45,8 @@ namespace GBWorldGen.Core.Algorithms.Generators
             List<Block> lakesToUse = new List<Block>();
             if (Options.Lakes)
             {
-                Console.WriteLine("Generating lakes");
+                Console.Write("Generating lakes");
+                Stopwatch.Start();
                 List<Block> lakeBlocks = new List<Block>();
                 short minLakeY = Map.MAXHEIGHT;
                 short maxLakeY = Map.MINHEIGHT;
@@ -130,10 +139,15 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         Style = LakesBlockStyle(blockY)
                     });
                 }
+
+                Stopwatch.Stop();
+                Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
+                Stopwatch.Reset();
             }
 
             // Create flat plains
-            Console.WriteLine("Generating plains");
+            Console.Write("Generating plains");
+            Stopwatch.Start();
             List<Block> plainsBlocks = new List<Block>();
             short minPlainY = Map.MAXHEIGHT;
             short maxPlainY = Map.MINHEIGHT;
@@ -173,24 +187,28 @@ namespace GBWorldGen.Core.Algorithms.Generators
             List<Block> bottomPlainsBlocks = new List<Block>();
             for (int i = 0; i < plainsBlocks.Count; i++)
             {
-                for (short y = plainsBlocks[i].Y; y >= Map.MINHEIGHT; y--)
+                for (short y = (short)(plainsBlocks[i].Y - 1); y >= Map.MINHEIGHT; y--)
                 {
                     bottomPlainsBlocks.Add(new Block
                     {
                         X = plainsBlocks[i].X,
                         Y = y,
                         Z = plainsBlocks[i].Z,
-                        Style = PlainsBlockStyle(y)
+                        Style = UnderPlainsBlockStyle(y)
                     });
                 }
             }
             plainsBlocks.AddRange(bottomPlainsBlocks);
-            GeneratedMap.MapData.AddRange(plainsBlocks);            
+            GeneratedMap.MapData.AddRange(plainsBlocks);
+            Stopwatch.Stop();
+            Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
+            Stopwatch.Reset();
 
             // Create hills
             if (Options.Hills)
             {
-                Console.WriteLine("Generating hills");
+                Console.Write("Generating hills");
+                Stopwatch.Start();
                 List<Block> hillBlocks = new List<Block>();
                 FastNoise.SetFrequency(Options.HillFrequency);
                 short minHillY = Map.MAXHEIGHT;
@@ -228,14 +246,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 List<Block> fillHillBlocks = new List<Block>();
                 for (int i = 0; i < hillBlocks.Count; i++)
                 {
-                    for (int y = hillBlocks[i].Y; y >= minHillY; y--)
+                    for (int y = hillBlocks[i].Y - 1; y >= minHillY; y--)
                     {
                         fillHillBlocks.Add(new Block
                         {
                             X = hillBlocks[i].X,
                             Y = (short)y,
                             Z = hillBlocks[i].Z,
-                            Style = HillsBlockStyle()
+                            Style = UnderHillsBlockStyle()
                         });
                     }
                 }
@@ -248,72 +266,17 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     hillBlocks[i].Y -= adjustHillY;
                     GeneratedMap.Add(hillBlocks[i]);
                 }
-            }
 
-            // Create tunnels
-            if (Options.Tunnels)
-            {
-                Console.WriteLine("Generating tunnels");
-                List<Block> toRemoveBlocksForTunnel = new List<Block>();
-                for (short x = 0; x < Width; x++)
-                {
-                    for (short z = 0; z < Length; z++)
-                    {
-                        noise = FastNoise.GetCellular(x, z);
-
-                        if (noise > 0)
-                        {
-                            if (Options.TunnelWorms > 0)
-                            {
-                                try
-                                {
-                                    // Spawn worm
-                                    List<Block> bs = new List<Block>();
-                                    bs = GeneratedMap.MapData.Where(m => m.X == x && m.Z == z).Select(b => (Block)b).ToList();
-                                    bs.Sort((a, b) =>
-                                    {
-                                        if (a.Y > b.Y) return 1;
-                                        if (a.Y < b.Y) return -1;
-                                        return 0;
-                                    });
-                                    short wormStartY = bs.Last().Y;
-
-                                    Random rand = new Random();
-                                    short adjust = 1;
-
-                                    for (int i = 0; i < Options.TunnelLength; i++)
-                                    {
-                                        for (short j = 1; j <= Options.TunnelRadius; j++)
-                                        {
-                                            toRemoveBlocksForTunnel.AddRange(GeneratedMap.MapData
-                                            .Where(g => Math.Abs(g.X + adjust - x) <= j && Math.Abs(g.Z - z) <= j && g.Y == wormStartY && DoesTunnelDestroyBlock(j))
-                                            .Select(g => (Block)g).ToList());
-                                        }
-
-                                        adjust++;
-                                        wormStartY--;
-                                    }
-
-                                    Options.TunnelWorms--;
-                                }
-                                catch (Exception e)
-                                {
-
-                                    throw e;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                // https://stackoverflow.com/a/22667558/1837080
-                GeneratedMap.MapData.RemoveAll(new HashSet<Block>(toRemoveBlocksForTunnel).Contains);
-            }
+                Stopwatch.Stop();
+                Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
+                Stopwatch.Reset();
+            }            
 
             // Create mountains
             if (Options.Mountains)
             {
-                Console.WriteLine("Generating mountains");
+                Console.Write("Generating mountains");
+                Stopwatch.Start();
                 List<Block> mountainBlocks = new List<Block>();
                 FastNoise.SetFrequency(Options.MountainFrequency);
                 FastNoise.SetFractalGain(0.01F);
@@ -398,6 +361,87 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     mountainBlocks[i].Y -= adjustMountainY;
                     GeneratedMap.Add(mountainBlocks[i]);
                 }
+
+                Stopwatch.Stop();
+                Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
+                Stopwatch.Reset();
+            }
+
+            // Create tunnels
+            if (Options.Tunnels)
+            {
+                Console.Write("Generating tunnels");
+                Stopwatch.Start();
+                List<Block> toRemoveBlocksForTunnel = new List<Block>();
+                List<(double, double)> wormSpawns = new List<(double, double)>();
+
+                for (short x = GeneratedMap.OriginWidth; x < GeneratedMap.OriginWidth + Width; x++)
+                {
+                    for (short z = GeneratedMap.OriginLength; z < GeneratedMap.OriginLength + Length; z++)
+                    {
+                        noise = FastNoise.GetCellular(x, z);
+
+                        if (noise > 0 &&
+                            Options.TunnelWormsMax > 0 &&
+                            wormSpawns.All((w) => Math.Abs(w.Item1 - x) > 15 && Math.Abs(w.Item2 - z) > 15) &&
+                            (((x - 15 > GeneratedMap.OriginWidth) && (x + 15 < GeneratedMap.OriginWidth + Width)) && ((z - 15 > GeneratedMap.OriginLength) && (z + 15 < GeneratedMap.OriginLength + Length))) &&
+                            lakesToUse.All(m => Math.Abs(m.X - x) > 4 && Math.Abs(m.Z - z) > 4))
+                        {
+                            if (Options.TunnelWormsMax > 0)
+                            {
+                                // Spawn worm
+                                List<Block> bs = new List<Block>();
+                                bs = GeneratedMap.MapData.Where(m => m.X == x && m.Z == z).Select(b => (Block)b).ToList();
+                                bs.Sort((a, b) =>
+                                {
+                                    if (a.Y > b.Y) return 1;
+                                    if (a.Y < b.Y) return -1;
+                                    return 0;
+                                });
+                                short wormStartY = bs.Last().Y;
+
+                                Random rand = new Random();
+                                short xAdjust = 0;
+                                short zAdjust = 0;
+                                short yAdjust = 0;
+
+                                for (int i = 0; i < Options.TunnelLength; i++)
+                                {
+                                    for (short j = 1; j <= Options.TunnelRadius; j++)
+                                    {
+                                        // Prevent destroying block at world boundries
+                                        toRemoveBlocksForTunnel.AddRange(GeneratedMap.MapData
+                                        .Where(g => (Math.Abs(g.X - x + xAdjust) <= j) &&
+                                                    (g.X - x + xAdjust > GeneratedMap.OriginWidth) &&
+                                                    (g.X - x + xAdjust < GeneratedMap.OriginWidth + Width) &&
+                                                    (Math.Abs(g.Z - z + zAdjust) <= j) &&
+                                                    (g.Z - z + zAdjust > GeneratedMap.OriginLength) &&
+                                                    (g.Z - z + zAdjust < GeneratedMap.OriginLength + Length) &&
+                                                    (g.Y == (wormStartY + yAdjust)) &&
+                                                    (g.Y > Map.MINHEIGHT) &&
+                                                    DoesTunnelDestroyBlock(j))
+                                        .Select(g => (Block)g).ToList());
+                                    }
+
+                                    // Adjust worm
+                                    xAdjust += (short)(rand.NextDouble() < 0.5d ? -1 : (rand.NextDouble() < 0.5d ? 0 : 1));
+                                    zAdjust += (short)(rand.NextDouble() < 0.5d ? -1 : (rand.NextDouble() < 0.5d ? 0 : 1));
+                                    yAdjust--;
+                                }
+
+                                Options.TunnelWormsMax--;
+                                wormSpawns.Add((x, z));
+                            }
+                        }
+                    }
+                }
+
+                // https://stackoverflow.com/a/22667558/1837080
+                GeneratedMap.MapData.RemoveAll(new HashSet<Block>(toRemoveBlocksForTunnel).Contains);
+
+                Stopwatch.Stop();
+                Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
+                Stopwatch.Reset();
             }
 
             return GeneratedMap;
@@ -873,6 +917,20 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return GeneratedMap;
         }
 
+        private double GetStandardDeviationForRandomNext()
+        {
+            int size = 10000;
+            Random rand = new Random();
+            List<double> results = new List<double>(size);
+
+            for (int i = 0; i < size; i++)
+            {
+                results.Add(rand.NextDouble());
+            }
+
+            return results.StandardDeviation();
+        }
+
         public int Clamp2DNoise(float x, float z, int levels)
         {
             float noise = FastNoise.GetPerlin(x, z);
@@ -946,15 +1004,25 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         private Block.STYLE PlainsBlockStyle(short y)
         {
-            if (y - 2 <= GeneratedMap.MinHeight) return Block.STYLE.Lava;
-            if ((y + 2) - 16 <= GeneratedMap.MinHeight) return Block.STYLE.GrayCraters;
-
             return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.Grass;
+        }
+
+        private Block.STYLE UnderPlainsBlockStyle(short y)
+        {
+            if (y - 2 <= GeneratedMap.MinHeight) return Block.STYLE.Lava;
+            if ((y + 2) - 22 <= GeneratedMap.MinHeight) return Block.STYLE.GrayCraters;
+
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.Dirt;
         }
 
         private Block.STYLE HillsBlockStyle()
         {
             return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.GrassStone;
+        }
+
+        private Block.STYLE UnderHillsBlockStyle()
+        {
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Snow : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.Dirt;
         }
 
         private Block.STYLE MountainsBlockStyle()

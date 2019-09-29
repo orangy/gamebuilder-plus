@@ -5,8 +5,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>GBWorldGen.Main</AssemblyName>
     <RootNamespace>GBWorldGen.Main</RootNamespace>
-    <PublishTrimmed>true</PublishTrimmed>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Product>World gen</Product>
+    <Authors>Romans 8:28</Authors>
+    <Company />
   </PropertyGroup>
 
   <ItemGroup>

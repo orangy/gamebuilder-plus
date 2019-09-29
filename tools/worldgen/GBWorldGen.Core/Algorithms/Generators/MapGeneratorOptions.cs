@@ -10,9 +10,9 @@ namespace GBWorldGen.Core.Algorithms.Generators
         public float LakeFrequency { get; set; } = 0.015F;
         public int LakeSize { get; set; } = 7;
         public bool Tunnels { get; set; } = true;
-        public int TunnelWorms { get; set; } = 1;
+        public int TunnelWormsMax { get; set; } = 8;
         public int TunnelRadius { get; set; } = 2;
-        public int TunnelLength { get; set; } = 11;
+        public int TunnelLength { get; set; } = 19;
         public bool Hills { get; set; } = true;
         public float HillFrequency { get; set; } = 0.028F;
         public int HillClamp { get; set; } = 50;
@@ -32,8 +32,9 @@ namespace GBWorldGen.Core.Algorithms.Generators
             string lakes = Lakes ? $"Lake frequency: '{LakeFrequency}'. Lake size: '{LakeSize}'." : string.Empty;
             string hills = Hills ? $"Hill frequency: '{HillFrequency}'. Hill clamp: '{HillClamp}'." : string.Empty;
             string mountains = Mountains ? $"Mountain frequency: '{MountainFrequency}'. Additional mountain size: '{AdditionalMountainSize}'." : string.Empty;
+            string tunnels = Tunnels ? $"Tunnels (max): '{TunnelWormsMax}'. Tunnel radius: '{TunnelRadius}'. Tunnel Length: '{TunnelLength}'." : string.Empty;
 
-            return $"{biome} Plain frequency: '{PlainFrequency}'. {lakes} {hills} {mountains}";
+            return $"{biome} Plain frequency: '{PlainFrequency}'. {lakes} {hills} {mountains} {tunnels}";
         }
 
         public enum MapBiome

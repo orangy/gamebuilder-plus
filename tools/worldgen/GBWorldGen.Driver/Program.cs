@@ -23,7 +23,7 @@ namespace GBWorldGen.Driver.Main
                 if (Array.Exists(args, a => a.Contains("romans828", StringComparison.OrdinalIgnoreCase))) Romans828 = true;
             }
 
-            float version = 2.1f;
+            float version = 2.2f;
 
             DrawTitle(version);
             DrawMenu();
@@ -63,10 +63,6 @@ namespace GBWorldGen.Driver.Main
             TypewriterText("------------------------------------------", autoPauseAtEnd: 0);
             TypewriterText("1. Default", autoPauseAtEnd: 0);
             TypewriterText("2. Custom", autoPauseAtEnd: 0);
-            //TypewriterText("2. Tunnel test", autoPauseAtEnd: 0);
-            //TypewriterText("3. One big hill with lake", autoPauseAtEnd: 0);
-            //TypewriterText("4. Oval lake with oval mountain", autoPauseAtEnd: 0);
-            //TypewriterText("5. Many hills", autoPauseAtEnd: 0);
             TypewriterText("3. Exit", autoPauseAtEnd: 0);
             TypewriterText("> ", newlines: 0, autoPauseAtEnd: 0);
 
@@ -236,7 +232,42 @@ namespace GBWorldGen.Driver.Main
                         if (!string.IsNullOrEmpty(line))
                             if (double.TryParse(line, out dtemp))
                                 mapOptions.AdditionalMountainSize = dtemp;
-                    }                    
+                    }
+
+                    // Tunnels
+                    TypewriterText($"Would you like tunnels [{mapOptions.Tunnels}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                            mapOptions.Tunnels = true;
+                        else mapOptions.Tunnels = false;
+                    }
+
+                    if (mapOptions.Tunnels)
+                    {
+                        TypewriterText($"What is the maximum number of tunnels that you'd like [{mapOptions.TunnelWormsMax}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (int.TryParse(line, out itemp))
+                                mapOptions.TunnelWormsMax = itemp;
+
+                        TypewriterText($"What radius would you like your tunnels [{mapOptions.TunnelRadius}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (int.TryParse(line, out itemp))
+                                mapOptions.TunnelRadius = itemp;
+
+                        TypewriterText($"How long would you like your tunnels [{mapOptions.TunnelLength}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (int.TryParse(line, out itemp))
+                                mapOptions.TunnelLength = itemp;
+                    }
                 }
 
                 TypewriterText("", 2);

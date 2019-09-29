@@ -15,4 +15,8 @@
     <Folder Include="Methods\Abstractions\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.8.1" />
+  </ItemGroup>
+
 </Project>
