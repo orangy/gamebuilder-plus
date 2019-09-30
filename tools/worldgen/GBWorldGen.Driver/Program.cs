@@ -234,6 +234,27 @@ namespace GBWorldGen.Driver.Main
                                 mapOptions.AdditionalMountainSize = dtemp;
                     }
 
+                    // Caves
+                    TypewriterText($"Would you like caves [{mapOptions.Caves}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                            mapOptions.Caves = true;
+                        else mapOptions.Caves = false;
+                    }
+
+                    if (mapOptions.Caves)
+                    {
+                        TypewriterText($"What would you like your additional cave height to be [{mapOptions.AdditionalCaveHeight}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                        line = Console.ReadLine();
+
+                        if (!string.IsNullOrEmpty(line))
+                            if (int.TryParse(line, out itemp))
+                                mapOptions.AdditionalCaveHeight = itemp;
+                    }
+
                     // Tunnels
                     TypewriterText($"Would you like tunnels [{mapOptions.Tunnels}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();

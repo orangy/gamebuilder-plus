@@ -25,6 +25,19 @@ namespace GBWorldGen.Tests.Voos.VoosTests
 
         [Theory]
         [InlineData(100, 100)]
+        public void Voos_3D_Perlin(short x, short z)
+        {
+            string mapName = $"CustomMap-{DateTime.Now.ToString("MM_dd_yyyy hh_mm tt")}";
+            string outputDirectory = @"D:\Program Files (x86)\Steam\steamapps\common\Game Builder\GameBuilderUserData\Games";
+
+            MapGenerator generator = new MapGenerator(x, z, 150);
+            Map map = (Map)generator.Generate3DPerlin();
+            VoosGenerator voosGenerator = new VoosGenerator();
+            voosGenerator.Generate(map, outputDirectory, mapName);
+        }
+
+        [Theory]
+        [InlineData(100, 100)]
         public void Tutorial_Create_Perlin_Map(short x, short z)
         {
             string mapName = $"CustomMap-{DateTime.Now.ToString("MM_dd_yyyy hh_mm tt")}";

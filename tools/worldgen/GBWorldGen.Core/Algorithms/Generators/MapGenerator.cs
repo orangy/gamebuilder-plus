@@ -3,7 +3,6 @@ using GBWorldGen.Core.Algorithms.Methods;
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Models.Abstractions;
 using GBWorldGen.Misc.Utils;
-using MathNet.Numerics.Statistics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +17,6 @@ namespace GBWorldGen.Core.Algorithms.Generators
     {
         private FastNoise FastNoise { get; set; }
         private MapGeneratorOptions Options { get; set; }
-        private double RandomNextStdDeviation { get; set; }
         private Stopwatch Stopwatch { get; set; }
         private string StopwatchFormatString { get; set; }
 
@@ -26,12 +24,11 @@ namespace GBWorldGen.Core.Algorithms.Generators
             : base(width, length, height)
         {
             GeneratedMap = new Map(width, length, height,
-                (short)(width * -0.5d), (short)(length * -0.5d));
+                (short)(width * -0.5d), (short)(length * -0.5d), -20);
             Options = options == null ? new MapGeneratorOptions() : options;
 
             Random rand = new Random();
             FastNoise = new FastNoise(rand.Next(int.MinValue, int.MaxValue));
-            RandomNextStdDeviation = GetStandardDeviationForRandomNext();
             Stopwatch = new Stopwatch();
             StopwatchFormatString = "%m'm '%s's '%fff'ms'";
         }
@@ -40,6 +37,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
         {
             short blockY;
             float noise;
+            short additionalCaveHeight = (short)(Options.Caves ? Options.AdditionalCaveHeight : 0);
 
             // Generate lakes
             List<Block> lakesToUse = new List<Block>();
@@ -60,7 +58,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
                         if (noise < 0)
                         {
-                            blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                            blockY = (short)(ClampToWorld(noise));
                             lakeBlocks.Add(new Block
                             {
                                 X = (short)(x + GeneratedMap.OriginWidth),
@@ -86,7 +84,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 for (int i = 0; i < lakesToUse.Count; i++)
                 {
                     // Fill top of lake
-                    for (short j = minLakeY; j <= minLakeY + height; j++)
+                    for (short j = minLakeY; j <= minLakeY + height + additionalCaveHeight; j++)
                     {
                         fillLakeBlocks.Add(new Block
                         {
@@ -160,7 +158,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             {
                 for (int z = 0; z < Length; z++)
                 {
-                    blockY = (short)(Clamp2DNoise(x, z, 8) + GeneratedMap.OriginHeight);
+                    blockY = (short)(Clamp2DNoise(x, z, 8) + additionalCaveHeight);
 
                     plainsBlockX = (short)(x + GeneratedMap.OriginWidth);
                     plainsBlockZ = (short)(z + GeneratedMap.OriginLength);
@@ -185,9 +183,10 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
             // Fill bottom of plains
             List<Block> bottomPlainsBlocks = new List<Block>();
+            short minPlainFillY = (short)(additionalCaveHeight == 0 ? Map.MINHEIGHT : additionalCaveHeight - 7);
             for (int i = 0; i < plainsBlocks.Count; i++)
             {
-                for (short y = (short)(plainsBlocks[i].Y - 1); y >= Map.MINHEIGHT; y--)
+                for (short y = (short)(plainsBlocks[i].Y - 1); y >= minPlainFillY; y--)
                 {
                     bottomPlainsBlocks.Add(new Block
                     {
@@ -227,7 +226,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             noise = FastNoise.GetPerlin(x, z);
                             if (noise > 0)
                             {
-                                blockY = (short)(ClampNoise(noise, Options.HillClamp) + GeneratedMap.OriginHeight);
+                                blockY = (short)(ClampNoise(noise, Options.HillClamp) + additionalCaveHeight);
                                 hillBlocks.Add(new Block
                                 {
                                     X = (short)(x + GeneratedMap.OriginWidth),
@@ -301,7 +300,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             {
                                 noise = (float)Math.Pow((double)noise + Options.AdditionalMountainSize, 3.2d);
 
-                                blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                                blockY = (short)(ClampToWorld(noise) + additionalCaveHeight);
                                 mountainBlocks.Add(new Block
                                 {
                                     X = (short)(x + GeneratedMap.OriginWidth),
@@ -367,6 +366,69 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 Stopwatch.Reset();
             }
 
+            // Create caves
+            if (Options.Caves)
+            {
+                Console.Write("Generating caves");
+                Stopwatch.Start();
+                FastNoise.SetFrequency(0.07F);
+                FastNoise.SetInterp(FastNoise.Interp.Hermite);
+                for (int x = 0; x < Width; x++)
+                {
+                    for (int z = 0; z < Length; z++)
+                    {
+                        for (int y = GeneratedMap.MinHeight; y < additionalCaveHeight; y++)
+                        {
+                            if (y == GeneratedMap.MinHeight)
+                            {
+                                GeneratedMap.Add(new Block
+                                {
+                                    X = (short)(x + GeneratedMap.OriginWidth),
+                                    Y = (short)y,
+                                    Z = (short)(z + GeneratedMap.OriginLength),
+                                    Style = CaveBlockStyle((short)y)
+                                });
+                            }
+                            else if (lakesToUse.Any(l => l.X == (short)(x + GeneratedMap.OriginWidth) && l.Y == (short)y && l.Z == (short)(z + GeneratedMap.OriginLength)))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                if ((x == 0 || x + 1 == Width) || (z == 0 || z + 1 == Length))
+                                {
+                                    GeneratedMap.Add(new Block
+                                    {
+                                        X = (short)(x + GeneratedMap.OriginWidth),
+                                        Y = (short)y,
+                                        Z = (short)(z + GeneratedMap.OriginLength),
+                                        Style = CaveBlockStyle((short)y)
+                                    });
+                                }
+                                else
+                                {
+                                    noise = FastNoise.GetCubicFractal(x, z, y);
+                                    if (noise > 0)
+                                    {
+                                        GeneratedMap.Add(new Block
+                                        {
+                                            X = (short)(x + GeneratedMap.OriginWidth),
+                                            Y = (short)y,
+                                            Z = (short)(z + GeneratedMap.OriginLength),
+                                            Style = CaveBlockStyle((short)y)
+                                        });
+                                    }
+                                }
+                            }                        
+                        }
+                    }
+                }
+
+                Stopwatch.Stop();
+                Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
+                Stopwatch.Reset();
+            }
+
             // Create tunnels
             if (Options.Tunnels)
             {
@@ -405,7 +467,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                                 short zAdjust = 0;
                                 short yAdjust = 0;
 
-                                for (int i = 0; i < Options.TunnelLength; i++)
+                                for (int i = 0; i < Options.TunnelLength + (Options.Caves ? 10 : 0); i++)
                                 {
                                     for (short j = 1; j <= Options.TunnelRadius; j++)
                                     {
@@ -442,6 +504,37 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 Stopwatch.Stop();
                 Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
                 Stopwatch.Reset();
+            }
+
+            return GeneratedMap;
+        }
+
+        public BaseMap<short> Generate3DPerlin()
+        {
+            short blockY;
+            float noise;
+
+            FastNoise.SetFrequency(0.07F);
+            FastNoise.SetInterp(FastNoise.Interp.Hermite);
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    for (int y = -20; y < Height; y++)
+                    {
+                        noise = FastNoise.GetCubicFractal(x, z, y);
+
+                        if (noise > 0)
+                        {
+                            GeneratedMap.Add(new Block
+                            {
+                                X = (short)(x + GeneratedMap.OriginWidth),
+                                Y = (short)y,
+                                Z = (short)(z + GeneratedMap.OriginLength)
+                            });
+                        }
+                    }
+                }
             }
 
             return GeneratedMap;
@@ -917,20 +1010,6 @@ namespace GBWorldGen.Core.Algorithms.Generators
             return GeneratedMap;
         }
 
-        private double GetStandardDeviationForRandomNext()
-        {
-            int size = 10000;
-            Random rand = new Random();
-            List<double> results = new List<double>(size);
-
-            for (int i = 0; i < size; i++)
-            {
-                results.Add(rand.NextDouble());
-            }
-
-            return results.StandardDeviation();
-        }
-
         public int Clamp2DNoise(float x, float z, int levels)
         {
             float noise = FastNoise.GetPerlin(x, z);
@@ -997,9 +1076,10 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
         private Block.STYLE LakesBlockStyle(short y)
         {
-            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ?
-                (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.GrayCraters : Block.STYLE.Ice) :
-                (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.Lava : Block.STYLE.Water);
+            //return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ?
+            //    (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.GrayCraters : Block.STYLE.Ice) :
+            //    (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.Lava : Block.STYLE.Water);
+            return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Block.STYLE.Water;
         }        
 
         private Block.STYLE PlainsBlockStyle(short y)
@@ -1079,6 +1159,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
             }
 
             return styleRange;
+        }
+
+        private Block.STYLE CaveBlockStyle(short y)
+        {
+            if (y == GeneratedMap.MinHeight)
+                return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Block.STYLE.Lava;
+
+            return Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.GrayCraters;
         }
     }
 }
