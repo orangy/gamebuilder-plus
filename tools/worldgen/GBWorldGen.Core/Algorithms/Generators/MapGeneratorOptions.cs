@@ -34,9 +34,10 @@ namespace GBWorldGen.Core.Algorithms.Generators
             string lakes = Lakes ? $"Lake frequency: '{LakeFrequency}'. Lake size: '{LakeSize}'." : string.Empty;
             string hills = Hills ? $"Hill frequency: '{HillFrequency}'. Hill clamp: '{HillClamp}'." : string.Empty;
             string mountains = Mountains ? $"Mountain frequency: '{MountainFrequency}'. Additional mountain size: '{AdditionalMountainSize}'." : string.Empty;
+            string caves = Caves ? $"Caves: '{Caves}'. Additional cave height: '{AdditionalCaveHeight}'." : string.Empty;
             string tunnels = Tunnels ? $"Tunnels (max): '{TunnelWormsMax}'. Tunnel radius: '{TunnelRadius}'. Tunnel Length: '{TunnelLength}'." : string.Empty;
 
-            return $"{biome} Plain frequency: '{PlainFrequency}'. {lakes} {hills} {mountains} {tunnels}";
+            return $"{biome} Plain frequency: '{PlainFrequency}'. {lakes} {hills} {mountains} {caves} {tunnels}";
         }
 
         public enum MapBiome
