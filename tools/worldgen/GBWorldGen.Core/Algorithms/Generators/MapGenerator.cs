@@ -4,9 +4,11 @@ using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Models.Abstractions;
 using GBWorldGen.Misc.Utils;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GBWorldGen.Core.Algorithms.Generators
 {
@@ -19,6 +21,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
         private MapGeneratorOptions Options { get; set; }
         private Stopwatch Stopwatch { get; set; }
         private string StopwatchFormatString { get; set; }
+        List<Tuple<int, int>> DimensionLoop { get; set; }
 
         public MapGenerator(short width, short length, short height, MapGeneratorOptions options = null)
             : base(width, length, height)
@@ -31,13 +34,16 @@ namespace GBWorldGen.Core.Algorithms.Generators
             FastNoise = new FastNoise(rand.Next(int.MinValue, int.MaxValue));
             Stopwatch = new Stopwatch();
             StopwatchFormatString = "%m'm '%s's '%fff'ms'";
+            DimensionLoop = GetDimensionLoop();
         }
 
         public override BaseMap<short> GenerateMap()
         {
+            Map generatedMap = GeneratedMap as Map;
             short blockY;
             float noise;
             short additionalCaveHeight = (short)(Options.Caves ? Options.AdditionalCaveHeight : 0);
+            List<Block> tempList;
 
             // Generate lakes
             List<Block> lakesToUse = new List<Block>();
@@ -45,38 +51,45 @@ namespace GBWorldGen.Core.Algorithms.Generators
             {
                 Console.Write("Generating lakes");
                 Stopwatch.Start();
-                List<Block> lakeBlocks = new List<Block>();
+                ConcurrentBag<Block> lakeBlocks = new ConcurrentBag<Block>();
                 short minLakeY = Map.MAXHEIGHT;
                 short maxLakeY = Map.MINHEIGHT;
                 FastNoise.SetInterp(FastNoise.Interp.Quintic);
                 FastNoise.SetFrequency(Options.LakeFrequency);
-                for (int x = 0; x < Width; x++)
+                
+                ConcurrentBag<short> lakeBlockYs = new ConcurrentBag<short>();
+                Parallel.ForEach(DimensionLoop, coord =>
                 {
-                    for (int z = 0; z < Length; z++)
                     {
-                        noise = FastNoise.GetPerlin(x, z);
+                        float noise = FastNoise.GetPerlin(coord.Item1, coord.Item2);
 
                         if (noise < 0)
                         {
-                            blockY = (short)(ClampToWorld(noise));
+                            short blockY = (short)(ClampToWorld(noise));
                             lakeBlocks.Add(new Block
                             {
-                                X = (short)(x + GeneratedMap.OriginWidth),
+                                X = (short)(coord.Item1 + GeneratedMap.OriginWidth),
                                 Y = blockY,
-                                Z = (short)(z + GeneratedMap.OriginLength)
+                                Z = (short)(coord.Item2 + GeneratedMap.OriginLength)
                             });
+                            lakeBlockYs.Add(blockY);
 
                             if (blockY > maxLakeY) maxLakeY = blockY;
                             else if (blockY < minLakeY) minLakeY = blockY;
                         }
                     }
-                }
+                });
+
+                List<short> minMaxLakeYs = lakeBlockYs.ToList();
+                minMaxLakeYs.Sort();
+                minLakeY = minMaxLakeYs[0];
+                maxLakeY = minMaxLakeYs[^1];
 
                 // "Cut" lakes out we will use
                 short height = (short)Options.LakeSize;
                 for (int i = 0; i < lakeBlocks.Count; i++)
                 {
-                    if (lakeBlocks[i].Y <= minLakeY + height) lakesToUse.Add(lakeBlocks[i]);
+                    if (lakeBlocks.ElementAt(i).Y <= minLakeY + height) lakesToUse.Add(lakeBlocks.ElementAt(i));
                 }
 
                 // Fill lakes
@@ -129,7 +142,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 for (int i = 0; i < lakesToUse.Count; i++)
                 {
                     blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
-                    GeneratedMap.Add(new Block
+                    generatedMap.Add(new Block
                     {
                         X = lakesToUse[i].X,
                         Y = blockY,
@@ -146,39 +159,41 @@ namespace GBWorldGen.Core.Algorithms.Generators
             // Create flat plains
             Console.Write("Generating plains");
             Stopwatch.Start();
-            List<Block> plainsBlocks = new List<Block>();
+            ConcurrentBag<Block> plainsBlocks = new ConcurrentBag<Block>();
             short minPlainY = Map.MAXHEIGHT;
             short maxPlainY = Map.MINHEIGHT;
             short avgPlainY;
-            short plainsBlockX;
-            short plainsBlockZ;
-
             FastNoise.SetFrequency(Options.PlainFrequency);
-            for (int x = 0; x < Width; x++)
-            {
-                for (int z = 0; z < Length; z++)
-                {
-                    blockY = (short)(Clamp2DNoise(x, z, 8) + additionalCaveHeight);
 
-                    plainsBlockX = (short)(x + GeneratedMap.OriginWidth);
-                    plainsBlockZ = (short)(z + GeneratedMap.OriginLength);
+            ConcurrentBag<short> plainBlockYs = new ConcurrentBag<short>();
+            Parallel.ForEach(DimensionLoop, coord =>
+            {
+                {
+                    short blockY = (short)(Clamp2DNoise(coord.Item1, coord.Item2, 8) + additionalCaveHeight);
+
+                    short plainsBlockX = (short)(coord.Item1 + GeneratedMap.OriginWidth);
+                    short plainsBlockZ = (short)(coord.Item2 + GeneratedMap.OriginLength);
 
                     // Don't add plains over lakes
-                    if (!GeneratedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
+                    if (!generatedMap.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
                     {
                         plainsBlocks.Add(new Block
                         {
-                            X = (short)(x + GeneratedMap.OriginWidth),
+                            X = (short)(coord.Item1 + GeneratedMap.OriginWidth),
                             Y = blockY,
-                            Z = (short)(z + GeneratedMap.OriginLength),
+                            Z = (short)(coord.Item2 + GeneratedMap.OriginLength),
                             Style = PlainsBlockStyle(blockY)
                         });
-
-                        if (blockY < minPlainY) minPlainY = blockY;
-                        else if (blockY > maxPlainY) maxPlainY = blockY;
+                        plainBlockYs.Add(blockY);
                     }
                 }
-            }
+            });
+
+            List<short> minMaxPlainYs = plainBlockYs.ToList();
+            minMaxPlainYs.Sort();
+            minPlainY = minMaxPlainYs[0];
+            maxPlainY = minMaxPlainYs[^1];
+
             avgPlainY = (short)((maxPlainY + minPlainY) / 2);
 
             // Fill bottom of plains
@@ -186,19 +201,21 @@ namespace GBWorldGen.Core.Algorithms.Generators
             short minPlainFillY = (short)(additionalCaveHeight == 0 ? Map.MINHEIGHT : additionalCaveHeight - 7);
             for (int i = 0; i < plainsBlocks.Count; i++)
             {
-                for (short y = (short)(plainsBlocks[i].Y - 1); y >= minPlainFillY; y--)
+                for (short y = (short)(plainsBlocks.ElementAt(i).Y - 1); y >= minPlainFillY; y--)
                 {
                     bottomPlainsBlocks.Add(new Block
                     {
-                        X = plainsBlocks[i].X,
+                        X = plainsBlocks.ElementAt(i).X,
                         Y = y,
-                        Z = plainsBlocks[i].Z,
+                        Z = plainsBlocks.ElementAt(i).Z,
                         Style = UnderPlainsBlockStyle(y)
                     });
                 }
             }
-            plainsBlocks.AddRange(bottomPlainsBlocks);
-            GeneratedMap.MapData.AddRange(plainsBlocks);
+
+            tempList = plainsBlocks.ToList();
+            tempList.AddRange(bottomPlainsBlocks);
+            generatedMap.AddRange(tempList);
             Stopwatch.Stop();
             Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
             Stopwatch.Reset();
@@ -263,13 +280,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 for (int i = 0; i < hillBlocks.Count; i++)
                 {
                     hillBlocks[i].Y -= adjustHillY;
-                    GeneratedMap.Add(hillBlocks[i]);
+                    generatedMap.Add(hillBlocks[i]);
                 }
 
                 Stopwatch.Stop();
                 Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
                 Stopwatch.Reset();
-            }            
+            }
 
             // Create mountains
             if (Options.Mountains)
@@ -298,7 +315,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             noise = FastNoise.GetCubicFractal(x, z);
                             if (noise > 0)
                             {
-                                noise = (float)Math.Pow((double)noise + Options.AdditionalMountainSize, 3.2d);
+                                noise = (float)Math.Pow(noise + Options.AdditionalMountainSize, 3.2d);
 
                                 blockY = (short)(ClampToWorld(noise) + additionalCaveHeight);
                                 mountainBlocks.Add(new Block
@@ -358,7 +375,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 for (int i = 0; i < mountainBlocks.Count; i++)
                 {
                     mountainBlocks[i].Y -= adjustMountainY;
-                    GeneratedMap.Add(mountainBlocks[i]);
+                    generatedMap.Add(mountainBlocks[i]);
                 }
 
                 Stopwatch.Stop();
@@ -381,7 +398,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                         {
                             if (y == GeneratedMap.MinHeight)
                             {
-                                GeneratedMap.Add(new Block
+                                generatedMap.Add(new Block
                                 {
                                     X = (short)(x + GeneratedMap.OriginWidth),
                                     Y = (short)y,
@@ -397,7 +414,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                             {
                                 if ((x == 0 || x + 1 == Width) || (z == 0 || z + 1 == Length))
                                 {
-                                    GeneratedMap.Add(new Block
+                                    generatedMap.Add(new Block
                                     {
                                         X = (short)(x + GeneratedMap.OriginWidth),
                                         Y = (short)y,
@@ -410,7 +427,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                                     noise = FastNoise.GetCubicFractal(x, z, y);
                                     if (noise > 0)
                                     {
-                                        GeneratedMap.Add(new Block
+                                        generatedMap.Add(new Block
                                         {
                                             X = (short)(x + GeneratedMap.OriginWidth),
                                             Y = (short)y,
@@ -419,7 +436,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                                         });
                                     }
                                 }
-                            }                        
+                            }
                         }
                     }
                 }
@@ -498,20 +515,19 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     }
                 }
 
-                // https://stackoverflow.com/a/22667558/1837080
-                GeneratedMap.MapData.RemoveAll(new HashSet<Block>(toRemoveBlocksForTunnel).Contains);
+                generatedMap.RemoveAll(toRemoveBlocksForTunnel);
 
                 Stopwatch.Stop();
                 Console.WriteLine($" (Elapsed time:'{Stopwatch.Elapsed.ToString(StopwatchFormatString)}')");
                 Stopwatch.Reset();
             }
 
-            return GeneratedMap;
+            return generatedMap;
         }
 
         public BaseMap<short> Generate3DPerlin()
         {
-            short blockY;
+            Map generatedMap = GeneratedMap as Map;
             float noise;
 
             FastNoise.SetFrequency(0.07F);
@@ -526,7 +542,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
                         if (noise > 0)
                         {
-                            GeneratedMap.Add(new Block
+                            generatedMap.Add(new Block
                             {
                                 X = (short)(x + GeneratedMap.OriginWidth),
                                 Y = (short)y,
@@ -537,11 +553,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
             }
 
-            return GeneratedMap;
+            return generatedMap;
         }
 
         public BaseMap<short> GenerateTutorialPerlin()
         {
+            Map generatedMap = GeneratedMap as Map;
             short blockY;
             float noise;
 
@@ -552,7 +569,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                     noise = FastNoise.GetPerlin(x, z);
                     blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
 
-                    GeneratedMap.Add(new Block
+                    generatedMap.Add(new Block
                     {
                         X = (short)(x + GeneratedMap.OriginWidth),
                         Y = blockY,
@@ -561,11 +578,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
             }
 
-            return GeneratedMap;
+            return generatedMap;
         }
 
         public BaseMap<short> GenerateTutorialLakes()
         {
+            Map generatedMap = GeneratedMap as Map;
             short blockY;
             float noise;
 
@@ -644,7 +662,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             for (int i = 0; i < lakesToUse.Count; i++)
             {
                 blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
-                GeneratedMap.Add(new Block
+                generatedMap.Add(new Block
                 {
                     X = lakesToUse[i].X,
                     Y = blockY,
@@ -653,11 +671,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 });
             }
 
-            return GeneratedMap;
+            return generatedMap;
         }
 
         public BaseMap<short> GenerateTutorialPlain()
         {
+            Map generatedMap = GeneratedMap as Map;
             short blockY;
             float noise;
 
@@ -677,12 +696,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
                     if (noise < 0)
                     {
-                        blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                        blockY = (short)(ClampToWorld(noise) + generatedMap.OriginHeight);
                         lakeBlocks.Add(new Block
                         {
-                            X = (short)(x + GeneratedMap.OriginWidth),
+                            X = (short)(x + generatedMap.OriginWidth),
                             Y = blockY,
-                            Z = (short)(z + GeneratedMap.OriginLength)
+                            Z = (short)(z + generatedMap.OriginLength)
                         });
 
                         if (blockY > maxLakeY) maxLakeY = blockY;
@@ -736,7 +755,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             for (int i = 0; i < lakesToUse.Count; i++)
             {
                 blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
-                GeneratedMap.Add(new Block
+                generatedMap.Add(new Block
                 {
                     X = lakesToUse[i].X,
                     Y = blockY,
@@ -759,19 +778,19 @@ namespace GBWorldGen.Core.Algorithms.Generators
             {
                 for (int z = 0; z < Length; z++)
                 {
-                    blockY = (short)(Clamp2DNoise(x, z, 8) + GeneratedMap.OriginHeight);
+                    blockY = (short)(Clamp2DNoise(x, z, 8) + generatedMap.OriginHeight);
 
-                    plainsBlockX = (short)(x + GeneratedMap.OriginWidth);
-                    plainsBlockZ = (short)(z + GeneratedMap.OriginLength);
+                    plainsBlockX = (short)(x + generatedMap.OriginWidth);
+                    plainsBlockZ = (short)(z + generatedMap.OriginLength);
 
                     // Don't add plains over lakes
-                    if (!GeneratedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
+                    if (!generatedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
                     {
                         plainsBlocks.Add(new Block
                         {
-                            X = (short)(x + GeneratedMap.OriginWidth),
+                            X = (short)(x + generatedMap.OriginWidth),
                             Y = blockY,
-                            Z = (short)(z + GeneratedMap.OriginLength),
+                            Z = (short)(z + generatedMap.OriginLength),
                             Style = PlainsBlockStyle(blockY)
                         });
 
@@ -798,13 +817,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
             }
             plainsBlocks.AddRange(bottomPlainsBlocks);
-            GeneratedMap.MapData.AddRange(plainsBlocks);
+            generatedMap.AddRange(plainsBlocks);
 
-            return GeneratedMap;
+            return generatedMap;
         }
 
         public BaseMap<short> GenerateTutorialHills()
         {
+            Map generatedMap = GeneratedMap as Map;
             short blockY;
             float noise;
 
@@ -824,12 +844,12 @@ namespace GBWorldGen.Core.Algorithms.Generators
 
                     if (noise < 0)
                     {
-                        blockY = (short)(ClampToWorld(noise) + GeneratedMap.OriginHeight);
+                        blockY = (short)(ClampToWorld(noise) + generatedMap.OriginHeight);
                         lakeBlocks.Add(new Block
                         {
-                            X = (short)(x + GeneratedMap.OriginWidth),
+                            X = (short)(x + generatedMap.OriginWidth),
                             Y = blockY,
-                            Z = (short)(z + GeneratedMap.OriginLength)
+                            Z = (short)(z + generatedMap.OriginLength)
                         });
 
                         if (blockY > maxLakeY) maxLakeY = blockY;
@@ -883,7 +903,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             for (int i = 0; i < lakesToUse.Count; i++)
             {
                 blockY = (short)(0 - (minLakeY + height - lakesToUse[i].Y));
-                GeneratedMap.Add(new Block
+                generatedMap.Add(new Block
                 {
                     X = lakesToUse[i].X,
                     Y = blockY,
@@ -906,13 +926,13 @@ namespace GBWorldGen.Core.Algorithms.Generators
             {
                 for (int z = 0; z < Length; z++)
                 {
-                    blockY = (short)(Clamp2DNoise(x, z, 8) + GeneratedMap.OriginHeight);
+                    blockY = (short)(Clamp2DNoise(x, z, 8) + generatedMap.OriginHeight);
 
-                    plainsBlockX = (short)(x + GeneratedMap.OriginWidth);
-                    plainsBlockZ = (short)(z + GeneratedMap.OriginLength);
+                    plainsBlockX = (short)(x + generatedMap.OriginWidth);
+                    plainsBlockZ = (short)(z + generatedMap.OriginLength);
 
                     // Don't add plains over lakes
-                    if (!GeneratedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
+                    if (!generatedMap.MapData.Any(m => m.X == plainsBlockX && m.Z == plainsBlockZ))
                     {
                         plainsBlocks.Add(new Block
                         {
@@ -945,7 +965,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
                 }
             }
             plainsBlocks.AddRange(bottomPlainsBlocks);
-            GeneratedMap.MapData.AddRange(plainsBlocks);
+            generatedMap.AddRange(plainsBlocks);
 
             // Create hills
             Console.WriteLine("Generating hills");
@@ -1004,10 +1024,24 @@ namespace GBWorldGen.Core.Algorithms.Generators
             for (int i = 0; i < hillBlocks.Count; i++)
             {
                 hillBlocks[i].Y -= adjustHillY;
-                GeneratedMap.Add(hillBlocks[i]);
+                generatedMap.Add(hillBlocks[i]);
             }
 
-            return GeneratedMap;
+            return generatedMap;
+        }
+
+        public List<Tuple<int, int>> GetDimensionLoop()
+        {
+            List<Tuple<int, int>> ret = new List<Tuple<int, int>>();
+            for (int x = 0; x < Width; x++)
+            {
+                for (int z = 0; z < Length; z++)
+                {
+                    ret.Add(Tuple.Create(x, z));
+                }
+            }
+
+            return ret;
         }
 
         public int Clamp2DNoise(float x, float z, int levels)
@@ -1016,7 +1050,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             float min = -1.0F;
             float max = 1.0F;
             float totalRange = max - min;
-            float step = totalRange / ((float)levels);
+            float step = totalRange / levels;
             float i = min;
             int diff = (int)(-0.5 * levels + 3);
 
@@ -1036,7 +1070,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             float min = -1.0F;
             float max = 1.0F;
             float totalRange = max - min;
-            float step = totalRange / ((float)levels);
+            float step = totalRange / levels;
             float i = min;
             int diff = 0;
 
@@ -1080,7 +1114,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
             //    (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.GrayCraters : Block.STYLE.Ice) :
             //    (y - 2 <= GeneratedMap.MinHeight ? Block.STYLE.Lava : Block.STYLE.Water);
             return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Block.STYLE.Water;
-        }        
+        }
 
         private Block.STYLE PlainsBlockStyle(short y)
         {
@@ -1108,7 +1142,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
         private Block.STYLE MountainsBlockStyle()
         {
             return Options.Biome == MapGeneratorOptions.MapBiome.Tundra ? Block.STYLE.Ice : Options.Biome == MapGeneratorOptions.MapBiome.Desert ? Block.STYLE.Sand : Block.STYLE.GrayCraters;
-        }        
+        }
 
         private Block.STYLE[] MountainBlockStyleRange(short min, short max)
         {

@@ -71,7 +71,7 @@ namespace GBWorldGen.Core.Models.Abstractions
         /// The maximum allowed value in <see cref="T"/> of height for the map.
         /// </summary>
         public T MaxHeight { get; set; }
-        public List<BaseBlock<T>> MapData { get; set; }
+        public IEnumerable<BaseBlock<T>> MapData { get; set; }
 
         public BaseMap(T width, T length, T height, T originWidth, T originLength, T originHeight, T minWidth, T minLength, T minHeight, T maxWidth, T maxLength, T maxHeight)
         {
@@ -87,13 +87,6 @@ namespace GBWorldGen.Core.Models.Abstractions
             MaxWidth = maxWidth;
             MaxLength = maxLength;
             MaxHeight = maxHeight;
-
-            MapData = new List<BaseBlock<T>>();
-        }
-
-        public virtual void Add(BaseBlock<T> block)
-        {
-            MapData.Add(block);
         }
 
         #region Private methods

@@ -4,6 +4,7 @@ using GBWorldGen.Core.Algorithms.Transformers;
 using GBWorldGen.Core.Algorithms.Transformers.Abstractions;
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Models.Abstractions;
+using System.Collections.Generic;
 using Xunit;
 
 namespace GBWorldGen.Tests.Transformers.TransformersTests
@@ -15,19 +16,22 @@ namespace GBWorldGen.Tests.Transformers.TransformersTests
         public void Serializer_Serializes_All_Data_Properly(short x, short z)
         {
             BaseGenerator<short> mapGenerator = new MapGenerator(x, z, 1);
-            BaseMap<short> map = mapGenerator.GenerateMap();
+            Map map = (Map)mapGenerator.GenerateMap();
 
             BaseSerializer<short> serializer = new Serializer();
             string serialized = serializer.Serialize(map);
 
             BaseDeserializer<short> deserializer = new Deserializer();
-            BaseMap<short> newMap = deserializer.Deserialize(serialized);
+            Map newMap = (Map)deserializer.Deserialize(serialized);
 
             // Validate
-            Assert.Equal(map.MapData.Count, newMap.MapData.Count);
-            for (int i = 0; i < map.MapData.Count; i++)
+            List<Block> mapBlocks = map.Blocks();
+            List<Block> newMapBlocks = newMap.Blocks();
+            mapBlocks.Sort();
+            newMapBlocks.Sort();
+            for (int i = 0; i < map.Count(); i++)
             {
-                Assert.Equal((Block)map.MapData[i], (Block)newMap.MapData[i]);
+                Assert.Equal(mapBlocks[i], newMapBlocks[i]);
             }
         }
 

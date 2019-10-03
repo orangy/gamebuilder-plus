@@ -2,6 +2,7 @@
 using GBWorldGen.Core.Models;
 using GBWorldGen.Core.Models.Abstractions;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 
@@ -9,8 +10,10 @@ namespace GBWorldGen.Core.Algorithms.Transformers
 {
     public class Serializer : BaseSerializer<short>
     {
-        public override string Serialize(BaseMap<short> map)
+        public override string Serialize(BaseMap<short> param)
         {
+            Map map = param as Map;
+            List<Block> blocks = map.Blocks();
             byte[] result;
             using (MemoryStream memoryStream = new MemoryStream())
             {
@@ -18,11 +21,11 @@ namespace GBWorldGen.Core.Algorithms.Transformers
                 using (BinaryWriter binaryWriter = new BinaryWriter(gzipStream))
                 {
                     binaryWriter.Write((ushort)0); // version, unused
-                    binaryWriter.Write((uint)map.MapData.Count);
+                    binaryWriter.Write((uint)blocks.Count);
 
-                    for (int i = 0; i < map.MapData.Count; i++)
+                    for (int i = 0; i < blocks.Count; i++)
                     {
-                        binaryWriter.Write((Block)map.MapData[i]);
+                        binaryWriter.Write((Block)blocks[i]);
                     }
                 }
 

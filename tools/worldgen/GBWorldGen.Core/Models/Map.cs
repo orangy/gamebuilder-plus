@@ -1,4 +1,6 @@
 ﻿using GBWorldGen.Core.Models.Abstractions;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,60 +27,45 @@ namespace GBWorldGen.Core.Models
                   MINWIDTH, MINLENGTH, MINHEIGHT,
                   MAXWIDTH, MAXLENGTH, MAXHEIGHT)
         {
-            MapData = new List<BaseBlock<short>>(width * length * height);
+            MapData = new ConcurrentBag<Block>();
         }
 
-        //public static List<Block> ToList(Block[,,] blocks)
-        //{
-        //    List<Block> blockList = new List<Block>(
-        //        blocks.GetLength(0) *
-        //        blocks.GetLength(1) *
-        //        blocks.GetLength(2));
+        public void Add(Block b)
+        {            
+            ((ConcurrentBag<Block>)MapData).Add(b);
+        }
 
-        //    for (int x = 0; x < blocks.GetLength(0); x++)
-        //        for (int y = 0; y < blocks.GetLength(1); y++)
-        //            for (int z = 0; z < blocks.GetLength(2); z++)
-        //            {
-        //                blockList.Add(blocks[x, y, z]);
-        //            }
+        public void AddRange(IEnumerable<Block> blocks)
+        {
+            for (int i = 0; i < blocks.Count(); i++)
+            {
+                ((ConcurrentBag<Block>)MapData).Add(blocks.ElementAt(i));
+            }
+        }
 
-        //    return blockList;
-        //}
+        public void RemoveAll(IEnumerable<Block> blocks)
+        {
+            List<Block> bag = ((ConcurrentBag<Block>)MapData).ToList();
 
-        //public static Block[,,] ToBlock3DArray(List<Block> blocks, int width, int length, int height, int minWorldY, int maxWorldY)
-        //{
-        //    short originX = (short)(width * 0.5d);
-        //    short originZ = (short)(length * 0.5d);
-        //    Block[,,] returnArray = new Block[width, height, length];
-        //    Dictionary<(int, int), int> indexCounter = new Dictionary<(int, int), int>();
+            // https://stackoverflow.com/a/22667558/1837080
+            bag.RemoveAll(new HashSet<Block>(blocks).Contains);
+            MapData = new ConcurrentBag<Block>(bag);
+        }
 
-        //    // Necessary to get the y-indecees right
-        //    blocks.Sort((a, b) =>
-        //    {
-        //        if (a.X > b.X) return 1;
-        //        if (a.X < b.X) return -1;
-        //        if (a.Z > b.Z) return 1;
-        //        if (a.Z < b.Z) return -1;
-        //        if (a.Y > b.Y) return 1;
-        //        if (a.Y < b.Y) return -1;
+        public bool Any(Func<BaseBlock<short>, bool> predicate)
+        {
+            return ((ConcurrentBag<Block>)MapData).ToList().Any(predicate);
+        }
 
-        //        return 0;
-        //    });
+        public List<Block> Blocks()
+        {
+            return ((ConcurrentBag<Block>)MapData).ToArray().ToList();
+        }
 
-        //    for (int i = 0; i < blocks.Count; i++)
-        //    {
-        //        if (!indexCounter.ContainsKey((blocks[i].X + originX, blocks[i].Z + originZ)))
-        //            indexCounter[(blocks[i].X + originX, blocks[i].Z + originZ)] = 0;
-
-        //        returnArray[
-        //            blocks[i].X + originX,
-        //            indexCounter[(blocks[i].X + originX, blocks[i].Z + originZ)], 
-        //            blocks[i].Z + originZ] = blocks[i];
-        //        indexCounter[(blocks[i].X + originX, blocks[i].Z + originZ)]++;
-        //    }
-
-        //    return returnArray;
-        //}
+        public int Count()
+        {            
+            return ((ConcurrentBag<Block>)MapData).Count;
+        }
 
         #region Private methods
 
