@@ -18,6 +18,7 @@ namespace GBWorldGen.Core.Models
 
         public short VoosWidth { get { return (short)(Width * 2.5d); } }
         public short VoosLength { get { return (short)(Length * 2.5d); } }
+        public List<Actor> Actors { get; set; }
 
         public Map(short width, short length, short height, short originWidth = 0, short originLength = 0, short originHeight = 0)
             : base(width, length, height, 
@@ -26,59 +27,8 @@ namespace GBWorldGen.Core.Models
                   MAXWIDTH, MAXLENGTH, MAXHEIGHT)
         {
             MapData = new List<BaseBlock<short>>(width * length * height);
+            Actors = new List<Actor>();
         }
-
-        //public static List<Block> ToList(Block[,,] blocks)
-        //{
-        //    List<Block> blockList = new List<Block>(
-        //        blocks.GetLength(0) *
-        //        blocks.GetLength(1) *
-        //        blocks.GetLength(2));
-
-        //    for (int x = 0; x < blocks.GetLength(0); x++)
-        //        for (int y = 0; y < blocks.GetLength(1); y++)
-        //            for (int z = 0; z < blocks.GetLength(2); z++)
-        //            {
-        //                blockList.Add(blocks[x, y, z]);
-        //            }
-
-        //    return blockList;
-        //}
-
-        //public static Block[,,] ToBlock3DArray(List<Block> blocks, int width, int length, int height, int minWorldY, int maxWorldY)
-        //{
-        //    short originX = (short)(width * 0.5d);
-        //    short originZ = (short)(length * 0.5d);
-        //    Block[,,] returnArray = new Block[width, height, length];
-        //    Dictionary<(int, int), int> indexCounter = new Dictionary<(int, int), int>();
-
-        //    // Necessary to get the y-indecees right
-        //    blocks.Sort((a, b) =>
-        //    {
-        //        if (a.X > b.X) return 1;
-        //        if (a.X < b.X) return -1;
-        //        if (a.Z > b.Z) return 1;
-        //        if (a.Z < b.Z) return -1;
-        //        if (a.Y > b.Y) return 1;
-        //        if (a.Y < b.Y) return -1;
-
-        //        return 0;
-        //    });
-
-        //    for (int i = 0; i < blocks.Count; i++)
-        //    {
-        //        if (!indexCounter.ContainsKey((blocks[i].X + originX, blocks[i].Z + originZ)))
-        //            indexCounter[(blocks[i].X + originX, blocks[i].Z + originZ)] = 0;
-
-        //        returnArray[
-        //            blocks[i].X + originX,
-        //            indexCounter[(blocks[i].X + originX, blocks[i].Z + originZ)], 
-        //            blocks[i].Z + originZ] = blocks[i];
-        //        indexCounter[(blocks[i].X + originX, blocks[i].Z + originZ)]++;
-        //    }
-
-        //    return returnArray;
-        //}
 
         #region Private methods
 

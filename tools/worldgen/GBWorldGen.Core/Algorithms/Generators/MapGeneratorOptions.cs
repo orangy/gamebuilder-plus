@@ -5,6 +5,7 @@ namespace GBWorldGen.Core.Algorithms.Generators
 {
     public class MapGeneratorOptions : BaseGeneratorOptions
     {
+        public bool Actors { get; set; } = false;
         public float PlainFrequency { get; set; } = 0.02F;
         public bool Lakes { get; set; } = true;
         public float LakeFrequency { get; set; } = 0.015F;
@@ -31,13 +32,14 @@ namespace GBWorldGen.Core.Algorithms.Generators
         public override string ToString()
         {
             string biome = $"Biome: '{Enum.GetName(typeof(MapBiome), Biome)}'.";
+            string actors = Actors ? $"Actors: '{Actors}'." : string.Empty;
             string lakes = Lakes ? $"Lake frequency: '{LakeFrequency}'. Lake size: '{LakeSize}'." : string.Empty;
             string hills = Hills ? $"Hill frequency: '{HillFrequency}'. Hill clamp: '{HillClamp}'." : string.Empty;
             string mountains = Mountains ? $"Mountain frequency: '{MountainFrequency}'. Additional mountain size: '{AdditionalMountainSize}'." : string.Empty;
             string caves = Caves ? $"Caves: '{Caves}'. Additional cave height: '{AdditionalCaveHeight}'." : string.Empty;
             string tunnels = Tunnels ? $"Tunnels (max): '{TunnelWormsMax}'. Tunnel radius: '{TunnelRadius}'. Tunnel Length: '{TunnelLength}'." : string.Empty;
 
-            return $"{biome} Plain frequency: '{PlainFrequency}'. {lakes} {hills} {mountains} {caves} {tunnels}";
+            return $"{biome} Plain frequency: '{PlainFrequency}'. {actors} {lakes} {hills} {mountains} {caves} {tunnels}";
         }
 
         public enum MapBiome

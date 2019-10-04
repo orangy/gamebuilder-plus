@@ -124,7 +124,7 @@ namespace GBWorldGen.Driver.Main
                 TypewriterText($"Where would you like us to save your map ['{outputDirectory}'=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                 line = Console.ReadLine();
                 if (!string.IsNullOrEmpty(line))
-                    outputDirectory = line;
+                    outputDirectory = line;                
 
                 string[] biomeNames = mapOptions.BiomeNames();
                 for (int i = 0; i < biomeNames.Length; i++)
@@ -142,7 +142,7 @@ namespace GBWorldGen.Driver.Main
                 }
 
                 if (choice.Contains("2", StringComparison.OrdinalIgnoreCase))
-                {
+                {                    
                     TypewriterText($"What would you like your plain frequency to be [{mapOptions.PlainFrequency}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
@@ -150,13 +150,23 @@ namespace GBWorldGen.Driver.Main
                         if (float.TryParse(line, out ftemp))
                             mapOptions.PlainFrequency = ftemp;
 
+                    // Trees (actors)
+                    TypewriterText($"Would you like trees in your map [{mapOptions.Actors}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
+                    line = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        if (line.Contains("1") || line.Contains("t", StringComparison.OrdinalIgnoreCase) || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                            mapOptions.Actors = true;
+                        else mapOptions.Actors = false;
+                    }
+
                     // Lakes
                     TypewriterText($"Would you like lakes [{mapOptions.Lakes}=DEFAULT]? > ", newlines: 0, autoPauseAtEnd: 0);
                     line = Console.ReadLine();
 
                     if (!string.IsNullOrEmpty(line))
                     {
-                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                        if (line.Contains("1") || line.Contains("t", StringComparison.OrdinalIgnoreCase) || line.Contains("y", StringComparison.OrdinalIgnoreCase))
                             mapOptions.Lakes = true;
                         else mapOptions.Lakes = false;
                     }
@@ -184,7 +194,7 @@ namespace GBWorldGen.Driver.Main
 
                     if (!string.IsNullOrEmpty(line))
                     {
-                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                        if (line.Contains("1") || line.Contains("t", StringComparison.OrdinalIgnoreCase) || line.Contains("y", StringComparison.OrdinalIgnoreCase))
                             mapOptions.Hills = true;
                         else mapOptions.Hills = false;
                     }
@@ -212,7 +222,7 @@ namespace GBWorldGen.Driver.Main
 
                     if (!string.IsNullOrEmpty(line))
                     {
-                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                        if (line.Contains("1") || line.Contains("t", StringComparison.OrdinalIgnoreCase) || line.Contains("y", StringComparison.OrdinalIgnoreCase))
                             mapOptions.Mountains = true;
                         else mapOptions.Mountains = false;
                     }
@@ -240,7 +250,7 @@ namespace GBWorldGen.Driver.Main
 
                     if (!string.IsNullOrEmpty(line))
                     {
-                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                        if (line.Contains("1") || line.Contains("t", StringComparison.OrdinalIgnoreCase) || line.Contains("y", StringComparison.OrdinalIgnoreCase))
                             mapOptions.Caves = true;
                         else mapOptions.Caves = false;
                     }
@@ -261,7 +271,7 @@ namespace GBWorldGen.Driver.Main
 
                     if (!string.IsNullOrEmpty(line))
                     {
-                        if (line.Contains("1") || line.Contains("y", StringComparison.OrdinalIgnoreCase))
+                        if (line.Contains("1") || line.Contains("t", StringComparison.OrdinalIgnoreCase) || line.Contains("y", StringComparison.OrdinalIgnoreCase))
                             mapOptions.Tunnels = true;
                         else mapOptions.Tunnels = false;
                     }
