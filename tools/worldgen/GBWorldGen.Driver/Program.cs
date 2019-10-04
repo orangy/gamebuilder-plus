@@ -23,7 +23,7 @@ namespace GBWorldGen.Driver.Main
                 if (Array.Exists(args, a => a.Contains("romans828", StringComparison.OrdinalIgnoreCase))) Romans828 = true;
             }
 
-            float version = 2.3f;
+            float version = 3.0f;
 
             DrawTitle(version);
             DrawMenu();
