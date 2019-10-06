@@ -1,8 +1,16 @@
 export const PROPS = [
-    propDecimal("OffsetX", 0),
-    propDecimal("OffsetY", 1.5),
-    propDecimal("OffsetZ", 0),
-    propDecimal("FieldOfView", 60),
+    propDecimal("OffsetX", 0, {
+        label: 'X offset'
+    }),
+    propDecimal("OffsetY", 1.5, {
+        label: 'Y offset'
+    }),
+    propDecimal("OffsetZ", 0, {
+        label: 'Z offset'
+    }),
+    propDecimal("FieldOfView", 60, {
+        label: 'Field of View'
+    }),
 ];
 
 export function onInit() {
@@ -12,13 +20,13 @@ export function onInit() {
 
 export function onTick() {
     const target = getParent();
-    if (!exists(target)) 
+    if (!exists(target))
         return;
 
     if (getCameraActor(target) !== myself()) {
         setCameraActorPlease(target, myself());
     }
-    
+
     // If yaw is unset (null), initialize with the target's yaw.
     if (card.yaw === null) {
         card.yaw = getYaw(target) || 0;
