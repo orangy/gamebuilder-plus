@@ -9,6 +9,17 @@ export const PROPS = [
     }),
 ];
 
+const PLAYER_COLORS = [
+    "#ffffff",
+    "#a00000",
+    "#00a000",
+    "#a0a000",
+    "#0000a0",
+    "#a000a0",
+    "#00a0a0",
+    "#a0a0a0",
+]
+
 function selectSpawnActor() {
     const players = getAllPlayers();
     const spawns = getActorsWithTag(props.Tag);
@@ -45,6 +56,10 @@ function spawnPlayer(playerId) {
     const playerActor = clone(props.Player, pos);
     setIsPlayerControllablePlease(playerActor, true);
     setControllingPlayerPlease(playerActor, info.id);
+
+    const playerNumber = playerId ? (getPlayerNumber(playerId) || 0) : 0;
+    setTintHexPlease(playerActor, PLAYER_COLORS[playerNumber % PLAYER_COLORS.length]);
+
     info.actor = playerActor;
     log(`Current players: ${JSON.stringify(card.players)}`);
     sendToAll("PlayerSpawned", {player: playerId})
