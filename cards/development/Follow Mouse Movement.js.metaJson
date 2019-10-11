@@ -1,0 +1,12 @@
+{
+  "cardSystemCardData": {
+    "isCard": true,
+    "title": "Follow Mouse",
+    "description": "Moves player constantly in the direction of mouse",
+    "categories": [
+      "Move"
+    ],
+    "imageResourcePath": "icon:call_made",
+    "userProvidedId": "6B1811987B374DBADEADBEAF00000020"
+  }
+}
